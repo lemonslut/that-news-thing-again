@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://newsapi.org/v2/top-headlines?country=us&q=bitcoin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      X-Api-Key:
+      - "<NEWS_API_KEY>"
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 28 Nov 2025 04:41:54 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      X-Cached-Result:
+      - 'false'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=AWkOePbjCvqAWtMoUplQ2wLYyK1jAhrfjYkqKCCLVG6NX5Lqen0IFtikFHXQOaI8mbLX4rLkEJ4%2B8JG%2F7jVdOwo5DRpH2z%2Beu70%3D"}]}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9a57321099b051f5-DEN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"status":"ok","totalResults":0,"articles":[]}'
+  recorded_at: Fri, 28 Nov 2025 04:41:54 GMT
+recorded_with: VCR 6.3.1
