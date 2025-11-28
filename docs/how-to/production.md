@@ -1,126 +1,202 @@
 # How to Run in Production
 
-## Docker Build
+This project uses [Kamal](https://kamal-deploy.org) for deployment.
 
-Build the production image:
+## Prerequisites
 
-```bash
-docker build -t news-digest .
-```
+- A server with Docker installed (Ubuntu 22.04+ recommended)
+- SSH access to your server as root or a user with Docker permissions
+- A container registry account (GitHub Container Registry, Docker Hub, etc.)
+- A domain name pointed at your server
 
-## Environment Variables
+## Configuration
 
-Required in production:
+### 1. Update deploy.yml
 
-```
-RAILS_ENV=production
-RAILS_MASTER_KEY=<from config/master.key>
-DATABASE_HOST=<postgres host>
-DATABASE_USER=<postgres user>
-DATABASE_PASSWORD=<postgres password>
-DATABASE_NAME=news_production
-REDIS_URL=redis://<redis host>:6379/0
-NEWS_API_KEY=<your key>
-OPENROUTER_API_KEY=<your key>
-```
-
-## Docker Compose (Production)
-
-Create a `docker-compose.prod.yml`:
+Edit `config/deploy.yml` with your details:
 
 ```yaml
-services:
+# Your container image location
+image: ghcr.io/your-username/news-digest
+
+# Your server IP(s)
+servers:
   web:
-    build: .
-    environment:
-      - RAILS_ENV=production
-      - RAILS_MASTER_KEY
-      - DATABASE_HOST=postgres
-      - DATABASE_USER=news
-      - DATABASE_PASSWORD=news
-      - REDIS_URL=redis://redis:6379/0
-      - NEWS_API_KEY
-      - OPENROUTER_API_KEY
-    depends_on:
-      - postgres
-      - redis
-    ports:
-      - "80:80"
+    - YOUR_SERVER_IP
+  job:
+    hosts:
+      - YOUR_SERVER_IP
 
-  worker:
-    build: .
-    command: bundle exec sidekiq
-    environment:
-      - RAILS_ENV=production
-      - RAILS_MASTER_KEY
-      - DATABASE_HOST=postgres
-      - DATABASE_USER=news
-      - DATABASE_PASSWORD=news
-      - REDIS_URL=redis://redis:6379/0
-      - NEWS_API_KEY
-      - OPENROUTER_API_KEY
-    depends_on:
-      - postgres
-      - redis
+# Your domain
+proxy:
+  host: news.yourdomain.com
 
-  postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_USER: news
-      POSTGRES_PASSWORD: news
-      POSTGRES_DB: news_production
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  redis:
-    image: redis:7-alpine
-    volumes:
-      - redis_data:/data
-
-volumes:
-  postgres_data:
-  redis_data:
+# Your registry credentials
+registry:
+  server: ghcr.io
+  username: your-github-username
 ```
 
-## Run Migrations
+### 2. Set Environment Variables
+
+Before deploying, export these environment variables locally:
 
 ```bash
-docker-compose -f docker-compose.prod.yml run web bundle exec rails db:migrate
+export KAMAL_REGISTRY_PASSWORD=<github personal access token with packages:write>
+export DATABASE_PASSWORD=<strong random password>
+export NEWS_API_KEY=<your newsapi.org key>
+export OPENROUTER_API_KEY=<your openrouter.ai key>
+export SIDEKIQ_WEB_PASSWORD=<password for /sidekiq dashboard>
 ```
 
-## Start Services
+The `RAILS_MASTER_KEY` is read from `config/master.key` automatically.
+
+## Deployment
+
+### First Deploy
 
 ```bash
-docker-compose -f docker-compose.prod.yml up -d
+# Set up accessories (Postgres, Redis) on your server
+kamal accessory boot all
+
+# Deploy the application
+kamal setup
 ```
 
-## Schedule Jobs
-
-Use cron or a scheduler to periodically fetch headlines:
+### Subsequent Deploys
 
 ```bash
-# Example cron entry (every hour)
-0 * * * * docker-compose -f docker-compose.prod.yml run web bundle exec rails runner 'FetchHeadlinesJob.perform_now(country: "us")'
+kamal deploy
 ```
+
+### Rolling Back
+
+```bash
+kamal rollback
+```
+
+## Operations
+
+### View Logs
+
+```bash
+# Web server logs
+kamal app logs
+
+# Sidekiq worker logs
+kamal app logs -r job
+
+# Follow logs
+kamal logs
+```
+
+### Rails Console
+
+```bash
+kamal console
+```
+
+### Database Console
+
+```bash
+kamal dbconsole
+```
+
+### Shell Access
+
+```bash
+kamal shell
+```
+
+### Run Rake Tasks
+
+```bash
+kamal app exec 'bin/rails db:migrate'
+kamal app exec 'bin/rails runner "puts Article.count"'
+```
+
+## Scheduled Jobs
+
+Jobs are scheduled automatically via sidekiq-scheduler. The schedule is defined in `config/sidekiq.yml`:
+
+- **Fetch headlines**: Every hour (`:00`)
+- **Analyze unanalyzed articles**: Every hour (`:15`)
+
+No external cron needed.
 
 ## Monitoring
 
-Check Sidekiq:
+### Sidekiq Dashboard
+
+Access the Sidekiq web UI at `https://your-domain.com/sidekiq`
+
+- Username: `admin`
+- Password: Value of `SIDEKIQ_WEB_PASSWORD`
+
+The dashboard shows:
+- Scheduled recurring jobs
+- Queue status
+- Failed jobs
+- Worker activity
+
+### Health Check
+
+The `/up` endpoint returns 200 when the app is healthy:
 
 ```bash
-docker-compose -f docker-compose.prod.yml logs worker
+curl https://your-domain.com/up
 ```
 
-Check web logs:
+## Accessory Management
+
+### Postgres
 
 ```bash
-docker-compose -f docker-compose.prod.yml logs web
+# View postgres logs
+kamal accessory logs postgres
+
+# Restart postgres
+kamal accessory reboot postgres
+
+# Backup database
+kamal accessory exec postgres 'pg_dump -U news news_production' > backup.sql
 ```
 
-## Health Check
-
-Add a health endpoint or check article counts:
+### Redis
 
 ```bash
-docker-compose -f docker-compose.prod.yml run web bundle exec rails runner 'puts Article.count'
+# View redis logs
+kamal accessory logs redis
+
+# Restart redis
+kamal accessory reboot redis
+```
+
+## Troubleshooting
+
+### Check container status
+
+```bash
+kamal details
+```
+
+### SSH to server
+
+```bash
+ssh root@YOUR_SERVER_IP
+docker ps  # See running containers
+```
+
+### Force restart
+
+```bash
+kamal app boot
+```
+
+### Rebuild from scratch
+
+```bash
+kamal app remove
+kamal accessory remove all
+kamal setup
 ```

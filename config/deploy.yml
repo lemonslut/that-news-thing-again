@@ -1,0 +1,86 @@
+# Kamal deployment configuration for news-digest
+service: news-digest
+
+# Container image - update with your registry/username
+image: ghcr.io/your-username/news-digest
+
+# Deploy to these servers (update with your server IPs)
+servers:
+  web:
+    - 192.168.0.1
+  job:
+    hosts:
+      - 192.168.0.1
+    cmd: bundle exec sidekiq -C config/sidekiq.yml
+
+# SSL via Let's Encrypt (update host with your domain)
+proxy:
+  ssl: true
+  host: news.example.com
+  # Health check endpoint
+  healthcheck:
+    path: /up
+
+# Container registry credentials
+registry:
+  server: ghcr.io
+  username: your-username
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Build configuration
+builder:
+  arch: amd64
+
+# Environment variables
+env:
+  clear:
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: "true"
+    DATABASE_HOST: news-digest-postgres
+    DATABASE_USER: news
+    DATABASE_NAME: news_production
+    REDIS_URL: redis://news-digest-redis:6379/0
+  secret:
+    - RAILS_MASTER_KEY
+    - DATABASE_PASSWORD
+    - NEWS_API_KEY
+    - OPENROUTER_API_KEY
+    - SIDEKIQ_WEB_PASSWORD
+
+# Persistent storage for Rails
+volumes:
+  - "news_digest_storage:/rails/storage"
+
+# Bridge assets between deploys
+asset_path: /rails/public/assets
+
+# Accessories - Redis and Postgres on the same host
+accessories:
+  postgres:
+    image: postgres:16-alpine
+    host: 192.168.0.1
+    port: 5432
+    env:
+      clear:
+        POSTGRES_USER: news
+        POSTGRES_DB: news_production
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    host: 192.168.0.1
+    port: 6379
+    directories:
+      - data:/data
+    cmd: redis-server --appendonly yes
+
+# Useful aliases
+aliases:
+  shell: app exec --interactive --reuse "bash"
+  console: app exec --interactive --reuse "bin/rails console"
+  logs: app logs -f
+  dbconsole: accessory exec postgres --interactive --reuse "psql -U news news_production"

@@ -34,6 +34,12 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  # Use test adapter for ActiveJob matchers
+  config.include ActiveJob::TestHelper
+  config.before(:each) do
+    ActiveJob::Base.queue_adapter = :test
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')

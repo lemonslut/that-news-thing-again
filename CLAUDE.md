@@ -49,6 +49,9 @@ Article → AnalyzeArticleJob → Completions::Client → OpenRouter → Article
 **Jobs in `app/jobs/`:**
 - `FetchHeadlinesJob` — Idempotent (upserts by URL), accepts `country:` and `category:`
 - `AnalyzeArticleJob` — Idempotent (skips existing analysis), accepts `model:` override
+- `AnalyzeUnanalyzedArticlesJob` — Batch enqueues analysis for unanalyzed articles
+
+**Scheduling:** Jobs are scheduled via sidekiq-scheduler (see `config/sidekiq.yml`). Headlines fetched hourly, analysis runs 15 minutes later.
 
 **Key scopes:**
 - `Article.unanalyzed` — Articles without analysis
@@ -68,3 +71,18 @@ Database defaults to `news:news@localhost` (see `config/database.yml`).
 ## Testing
 
 Uses RSpec with WebMock. VCR cassettes in `spec/cassettes/` for NewsAPI. LLM calls are mocked in tests.
+
+## Deployment
+
+Uses Kamal for production deployment. See `config/deploy.yml` for configuration and `docs/how-to/production.md` for full instructions.
+
+```bash
+# Deploy
+kamal deploy
+
+# View logs
+kamal logs
+
+# Rails console on production
+kamal console
+```

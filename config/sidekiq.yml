@@ -1,0 +1,16 @@
+:queues:
+  - default
+
+:scheduler:
+  :schedule:
+    fetch_headlines_us:
+      cron: "0 * * * *"  # Every hour
+      class: FetchHeadlinesJob
+      args:
+        - country: us
+      description: "Fetch US headlines hourly"
+
+    analyze_unanalyzed:
+      cron: "15 * * * *"  # 15 minutes past every hour
+      class: AnalyzeUnanalyzedArticlesJob
+      description: "Analyze any articles missing analysis"
