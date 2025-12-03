@@ -95,12 +95,56 @@ Uses RSpec with WebMock. VCR cassettes in `spec/cassettes/` for NewsAPI. LLM cal
 Uses Kamal for production deployment. See `config/deploy.yml` for configuration and `docs/how-to/production.md` for full instructions.
 
 ```bash
-# Deploy
-kamal deploy
+# Deploy (requires env vars)
+KAMAL_REGISTRY_PASSWORD='...' POSTGRES_PASSWORD='...' kamal deploy
 
 # View logs
 kamal logs
 
 # Rails console on production
 kamal console
+
+# Run rake task in production
+kamal app exec "bundle exec rake users:bootstrap"
 ```
+
+### Production Server Inspection
+
+SSH as root to `news.lemonslut.com`:
+
+```bash
+# List running containers
+ssh root@news.lemonslut.com "docker ps --format '{{.Names}}'"
+
+# Get env vars from a container (e.g., postgres password)
+ssh root@news.lemonslut.com "docker inspect news-digest-postgres --format '{{range .Config.Env}}{{println .}}{{end}}'"
+
+# Get registry credentials (base64 encoded)
+ssh root@news.lemonslut.com "cat ~/.docker/config.json"
+
+# Decode the auth token
+echo "base64string" | base64 -d
+# Output: username:password
+```
+
+### Kamal Secrets
+
+Secrets are loaded from environment variables via `.kamal/secrets`:
+- `KAMAL_REGISTRY_PASSWORD` — GitHub PAT with `write:packages` scope
+- `POSTGRES_PASSWORD` — Database password (must match credentials)
+- `RAILS_MASTER_KEY` — Read automatically from `config/credentials/production.key`
+
+## Authentication
+
+Simple session-based auth with bearer token bypass for scripting.
+
+```bash
+# Create/reset the default user in production
+kamal app exec "bundle exec rake users:bootstrap"
+# Outputs: email, password, and API token
+
+# API access with bearer token
+curl -H "Authorization: Bearer TOKEN" https://news.lemonslut.com/articles
+```
+
+Web login at `/session/new`. No password reset (users managed via rake task).
