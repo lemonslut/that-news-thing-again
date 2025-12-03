@@ -10,7 +10,7 @@
 
   <nav class="categories">
     <%= link_to "All", articles_path, class: params[:category].blank? ? "active" : nil %>
-    <% ArticleAnalysis::CATEGORIES.each do |cat| %>
+    <% Entity.categories.distinct.pluck(:name).sort.each do |cat| %>
       <%= link_to cat.titleize, articles_path(category: cat), class: params[:category] == cat ? "active" : nil %>
     <% end %>
   </nav>
@@ -18,12 +18,12 @@
   <main class="articles">
     <% @articles.each do |article| %>
       <article>
-        <% if article.analysis %>
-          <span class="category <%= article.analysis.category %>"><%= article.analysis.category %></span>
+        <% if article.category %>
+          <span class="category <%= article.category.name %>"><%= article.category.name %></span>
         <% end %>
         <h2><%= link_to article.title, article_path(article) %></h2>
-        <% if article.analysis&.calm_summary %>
-          <p class="summary"><%= article.analysis.calm_summary %></p>
+        <% if article.calm_summary %>
+          <p class="summary"><%= article.calm_summary.summary %></p>
         <% end %>
         <footer>
           <span class="source"><%= article.source_name %></span>

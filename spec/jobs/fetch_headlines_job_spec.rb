@@ -18,7 +18,7 @@ RSpec.describe FetchHeadlinesJob do
     {
       "status" => "ok",
       "totalResults" => 1,
-      "articles" => [article_data]
+      "articles" => [ article_data ]
     }
   end
 
@@ -32,10 +32,10 @@ RSpec.describe FetchHeadlinesJob do
     }.to change(Article, :count).by(1)
   end
 
-  it "enqueues analysis job for each article" do
+  it "enqueues entity extraction and summary jobs for each article" do
     expect {
       described_class.new.perform(country: "us")
-    }.to have_enqueued_job(AnalyzeArticleJob)
+    }.to have_enqueued_job(ExtractEntitiesJob).and have_enqueued_job(GenerateCalmSummaryJob)
   end
 
   it "skips articles with blank titles" do

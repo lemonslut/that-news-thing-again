@@ -16,7 +16,8 @@ class FetchHeadlinesJob < ApplicationJob
 
       begin
         article = Article.upsert_from_news_api(article_data)
-        AnalyzeArticleJob.perform_later(article.id)
+        ExtractEntitiesJob.perform_later(article.id)
+        GenerateCalmSummaryJob.perform_later(article.id)
         stored += 1
       rescue ActiveRecord::RecordNotUnique
         skipped += 1

@@ -74,15 +74,16 @@ Fetched 20 articles
 
 ## Step 6: Analyze Articles
 
-Now run the LLM analysis on the articles you fetched:
+Now run the entity extraction and summary generation on the articles you fetched:
 
 ```bash
 bundle exec rails runner '
-Article.unanalyzed.find_each do |article|
+Article.without_entities.find_each do |article|
   print "."
-  AnalyzeArticleJob.perform_now(article.id)
+  ExtractEntitiesJob.perform_now(article.id)
+  GenerateCalmSummaryJob.perform_now(article.id)
 end
-puts "\nDone! Analyzed #{ArticleAnalysis.count} articles."
+puts "\nDone! Processed #{Article.with_entities.count} articles."
 '
 ```
 
@@ -92,9 +93,9 @@ See your calm news summaries:
 
 ```bash
 bundle exec rails runner '
-ArticleAnalysis.recent.limit(10).each do |analysis|
-  puts "[#{analysis.category}] #{analysis.calm_summary}"
-  puts "  tags: #{analysis.tags.join(", ")}"
+Article.with_entities.recent.limit(10).each do |article|
+  puts "[#{article.category&.name}] #{article.calm_summary&.summary}"
+  puts "  tags: #{article.tags.pluck(:name).join(", ")}"
   puts
 end
 '
@@ -110,24 +111,42 @@ Example output:
   tags: election, senate, voting
 ```
 
-## Step 8: Check Trends
+## Step 8: Check Entities
 
-See what topics are trending:
+See what entities were extracted:
 
 ```bash
 bundle exec rails runner '
-puts "Top tags:"
-ArticleAnalysis.tag_counts.first(10).each { |tag, count| puts "  #{tag}: #{count}" }
-puts
-puts "Categories:"
-ArticleAnalysis.category_counts.each { |cat, count| puts "  #{cat}: #{count}" }
+puts "Top people:"
+Entity.people.joins(:article_entities).group(:id).order("count(*) desc").limit(5).each do |e|
+  puts "  #{e.name}: #{e.articles.count} articles"
+end
+
+puts "\nTop organizations:"
+Entity.organizations.joins(:article_entities).group(:id).order("count(*) desc").limit(5).each do |e|
+  puts "  #{e.name}: #{e.articles.count} articles"
+end
+
+puts "\nCategories:"
+Entity.categories.each do |e|
+  puts "  #{e.name}: #{e.articles.count} articles"
+end
 '
 ```
+
+## Step 9: Start the Web UI
+
+```bash
+bundle exec rails server
+```
+
+Visit http://localhost:3000 to see your calm news digest.
 
 ## Next Steps
 
 - Read [How to Fetch Headlines](../how-to/fetch-headlines.md) for filtering options
-- Read [How to Query Trends](../how-to/query-trends.md) for time-based analysis
+- Read [How to Analyze Articles](../how-to/analyze-articles.md) for model options
+- Read [How to Query Trends](../how-to/query-trends.md) for entity analysis
 - See [Architecture](../explanation/architecture.md) to understand how it all fits together
 
 ## Running the Test Suite

@@ -62,7 +62,6 @@ group :development, :test do
 
   # Testing
   gem "rspec-rails"
-
 end
 
 group :development do

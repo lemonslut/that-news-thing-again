@@ -7,7 +7,7 @@ class CreateEntities < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :entities, [:entity_type, :name], unique: true
+    add_index :entities, [ :entity_type, :name ], unique: true
     add_index :entities, :entity_type
 
     create_table :article_analysis_entities do |t|
@@ -17,6 +17,6 @@ class CreateEntities < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :article_analysis_entities, [:article_analysis_id, :entity_id], unique: true, name: "idx_analysis_entities_unique"
+    add_index :article_analysis_entities, [ :article_analysis_id, :entity_id ], unique: true, name: "idx_analysis_entities_unique"
   end
 end

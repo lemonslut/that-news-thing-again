@@ -9,7 +9,7 @@ class CreatePrompts < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :prompts, [:name, :version], unique: true
+    add_index :prompts, [ :name, :version ], unique: true
     add_index :prompts, :active
 
     add_reference :article_analyses, :prompt, foreign_key: true

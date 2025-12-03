@@ -2,7 +2,7 @@
 
 ## FetchHeadlinesJob
 
-Fetches headlines from NewsAPI and stores them.
+Fetches headlines from NewsAPI and stores them. Enqueues entity extraction and summary generation for each article.
 
 ### Location
 
@@ -37,7 +37,8 @@ FetchHeadlinesJob.perform_later(country: "us", category: nil)
 1. Calls `NewsApi::Client#top_headlines`
 2. Iterates articles, skipping those with blank title/URL
 3. Uses `Article.upsert_from_news_api` to create or update
-4. Logs results
+4. Enqueues `ExtractEntitiesJob` and `GenerateCalmSummaryJob` for each article
+5. Logs results
 
 ### Example
 
@@ -52,13 +53,13 @@ FetchHeadlinesJob.perform_later(country: "gb", category: "technology")
 
 ---
 
-## AnalyzeArticleJob
+## ExtractEntitiesJob
 
-Analyzes an article using LLM and stores the result.
+Extracts entities from an article using LLM.
 
 ### Location
 
-`app/jobs/analyze_article_job.rb`
+`app/jobs/extract_entities_job.rb`
 
 ### Queue
 
@@ -67,37 +68,100 @@ Analyzes an article using LLM and stores the result.
 ### Arguments
 
 ```ruby
-AnalyzeArticleJob.perform_now(article_id, model: nil)
-AnalyzeArticleJob.perform_later(article_id, model: nil)
+ExtractEntitiesJob.perform_now(article_id, model: nil, prompt: nil)
+ExtractEntitiesJob.perform_later(article_id, model: nil, prompt: nil)
 ```
 
-- `article_id` — ID of Article to analyze
+- `article_id` — ID of Article to process
 - `model` — Optional LLM model (default: claude-3-haiku)
+- `prompt` — Optional Prompt record to use
 
 ### Returns
 
-`nil` (creates ArticleAnalysis record)
+`nil` (creates ArticleEntityExtraction and Entity records)
 
 ### Behavior
 
 1. Finds Article by ID
-2. Skips if analysis already exists
-3. Calls `Completions::Client#analyze_article`
-4. Creates ArticleAnalysis record
-5. Logs result
+2. Calls LLM with entity extraction prompt
+3. Creates ArticleEntityExtraction record
+4. Creates/links Entity records (normalized to lowercase)
+5. Creates ArticleEntity links (canonical relationship)
+6. Logs result
+
+### Entities Extracted
+
+- `category` — Article category
+- `tags` — Topic tags
+- `people` — Person names
+- `organizations` — Organization names
+- `places` — Location names
+- `publisher` — From article source_name
+- `author` — From article author field
 
 ### Example
 
 ```ruby
 # Synchronous
-AnalyzeArticleJob.perform_now(article.id)
+ExtractEntitiesJob.perform_now(article.id)
 
 # With custom model
-AnalyzeArticleJob.perform_now(article.id, model: "openai/gpt-4o")
+ExtractEntitiesJob.perform_now(article.id, model: "openai/gpt-4o")
 
-# Asynchronous batch
-Article.unanalyzed.find_each do |article|
-  AnalyzeArticleJob.perform_later(article.id)
+# Process all unextracted articles
+Article.without_entities.find_each do |article|
+  ExtractEntitiesJob.perform_later(article.id)
+end
+```
+
+---
+
+## GenerateCalmSummaryJob
+
+Generates a calm summary for an article using LLM.
+
+### Location
+
+`app/jobs/generate_calm_summary_job.rb`
+
+### Queue
+
+`default`
+
+### Arguments
+
+```ruby
+GenerateCalmSummaryJob.perform_now(article_id, model: nil, prompt: nil)
+GenerateCalmSummaryJob.perform_later(article_id, model: nil, prompt: nil)
+```
+
+- `article_id` — ID of Article to process
+- `model` — Optional LLM model (default: claude-3-haiku)
+- `prompt` — Optional Prompt record to use
+
+### Returns
+
+`nil` (creates ArticleCalmSummary record)
+
+### Behavior
+
+1. Finds Article by ID
+2. Calls LLM with calm summary prompt
+3. Creates ArticleCalmSummary record with result
+4. Logs result
+
+### Example
+
+```ruby
+# Synchronous
+GenerateCalmSummaryJob.perform_now(article.id)
+
+# With custom model
+GenerateCalmSummaryJob.perform_now(article.id, model: "anthropic/claude-3-sonnet")
+
+# Process all articles without summaries
+Article.without_summary.find_each do |article|
+  GenerateCalmSummaryJob.perform_later(article.id)
 end
 ```
 

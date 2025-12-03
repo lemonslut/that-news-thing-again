@@ -1,5 +1,6 @@
 class Prompt < ApplicationRecord
-  has_many :article_analyses, dependent: :nullify
+  has_many :article_entity_extractions, dependent: :nullify
+  has_many :article_calm_summaries, dependent: :nullify
 
   validates :name, presence: true
   validates :body, presence: true

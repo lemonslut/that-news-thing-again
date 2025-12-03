@@ -32,31 +32,43 @@ overmind start -f Procfile.dev
 
 ## Architecture
 
-News aggregation pipeline with LLM analysis:
+News aggregation pipeline with separated LLM analysis concerns:
 
 ```
 NewsAPI → NewsApi::Client → FetchHeadlinesJob → Article (PostgreSQL)
                                                     ↓
-Article → AnalyzeArticleJob → Completions::Client → OpenRouter → ArticleAnalysis
+                              ┌─────────────────────┴─────────────────────┐
+                              ↓                                           ↓
+               ExtractEntitiesJob                          GenerateCalmSummaryJob
+                              ↓                                           ↓
+               ArticleEntityExtraction                        ArticleCalmSummary
+                              ↓
+                           Entity ←──── ArticleEntity (canonical link)
 ```
 
-**Two-table design:** `Article` stores pristine NewsAPI data with JSONB `raw_payload`. `ArticleAnalysis` stores LLM-generated metadata (category, tags, entities, political_lean, calm_summary). One-to-one relationship, separated to allow re-analysis with different models.
+**Separated concerns design:**
+- `Article` — pristine NewsAPI data with JSONB `raw_payload`
+- `Entity` — normalized entities (all lowercase): people, organizations, places, tags, categories, publishers, authors
+- `ArticleEntity` — canonical article↔entity relationship
+- `ArticleEntityExtraction` — audit trail for entity extraction (prompt, model, timestamp)
+- `ArticleCalmSummary` — calm summary with prompt/model provenance
 
 **Services in `app/services/`:**
 - `NewsApi::Client` — HTTP wrapper for NewsAPI, uses Faraday
-- `Completions::Client` — LLM wrapper via OpenRouter (OpenAI-compatible), extracts JSON from responses
+- `Completions::Client` — generic LLM wrapper via OpenRouter (OpenAI-compatible)
 
 **Jobs in `app/jobs/`:**
-- `FetchHeadlinesJob` — Idempotent (upserts by URL), accepts `country:` and `category:`
-- `AnalyzeArticleJob` — Idempotent (skips existing analysis), accepts `model:` override
-- `AnalyzeUnanalyzedArticlesJob` — Batch enqueues analysis for unanalyzed articles
+- `FetchHeadlinesJob` — Idempotent (upserts by URL), enqueues extraction + summary jobs
+- `ExtractEntitiesJob` — Extracts entities with its own prompt, normalizes names to lowercase
+- `GenerateCalmSummaryJob` — Generates calm summaries with its own prompt
 
-**Scheduling:** Jobs are scheduled via sidekiq-scheduler (see `config/sidekiq.yml`). Headlines fetched hourly, analysis runs 15 minutes later.
+**Scheduling:** Jobs are scheduled via sidekiq-scheduler (see `config/sidekiq.yml`). Headlines fetched hourly.
 
 **Key scopes:**
-- `Article.unanalyzed` — Articles without analysis
-- `ArticleAnalysis.with_tag(tag)` — GIN-indexed tag query
-- `ArticleAnalysis.tag_counts(since:)` — Trend analysis
+- `Article.with_entities` / `Article.without_entities`
+- `Article.with_summary` / `Article.without_summary`
+- `Article.in_category(cat)` — Articles with category entity
+- `Entity.of_type(type)` — Filter entities by type
 
 ## Environment
 

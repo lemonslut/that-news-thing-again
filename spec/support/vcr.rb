@@ -13,7 +13,7 @@ VCR.configure do |config|
 
   # Match requests on method and URI
   config.default_cassette_options = {
-    match_requests_on: [:method, :uri],
+    match_requests_on: [ :method, :uri ],
     record: :new_episodes
   }
 end

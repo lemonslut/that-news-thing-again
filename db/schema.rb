@@ -10,37 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_03_070052) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_03_072339) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "article_analyses", force: :cascade do |t|
+  create_table "article_calm_summaries", force: :cascade do |t|
     t.bigint "article_id", null: false
-    t.string "category", null: false
-    t.jsonb "tags", default: [], null: false
-    t.jsonb "entities", default: {}, null: false
-    t.string "political_lean"
-    t.text "calm_summary", null: false
+    t.bigint "prompt_id"
     t.string "model_used", null: false
-    t.jsonb "raw_response", default: {}, null: false
+    t.text "summary", null: false
+    t.jsonb "raw_response", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "prompt_id"
-    t.index ["article_id"], name: "index_article_analyses_on_article_id", unique: true
-    t.index ["category"], name: "index_article_analyses_on_category"
-    t.index ["political_lean"], name: "index_article_analyses_on_political_lean"
-    t.index ["prompt_id"], name: "index_article_analyses_on_prompt_id"
-    t.index ["tags"], name: "index_article_analyses_on_tags", using: :gin
+    t.index ["article_id"], name: "index_article_calm_summaries_on_article_id"
+    t.index ["prompt_id"], name: "index_article_calm_summaries_on_prompt_id"
   end
 
-  create_table "article_analysis_entities", force: :cascade do |t|
-    t.bigint "article_analysis_id", null: false
+  create_table "article_entities", force: :cascade do |t|
+    t.bigint "article_id", null: false
     t.bigint "entity_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_analysis_id", "entity_id"], name: "idx_analysis_entities_unique", unique: true
-    t.index ["article_analysis_id"], name: "index_article_analysis_entities_on_article_analysis_id"
-    t.index ["entity_id"], name: "index_article_analysis_entities_on_entity_id"
+    t.index ["article_id", "entity_id"], name: "index_article_entities_on_article_id_and_entity_id", unique: true
+    t.index ["article_id"], name: "index_article_entities_on_article_id"
+    t.index ["entity_id"], name: "index_article_entities_on_entity_id"
+  end
+
+  create_table "article_entity_extraction_entities", force: :cascade do |t|
+    t.bigint "article_entity_extraction_id", null: false
+    t.bigint "entity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_entity_extraction_id", "entity_id"], name: "idx_extraction_entities_unique", unique: true
+    t.index ["article_entity_extraction_id"], name: "idx_extraction_entities_extraction"
+    t.index ["entity_id"], name: "index_article_entity_extraction_entities_on_entity_id"
+  end
+
+  create_table "article_entity_extractions", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "prompt_id"
+    t.string "model_used", null: false
+    t.jsonb "raw_response", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_entity_extractions_on_article_id"
+    t.index ["prompt_id"], name: "index_article_entity_extractions_on_prompt_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -82,8 +96,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_070052) do
     t.index ["name", "version"], name: "index_prompts_on_name_and_version", unique: true
   end
 
-  add_foreign_key "article_analyses", "articles"
-  add_foreign_key "article_analyses", "prompts"
-  add_foreign_key "article_analysis_entities", "article_analyses"
-  add_foreign_key "article_analysis_entities", "entities"
+  add_foreign_key "article_calm_summaries", "articles"
+  add_foreign_key "article_calm_summaries", "prompts"
+  add_foreign_key "article_entities", "articles"
+  add_foreign_key "article_entities", "entities"
+  add_foreign_key "article_entity_extraction_entities", "article_entity_extractions"
+  add_foreign_key "article_entity_extraction_entities", "entities"
+  add_foreign_key "article_entity_extractions", "articles"
+  add_foreign_key "article_entity_extractions", "prompts"
 end
