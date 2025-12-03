@@ -3,7 +3,6 @@ require "sidekiq-scheduler/web"
 
 Rails.application.routes.draw do
   resource :session
-  resources :passwords, param: :token
   # Sidekiq Web UI (password protected in production via SIDEKIQ_WEB_PASSWORD)
   if Rails.env.production?
     Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
