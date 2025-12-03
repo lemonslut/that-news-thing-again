@@ -68,11 +68,12 @@ RSpec.describe Completions::Client do
     end
 
     it "returns structured analysis" do
-      result = client.analyze_article(article)
+      response = client.analyze_article(article)
 
-      expect(result["category"]).to eq("politics")
-      expect(result["tags"]).to include("election")
-      expect(result["calm_summary"]).to be_present
+      expect(response[:result]["category"]).to eq("politics")
+      expect(response[:result]["tags"]).to include("election")
+      expect(response[:result]["calm_summary"]).to be_present
+      expect(response[:prompt]).to be_nil
     end
   end
 

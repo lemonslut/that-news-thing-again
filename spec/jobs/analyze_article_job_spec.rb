@@ -23,7 +23,7 @@ RSpec.describe AnalyzeArticleJob do
   end
 
   before do
-    allow_any_instance_of(Completions::Client).to receive(:analyze_article).and_return(analysis_result)
+    allow_any_instance_of(Completions::Client).to receive(:analyze_article).and_return({ result: analysis_result, prompt: nil })
   end
 
   it "creates an ArticleAnalysis" do
@@ -59,7 +59,7 @@ RSpec.describe AnalyzeArticleJob do
 
   it "allows custom model" do
     expect(Completions::Client).to receive(:new)
-      .with(model: "openai/gpt-4o")
+      .with(model: "openai/gpt-4o", prompt: nil)
       .and_call_original
 
     described_class.new.perform(article.id, model: "openai/gpt-4o")
@@ -67,11 +67,14 @@ RSpec.describe AnalyzeArticleJob do
 
   it "handles nil values in response" do
     allow_any_instance_of(Completions::Client).to receive(:analyze_article).and_return({
-      "category" => "other",
-      "tags" => nil,
-      "entities" => nil,
-      "political_lean" => nil,
-      "calm_summary" => "Something happened."
+      result: {
+        "category" => "other",
+        "tags" => nil,
+        "entities" => nil,
+        "political_lean" => nil,
+        "calm_summary" => "Something happened."
+      },
+      prompt: nil
     })
 
     described_class.new.perform(article.id)

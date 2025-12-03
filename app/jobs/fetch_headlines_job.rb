@@ -15,7 +15,8 @@ class FetchHeadlinesJob < ApplicationJob
       next if article_data["title"].blank? || article_data["url"].blank?
 
       begin
-        Article.upsert_from_news_api(article_data)
+        article = Article.upsert_from_news_api(article_data)
+        AnalyzeArticleJob.perform_later(article.id)
         stored += 1
       rescue ActiveRecord::RecordNotUnique
         skipped += 1

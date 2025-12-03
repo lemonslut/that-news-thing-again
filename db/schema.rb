@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_11_28_000002) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_03_070052) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -25,10 +25,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_28_000002) do
     t.jsonb "raw_response", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "prompt_id"
     t.index ["article_id"], name: "index_article_analyses_on_article_id", unique: true
     t.index ["category"], name: "index_article_analyses_on_category"
     t.index ["political_lean"], name: "index_article_analyses_on_political_lean"
+    t.index ["prompt_id"], name: "index_article_analyses_on_prompt_id"
     t.index ["tags"], name: "index_article_analyses_on_tags", using: :gin
+  end
+
+  create_table "article_analysis_entities", force: :cascade do |t|
+    t.bigint "article_analysis_id", null: false
+    t.bigint "entity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_analysis_id", "entity_id"], name: "idx_analysis_entities_unique", unique: true
+    t.index ["article_analysis_id"], name: "index_article_analysis_entities_on_article_analysis_id"
+    t.index ["entity_id"], name: "index_article_analysis_entities_on_entity_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -50,5 +62,28 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_28_000002) do
     t.index ["url"], name: "index_articles_on_url", unique: true
   end
 
+  create_table "entities", force: :cascade do |t|
+    t.string "entity_type", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_type", "name"], name: "index_entities_on_entity_type_and_name", unique: true
+    t.index ["entity_type"], name: "index_entities_on_entity_type"
+  end
+
+  create_table "prompts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body", null: false
+    t.integer "version", default: 1, null: false
+    t.boolean "active", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_prompts_on_active"
+    t.index ["name", "version"], name: "index_prompts_on_name_and_version", unique: true
+  end
+
   add_foreign_key "article_analyses", "articles"
+  add_foreign_key "article_analyses", "prompts"
+  add_foreign_key "article_analysis_entities", "article_analyses"
+  add_foreign_key "article_analysis_entities", "entities"
 end

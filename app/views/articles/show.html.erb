@@ -1,0 +1,158 @@
+<div class="container">
+  <nav class="back">
+    <%= link_to "&larr; Back".html_safe, articles_path %>
+  </nav>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+  <article class="detail">
+    <% if @article.analysis %>
+      <span class="category <%= @article.analysis.category %>"><%= @article.analysis.category %></span>
+      <% if @article.analysis.political_lean %>
+        <span class="lean <%= @article.analysis.political_lean.parameterize %>"><%= @article.analysis.political_lean %></span>
+      <% end %>
+    <% end %>
+
+    <h1><%= @article.title %></h1>
+
+    <% if @article.analysis&.calm_summary %>
+      <div class="calm-summary">
+        <h3>The calm version</h3>
+        <p><%= @article.analysis.calm_summary %></p>
+      </div>
+    <% end %>
+
+    <div class="meta">
+      <span class="source"><%= entity_link_by_type_and_name("publisher", @article.source_name) %></span>
+      <% if @article.author.present? %>
+        <span class="author">by
+          <%= @article.author.split(/,\s*/).map { |a| entity_link_by_type_and_name("author", a.strip) }.join(", ").html_safe %>
+        </span>
+      <% end %>
+      <time datetime="<%= @article.published_at.iso8601 %>"><%= @article.published_at.strftime("%B %-d, %Y at %-I:%M %p") %></time>
+    </div>
+
+    <% if @article.image_url.present? %>
+      <div class="image">
+        <%= image_tag @article.image_url, alt: @article.title %>
+      </div>
+    <% end %>
+
+    <% if @article.description.present? %>
+      <div class="description">
+        <p><%= @article.description %></p>
+      </div>
+    <% end %>
+
+    <% if @article.analysis %>
+      <div class="analysis">
+        <h3>Analysis</h3>
+
+        <% if @article.analysis.entities_of_type("tag").any? %>
+          <div class="tags">
+            <strong>Tags:</strong>
+            <% @article.analysis.entities_of_type("tag").each do |entity| %>
+              <span class="tag"><%= entity_link(entity) %></span>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% if @article.analysis.entities_of_type("person").any? %>
+          <div class="entity-group">
+            <strong>People:</strong>
+            <%= @article.analysis.entities_of_type("person").map { |e| entity_link(e) }.join(", ").html_safe %>
+          </div>
+        <% end %>
+
+        <% if @article.analysis.entities_of_type("organization").any? %>
+          <div class="entity-group">
+            <strong>Organizations:</strong>
+            <%= @article.analysis.entities_of_type("organization").map { |e| entity_link(e) }.join(", ").html_safe %>
+          </div>
+        <% end %>
+
+        <% if @article.analysis.entities_of_type("place").any? %>
+          <div class="entity-group">
+            <strong>Places:</strong>
+            <%= @article.analysis.entities_of_type("place").map { |e| entity_link(e) }.join(", ").html_safe %>
+          </div>
+        <% end %>
+
+        <p class="model-info">
+          Analyzed by <%= @article.analysis.model_used %>
+          <% if @article.analysis.prompt %>
+            using <%= @article.analysis.prompt %>
+          <% end %>
+        </p>
+      </div>
+    <% else %>
+      <div class="no-analysis">
+        <p>This article hasn't been analyzed yet.</p>
+      </div>
+    <% end %>
+
+    <div class="original">
+      <%= link_to "Read original article", @article.url, target: "_blank", rel: "noopener" %>
+    </div>
+  </article>
+
+  <section class="prompt-section">
+    <h2>Re-analyze</h2>
+
+    <% current_prompt = @article.analysis&.prompt || @prompts.find(&:active?) %>
+
+    <div class="prompt-tabs">
+      <button type="button" class="tab active" data-tab="existing">Use existing prompt</button>
+      <button type="button" class="tab" data-tab="custom">Edit prompt</button>
+    </div>
+
+    <div class="tab-content" id="existing-tab">
+      <%= form_with url: reanalyze_article_path(@article), method: :post, local: true do |f| %>
+        <div class="form-group">
+          <label for="prompt_id">Select prompt:</label>
+          <select name="prompt_id" id="prompt_id">
+            <% @prompts.each do |prompt| %>
+              <option value="<%= prompt.id %>" <%= 'selected' if prompt == current_prompt %>>
+                v<%= prompt.version %><%= ' (active)' if prompt.active? %>
+              </option>
+            <% end %>
+          </select>
+        </div>
+        <button type="submit" class="btn">Re-analyze with selected prompt</button>
+      <% end %>
+    </div>
+
+    <div class="tab-content hidden" id="custom-tab">
+      <%= form_with url: reanalyze_article_path(@article), method: :post, local: true do |f| %>
+        <div class="form-group">
+          <label for="custom_prompt">Prompt (will be saved as new version):</label>
+          <textarea name="custom_prompt" id="custom_prompt" rows="15"><%= current_prompt&.body || '' %></textarea>
+        </div>
+        <button type="submit" class="btn">Re-analyze with custom prompt</button>
+      <% end %>
+    </div>
+
+    <% if current_prompt %>
+      <details class="current-prompt">
+        <summary>View current prompt</summary>
+        <pre><%= current_prompt.body %></pre>
+      </details>
+    <% end %>
+  </section>
+</div>
+
+<script>
+  document.querySelectorAll('.prompt-tabs .tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab + '-tab').classList.remove('hidden');
+    });
+  });
+</script>

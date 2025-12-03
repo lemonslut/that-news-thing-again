@@ -32,6 +32,12 @@ RSpec.describe FetchHeadlinesJob do
     }.to change(Article, :count).by(1)
   end
 
+  it "enqueues analysis job for each article" do
+    expect {
+      described_class.new.perform(country: "us")
+    }.to have_enqueued_job(AnalyzeArticleJob)
+  end
+
   it "skips articles with blank titles" do
     api_response["articles"] << article_data.merge("title" => "", "url" => "https://other.com")
 

@@ -1,0 +1,35 @@
+<div class="container">
+  <header>
+    <h1>News Digest</h1>
+    <p class="subtitle">Calm news, no noise</p>
+    <nav class="main-nav">
+      <%= link_to "Articles", articles_path, class: "nav-link" %>
+      <%= link_to "Entities", entities_path, class: "nav-link" %>
+    </nav>
+  </header>
+
+  <nav class="categories">
+    <%= link_to "All", articles_path, class: params[:category].blank? ? "active" : nil %>
+    <% ArticleAnalysis::CATEGORIES.each do |cat| %>
+      <%= link_to cat.titleize, articles_path(category: cat), class: params[:category] == cat ? "active" : nil %>
+    <% end %>
+  </nav>
+
+  <main class="articles">
+    <% @articles.each do |article| %>
+      <article>
+        <% if article.analysis %>
+          <span class="category <%= article.analysis.category %>"><%= article.analysis.category %></span>
+        <% end %>
+        <h2><%= link_to article.title, article_path(article) %></h2>
+        <% if article.analysis&.calm_summary %>
+          <p class="summary"><%= article.analysis.calm_summary %></p>
+        <% end %>
+        <footer>
+          <span class="source"><%= article.source_name %></span>
+          <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d, %Y") %></time>
+        </footer>
+      </article>
+    <% end %>
+  </main>
+</div>

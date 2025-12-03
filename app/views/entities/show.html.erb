@@ -1,0 +1,29 @@
+<div class="container">
+  <nav class="back">
+    <%= link_to "&larr; All entities".html_safe, entities_path %>
+  </nav>
+
+  <header class="entity-header">
+    <span class="entity-type <%= @entity.entity_type %>"><%= @entity.entity_type %></span>
+    <h1><%= @entity.name %></h1>
+    <p class="subtitle"><%= @articles.count %> article<%= @articles.count == 1 ? '' : 's' %></p>
+  </header>
+
+  <main class="articles">
+    <% @articles.each do |article| %>
+      <article>
+        <% if article.analysis %>
+          <span class="category <%= article.analysis.category %>"><%= article.analysis.category %></span>
+        <% end %>
+        <h2><%= link_to article.title, article_path(article) %></h2>
+        <% if article.analysis&.calm_summary %>
+          <p class="summary"><%= article.analysis.calm_summary %></p>
+        <% end %>
+        <footer>
+          <span class="source"><%= article.source_name %></span>
+          <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d, %Y") %></time>
+        </footer>
+      </article>
+    <% end %>
+  </main>
+</div>
