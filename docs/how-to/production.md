@@ -4,10 +4,20 @@ This project uses [Kamal](https://kamal-deploy.org) for deployment.
 
 ## Prerequisites
 
-- A server with Docker installed (Ubuntu 22.04+ recommended)
+- A server with Docker installed (Ubuntu 22.04+ or Debian 12+ recommended)
 - SSH access to your server as root or a user with Docker permissions
 - A container registry account (GitHub Container Registry, Docker Hub, etc.)
 - A domain name pointed at your server
+
+### Bootstrap a Fresh Server
+
+For a fresh Debian/Ubuntu server, run the bootstrap script:
+
+```bash
+ssh root@YOUR_SERVER_IP 'bash -s' < bin/bootstrap-server
+```
+
+This installs Docker and creates a `deploy` user with Docker permissions.
 
 ## Configuration
 
@@ -16,8 +26,8 @@ This project uses [Kamal](https://kamal-deploy.org) for deployment.
 Edit `config/deploy.yml` with your details:
 
 ```yaml
-# Your container image location
-image: ghcr.io/your-username/news-digest
+# Your container image (registry prefix added automatically)
+image: your-username/news-digest
 
 # Your server IP(s)
 servers:
@@ -71,11 +81,10 @@ Before deploying, export these environment variables locally:
 
 ```bash
 export KAMAL_REGISTRY_PASSWORD=<github PAT with packages:write>
-export RAILS_MASTER_KEY=<contents of config/credentials/production.key>
 export POSTGRES_PASSWORD=<same value as database.password in credentials>
 ```
 
-Note: `POSTGRES_PASSWORD` must match `database.password` in credentials — it's used by the Postgres container.
+Note: `RAILS_MASTER_KEY` is read automatically from `config/credentials/production.key` via `.kamal/secrets`. The `POSTGRES_PASSWORD` must match `database.password` in credentials — it's used by the Postgres container.
 
 ## Deployment
 
