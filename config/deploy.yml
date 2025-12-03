@@ -1,22 +1,22 @@
 # Kamal deployment configuration for news-digest
 service: news-digest
 
-# Container image - update with your registry/username
-image: ghcr.io/your-username/news-digest
+# Container image
+image: lemonslut/news-digest
 
-# Deploy to these servers (update with your server IPs)
+# Deploy to these servers
 servers:
   web:
-    - 192.168.0.1
+    - 5.78.158.95
   job:
     hosts:
-      - 192.168.0.1
+      - 5.78.158.95
     cmd: bundle exec sidekiq -C config/sidekiq.yml
 
-# SSL via Let's Encrypt (update host with your domain)
+# SSL via Let's Encrypt
 proxy:
   ssl: true
-  host: news.example.com
+  host: news.lemonslut.com
   # Health check endpoint
   healthcheck:
     path: /up
@@ -24,7 +24,7 @@ proxy:
 # Container registry credentials
 registry:
   server: ghcr.io
-  username: your-username
+  username: lemonslut
   password:
     - KAMAL_REGISTRY_PASSWORD
 
@@ -43,10 +43,6 @@ env:
     REDIS_URL: redis://news-digest-redis:6379/0
   secret:
     - RAILS_MASTER_KEY
-    - DATABASE_PASSWORD
-    - NEWS_API_KEY
-    - OPENROUTER_API_KEY
-    - SIDEKIQ_WEB_PASSWORD
 
 # Persistent storage for Rails
 volumes:
@@ -59,7 +55,7 @@ asset_path: /rails/public/assets
 accessories:
   postgres:
     image: postgres:16-alpine
-    host: 192.168.0.1
+    host: 5.78.158.95
     port: 5432
     env:
       clear:
@@ -72,7 +68,7 @@ accessories:
 
   redis:
     image: redis:7-alpine
-    host: 192.168.0.1
+    host: 5.78.158.95
     port: 6379
     directories:
       - data:/data

@@ -122,11 +122,9 @@ RSpec.describe NewsApi::Client do
       client.top_headlines(country: "us")
     end
 
-    it "falls back to NEWS_API_KEY env var" do
-      allow(ENV).to receive(:fetch).with("NEWS_API_KEY").and_return("env-key")
-
+    it "falls back to credentials" do
       stub_request(:get, "https://newsapi.org/v2/top-headlines")
-        .with(query: { country: "us" }, headers: { "X-Api-Key" => "env-key" })
+        .with(query: { country: "us" }, headers: { "X-Api-Key" => Rails.application.credentials.dig(:news_api, :key) })
         .to_return(
           status: 200,
           body: { "status" => "ok", "articles" => [] }.to_json,

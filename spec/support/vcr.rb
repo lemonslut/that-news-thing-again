@@ -6,7 +6,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
 
   # Filter out API keys from recordings
-  config.filter_sensitive_data("<NEWS_API_KEY>") { ENV.fetch("NEWS_API_KEY", nil) }
+  config.filter_sensitive_data("<NEWS_API_KEY>") { Rails.application.credentials.dig(:news_api, :key) }
 
   # Allow real connections when recording
   config.allow_http_connections_when_no_cassette = false

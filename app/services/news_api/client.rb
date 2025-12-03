@@ -8,7 +8,7 @@ module NewsApi
     RateLimitError = Class.new(Error)
 
     def initialize(api_key: nil)
-      @api_key = api_key || ENV.fetch("NEWS_API_KEY")
+      @api_key = api_key || Rails.application.credentials.dig(:news_api, :key)
     end
 
     def top_headlines(country: nil, category: nil, sources: nil, q: nil, page_size: nil, page: nil)

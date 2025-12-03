@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   if Rails.env.production?
     Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
       ActiveSupport::SecurityUtils.secure_compare(user, "admin") &
-        ActiveSupport::SecurityUtils.secure_compare(password, ENV.fetch("SIDEKIQ_WEB_PASSWORD", ""))
+        ActiveSupport::SecurityUtils.secure_compare(password, Rails.application.credentials.dig(:sidekiq, :web_password).to_s)
     end
   end
   mount Sidekiq::Web => "/sidekiq"

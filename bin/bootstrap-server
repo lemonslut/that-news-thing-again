@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Bootstrap script for Debian 13 (trixie) server
+# Installs Docker and prepares for Kamal deployment
+
+echo "==> Updating system packages..."
+apt-get update
+apt-get upgrade -y
+
+echo "==> Installing dependencies..."
+apt-get install -y \
+  ca-certificates \
+  curl \
+  gnupg
+
+echo "==> Adding Docker GPG key..."
+install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo "==> Adding Docker repository..."
+# Debian 13 (trixie) might not have official Docker packages yet, fall back to bookworm
+DEBIAN_CODENAME="bookworm"
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  ${DEBIAN_CODENAME} stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+echo "==> Installing Docker..."
+apt-get update
+apt-get install -y \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
+  docker-buildx-plugin \
+  docker-compose-plugin
+
+echo "==> Starting Docker..."
+systemctl enable docker
+systemctl start docker
+
+echo "==> Verifying Docker installation..."
+docker --version
+docker compose version
+
+echo "==> Creating deploy user..."
+if ! id -u deploy &>/dev/null; then
+  useradd -m -s /bin/bash deploy
+  usermod -aG docker deploy
+  echo "Created 'deploy' user"
+else
+  usermod -aG docker deploy
+  echo "'deploy' user already exists, added to docker group"
+fi
+
+echo "==> Setting up SSH for deploy user..."
+mkdir -p /home/deploy/.ssh
+cp /root/.ssh/authorized_keys /home/deploy/.ssh/
+chown -R deploy:deploy /home/deploy/.ssh
+chmod 700 /home/deploy/.ssh
+chmod 600 /home/deploy/.ssh/authorized_keys
+
+echo "==> Opening firewall ports (if ufw is installed)..."
+if command -v ufw &>/dev/null; then
+  ufw allow 22/tcp
+  ufw allow 80/tcp
+  ufw allow 443/tcp
+  ufw --force enable
+  echo "Firewall configured"
+else
+  echo "No ufw installed, skipping firewall config"
+fi
+
+echo ""
+echo "==> Bootstrap complete!"
+echo ""
+echo "Docker version: $(docker --version)"
+echo "You can now deploy with Kamal using either 'root' or 'deploy' user"
+echo ""

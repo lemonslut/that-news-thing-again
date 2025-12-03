@@ -33,9 +33,7 @@ gem "faraday"
 # LLM completions (OpenAI-compatible, used with OpenRouter)
 gem "ruby-openai"
 
-# Use the database-backed adapters for Rails.cache and Action Cable
-gem "solid_cache"
-gem "solid_cable"
+# Removed solid_cache and solid_cable - using memory cache and async cable
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

@@ -60,13 +60,19 @@ Article → AnalyzeArticleJob → Completions::Client → OpenRouter → Article
 
 ## Environment
 
-Required in `.env`:
-```
-NEWS_API_KEY=...
-OPENROUTER_API_KEY=...
+Secrets are stored in Rails encrypted credentials (per-environment):
+
+```bash
+# Edit development credentials
+EDITOR="code --wait" bin/rails credentials:edit --environment development
+
+# Edit production credentials
+EDITOR="code --wait" bin/rails credentials:edit --environment production
 ```
 
-Database defaults to `news:news@localhost` (see `config/database.yml`).
+Keys: `database.password`, `news_api.key`, `openrouter.api_key`, `sidekiq.web_password`
+
+Database defaults to user `news` at localhost (see `config/database.yml`).
 
 ## Testing
 

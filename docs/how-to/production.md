@@ -37,19 +37,45 @@ registry:
   username: your-github-username
 ```
 
-### 2. Set Environment Variables
+### 2. Credentials Setup
+
+Secrets are stored in Rails encrypted credentials (`config/credentials/production.yml.enc`).
+
+To edit production credentials:
+
+```bash
+EDITOR="code --wait" bin/rails credentials:edit --environment production
+```
+
+Required keys:
+
+```yaml
+secret_key_base: <generated automatically>
+
+database:
+  password: <strong random password>
+
+news_api:
+  key: <your newsapi.org key>
+
+openrouter:
+  api_key: <your openrouter.ai key>
+
+sidekiq:
+  web_password: <password for /sidekiq dashboard>
+```
+
+### 3. Set Environment Variables
 
 Before deploying, export these environment variables locally:
 
 ```bash
-export KAMAL_REGISTRY_PASSWORD=<github personal access token with packages:write>
-export DATABASE_PASSWORD=<strong random password>
-export NEWS_API_KEY=<your newsapi.org key>
-export OPENROUTER_API_KEY=<your openrouter.ai key>
-export SIDEKIQ_WEB_PASSWORD=<password for /sidekiq dashboard>
+export KAMAL_REGISTRY_PASSWORD=<github PAT with packages:write>
+export RAILS_MASTER_KEY=<contents of config/credentials/production.key>
+export POSTGRES_PASSWORD=<same value as database.password in credentials>
 ```
 
-The `RAILS_MASTER_KEY` is read from `config/master.key` automatically.
+Note: `POSTGRES_PASSWORD` must match `database.password` in credentials — it's used by the Postgres container.
 
 ## Deployment
 
@@ -131,7 +157,7 @@ No external cron needed.
 Access the Sidekiq web UI at `https://your-domain.com/sidekiq`
 
 - Username: `admin`
-- Password: Value of `SIDEKIQ_WEB_PASSWORD`
+- Password: Value of `sidekiq.web_password` from credentials
 
 The dashboard shows:
 - Scheduled recurring jobs
