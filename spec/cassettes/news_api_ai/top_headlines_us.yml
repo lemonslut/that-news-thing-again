@@ -1,0 +1,408 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-03&includeArticleBody=true&includeArticleCategories=true&includeArticleConcepts=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeConceptLabel=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2025 08:07:55 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '193'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Etag:
+      - W/"c1-f3EIE1P6x3saItYOzFuys2oIvWw"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: The apiKey that was provided is not recognized as a valid key for a
+        user. Unable to execute the request. Check the 'https://newsapi.ai/dashboard'
+        to obtain the correct API key for your account.
+  recorded_at: Thu, 04 Dec 2025 08:07:54 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-03&includeArticleBody=true&includeArticleCategories=true&includeArticleConcepts=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeConceptLabel=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2025 08:09:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1997'
+      X-Response-Time:
+      - '372'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"6712-EXDm4yOnAqjwt16fQmyq7ANTIaU"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"8985356711", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-04", "time":"08:08:47", "dateTime":"2025-12-04T08:08:47Z",
+        "dateTimePub":"2025-12-04T08:00:05Z", "dataType":"news", "sim":0, "url":"https:\/\/dailytrojan.com\/2025\/12\/04\/break-on-2-keeps-latin-dance-alive-at-usc\/",
+        "title":"Break On 2 keeps Latin dance alive at USC - Daily Trojan", "body":"Break
+        On 2 features multiple divisions, including one dedicated to providing lessons
+        and a competition team. (Byron Garcia \/ Break On 2)\n\nWhen students enter
+        Mudd Hall on Monday nights, the first thing they hear is bachata playing through
+        the speakers. The second thing they hear is the squeaking of sneakers on the
+        floor as Break On 2''s Club Annex rehearses.\n\nDelila Gonzalez, a senior
+        studying theatre, leads Club Annex as its captain, teaching participants how
+        to dance anything from salsa and bachata to cumbia.\n\nClub Annex is only
+        one of three components of USC''s Break On 2: Latin Fusion, a dance team founded
+        in 2004 that also has a performance team made up of 42 members, along with
+        a smaller competition team.\n\nGonzalez said she was initially hesitant about
+        auditioning for Break On 2. However, after she got onto the competition team,
+        she quickly fell in love with it.\n\n\"I don''t think people understand how
+        communal dance can be,\" Gonzalez said. \"It sounds so cheesy, but it genuinely
+        brings people together.\"\n\nAfter Break On 2 renewed her passion for Latin
+        Dance, Gonzalez began teaching Latin dance to high school students in collaboration
+        with the Los Angeles Conservation Corps.\n\n\"[Latin dance] essentially consumed
+        my whole life.\" Gonzalez said. \"I don''t only teach it [at USC]; I also
+        teach it at a high school.\"\n\nVictoria Ocampos Costa, a senior studying
+        business of cinematic arts and the president of Break On 2, originally did
+        not make Break On 2''s performance team. But she was accepted after attending
+        Club Annex for an entire year and auditioning the following fall. Ocampos
+        Costa said being part of Break On 2 has been integral to her experience at
+        USC.\n\n\"I love the team so much. It''s a huge part of who I am at USC, and
+        it plays a big role in my journey here over the last four years.\" Ocampos
+        Costa said. \"It creates a home for a lot of people, including myself. Break
+        On 2 is not a Latino-exclusive club. We have members from all different nationalities
+        and places, but it becomes a home because we spend so much time together.\"\n\nKaeley
+        Cooper, a senior majoring in law, history and culture as well as social sciences,
+        is the competition team captain at Break On 2. Cooper said she loves the energy
+        of the group''s salsa nights, where even strangers feel connected to her through
+        celebrating Latin dance.\n\n\"What I gained from it [is] not only a sense
+        of community and the incredible people that I''ve met through the team but
+        also getting to appreciate the culture and demonstrate and expose it to a
+        variety of people,\" Cooper said.\n\nEvery first Friday of the month, Break
+        On 2 hosts salsa nights with live music. According to graduate student Nathan
+        Justin, the longest-tenured current Break On 2 member, these salsa nights
+        have been an introduction to Latin dance for many students over the years.\n\nJustin
+        has been in Break On 2 for six years, and it has been his home throughout
+        his entire career at USC. For him, clubs like Break On 2 matter because they
+        help connect people at such a large university.\n\n\"I think it provides an
+        outlet for people to meet each other,\" Justin said. \"Partner dance is a
+        fantastic way for people to work together to make a dance happen, and that
+        kind of teamwork naturally makes a lot of good friends.\"\n\nBella Duarte,
+        a junior studying psychology, is the co-creative director of Break On 2. Duarte
+        co-choreographs all of the pieces the team presents throughout the fall, as
+        well as the opener for their spring showcase. Duarte said the cultural aspect
+        of the dance team speaks to her most both as a choreographer and community
+        member.\n\n\"It''s important to have a group such as Break On 2 because there''s
+        someone who can represent a minority on campus, represent something that''s
+        just so bright,\" Duarte said. \"I think whenever we enter a room, there''s
+        just so much color, so much vibrance.\"\n\nDuarte joined Break On 2 because
+        she was in search of a community at USC that helped her connect with her culture.\n\n\"Break
+        On 2 is probably the best community I have found here on campus, because I
+        feel so at home,\" Duarte said. \"They make me feel so loved, and they''ve
+        helped me embrace my Mexican side of my family.\"\n\nJustin emphasized Break
+        On 2''s role in celebrating Latine culture. Being able to do different types
+        of dances from across Latin America has been amazing while building a community
+        at USC, Justin said.\n\n\"I think a lot of us say Break On 2 is a family,
+        and it really is true,\" Justin said. \"It''s been my family throughout my
+        entire time at USC, so we''re all united with a love for dance, but we don''t
+        just dance -- we also look out for each other.\"", "source":{"uri":"dailytrojan.com",
+        "dataType":"news", "title":"Daily Trojan", "description":"@USC\u2019s only
+        student-run newspaper since 1912. Follow @dt_covid19 for coronavirus news,
+        @DT_Sports for sports stuff and https:\/\/t.co\/ASxRYJkekS for more media."},
+        "authors":[{"uri":"aden_max_juarez@dailytrojan.com", "name":"Aden Max Juarez",
+        "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Latin_dance",
+        "type":"wiki", "score":5, "label":{"eng":"Latin dance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bachata_(music)",
+        "type":"wiki", "score":5, "label":{"eng":"Bachata (music)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Salsa_music",
+        "type":"wiki", "score":5, "label":{"eng":"Salsa music"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/University_of_Southern_California",
+        "type":"org", "score":5, "label":{"eng":"University of Southern California"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Lucas_Ocampos", "type":"person",
+        "score":4, "label":{"eng":"Lucas Ocampos"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Dance",
+        "type":"wiki", "score":4, "label":{"eng":"Dance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Dance_squad",
+        "type":"wiki", "score":3, "label":{"eng":"Dance squad"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Cumbia",
+        "type":"wiki", "score":3, "label":{"eng":"Cumbia"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Music_genre",
+        "type":"wiki", "score":3, "label":{"eng":"Music genre"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Latin",
+        "type":"wiki", "score":3, "label":{"eng":"Latin"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Theatre",
+        "type":"wiki", "score":3, "label":{"eng":"Theatre"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/\u00d3scar_Duarte_(footballer,_born_1989)",
+        "type":"person", "score":2, "label":{"eng":"\u00d3scar Duarte (footballer,
+        born 1989)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Social_science", "type":"wiki",
+        "score":2, "label":{"eng":"Social science"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Los_Angeles",
+        "type":"loc", "score":2, "label":{"eng":"Los Angeles"}, "location":{"type":"place",
+        "label":{"eng":"Los Angeles"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Partner_dance", "type":"wiki",
+        "score":1, "label":{"eng":"Partner dance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Choreography",
+        "type":"wiki", "score":1, "label":{"eng":"Choreography"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Latin_America",
+        "type":"loc", "score":1, "label":{"eng":"Latin America"}, "location":null},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/University", "type":"wiki", "score":1,
+        "label":{"eng":"University"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Psychology",
+        "type":"wiki", "score":1, "label":{"eng":"Psychology"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Mexico",
+        "type":"loc", "score":1, "label":{"eng":"Mexico"}, "location":{"type":"country",
+        "label":{"eng":"Mexico"}}}], "categories":[{"uri":"dmoz\/Arts\/Performing_Arts\/Dance",
+        "label":"dmoz\/Arts\/Performing Arts\/Dance", "wgt":100}, {"uri":"dmoz\/Arts\/Performing_Arts\/Circus",
+        "label":"dmoz\/Arts\/Performing Arts\/Circus", "wgt":100}, {"uri":"dmoz\/Shopping\/Clothing\/Niche",
+        "label":"dmoz\/Shopping\/Clothing\/Niche", "wgt":100}, {"uri":"dmoz\/Recreation\/Humor\/Bizarre",
+        "label":"dmoz\/Recreation\/Humor\/Bizarre", "wgt":100}, {"uri":"dmoz\/Shopping\/Sports\/Cheerleading",
+        "label":"dmoz\/Shopping\/Sports\/Cheerleading", "wgt":100}, {"uri":"news\/Arts_and_Entertainment",
+        "label":"news\/Arts and Entertainment", "wgt":81}], "image":"https:\/\/dailytrojan.com\/wp-content\/uploads\/2025\/12\/IMG_0199-687x1030.jpg",
+        "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":502531727,
+        "relevance":2}, {"uri":"8985357175", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:45", "dateTime":"2025-12-04T08:08:45Z", "dateTimePub":"2025-12-04T07:11:48Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/rocketnews.com\/2025\/12\/meta-starts-blocking-teens-in-australia-under-social-media-ban\/",
+        "title":"Meta starts blocking teens in Australia under social media ban -
+        RocketNews", "body":"Australia''s world-first ban requires 10 major online
+        platforms to block users aged 16.By AFP and APPublished On 4 Dec 20254 Dec
+        2025Click here to share on social mediashare2ShareTech giant Meta has begun
+        removing minors below 16 years of age in Australia from its platforms Instagram,
+        Threads and Facebook ahead of the country''s world-first youth social media
+        ban.\"While we are working hard to remove all users who we understand to be
+        under the age of 16 by 10 December, compliance with the law will be an ongoing
+        and multilayered process,\" a Meta spokesperson said on Thursday.Recommended
+        Stories list of 3 itemsend of listAustralia requires 10 major online platforms,
+        also including TikTok and YouTube, to block underage users by December 10,
+        when the new law comes into force.Companies face fines of 49.5 million Australian
+        dollars ($32m) if they fail to take \"reasonable steps\" to comply.Hundreds
+        of thousands of adolescents are likely to be affected by the ban, with Instagram
+        alone reporting about 350,000 Australian users aged 13 to 15.Some popular
+        apps and websites, such as Roblox, Pinterest and WhatsApp, are exempt, but
+        the list remains under review.Livestreaming service Twitch was added to the
+        list less than two weeks ago.Meta said it was committed to complying with
+        Australian law, but it called for app stores to be held accountable for age
+        verification instead.\"The government should require app stores to verify
+        age and obtain parental approval whenever teens under 16 download apps, eliminating
+        the need for teens to verify their age multiple times across different apps,\"
+        the Meta spokesperson said.\"Social media platforms could then use this verified
+        age information to ensure teens are in age-appropriate experiences.\" Advertisement
+        YouTube has also attacked the social media ban.The video-streaming giant said
+        this week the new law would make young Australians \"less safe\" because those
+        below 16 could still visit the website without an account, but would lose
+        YouTube safety filters.But Australia''s Communications Minister Anika Wells
+        described its argument as \"weird\".\"If YouTube is reminding us all that
+        it is not safe and there''s content not appropriate for age-restricted users
+        on their website, that''s a problem that YouTube needs to fix,\" said Wells.Wells
+        added that some Australian teens had killed themselves as algorithms \"latched
+        on\" - targeting them with content that drained their self-esteem.\"This specific
+        law will not fix every harm occurring on the internet, but it will make it
+        easier for kids to chase a better version of themselves,\" she said.The Sydney-based
+        internet rights group Digital Freedom Project said it had challenged the laws
+        in Australia''s High Court last week, calling them an \"unfair\" assault on
+        freedom of speech.Platforms are expected to devise their own means to stop
+        rebellious teenagers from trying to skirt the law, by using fake IDs, for
+        instance, but \"no solution is likely to be 100 percent effective\", the internet
+        safety watchdog has said.There is keen interest in whether Australia''s sweeping
+        res ...", "source":{"uri":"rocketnews.com", "dataType":"news", "title":"RocketNews
+        | Top News Stories From Around the Globe", "description":"RocketNews is an
+        aggregator of the top online news articles and stories from around the globe."},
+        "authors":[], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Meta_Platforms",
+        "type":"org", "score":5, "label":{"eng":"Meta Platforms"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Australia",
+        "type":"loc", "score":5, "label":{"eng":"Australia"}, "location":{"type":"country",
+        "label":{"eng":"Australia"}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Instagram",
+        "type":"org", "score":4, "label":{"eng":"Instagram"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/YouTube",
+        "type":"wiki", "score":4, "label":{"eng":"YouTube"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Social_media",
+        "type":"wiki", "score":4, "label":{"eng":"Social media"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/TikTok",
+        "type":"wiki", "score":3, "label":{"eng":"TikTok"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/App_store",
+        "type":"wiki", "score":3, "label":{"eng":"App store"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Minor_(law)",
+        "type":"wiki", "score":3, "label":{"eng":"Minor (law)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Facebook",
+        "type":"org", "score":3, "label":{"eng":"Facebook"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Twitch_(service)",
+        "type":"wiki", "score":2, "label":{"eng":"Twitch (service)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Roblox",
+        "type":"wiki", "score":2, "label":{"eng":"Roblox"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Australian_dollar",
+        "type":"wiki", "score":2, "label":{"eng":"Australian dollar"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Pinterest",
+        "type":"wiki", "score":2, "label":{"eng":"Pinterest"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/WhatsApp",
+        "type":"org", "score":2, "label":{"eng":"WhatsApp"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/High_Court_of_Justice",
+        "type":"wiki", "score":1, "label":{"eng":"High Court of Justice"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Algorithm",
+        "type":"wiki", "score":1, "label":{"eng":"Algorithm"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Self-esteem",
+        "type":"wiki", "score":1, "label":{"eng":"Self-esteem"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Internet",
+        "type":"wiki", "score":1, "label":{"eng":"Internet"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Agence_France-Presse",
+        "type":"wiki", "score":1, "label":{"eng":"Agence France-Presse"}}], "categories":[{"uri":"dmoz\/Society\/Issues",
+        "label":"dmoz\/Society\/Issues", "wgt":100}, {"uri":"dmoz\/Society\/Issues\/Business",
+        "label":"dmoz\/Society\/Issues\/Business", "wgt":100}, {"uri":"dmoz\/Society\/Activism",
+        "label":"dmoz\/Society\/Activism", "wgt":100}, {"uri":"dmoz\/Society\/Issues\/Intellectual_Property",
+        "label":"dmoz\/Society\/Issues\/Intellectual Property", "wgt":100}, {"uri":"dmoz\/Computers\/Internet\/Abuse",
+        "label":"dmoz\/Computers\/Internet\/Abuse", "wgt":100}, {"uri":"news\/Technology",
+        "label":"news\/Technology", "wgt":90}], "image":null, "eventUri":null, "location":null,
+        "sentiment":-0.2549019607843137, "wgt":502531725, "relevance":2}, {"uri":"8985357174",
+        "lang":"eng", "isDuplicate":false, "date":"2025-12-04", "time":"08:08:42",
+        "dateTime":"2025-12-04T08:08:42Z", "dateTimePub":"2025-12-04T07:24:06Z", "dataType":"news",
+        "sim":0, "url":"https:\/\/rocketnews.com\/2025\/12\/uns-guterres-says-israels-conduct-of-war-in-gaza-fundamentally-wrong\/",
+        "title":"UN''s Guterres says Israel''s conduct of war in Gaza ''fundamentally
+        wrong'' - RocketNews", "body":"Guterres said Israel''s war has been waged
+        with ''total neglect'' with respect to civilian deaths and Gaza''s destruction.United
+        Nations Secretary-General Antonio Guterres has condemned the way Israel has
+        waged its war on Gaza, describing it as \"fundamentally wrong\" and saying
+        \"there are strong reasons\" to believe that Israeli forces have committed
+        war crimes in the Palestinian territory.Guterres made the comments on Wednesday
+        in an interview with Reuters Editor-in-Chief Alessandra Galloni at the news
+        agency''s NEXT conference in New York.Recommended Stories list of 3 itemsend
+        of list\"I think there was something fundamentally wrong in the way this operation
+        was conducted with total neglect in relation to the deaths of civilians and
+        to the destruction of Gaza,\" Guterres said.\"The objective was to destroy
+        Hamas. Gaza is destroyed, but Hamas is not yet destroyed. So there is something
+        fundamentally wrong with the way this is conducted,\" he said.When asked if
+        he believed Israeli forces may be guilty of carrying out war crimes since
+        the conflict began more than two years ago, Guterres said that \"there are
+        strong reasons to believe that that possibility might be a reality\".Responding
+        to Guterres''s comments, Israel''s UN ambassador Danny Danon accused the UN
+        chief of using his \"elevated platform to lambast and condemn Israel and Israelis
+        at every opportunity\".\"The only crime committed is the moral abomination
+        that more than two years after the horrific massacres of October 7, the UN
+        secretary-general has still not visited Israel,\" he told Reuters.In Oc ...",
+        "source":{"uri":"rocketnews.com", "dataType":"news", "title":"RocketNews |
+        Top News Stories From Around the Globe", "description":"RocketNews is an aggregator
+        of the top online news articles and stories from around the globe."}, "authors":[],
+        "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Ant\u00f3nio_Guterres",
+        "type":"person", "score":5, "label":{"eng":"Ant\u00f3nio Guterres"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Israel",
+        "type":"loc", "score":5, "label":{"eng":"Israel"}, "location":{"type":"country",
+        "label":{"eng":"Israel"}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Gaza_Strip",
+        "type":"loc", "score":4, "label":{"eng":"Gaza Strip"}, "location":{"type":"place",
+        "label":{"eng":"Gaza Strip"}, "country":{"type":"country", "label":{"eng":"Palestine"}}}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Palestinians", "type":"wiki", "score":3,
+        "label":{"eng":"Palestinians"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Israel_Defense_Forces",
+        "type":"wiki", "score":3, "label":{"eng":"Israel Defense Forces"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/War_crime",
+        "type":"wiki", "score":3, "label":{"eng":"War crime"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Hamas",
+        "type":"org", "score":2, "label":{"eng":"Hamas"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Secretary-General_of_the_United_Nations",
+        "type":"wiki", "score":2, "label":{"eng":"Secretary-General of the United
+        Nations"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Danny_Danon", "type":"person",
+        "score":1, "label":{"eng":"Danny Danon"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Massacre",
+        "type":"wiki", "score":1, "label":{"eng":"Massacre"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_Nations",
+        "type":"org", "score":1, "label":{"eng":"United Nations"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Reuters",
+        "type":"wiki", "score":1, "label":{"eng":"Reuters"}}], "categories":[{"uri":"dmoz\/Society\/Issues\/Warfare_and_Conflict",
+        "label":"dmoz\/Society\/Issues\/Warfare and Conflict", "wgt":100}, {"uri":"dmoz\/Society\/Politics\/Nationalism",
+        "label":"dmoz\/Society\/Politics\/Nationalism", "wgt":100}], "image":null,
+        "eventUri":null, "location":null, "sentiment":-0.5686274509803921, "wgt":502531722,
+        "relevance":2}, {"uri":"8985357100", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:30", "dateTime":"2025-12-04T08:08:30Z", "dateTimePub":"2025-12-04T06:47:19Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.insurancebusinessmag.com\/us\/news\/mergers-acquisitions\/insurance-manda-roadzen-acquires-majority-stake-king-risk-partners-buys-new-york-agency-558900.aspx",
+        "title":"Insurance M&A: Roadzen acquires majority stake; King Risk Partners
+        buys New York agency", "body":"The deal strengthens King Risk''s presence
+        in the state and supports the group''s strategy of measured growth through
+        partnership.\n\nStewart Agency provides auto, home, boat and business coverage
+        for individuals and local companies. King Risk said the acquisition brings
+        increased regional reach while allowing Stewart''s client base to access a
+        broader set of services without changing its established service approach.
+        Stewart''s leadership noted that joining King Risk broadens product capability
+        while retaining the local relationships and service model built over decades.",
+        "source":{"uri":"insurancebusinessmag.com", "dataType":"news", "title":"Insurance
+        Business", "description":"Insurance Business UK is a website with multiple
+        daily updates focused on insurance industry news, interviews with brokers
+        and expert columns."}, "authors":[], "concepts":[], "categories":[{"uri":"dmoz\/Business\/Financial_Services",
+        "label":"dmoz\/Business\/Financial Services", "wgt":15}, {"uri":"dmoz\/Business\/Financial_Services\/Insurance",
+        "label":"dmoz\/Business\/Financial Services\/Insurance", "wgt":19}, {"uri":"dmoz\/Business\/Management\/Software",
+        "label":"dmoz\/Business\/Management\/Software", "wgt":15}, {"uri":"dmoz\/Games\/Tile_Games\/Kings_Cribbage",
+        "label":"dmoz\/Games\/Tile Games\/Kings Cribbage", "wgt":16}, {"uri":"dmoz\/Home\/Homemaking\/Celebrity_Homemakers",
+        "label":"dmoz\/Home\/Homemaking\/Celebrity Homemakers", "wgt":19}], "image":"https:\/\/cdn-res.keymedia.com\/cms\/images\/us\/003\/0382_639004275878565232.png",
+        "eventUri":null, "location":null, "sentiment":0.1372549019607843, "wgt":502531710,
+        "relevance":2}, {"uri":"8985357108", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:26", "dateTime":"2025-12-04T08:08:26Z", "dateTimePub":"2025-12-04T08:00:00Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/country1025.com\/2025\/12\/04\/this-day-in-sports-history-december-4\/",
+        "title":"This Day in Sports History: December 4", "body":"Sports in December
+        include the NBA and NHL seasons, the end of the college football season, Grand
+        Prix races, Ultimate Fighting Championship Fight Nights, and some college
+        basketball tournaments. In addition, NFL teams push to qualify for the playoffs.
+        Over the years, Dec. 4 has witnessed many notable moments and stories involving
+        sporting legends. Here are some of them.\n\nGreat moments in sports history
+        from Dec. 4 include:\n\nThree athletes who stood out on Dec. 4 were Bobby
+        Gage, Jimmy Carson, and Caitlin Clark.\n\nGage was a first-team All-American
+        at Clemson University, where he set over 30 records and was named MVP of the
+        1949 Gator Bowl, capping a perfect 1948 season for the Tigers. Carson was
+        the second overall pick in the 1986 NHL Entry Draft and the second teenager
+        in history to score 50 goals in a season, after Wayne Gretzky. Clark''s popularity
+        exploded during her time at the University of Iowa, leading to increased interest
+        in women''s basketball.", "source":{"uri":"country1025.com", "dataType":"news",
+        "title":"Country 102.5", "description":"Boston''s Hottest Country"}, "authors":[{"uri":"michael_garaventa@country1025.com",
+        "name":"Michael Garaventa", "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Bobby_Gage",
+        "type":"person", "score":3, "label":{"eng":"Bobby Gage"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/College_basketball",
+        "type":"wiki", "score":3, "label":{"eng":"College basketball"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/National_Hockey_League",
+        "type":"org", "score":3, "label":{"eng":"National Hockey League"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/College_football",
+        "type":"wiki", "score":3, "label":{"eng":"College football"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ultimate_Fighting_Championship",
+        "type":"org", "score":3, "label":{"eng":"Ultimate Fighting Championship"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/National_Basketball_Association",
+        "type":"wiki", "score":3, "label":{"eng":"National Basketball Association"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Caitlin_Clark", "type":"wiki", "score":2,
+        "label":{"eng":"Caitlin Clark"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/NBA_playoffs",
+        "type":"wiki", "score":2, "label":{"eng":"NBA playoffs"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Jimmy_Carson",
+        "type":"person", "score":2, "label":{"eng":"Jimmy Carson"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/NBA_Most_Valuable_Player_Award",
+        "type":"wiki", "score":1, "label":{"eng":"NBA Most Valuable Player Award"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/TaxSlayer_Bowl", "type":"wiki", "score":1,
+        "label":{"eng":"TaxSlayer Bowl"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Wayne_Gretzky",
+        "type":"person", "score":1, "label":{"eng":"Wayne Gretzky"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/University_of_Iowa",
+        "type":"org", "score":1, "label":{"eng":"University of Iowa"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Women''s_basketball",
+        "type":"wiki", "score":1, "label":{"eng":"Women''s basketball"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/All-America",
+        "type":"wiki", "score":1, "label":{"eng":"All-America"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Clemson_University",
+        "type":"org", "score":1, "label":{"eng":"Clemson University"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Carson,_California",
+        "type":"loc", "score":1, "label":{"eng":"Carson, California"}, "location":{"type":"place",
+        "label":{"eng":"Carson, California"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}], "categories":[{"uri":"dmoz\/Sports\/Basketball", "label":"dmoz\/Sports\/Basketball",
+        "wgt":100}, {"uri":"dmoz\/Sports\/Basketball\/College_and_University", "label":"dmoz\/Sports\/Basketball\/College
+        and University", "wgt":100}, {"uri":"dmoz\/Shopping\/Sports\/Theme_Merchandise",
+        "label":"dmoz\/Shopping\/Sports\/Theme Merchandise", "wgt":100}, {"uri":"dmoz\/Sports\/Basketball\/History",
+        "label":"dmoz\/Sports\/Basketball\/History", "wgt":100}, {"uri":"news\/Sports",
+        "label":"news\/Sports", "wgt":87}], "image":"https:\/\/country1025.com\/uploads\/2025\/12\/GettyImages-78505135.jpg?auto=webp",
+        "eventUri":null, "location":null, "sentiment":0.2784313725490195, "wgt":502531706,
+        "relevance":2}], "totalResults":80883, "page":1, "count":5, "pages":16177}}'
+  recorded_at: Thu, 04 Dec 2025 08:09:17 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,569 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey&articleBodyLen=-1&articlesCount=5&articlesPage=2&articlesSortBy=date&includeArticleBody=true&includeArticleCategories=true&includeArticleConcepts=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeConceptLabel=true&includeSourceDescription=true&includeSourceTitle=true&keyword=news&lang=eng&resultType=articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2025 08:07:54 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '193'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Etag:
+      - W/"c1-f3EIE1P6x3saItYOzFuys2oIvWw"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: The apiKey that was provided is not recognized as a valid key for a
+        user. Unable to execute the request. Check the 'https://newsapi.ai/dashboard'
+        to obtain the correct API key for your account.
+  recorded_at: Thu, 04 Dec 2025 08:07:53 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=2&articlesSortBy=date&includeArticleBody=true&includeArticleCategories=true&includeArticleConcepts=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeConceptLabel=true&includeSourceDescription=true&includeSourceTitle=true&keyword=news&lang=eng&resultType=articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2025 08:09:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1998'
+      X-Response-Time:
+      - '1490'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"9fe3-dqzjLzZyD/BOsjn4vThte2imfqA"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"8985357104", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-04", "time":"08:08:23", "dateTime":"2025-12-04T08:08:23Z",
+        "dateTimePub":"2025-12-04T08:01:04Z", "dataType":"news", "sim":0, "url":"https:\/\/www.adnkronos.com\/immediapress\/pr-newswire\/spellegrino-announces-long-term-partnership-with-ferrari-to-inspire-consumers-to-bring-their-best_2WBIywO5wNwclVZik1CQBv",
+        "title":"S.Pellegrino Announces Long-term Partnership with Ferrari to Inspire
+        Consumers to Bring Their Best", "body":"The strategic alliance aims to elevate
+        S.Pellegrino''s premium lifestyle positioning, expand engagement with younger
+        audiences and enhance its global brand offering.\n\nMILAN, Dec. 4, 2025 \/PRNewswire\/
+        -- S.Pellegrino, the iconic sparkling mineral water brand, today announces
+        a long-term global partnership with Ferrari, underscoring a joint interest
+        in promoting their common values: Italian heritage and culture, craft, and
+        the drive to excellence. Under the agreement, S.Pellegrino will collaborate
+        with Scuderia Ferrari HP, the Formula 1 racing team, and Ferrari Challenge
+        Trofeo Pirelli, the single-makes motorsport championship created in 1993.\n\nTo
+        view the Multimedia News Release, please click:https:\/\/www.multivu.com\/s_pellegrino\/9370451-en-announces-long-term-partnership-with-ferrari\n\nThis
+        partnership brings together two Italian brands, uniting their rich heritage,
+        craftsmanship, and commitment to performance. Rooted in S.Pellegrino''s purpose
+        -- to nurture the art of tasteful living -- the collaboration aims to inspire
+        consumers to \"Bring their Best\".\n\nNestl\u00e9 Waters & Premium Beverages
+        CEO, Muriel Lienau, explains her vision behind this partnership: \"S.Pellegrino
+        and Ferrari are deeply rooted in a rich Italian tradition. This alliance leverages
+        their iconic status and cultural relevance to drive global growth, strengthen
+        S.Pellegrino''s position as a premium lifestyle brand, and increase engagement
+        with younger audiences through authentic and innovative brand experiences
+        .\"\n\nS.Pellegrino shares more than a country of origin with Ferrari -- they
+        share a tradition.For over 125 years, S.Pellegrino has celebrated the art
+        of tasteful living, shaping authentic Italian values into experiences admired
+        around the world. This partnership builds on that common heritage.\n\nThe
+        partnership will deliver unique, co-branded consumer-facing activations that
+        celebrate and blend Italian heritage with modern, premium lifestyle experiences,
+        from exclusive product collaborations with Ferrari''s world-renowned design
+        center to immersive and digital-first experiences. With these exclusive activations,
+        S.Pellegrino demonstrates its belief that taste and creativity have the power
+        to transform lives, offering consumers moments that connect, inspire, and
+        elevate everyday experiences.\n\nS.Pellegrino will also host a series of global
+        events over the next years, bringing together culinary pioneers, visionary
+        designers, cultural tastemakers and Formula 1 personalities. These in-person
+        gatherings will embody S.Pellegrino''s ambition to inspire an appetite for
+        life in younger consumers by encouraging shared connections, creativity and
+        nourishing experiences.\n\n\"This partnership is a natural evolution of our
+        ongoing ambition to elevate the consumer experience, rooted in our common
+        belief that life is richer when lived with depth and meaning. Both brands
+        share a passion for creating moments that matter - moments defined by quality,
+        beauty, and connection - and this partnership invites consumers to embrace
+        the best of what life has to offer. We have united the best of Italy so that
+        you can bring yours!\" says Elisa Gregori, Global CMO for Nestl\u00e9 Waters
+        & Premium Beverages\n\n\"Ferrari has always drawn strength from the Italian
+        spirit, founded on craftsmanship, beauty, and the constant pursuit of improvement.
+        In S.Pellegrino we find more than a partner: we see an expression of the same
+        values that guide us: passion, attention to detail, and the desire to elevate
+        every experience. Just as S.Pellegrino refine the everyday into something
+        special, we strive to push performance further, race after race. United by
+        heritage and vision, we aim to bring fans and consumers experiences that feel
+        unmistakably Italian and boldly future-driven, building a connection with
+        the next generation rooted in what we proudly share.\" Says Lorenzo Giorgetti,
+        Chief Racing Revenues Officer for Ferrari S.p.A.\n\nThis partnership marks
+        a new chapter in S.Pellegrino''s 125-year journey, started in Italy on the
+        Italian Alps surrounding Bergamo and still true to our unique origin and production
+        site, a mark of quality and excellence. We believe in the power of nurturing
+        the art of tasteful living and celebrate the Italian spirit that continues
+        to drive both brands forward: a spirit defined by creativity, taste, and the
+        relentless pursuit of excellence.\n\nThe partnership will be announced and
+        magnified by communication assets touching digital, print, outdoor and PR
+        in all key cities around the world. Stay tuned.\n\nS.PELLEGRINO BOILERPLATE\n\nS.Pellegrino
+        is an international brand of Sanpellegrino S.p.A., based in Milan, Italy.
+        Distributed in over 150 countries through subsidiaries and partners across
+        five continents, this mineral water has embodied outstanding quality for more
+        than 125 years thanks to its unique origins, and it perfectly represents Italian
+        style around the world as a blend of pleasure, wellness and balance. With
+        its fine and persistent perlage enhancing freshness and mineral harmony, S.Pellegrino
+        offers a high-level gastronomic experience. Sanpellegrino S.p.A. is a leading
+        company in the Italian beverage sector, with a portfolio that includes mineral
+        waters, non-alcoholic aperitifs and soft drinks. As a producer of mineral
+        water, the company has always been committed to protecting and promoting water
+        as a vital resource for the planet, working responsibly and with dedication
+        to ensure its long-term quality.\n\nComunicato stampa sponsorizzato - Responsabilit\u00e0
+        editoriale PrNewswire. I giornalisti Adnkronos non sono in nessun modo coinvolti
+        n\u00e9 responsabili per i contenuti dei comunicati trasmessi.", "source":{"uri":"adnkronos.com",
+        "dataType":"news", "title":"Adnkronos", "description":"Vuoi leggere altre
+        notizie? Vieni sul nostro sito https:\/\/t.co\/WNy21ZatVs"}, "authors":[],
+        "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/S.Pellegrino", "type":"wiki",
+        "score":5, "label":{"eng":"S.Pellegrino"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ferrari",
+        "type":"org", "score":5, "label":{"eng":"Ferrari"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Italy",
+        "type":"loc", "score":5, "label":{"eng":"Italy"}, "location":{"type":"country",
+        "label":{"eng":"Italy"}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Formula_One",
+        "type":"wiki", "score":4, "label":{"eng":"Formula One"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ferrari_Challenge",
+        "type":"wiki", "score":3, "label":{"eng":"Ferrari Challenge"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Mineral_water",
+        "type":"wiki", "score":3, "label":{"eng":"Mineral water"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Nestl\u00e9_Waters",
+        "type":"org", "score":3, "label":{"eng":"Nestl\u00e9 Waters"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Creativity",
+        "type":"wiki", "score":3, "label":{"eng":"Creativity"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/PR_Newswire",
+        "type":"org", "score":3, "label":{"eng":"PR Newswire"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/A.C._Milan",
+        "type":"wiki", "score":3, "label":{"eng":"A.C. Milan"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Hewlett-Packard",
+        "type":"org", "score":3, "label":{"eng":"Hewlett-Packard"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Pirelli",
+        "type":"org", "score":3, "label":{"eng":"Pirelli"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Drink",
+        "type":"wiki", "score":3, "label":{"eng":"Drink"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Scuderia_Ferrari",
+        "type":"wiki", "score":3, "label":{"eng":"Scuderia Ferrari"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Motorsport",
+        "type":"wiki", "score":3, "label":{"eng":"Motorsport"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Chief_executive_officer",
+        "type":"wiki", "score":3, "label":{"eng":"Chief executive officer"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Evolution",
+        "type":"wiki", "score":2, "label":{"eng":"Evolution"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Elisa_(Italian_singer)",
+        "type":"person", "score":1, "label":{"eng":"Elisa (Italian singer)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Architecture_of_Italy",
+        "type":"wiki", "score":1, "label":{"eng":"Architecture of Italy"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ap\u00e9ritif_and_digestif",
+        "type":"wiki", "score":1, "label":{"eng":"Ap\u00e9ritif and digestif"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Gastronomy",
+        "type":"wiki", "score":1, "label":{"eng":"Gastronomy"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Mineral",
+        "type":"wiki", "score":1, "label":{"eng":"Mineral"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Public_relations",
+        "type":"wiki", "score":1, "label":{"eng":"Public relations"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Alps",
+        "type":"wiki", "score":1, "label":{"eng":"Alps"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Soft_drink",
+        "type":"wiki", "score":1, "label":{"eng":"Soft drink"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Continent",
+        "type":"wiki", "score":1, "label":{"eng":"Continent"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bergamo",
+        "type":"loc", "score":1, "label":{"eng":"Bergamo"}, "location":{"type":"place",
+        "label":{"eng":"Bergamo"}, "country":{"type":"country", "label":{"eng":"Italy"}}}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Milan", "type":"loc", "score":1,
+        "label":{"eng":"Milan"}, "location":{"type":"place", "label":{"eng":"Milan"},
+        "country":{"type":"country", "label":{"eng":"Italy"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Societ\u00e0_per_azioni",
+        "type":"wiki", "score":1, "label":{"eng":"Societ\u00e0 per azioni"}}], "categories":[{"uri":"dmoz\/Society\/Issues\/Business",
+        "label":"dmoz\/Society\/Issues\/Business", "wgt":100}, {"uri":"dmoz\/Society\/Religion_and_Spirituality\/New_Age",
+        "label":"dmoz\/Society\/Religion and Spirituality\/New Age", "wgt":100}, {"uri":"dmoz\/Shopping\/Jewelry\/Charms",
+        "label":"dmoz\/Shopping\/Jewelry\/Charms", "wgt":100}, {"uri":"dmoz\/Business\/Textiles_and_Nonwovens\/Marketing_and_Advertising",
+        "label":"dmoz\/Business\/Textiles and Nonwovens\/Marketing and Advertising",
+        "wgt":100}, {"uri":"news\/Business", "label":"news\/Business", "wgt":57}],
+        "image":"https:\/\/www.adnkronos.com\/assets\/themes\/desktop\/images\/adnkronos-share.jpg",
+        "eventUri":null, "location":null, "sentiment":0.7098039215686274, "wgt":502531703,
+        "relevance":2}, {"uri":"8985357233", "lang":"eng", "isDuplicate":true, "date":"2025-12-04",
+        "time":"08:08:10", "dateTime":"2025-12-04T08:08:10Z", "dateTimePub":"2025-12-04T07:55:35Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.newsdrum.in\/national\/assam-shutdown-by-tezpur-varsity-students-enters-6th-day-cms-proposal-for-pro-vc-rejected-10880693",
+        "title":"Assam: Shutdown by Tezpur varsity students enters 6th day, CM''s
+        proposal for pro VC rejected", "body":"Guwahati, Dec 4 (PTI) The shutdown
+        by students of Tezpur University in Assam entered its sixth day on Thursday
+        over their demand for the removal of the vice-chancellor, while staffers of
+        the varsity rejected Chief Minister Himanta Biswa Sarma''s proposal for the
+        appointment of a pro VC.\n\nState Congress president Gaurav Gogoi has also
+        accused Sarma of \"masking the failures\" of current VC Shambhu Nath Singh
+        by suggesting the appointment of a pro vice chancellor.\n\nThe students of
+        the varsity have been protesting since mid-September for alleged corruption
+        and financial irregularities, and have started the shutdown of all academic
+        activities on the campus from November 29 for an indefinite period.\n\nA faculty
+        member said the shutdown has been relaxed for departmental emergencies and
+        pending work for a few hours in the morning for three days since Wednesday.\n\nSarma
+        on Wednesday said he had spoken to Union Education Minister Dharmendra Pradhan
+        regarding the shutdown of Tezpur University and urged him to appoint a pro
+        VC immediately, pending an impartial enquiry into the conduct of the present
+        VC.\n\n\"The Tezpur University fraternity strongly rebuts the Assam chief
+        minister''s recent statement regarding the ongoing crisis on the campus. His
+        suggestion to appoint a pro vice chancellor reflects a clear misunderstanding
+        of the movement''s long-standing and repeatedly communicated demand: the urgent
+        appointment of an acting vice chancellor,\" Tezpur University United Forum
+        (TUUF) said in a statement late on Wednesday.\n\nThe ongoing agitation in
+        the central varsity in Sonitpur district is being carried out under the aegis
+        of the TUUF.\n\nThe forum also claimed that the university has been in \"turmoil\"
+        for 76 days, and during the entire period, the chief minister \"chose to remain
+        silent\".\n\n\"His sudden involvement - only after the situation gained national
+        attention - raises serious concern about whether he is acting out of genuine
+        responsibility or political self-preservation,\" the TUUF questioned.\n\nThe
+        chief minister \"ignored the crisis for weeks\" despite continuous protests,
+        appeals and institutional paralysis, the forum alleged, adding that \"leadership
+        demands timely engagement, not last-minute statements\".\n\n\"Our demands
+        remain unchanged - immediate suspension of the current vice chancellor, pending
+        enquiry, appointment of an acting vice chancellor - not a pro-VC and publication
+        of all inquiry reports already submitted to authorities,\" the TUUF added.\n\nGogoi
+        has also expressed his ''disappointment'' with the chief minister''s stand
+        on the issues.\n\n\"Real leadership would have meant that the chief minister
+        would have stood with the faculty, staff and students of this prestigious
+        university. Instead, the chief minister is masking the failures of the current
+        vice chancellor by suggesting a pro vice chancellor,\" he said in a post on
+        X on Thursday.\n\nCiting old news reports, Gogoi claimed that there were \"enquiries
+        about financial irregularities from the office of Principal Accountant General\"
+        during Singh''s term as VC of Patna University in Bihar.\n\n\"It would be
+        best that the prestige of Tezpur University should be paramount, and a new
+        Vice Chancellor be appointed. Stop using the University of Northeast for posting
+        controversial VCs,\" the Congress deputy leader in the Lok Sabha added.\n\nAll
+        end-term examinations have been cancelled, and other activities have also
+        stopped in the varsity.\n\nThe Tezpur University Teachers'' Association (TUTA)
+        and Tezpur University Non-Teaching Employees'' Association (TUNTEA) have extended
+        their support to the agitation.\n\nThe VC abstained from the campus after
+        the university had witnessed noisy scenes and an exchange of words between
+        him and students on September 22, leading to a situation where Singh had to
+        leave the spot. PTI SSG BDC", "source":{"uri":"newsdrum.in", "dataType":"news",
+        "title":"NewsDrum", "description":""}, "authors":[{"uri":"newsdrum_desk@newsdrum.in",
+        "name":"NewsDrum Desk", "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Chief_minister",
+        "type":"wiki", "score":5, "label":{"eng":"Chief minister"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Tezpur_University",
+        "type":"org", "score":5, "label":{"eng":"Tezpur University"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Chancellor_(education)",
+        "type":"wiki", "score":5, "label":{"eng":"Chancellor (education)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Victoria_Cross",
+        "type":"wiki", "score":5, "label":{"eng":"Victoria Cross"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Tibetan_Buddhism",
+        "type":"wiki", "score":5, "label":{"eng":"Tibetan Buddhism"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Assam",
+        "type":"loc", "score":4, "label":{"eng":"Assam"}, "location":{"type":"place",
+        "label":{"eng":"Assam"}, "country":{"type":"country", "label":{"eng":"India"}}}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Dharmendra_Pradhan", "type":"person",
+        "score":3, "label":{"eng":"Dharmendra Pradhan"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Indian_National_Congress",
+        "type":"org", "score":3, "label":{"eng":"Indian National Congress"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/States_and_union_territories_of_India",
+        "type":"loc", "score":3, "label":{"eng":"States and union territories of India"},
+        "location":null}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Guwahati", "type":"loc",
+        "score":3, "label":{"eng":"Guwahati"}, "location":{"type":"place", "label":{"eng":"Guwahati"},
+        "country":{"type":"country", "label":{"eng":"India"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Sonitpur_district",
+        "type":"loc", "score":2, "label":{"eng":"Sonitpur district"}, "location":{"type":"place",
+        "label":{"eng":"Sonitpur district"}, "country":{"type":"country", "label":{"eng":"India"}}}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/University", "type":"wiki", "score":2,
+        "label":{"eng":"University"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Patna_University",
+        "type":"org", "score":1, "label":{"eng":"Patna University"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Northeast_India",
+        "type":"loc", "score":1, "label":{"eng":"Northeast India"}, "location":null},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Press_Trust_of_India", "type":"wiki",
+        "score":1, "label":{"eng":"Press Trust of India"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Lok_Sabha",
+        "type":"wiki", "score":1, "label":{"eng":"Lok Sabha"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bihar",
+        "type":"loc", "score":1, "label":{"eng":"Bihar"}, "location":{"type":"place",
+        "label":{"eng":"Bihar"}, "country":{"type":"country", "label":{"eng":"India"}}}}],
+        "categories":[{"uri":"dmoz\/Science\/Social_Sciences\/Political_Science",
+        "label":"dmoz\/Science\/Social Sciences\/Political Science", "wgt":100}, {"uri":"dmoz\/Society\/History\/Academic_Departments",
+        "label":"dmoz\/Society\/History\/Academic Departments", "wgt":100}, {"uri":"dmoz\/Society\/Disabled\/Education",
+        "label":"dmoz\/Society\/Disabled\/Education", "wgt":100}, {"uri":"news\/Politics",
+        "label":"news\/Politics", "wgt":80}], "image":"https:\/\/img-cdn.publive.online\/fit-in\/1200x675\/newsdrum-in\/media\/agency_attachments\/2025\/01\/29\/2025-01-29t072616888z-nd_logo_white-200-niraj-sharma.jpg",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Guwahati"}, "country":{"type":"country",
+        "label":{"eng":"India"}}}, "sentiment":-0.1686274509803921, "wgt":502531690,
+        "relevance":2}, {"uri":"8985356710", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:08", "dateTime":"2025-12-04T08:08:08Z", "dateTimePub":"2025-12-04T08:00:30Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/dailytrojan.com\/2025\/12\/04\/no-24-mens-basketball-sidesteps-upset-in-big-ten-opener\/",
+        "title":"No. 24 men''s basketball sidesteps upset in Big Ten opener - Daily
+        Trojan", "body":"Senior forward Ezra Ausar didn''t attempt a field goal in
+        the first half but resurrected his game to finish with 13. He is pictured
+        at a Nov. 15 game. (Braden Dawson \/ Daily Trojan)\n\nA camera panning to
+        Eric Musselman with five minutes remaining in Tuesday''s bout with Oregon
+        revealed an unfamiliar sight: the USC head coach, known for his in-game intensity,
+        wiping away tears of joy courtside.\n\nMusselman''s reaction followed an impressive
+        maneuver by senior forward Ezra Ausar, wherein he bounced the ball off Oregon
+        junior forward Kwame Evans to keep the Trojans on offense, just one of USC''s
+        gritty triumphs in an 82-77 win over the Ducks (4-4, 0-1 Big Ten). The No.
+        24 Trojans (8-0, 1-0) were propelled by a mid-game surge to win their first
+        true road game of the season.\n\nDespite offseason concerns about an almost
+        entirely new roster, Musselman''s revamp has proved successful thus far. The
+        Trojans are 8-0 for the first time since 2016, have already captured a Southwest
+        Maui Invitational win and boast the Big Ten''s second-highest producing offense.\n\n\"I''m
+        super impressed with our ability to win close games,\" Musselman said in a
+        postgame news conference. \"We''re having limited bodies, but ... I''m super
+        impressed with guys stepping up when their name is called.\"\n\nSenior guard
+        Chad Baker-Mazara continued his prolific campaign, shooting 50% from the field
+        in a 25-point effort, his fourth outing with more than 20 points this season.
+        Five USC players, Baker-Mazara, sophomore forward Jacob Cofie, Ausar, graduate
+        forward Jaden Brownell and freshman guard Jerry Easter II, managed double
+        digits on the night.\n\nThe first half of Tuesday''s game saw the Ducks dictate
+        the pace. Efforts from Cofie and Baker-Mazara kept the Trojans within reach,
+        but Oregon''s success from beyond the arc -- 43% on the day -- gave them a
+        10-point lead with five minutes remaining in the period.\n\nA 14-2 USC run,
+        which included six consecutive points from Cofie, pulled the Trojans ahead
+        briefly, before Oregon tied it up at 39 just before the half.\n\nCofie stood
+        out on both ends, notching 17 points alongside four rebounds and three steals.
+        Graduate guard Ryan Cornish scored his first points of the year, playing a
+        season-high 15 minutes, and Brownell also impressed, tallying 11 points and
+        three rebounds.\n\nEven without junior guard Rodney Rice, who suffered an
+        upper-arm injury against Seton Hall University (8-1) last week, the Trojans
+        maintained their resolve. His absence was eased by a strong performance from
+        Easter II, who posted a career-high 11 points in his first start of the season.\n\nOregon
+        was similarly subdued by injury. Ducks senior center Nate Bittle was forced
+        to sit out after suffering a twisted ankle against San Diego State University
+        (4-3) last week. Bittle is the Ducks'' primary facilitator, averaging nearly
+        eight rebounds per game this year. The Trojans sized up well against the Ducks
+        without Bittle, securing 35 rebounds against Oregon''s middling 27.\n\nUSC''s
+        upswing before the break carried over into the second half, where the Trojans
+        led for 11 straight minutes.\n\nAusar, who didn''t attempt a field goal in
+        the first half, resurrected early in the second, totaling 13 points and nine
+        rebounds. Despite four missed free throws, his ability to draw contact in
+        the paint at pivotal moments was paramount to USC''s steady handle on its
+        lead.\n\nHis two successful free throws with 10 minutes remaining grew the
+        Trojan lead to six, their biggest advantage to that point. With eight minutes
+        left, Oregon mustered a one-point advantage that was quickly squashed by a
+        3-point jumper from Ausar.\n\nDown the stretch, Oregon tried, nearly successfully,
+        to erase USC''s marginal lead, but Baker-Mazara''s stepback trey with just
+        over a minute remaining extended the Trojans'' edge to six, effectively ending
+        the Ducks'' comeback bid.\n\n\"As the game wore on, we settled into who we
+        really are,\" Musselman said in a postgame news conference. \"We outrebounded
+        Oregon, which was one of our themes going into the game.\"", "source":{"uri":"dailytrojan.com",
+        "dataType":"news", "title":"Daily Trojan", "description":"@USC\u2019s only
+        student-run newspaper since 1912. Follow @dt_covid19 for coronavirus news,
+        @DT_Sports for sports stuff and https:\/\/t.co\/ASxRYJkekS for more media."},
+        "authors":[{"uri":"nicholas_corral@dailytrojan.com", "name":"Nicholas Corral",
+        "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Guard_(gridiron_football)",
+        "type":"wiki", "score":5, "label":{"eng":"Guard (gridiron football)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Isaac_Cofie",
+        "type":"person", "score":5, "label":{"eng":"Isaac Cofie"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/USC_Trojans_men''s_basketball",
+        "type":"wiki", "score":5, "label":{"eng":"USC Trojans men''s basketball"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/USC_Trojans", "type":"wiki", "score":5,
+        "label":{"eng":"USC Trojans"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Oregon",
+        "type":"loc", "score":5, "label":{"eng":"Oregon"}, "location":{"type":"place",
+        "label":{"eng":"Oregon"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Eric_Musselman", "type":"person",
+        "score":4, "label":{"eng":"Eric Musselman"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Big_Ten_Conference",
+        "type":"wiki", "score":4, "label":{"eng":"Big Ten Conference"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Daily_Trojan",
+        "type":"wiki", "score":3, "label":{"eng":"Daily Trojan"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Stephen_Dawson",
+        "type":"person", "score":3, "label":{"eng":"Stephen Dawson"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Field_goal_(basketball)",
+        "type":"wiki", "score":3, "label":{"eng":"Field goal (basketball)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Maui",
+        "type":"loc", "score":3, "label":{"eng":"Maui"}, "location":{"type":"place",
+        "label":{"eng":"Maui"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Rebound_(basketball)",
+        "type":"wiki", "score":3, "label":{"eng":"Rebound (basketball)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Head_coach",
+        "type":"wiki", "score":3, "label":{"eng":"Head coach"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Steal_(basketball)",
+        "type":"wiki", "score":2, "label":{"eng":"Steal (basketball)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Sophomore",
+        "type":"wiki", "score":2, "label":{"eng":"Sophomore"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Freshman",
+        "type":"wiki", "score":2, "label":{"eng":"Freshman"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Rice_Owls_men''s_basketball",
+        "type":"wiki", "score":1, "label":{"eng":"Rice Owls men''s basketball"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Seton_Hall_University", "type":"org",
+        "score":1, "label":{"eng":"Seton Hall University"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Free_throw",
+        "type":"wiki", "score":1, "label":{"eng":"Free throw"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Troy",
+        "type":"loc", "score":1, "label":{"eng":"Troy"}, "location":null}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/San_Diego_State_University",
+        "type":"loc", "score":1, "label":{"eng":"San Diego State University"}, "location":null}],
+        "categories":[{"uri":"dmoz\/Games", "label":"dmoz\/Games", "wgt":100}, {"uri":"dmoz\/Games\/Board_Games\/Historical",
+        "label":"dmoz\/Games\/Board Games\/Historical", "wgt":100}, {"uri":"dmoz\/Games\/Tile_Games",
+        "label":"dmoz\/Games\/Tile Games", "wgt":100}, {"uri":"dmoz\/Games\/Dice\/Farkle",
+        "label":"dmoz\/Games\/Dice\/Farkle", "wgt":100}, {"uri":"news\/Sports", "label":"news\/Sports",
+        "wgt":100}], "image":"https:\/\/dailytrojan.com\/wp-content\/uploads\/2025\/12\/2025_11_15_Mens-Basketball-vs.-Illinois-State-Braden-Dawson-43-1030x687.jpg",
+        "eventUri":null, "location":null, "sentiment":0.388235294117647, "wgt":502531688,
+        "relevance":3}, {"uri":"8985357427", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:08", "dateTime":"2025-12-04T08:08:08Z", "dateTimePub":"2025-12-04T08:00:00Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/en.yna.co.kr\/view\/AEN20251204005451320",
+        "title":"Yonhap News Summary | Yonhap News Agency", "body":"The following
+        is the second summary of major stories moved by Yonhap News Agency on Thursday.\n\n-----------------\n\n\u25a0
+        Coupang faces possibility of record fine over massive data breach\n\nSEOUL
+        -- Coupang Inc. faces the possibility of a record fine by the data protection
+        regulator after the New York-listed e-commerce giant suffered a massive breach
+        of customer information, according to industry sources Thursday.\n\nThe Personal
+        Information Protection Commission (PIPC) has vowed stern action after Coupang
+        said last week that the personal information of 33.7 million customers had
+        been compromised, raising questions about the size of the fine the company
+        could face.\n\nSEOUL -- President Lee Jae Myung is set to meet Japanese internet
+        giant SoftBank Group''s founder and CEO Masayoshi Son later this week to discuss
+        cooperation in artificial intelligence (AI), semiconductors and infrastructure
+        investment, Lee''s office said Thursday.\n\nThe meeting, slated for Friday,
+        comes as Lee has pledged to ramp up support for the AI industry as part of
+        his goal to make South Korea one of the world''s top three AI powerhouses.\n\nhttps:\/\/en.yna.co.kr\/view\/AEN20251204006100315?section=national\/politics\n\n-----------------\n\n\u25a0
+        Watchdog to probe Coupang over complex account deletion procedure\n\nSEOUL
+        -- South Korea''s media watchdog said Thursday it will launch a fact-finding
+        probe into e-commerce giant Coupang Inc. over allegations that the company
+        made its account deletion procedure deliberately complex, following a massive
+        data breach.\n\nThe Korea Media Communications Commission (KMCC) said it will
+        examine whether Coupang''s current account deletion procedure violates the
+        Telecommunications Business Act, which prohibits service providers from restricting
+        users'' rights to cancel or terminate their accounts.\n\n\u25a0 Senior diplomat
+        discusses defense cooperation with NATO Parliamentary Assembly\n\nSEOUL --
+        A senior South Korean diplomat met with delegates from the NATO Parliamentary
+        Assembly in Seoul on Thursday to discuss ways to bolster defense cooperation
+        with the security bloc, the foreign ministry said.\n\nVice Minister for Strategy
+        and Intelligence Jeong Yeon-doo held talks with the visiting delegation on
+        the security environment on the Korean Peninsula and potential areas for deeper
+        cooperation.\n\n\u25a0 Special counsel additionally indicts ex-President Yoon
+        on charges of perjury\n\nSEOUL -- A special counsel team said Thursday it
+        has additionally indicted former President Yoon Suk Yeol on charges of giving
+        false testimony during former Prime Minister Han Duck-soo''s insurrection
+        trial.\n\nYoon, who is already standing trial on insurrection and other charges
+        stemming from his failed imposition of martial law last December, is accused
+        of giving the false impression that the Cabinet meeting he convened before
+        declaring martial law was planned even before Han suggested it.", "source":{"uri":"en.yna.co.kr",
+        "dataType":"news", "title":"Yonhap News Agency", "description":"Yonhap news
+        articles produced by building a network covering domestic supplies in various
+        newspapers, broadcasting and government departments, major institutions, major
+        corporations, media ,K-pop, K-wave, Hallyu, Korean Wave, Korean pop, Korean
+        pop culture, Korean culture, Korean idol, Korean movies, Internet media and
+        international agreements of the Republic of Korea."}, "authors":[{"uri":"kim_seung_yeon@en.yna.co.kr",
+        "name":"Kim Seung-yeon", "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Coupang",
+        "type":"wiki", "score":5, "label":{"eng":"Coupang"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/E-commerce",
+        "type":"wiki", "score":4, "label":{"eng":"E-commerce"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Artificial_intelligence",
+        "type":"wiki", "score":4, "label":{"eng":"Artificial intelligence"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/South_Korea",
+        "type":"loc", "score":4, "label":{"eng":"South Korea"}, "location":{"type":"country",
+        "label":{"eng":"South Korea"}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Yonhap_News_Agency",
+        "type":"wiki", "score":3, "label":{"eng":"Yonhap News Agency"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Internet",
+        "type":"wiki", "score":3, "label":{"eng":"Internet"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Japan",
+        "type":"loc", "score":3, "label":{"eng":"Japan"}, "location":{"type":"country",
+        "label":{"eng":"Japan"}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/SoftBank_Group",
+        "type":"org", "score":2, "label":{"eng":"SoftBank Group"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Masayoshi_Son",
+        "type":"person", "score":2, "label":{"eng":"Masayoshi Son"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/NATO_Parliamentary_Assembly",
+        "type":"wiki", "score":2, "label":{"eng":"NATO Parliamentary Assembly"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Diplomat", "type":"wiki", "score":2,
+        "label":{"eng":"Diplomat"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Semiconductor",
+        "type":"wiki", "score":2, "label":{"eng":"Semiconductor"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Chief_executive_officer",
+        "type":"wiki", "score":2, "label":{"eng":"Chief executive officer"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Yoon_Suk_Yeol",
+        "type":"wiki", "score":1, "label":{"eng":"Yoon Suk Yeol"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ministry_for_Europe_and_Foreign_Affairs_(France)",
+        "type":"wiki", "score":1, "label":{"eng":"Ministry for Europe and Foreign
+        Affairs (France)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Proclamation_No._1081",
+        "type":"wiki", "score":1, "label":{"eng":"Proclamation No. 1081"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Perjury",
+        "type":"wiki", "score":1, "label":{"eng":"Perjury"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Rebellion",
+        "type":"wiki", "score":1, "label":{"eng":"Rebellion"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Vice_(magazine)",
+        "type":"org", "score":1, "label":{"eng":"Vice (magazine)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Martial_law",
+        "type":"wiki", "score":1, "label":{"eng":"Martial law"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Han_Chinese",
+        "type":"wiki", "score":1, "label":{"eng":"Han Chinese"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Cabinet_(government)",
+        "type":"wiki", "score":1, "label":{"eng":"Cabinet (government)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Seoul",
+        "type":"loc", "score":1, "label":{"eng":"Seoul"}, "location":{"type":"place",
+        "label":{"eng":"Seoul"}, "country":{"type":"country", "label":{"eng":"South
+        Korea"}}}}], "categories":[{"uri":"dmoz\/Society\/Issues\/Business", "label":"dmoz\/Society\/Issues\/Business",
+        "wgt":100}, {"uri":"dmoz\/Society\/Crime\/Theft", "label":"dmoz\/Society\/Crime\/Theft",
+        "wgt":100}, {"uri":"dmoz\/Society\/Work\/Whistleblowing", "label":"dmoz\/Society\/Work\/Whistleblowing",
+        "wgt":100}], "image":"https:\/\/img9.yna.co.kr\/etc\/inner\/EN\/2025\/12\/04\/AEN20251204005451320_04_i_P4.jpg",
+        "eventUri":null, "location":null, "sentiment":0.1764705882352942, "wgt":502531688,
+        "relevance":2}, {"uri":"8985357961", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:08", "dateTime":"2025-12-04T08:08:08Z", "dateTimePub":"2025-12-04T08:07:28Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/en.coin-turk.com\/ripple-ceo-predicts-bitcoins-meteoric-rise-by-2026\/",
+        "title":"Ripple CEO Predicts Bitcoin''s Meteoric Rise by 2026", "body":"Solana''s
+        President sees potential for $100,000 Bitcoin, but expects volatility.\n\nSummarize
+        the content using AI\n\nChatGPT\n\nGrok\n\nDuring the Binance Blockchain Week,
+        Ripple $2 CEO Brad Garlinghouse forecasted a remarkable ascent for Bitcoin
+        $92,985 by the end of 2026, expecting it to hit $180,000. Meanwhile, Binance
+        CEO Richard Teng, who was also present, avoided setting a price target, instead
+        focusing on long-term growth. Additionally, Solana $144 Foundation''s President
+        Lily Liu speculated that Bitcoin would trade above $100,000. Currently, the
+        largest cryptocurrency is valued at around $93,000, significantly below its
+        record high of $126,000 from just two months ago.\n\nContentsBrad Garlinghouse''s
+        Bold Price ForecastDiverse Perspectives from Crypto Leaders Brad Garlinghouse''s
+        Bold Price Forecast\n\nAt the Binance Blockchain Week in Dubai, Brad Garlinghouse
+        expressed confidence that Bitcoin would experience a robust upward trend within
+        the next two years. The Ripple CEO attributed this anticipated growth to factors
+        such as global inflationary pressures, rising institutional interest, and
+        the introduction of new ETFs in the market. His prediction of $180,000 reflects
+        his strong belief in the market''s potential.\n\nAccording to Garlinghouse,
+        Bitcoin is poised to become more than a mere investment vehicle by 2026, assuming
+        a more prominent role in the global financial system. He emphasized that as
+        blockchain technology matures, investors'' perspectives on cryptocurrencies
+        are evolving. Consequently, he projected that Bitcoin will feature more prominently
+        on corporate balance sheets, reinforcing its status as digital gold.\n\nDiverse
+        Perspectives from Crypto Leaders\n\nIn the same panel, Binance CEO Richard
+        Teng refrained from sharing any price predictions, underlining his commitment
+        to long-term strategies. Teng stated that the market is still in its early
+        stages, with his primary focus being steady growth and regulatory compliance.
+        He stressed the importance of strengthening technology and user trust over
+        reacting to short-term market fluctuations.\n\nSolana Foundation''s President
+        Lily Liu offered a more cautious outlook. She acknowledged the possibility
+        of Bitcoin surpassing the $100,000 threshold by 2026 but warned of continued
+        high volatility. Liu pointed out that recovery signals in the market and new
+        capital inflows into the ecosystem will be pivotal factors supporting Bitcoin''s
+        mid-term performance.\n\nYou can follow our news on Telegram, Facebook, Twitter
+        & Coinmarketcap Disclaimer: The information contained in this article does
+        not constitute investment advice. Investors should be aware that cryptocurrencies
+        carry high volatility and therefore risk, and should conduct their own research.",
+        "source":{"uri":"en.coin-turk.com", "dataType":"news", "title":"COINTURK NEWS",
+        "description":""}, "authors":[{"uri":"omer_ergin@en.coin-turk.com", "name":"\u00d6mer
+        Ergin", "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Solana_(blockchain_platform)",
+        "type":"wiki", "score":5, "label":{"eng":"Solana (blockchain platform)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Binance", "type":"org", "score":5,
+        "label":{"eng":"Binance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Blockchain",
+        "type":"wiki", "score":5, "label":{"eng":"Blockchain"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Brad_Garlinghouse",
+        "type":"person", "score":5, "label":{"eng":"Brad Garlinghouse"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bitcoin",
+        "type":"wiki", "score":5, "label":{"eng":"Bitcoin"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Chief_executive_officer",
+        "type":"wiki", "score":5, "label":{"eng":"Chief executive officer"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ripple_(payment_protocol)",
+        "type":"wiki", "score":4, "label":{"eng":"Ripple (payment protocol)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/ChatGPT",
+        "type":"wiki", "score":3, "label":{"eng":"ChatGPT"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Cryptocurrency",
+        "type":"wiki", "score":3, "label":{"eng":"Cryptocurrency"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Volatility_(finance)",
+        "type":"wiki", "score":3, "label":{"eng":"Volatility (finance)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Artificial_intelligence",
+        "type":"wiki", "score":3, "label":{"eng":"Artificial intelligence"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Investment_fund",
+        "type":"wiki", "score":2, "label":{"eng":"Investment fund"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Global_financial_system",
+        "type":"wiki", "score":2, "label":{"eng":"Global financial system"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Exchange-traded_fund",
+        "type":"wiki", "score":2, "label":{"eng":"Exchange-traded fund"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Inflation",
+        "type":"wiki", "score":2, "label":{"eng":"Inflation"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Dubai",
+        "type":"loc", "score":2, "label":{"eng":"Dubai"}, "location":{"type":"place",
+        "label":{"eng":"Dubai"}, "country":{"type":"country", "label":{"eng":"United
+        Arab Emirates"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Telegram_(messaging_service)",
+        "type":"wiki", "score":1, "label":{"eng":"Telegram (messaging service)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Facebook", "type":"org", "score":1,
+        "label":{"eng":"Facebook"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Gold",
+        "type":"wiki", "score":1, "label":{"eng":"Gold"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Twitter",
+        "type":"org", "score":1, "label":{"eng":"Twitter"}}], "categories":[{"uri":"dmoz\/Business\/Investing",
+        "label":"dmoz\/Business\/Investing", "wgt":100}, {"uri":"dmoz\/Home\/Personal_Finance",
+        "label":"dmoz\/Home\/Personal Finance", "wgt":100}, {"uri":"dmoz\/Home\/Personal_Finance\/Investing",
+        "label":"dmoz\/Home\/Personal Finance\/Investing", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Guides",
+        "label":"dmoz\/Business\/Investing\/Guides", "wgt":100}, {"uri":"news\/Business",
+        "label":"news\/Business", "wgt":70}], "image":"https:\/\/en.coin-turk.com\/wp-content\/uploads\/2025\/12\/bitcoin-news-1081.jpg",
+        "eventUri":null, "location":null, "sentiment":0.3490196078431373, "wgt":502531688,
+        "relevance":2}], "totalResults":817886, "page":2, "count":5, "pages":163578}}'
+  recorded_at: Thu, 04 Dec 2025 08:09:16 GMT
+recorded_with: VCR 6.3.1

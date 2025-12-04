@@ -1,0 +1,613 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&includeArticleBody=true&includeArticleCategories=true&includeArticleConcepts=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeConceptLabel=true&includeSourceDescription=true&includeSourceTitle=true&keyword=technology&lang=eng&resultType=articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2025 08:07:53 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '193'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Etag:
+      - W/"c1-f3EIE1P6x3saItYOzFuys2oIvWw"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: The apiKey that was provided is not recognized as a valid key for a
+        user. Unable to execute the request. Check the 'https://newsapi.ai/dashboard'
+        to obtain the correct API key for your account.
+  recorded_at: Thu, 04 Dec 2025 08:07:52 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&includeArticleBody=true&includeArticleCategories=true&includeArticleConcepts=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeConceptLabel=true&includeSourceDescription=true&includeSourceTitle=true&keyword=technology&lang=eng&resultType=articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 04 Dec 2025 08:09:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1999'
+      X-Response-Time:
+      - '690'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"af15-yhouRl7ZQGxbAfkTvb0je7ZetxQ"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"8985357961", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-04", "time":"08:08:08", "dateTime":"2025-12-04T08:08:08Z",
+        "dateTimePub":"2025-12-04T08:07:28Z", "dataType":"news", "sim":0, "url":"https:\/\/en.coin-turk.com\/ripple-ceo-predicts-bitcoins-meteoric-rise-by-2026\/",
+        "title":"Ripple CEO Predicts Bitcoin''s Meteoric Rise by 2026", "body":"Solana''s
+        President sees potential for $100,000 Bitcoin, but expects volatility.\n\nSummarize
+        the content using AI\n\nChatGPT\n\nGrok\n\nDuring the Binance Blockchain Week,
+        Ripple $2 CEO Brad Garlinghouse forecasted a remarkable ascent for Bitcoin
+        $92,985 by the end of 2026, expecting it to hit $180,000. Meanwhile, Binance
+        CEO Richard Teng, who was also present, avoided setting a price target, instead
+        focusing on long-term growth. Additionally, Solana $144 Foundation''s President
+        Lily Liu speculated that Bitcoin would trade above $100,000. Currently, the
+        largest cryptocurrency is valued at around $93,000, significantly below its
+        record high of $126,000 from just two months ago.\n\nContentsBrad Garlinghouse''s
+        Bold Price ForecastDiverse Perspectives from Crypto Leaders Brad Garlinghouse''s
+        Bold Price Forecast\n\nAt the Binance Blockchain Week in Dubai, Brad Garlinghouse
+        expressed confidence that Bitcoin would experience a robust upward trend within
+        the next two years. The Ripple CEO attributed this anticipated growth to factors
+        such as global inflationary pressures, rising institutional interest, and
+        the introduction of new ETFs in the market. His prediction of $180,000 reflects
+        his strong belief in the market''s potential.\n\nAccording to Garlinghouse,
+        Bitcoin is poised to become more than a mere investment vehicle by 2026, assuming
+        a more prominent role in the global financial system. He emphasized that as
+        blockchain technology matures, investors'' perspectives on cryptocurrencies
+        are evolving. Consequently, he projected that Bitcoin will feature more prominently
+        on corporate balance sheets, reinforcing its status as digital gold.\n\nDiverse
+        Perspectives from Crypto Leaders\n\nIn the same panel, Binance CEO Richard
+        Teng refrained from sharing any price predictions, underlining his commitment
+        to long-term strategies. Teng stated that the market is still in its early
+        stages, with his primary focus being steady growth and regulatory compliance.
+        He stressed the importance of strengthening technology and user trust over
+        reacting to short-term market fluctuations.\n\nSolana Foundation''s President
+        Lily Liu offered a more cautious outlook. She acknowledged the possibility
+        of Bitcoin surpassing the $100,000 threshold by 2026 but warned of continued
+        high volatility. Liu pointed out that recovery signals in the market and new
+        capital inflows into the ecosystem will be pivotal factors supporting Bitcoin''s
+        mid-term performance.\n\nYou can follow our news on Telegram, Facebook, Twitter
+        & Coinmarketcap Disclaimer: The information contained in this article does
+        not constitute investment advice. Investors should be aware that cryptocurrencies
+        carry high volatility and therefore risk, and should conduct their own research.",
+        "source":{"uri":"en.coin-turk.com", "dataType":"news", "title":"COINTURK NEWS",
+        "description":""}, "authors":[{"uri":"omer_ergin@en.coin-turk.com", "name":"\u00d6mer
+        Ergin", "type":"author", "isAgency":false}], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Solana_(blockchain_platform)",
+        "type":"wiki", "score":5, "label":{"eng":"Solana (blockchain platform)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Binance", "type":"org", "score":5,
+        "label":{"eng":"Binance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Blockchain",
+        "type":"wiki", "score":5, "label":{"eng":"Blockchain"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Brad_Garlinghouse",
+        "type":"person", "score":5, "label":{"eng":"Brad Garlinghouse"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bitcoin",
+        "type":"wiki", "score":5, "label":{"eng":"Bitcoin"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Chief_executive_officer",
+        "type":"wiki", "score":5, "label":{"eng":"Chief executive officer"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Ripple_(payment_protocol)",
+        "type":"wiki", "score":4, "label":{"eng":"Ripple (payment protocol)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/ChatGPT",
+        "type":"wiki", "score":3, "label":{"eng":"ChatGPT"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Cryptocurrency",
+        "type":"wiki", "score":3, "label":{"eng":"Cryptocurrency"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Volatility_(finance)",
+        "type":"wiki", "score":3, "label":{"eng":"Volatility (finance)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Artificial_intelligence",
+        "type":"wiki", "score":3, "label":{"eng":"Artificial intelligence"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Investment_fund",
+        "type":"wiki", "score":2, "label":{"eng":"Investment fund"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Global_financial_system",
+        "type":"wiki", "score":2, "label":{"eng":"Global financial system"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Exchange-traded_fund",
+        "type":"wiki", "score":2, "label":{"eng":"Exchange-traded fund"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Inflation",
+        "type":"wiki", "score":2, "label":{"eng":"Inflation"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Dubai",
+        "type":"loc", "score":2, "label":{"eng":"Dubai"}, "location":{"type":"place",
+        "label":{"eng":"Dubai"}, "country":{"type":"country", "label":{"eng":"United
+        Arab Emirates"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Telegram_(messaging_service)",
+        "type":"wiki", "score":1, "label":{"eng":"Telegram (messaging service)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Facebook", "type":"org", "score":1,
+        "label":{"eng":"Facebook"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Gold",
+        "type":"wiki", "score":1, "label":{"eng":"Gold"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Twitter",
+        "type":"org", "score":1, "label":{"eng":"Twitter"}}], "categories":[{"uri":"dmoz\/Business\/Investing",
+        "label":"dmoz\/Business\/Investing", "wgt":100}, {"uri":"dmoz\/Home\/Personal_Finance",
+        "label":"dmoz\/Home\/Personal Finance", "wgt":100}, {"uri":"dmoz\/Home\/Personal_Finance\/Investing",
+        "label":"dmoz\/Home\/Personal Finance\/Investing", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Guides",
+        "label":"dmoz\/Business\/Investing\/Guides", "wgt":100}, {"uri":"news\/Business",
+        "label":"news\/Business", "wgt":70}], "image":"https:\/\/en.coin-turk.com\/wp-content\/uploads\/2025\/12\/bitcoin-news-1081.jpg",
+        "eventUri":null, "location":null, "sentiment":0.3490196078431373, "wgt":502531688,
+        "relevance":2}, {"uri":"8985357429", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:07", "dateTime":"2025-12-04T08:08:07Z", "dateTimePub":"2025-12-04T08:05:14Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.newindianexpress.com\/business\/2025\/Dec\/04\/it-and-auto-lift-markets-off-lows-as-rupee-slide-keeps-trade-cautious",
+        "title":"IT and auto lift markets off lows as rupee slide keeps trade cautious",
+        "body":"Through the morning, the tone remained hesitant. A record low for
+        the rupee added to the caution, prompting traders to stay defensive in sectors
+        sensitive to currency swings. Despite the weakness, select pockets of buying
+        helped stabilise the market. As of about 1:15 PM the BSE Sensex was hovering
+        near 85,438 points and the NSE Nifty 50 was trading close to 26,084, showing
+        a modest recovery from the morning slump.\n\nIT stocks in particular saw renewed
+        interest, driven by expectations that a weaker rupee could support earnings
+        in the coming quarters. Auto counters also managed to find strength, helping
+        offset declines in energy, metals and banking.\n\nBy midday, the benchmarks
+        recovered part of their early losses as investors stepped in to buy quality
+        stocks at lower levels. The rebound was modest but steady, reflecting a willingness
+        among domestic institutional investors to support the market even as foreign
+        outflows continued. The broader indices, however, lacked clear direction,
+        and mid- and small-cap shares displayed uneven movement, with gains in technology
+        and consumer stocks partly overshadowed by weakness in cyclicals.\n\nIn the
+        second half of the session, markets held on to the recovery but did not gain
+        enough momentum to turn decisively higher. Traders remained wary of global
+        uncertainties, including shifting expectations on interest rates in major
+        economies and the near-term volatility in crude oil prices. Attention also
+        stayed fixed on domestic macro signals, particularly the rupee''s trajectory
+        and the evolving stance of the Reserve Bank of India ahead of upcoming policy
+        updates.\n\nBy late afternoon, the Sensex and Nifty were trading slightly
+        above the day''s lows, supported mainly by technology, auto and select financial
+        names. However, the overall mood stayed guarded. Market participants preferred
+        to wait for clearer cues before taking large positions, and intraday movements
+        reflected a blend of bargain hunting and profit-taking.\n\nThe session ultimately
+        closed with mixed undertones: mild strength in a few heavyweight sectors,
+        persistent pressure from global and currency-related factors, and a broader
+        market that remained hesitant to break out either way. Thursday''s trade illustrated
+        a market that is stabilising after recent volatility but still searching for
+        a firm directional trigger.", "source":{"uri":"newindianexpress.com", "dataType":"news",
+        "title":"The New Indian Express", "description":"Latest India updates online,
+        breaking news, and news from southern states of Tamil Nadu, Karnataka, Kerala,
+        Andhra Pradesh, Telangana and Odisha. Get all the current news, views and
+        updates including trending topics, and latest on sports, business, lifest"},
+        "authors":[], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Rupee",
+        "type":"wiki", "score":5, "label":{"eng":"Rupee"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Stock",
+        "type":"wiki", "score":5, "label":{"eng":"Stock"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/NIFTY_50",
+        "type":"wiki", "score":3, "label":{"eng":"NIFTY 50"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/BSE_SENSEX",
+        "type":"wiki", "score":3, "label":{"eng":"BSE SENSEX"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/National_Stock_Exchange_of_India",
+        "type":"wiki", "score":3, "label":{"eng":"National Stock Exchange of India"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Information_technology", "type":"wiki",
+        "score":3, "label":{"eng":"Information technology"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Currency",
+        "type":"wiki", "score":3, "label":{"eng":"Currency"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Institutional_investor",
+        "type":"wiki", "score":2, "label":{"eng":"Institutional investor"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bank",
+        "type":"wiki", "score":2, "label":{"eng":"Bank"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Metal",
+        "type":"wiki", "score":2, "label":{"eng":"Metal"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Market_capitalization",
+        "type":"wiki", "score":2, "label":{"eng":"Market capitalization"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Price_of_oil",
+        "type":"wiki", "score":1, "label":{"eng":"Price of oil"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Reserve_Bank_of_India",
+        "type":"org", "score":1, "label":{"eng":"Reserve Bank of India"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Volatility_(finance)",
+        "type":"wiki", "score":1, "label":{"eng":"Volatility (finance)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Macroeconomics",
+        "type":"wiki", "score":1, "label":{"eng":"Macroeconomics"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Day_trading",
+        "type":"wiki", "score":1, "label":{"eng":"Day trading"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Hunting",
+        "type":"wiki", "score":1, "label":{"eng":"Hunting"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Interest_rate",
+        "type":"wiki", "score":1, "label":{"eng":"Interest rate"}}], "categories":[{"uri":"dmoz\/Business\/Investing",
+        "label":"dmoz\/Business\/Investing", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Stocks_and_Bonds",
+        "label":"dmoz\/Business\/Investing\/Stocks and Bonds", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Day_Trading",
+        "label":"dmoz\/Business\/Investing\/Day Trading", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Commodities_and_Futures",
+        "label":"dmoz\/Business\/Investing\/Commodities and Futures", "wgt":100},
+        {"uri":"dmoz\/Business\/Investing\/Guides", "label":"dmoz\/Business\/Investing\/Guides",
+        "wgt":100}, {"uri":"news\/Business", "label":"news\/Business", "wgt":100}],
+        "image":"https:\/\/media.newindianexpress.com\/newindianexpress%2F2025-11-14%2F1q9swqdl%2FANI_20251114032034.jpg?w=1200&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100",
+        "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":502531687,
+        "relevance":2}, {"uri":"8985356915", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:04", "dateTime":"2025-12-04T08:08:04Z", "dateTimePub":"2025-12-04T08:01:03Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/dnyuz.com\/2025\/12\/04\/as-hochul-considers-an-a-i-bill-its-sponsor-throws-her-a-fund-raiser\/",
+        "title":"As Hochul Considers an A.I. Bill, Its Sponsor Throws Her a Fund-Raiser",
+        "body":"It was only a few days after announcing his first run for Congress,
+        and Assemblyman Alex Bores was already gathering big money from donors.\n\nAt
+        a Midtown Manhattan restaurant, Mr. Bores was a co-host of a fund-raiser that
+        attracted a room full of software engineers and experts in artificial intelligence,
+        many of whom support an A.I.-related bill passed by the New York State Legislature
+        in June that was sponsored by Mr. Bores.\n\nThe event on Oct. 30 netted nearly
+        $250,000 in political contributions, according to four people familiar with
+        the matter. The money did not go to Mr. Bores -- it went to the re-election
+        campaign of Gov. Kathy Hochul, who has until Dec. 31 to decide whether to
+        sign, modify or veto Mr. Bores''s bill.\n\nIt was unusual for a young second-term
+        assemblyman to host such an event for the governor, and even more atypical
+        that Mr. Bores would have a bill before the governor, according to Blair Horner,
+        the senior policy adviser at the New York Public Interest Research Group.\n\n\"There
+        are no real restrictions on those who want to make donations who have business
+        before the governor,\" Mr. Horner said. \"New York''s system has improved,
+        but it''s still the Wild West in terms of fund-raising.\"\n\nThe campaign
+        windfall to Ms. Hochul signals the importance of the A.I. bill, as lawmakers
+        around the country grapple with what type of guardrails might be needed for
+        a rapidly advancing technology. It also underscores the willingness of stakeholders
+        to spend heavily to influence potential legislation.\n\n\"The tech sector
+        is increasingly the biggest economic growth sector here, so it only stands
+        to reason that you would only see this dynamic at play in politics as well,\"
+        said Julie Samuels, the president of TECH:NYC, an industry association.\n\nIn
+        California, Gov. Gavin Newsom signed a bill in September that forces the most
+        advanced A.I. companies to report safety protocols and the greatest risks
+        their technologies pose.\n\nThese fights in state capitals have taken on an
+        increased importance in the absence of federal standards around the safe development
+        of the most advanced artificial intelligence models. At the same time, the
+        Trump administration and some congressional Republicans have sought to prohibit
+        states from regulating the technology.\n\nThe bill in New York, known as the
+        Responsible Artificial Intelligence Safety and Education (RAISE) Act, would
+        require larger firms developing A.I. models to formulate and publicize safety
+        plans for their most advanced products.\n\nIf it becomes law, the legislation,
+        sponsored in the State Senate by Senator Andrew Gounardes, would force companies
+        to disclose \"major security incidents\" such as when the models steal or
+        engage \"in behavior other than at the request of a user.\"\n\nA.I. companies
+        and their financial backers took sides. Bloomberg Industry reported over the
+        summer that large several venture capital firms were spending about $40,000
+        a month to shape or kill the legislation. Ms. Samuels said her group had concerns
+        about the bill''s current language, and she has conveyed them to Ms. Hochul.\n\nThe
+        hope, Ms. Samuels added, is that changes to the RAISE Act''s transparency
+        provisions can be more closely aligned with the rules recently adopted in
+        California, so there can be a single framework of compliance in two of America''s
+        largest states.\n\nMoney has also flowed to and against Mr. Bores''s nascent
+        campaign to replace Representative Jerrold Nadler, the former House Judiciary
+        chairman who is not seeking re-election. In the first 15 hours following the
+        announcement of his campaign launch, Mr. Bores disclosed raising about $1.2
+        million, nearly twice as much as his closest competitors. It''s unclear where
+        the bulk of the money came from; disclosures for this period won''t be released
+        until next year.\n\nHis foes have taken note. A bipartisan super PAC, funded
+        so far with about $100 million from the founders of Open AI and Andreessen
+        Horowitz, a venture capital firm, among others, has targeted Mr. Bores and
+        said it would spend at least $10 million against him.\n\nThe New York Times
+        reported last week that a group of people who work in and around the A.I.
+        industry and fear what will happen if it is unregulated are hoping to raise
+        at least $50 million to act as a counterweight and back candidates, including
+        Mr. Bores.\n\nMs. Hochul has met with a number of the sector''s leading figures
+        and secured about $340 million in state funds for \"Empire A.I.,\" a public-private
+        partnership aimed at making New York a key player in artificial intelligence
+        research. She has also said there needs to be a balance between innovation
+        and safety when it comes to these new technologies.\n\nHer efforts to place
+        New York at the center of this growing field comes as she gears up for a primary
+        fight against Lt. Gov. Antonio Delgado and a likely general election battle
+        against Representative Elise Stefanik, a pro-Trump Republican. The governor
+        has raised about $4 million for her re-election in the first half of 2025,
+        according to state disclosures, and has about $17.5 million cash on hand.\n\n\"Governor
+        Hochul evaluates all legislation based on the merits and makes determinations
+        solely on what is best for New Yorkers,\" Kara Cumoletti, a spokeswoman for
+        Ms. Hochul, said in a statement.\n\nThe battles over A.I. regulation have
+        also opened a spigot of campaign cash for local politicians like Mr. Bores,
+        34, who joined the State Assembly in 2023 after working for several technology
+        firms including Palantir, which does extensive work for the federal government.\n\nMr.
+        Bores said in an interview that Ms. Hochul has a \"tough re-election coming
+        up\" and he chose to help raise money for her because she is one of the \"most
+        forward-looking governors on A.I. in the country.\"\n\n\"There is a lot of
+        money being spent against any A.I. regulations in general, and it''s being
+        done to overcome tremendous popular support for these provisions,\" Mr. Bores
+        said. \"It''s not surprising that, of the people who support some regulation,
+        some of them might also be interested in supporting candidates willing to
+        stand up against big tech.\"\n\nMr. Bores has cultivated a similar network
+        of donors. Many are part of the effective altruism movement, which is made
+        up of activists who are among other things concerned about the safety of A.I.
+        The ideology rose to prominence largely through the efforts of Sam Bankman-Fried,
+        the founder of the FTX cryptocurrency exchange who was sentenced to 25 years
+        in prison after stealing billions of dollars from customers.\n\nMany of the
+        donors invited to the Hochul fund-raiser were proponents of effective altruism
+        and had expressed concerns about the proliferation of unregulated A.I.\n\n\"This
+        is one of the few cases where the call is coming from inside the building,\"
+        Nate Soares, an A.I. researcher who was a co-author of a New York Times best-selling
+        book about the subject. He was invited to the Hochul fund-raiser and has given
+        to candidates from both parties whose views of A.I. align with his, including
+        $1,000 to Ms. Hochul.\n\n\"A lot of people are donating money to politicians
+        who are opposed by these $200 million PACs. A lot them are people who work
+        in the industry or used to, and think this is really dangerous,\" he added.
+        \"You have a lot of people saying that Big Oil is doing bad stuff, but you
+        don''t usually have people at oil companies saying, ''This stuff is scary.''\"\n\nMr.
+        Bores''s co-host of Ms. Hochul''s fund-raiser was Jack O''Donnell, a longtime
+        lobbyist whose clients include the Secure AI Project, a San Francisco advocacy
+        group run by a proponent of effective altruism who used to work with Mr. Bankman-Fried.
+        The organization supports the RAISE Act and is pushing to pass similar bills
+        around the country.\n\n.\n\nBoth Mr. O''Donnell and Mr. Bores solicited donations
+        as well for the campaign committees controlled by the State Assembly Democrats
+        and State Democrats. Several of the people who had been invited to the Hochul
+        fund-raiser gave a combined $55,000 to these committees in the run-up to the
+        bill''s passage.\n\n\"This is an ecosystem of people who really are engaged
+        in the industry and believe in it but also are frightened by it,\" Mr. O''Donnell
+        said.\n\nTheodore Schleifer contributed reporting.\n\nBenjamin Oreskes is
+        a reporter covering New York State politics and government for The Times.",
+        "source":{"uri":"dnyuz.com", "dataType":"news", "title":"DNyuz", "description":""},
+        "authors":[], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Kathy_Hochul",
+        "type":"person", "score":5, "label":{"eng":"Kathy Hochul"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/New_York_(state)",
+        "type":"loc", "score":5, "label":{"eng":"New York (state)"}, "location":null},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Artificial_intelligence", "type":"wiki",
+        "score":5, "label":{"eng":"Artificial intelligence"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Governor",
+        "type":"wiki", "score":5, "label":{"eng":"Governor"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/California",
+        "type":"loc", "score":4, "label":{"eng":"California"}, "location":{"type":"place",
+        "label":{"eng":"California"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Donald_Trump_2020_presidential_campaign",
+        "type":"wiki", "score":3, "label":{"eng":"Donald Trump 2020 presidential campaign"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/New_York_State_Legislature", "type":"wiki",
+        "score":3, "label":{"eng":"New York State Legislature"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Gavin_Newsom",
+        "type":"person", "score":3, "label":{"eng":"Gavin Newsom"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/California_State_Assembly",
+        "type":"wiki", "score":3, "label":{"eng":"California State Assembly"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Midtown_Manhattan",
+        "type":"loc", "score":3, "label":{"eng":"Midtown Manhattan"}, "location":{"type":"place",
+        "label":{"eng":"Midtown Manhattan"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Venture_capital", "type":"wiki",
+        "score":3, "label":{"eng":"Venture capital"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Veto",
+        "type":"wiki", "score":3, "label":{"eng":"Veto"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/State_school",
+        "type":"wiki", "score":3, "label":{"eng":"State school"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_States_House_of_Representatives",
+        "type":"wiki", "score":3, "label":{"eng":"United States House of Representatives"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_States_Congress", "type":"wiki",
+        "score":3, "label":{"eng":"United States Congress"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Economic_growth",
+        "type":"wiki", "score":3, "label":{"eng":"Economic growth"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Republican_Party_(United_States)",
+        "type":"org", "score":3, "label":{"eng":"Republican Party (United States)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_States_dollar", "type":"wiki",
+        "score":3, "label":{"eng":"United States dollar"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Jerry_Nadler",
+        "type":"person", "score":2, "label":{"eng":"Jerry Nadler"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Andrew_Gounardes",
+        "type":"person", "score":2, "label":{"eng":"Andrew Gounardes"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/OpenAI",
+        "type":"org", "score":2, "label":{"eng":"OpenAI"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_States_House_Committee_on_the_Judiciary",
+        "type":"wiki", "score":2, "label":{"eng":"United States House Committee on
+        the Judiciary"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/California_State_Senate",
+        "type":"wiki", "score":2, "label":{"eng":"California State Senate"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Andreessen_Horowitz",
+        "type":"org", "score":2, "label":{"eng":"Andreessen Horowitz"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Public\u2013private_partnership",
+        "type":"wiki", "score":2, "label":{"eng":"Public\u2013private partnership"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bloomberg_News", "type":"org", "score":2,
+        "label":{"eng":"Bloomberg News"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Political_action_committee",
+        "type":"wiki", "score":2, "label":{"eng":"Political action committee"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Bipartisanship",
+        "type":"wiki", "score":2, "label":{"eng":"Bipartisanship"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_States_Senate",
+        "type":"wiki", "score":2, "label":{"eng":"United States Senate"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/The_New_York_Times",
+        "type":"wiki", "score":2, "label":{"eng":"The New York Times"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Donald_Trump",
+        "type":"person", "score":2, "label":{"eng":"Donald Trump"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/RAISE_Act",
+        "type":"wiki", "score":2, "label":{"eng":"RAISE Act"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Jack_O''Donnell_(rugby_union)",
+        "type":"person", "score":1, "label":{"eng":"Jack O''Donnell (rugby union)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Elise_Stefanik", "type":"person",
+        "score":1, "label":{"eng":"Elise Stefanik"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Palantir_Technologies",
+        "type":"org", "score":1, "label":{"eng":"Palantir Technologies"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/U.S._state",
+        "type":"loc", "score":1, "label":{"eng":"U.S. state"}, "location":null}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Democratic_Party_(United_States)",
+        "type":"org", "score":1, "label":{"eng":"Democratic Party (United States)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Federal_government_of_the_United_States",
+        "type":"org", "score":1, "label":{"eng":"Federal government of the United
+        States"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/San_Francisco", "type":"loc",
+        "score":1, "label":{"eng":"San Francisco"}, "location":{"type":"place", "label":{"eng":"San
+        Francisco"}, "country":{"type":"country", "label":{"eng":"United States"}}}}],
+        "categories":[{"uri":"dmoz\/Society\/Issues", "label":"dmoz\/Society\/Issues",
+        "wgt":100}, {"uri":"dmoz\/Society\/Work", "label":"dmoz\/Society\/Work", "wgt":100},
+        {"uri":"dmoz\/Society\/Issues\/Business", "label":"dmoz\/Society\/Issues\/Business",
+        "wgt":100}, {"uri":"dmoz\/Society\/Activism\/Media", "label":"dmoz\/Society\/Activism\/Media",
+        "wgt":100}, {"uri":"dmoz\/Business\/Opportunities\/Opposing_Views", "label":"dmoz\/Business\/Opportunities\/Opposing
+        Views", "wgt":100}, {"uri":"news\/Politics", "label":"news\/Politics", "wgt":99}],
+        "image":"https:\/\/dnyuz.com\/wp-content\/uploads\/2025\/12\/00met-hochul-ai-01-zpfc-facebookJumbo-1024x536.jpg",
+        "eventUri":null, "location":null, "sentiment":0.05882352941176472, "wgt":502531684,
+        "relevance":3}, {"uri":"8985348921", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:04", "dateTime":"2025-12-04T08:08:04Z", "dateTimePub":"2025-12-03T21:56:00Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.thetimesnews.com\/online_features\/press_releases\/q4-2025-cox-automotive-dealer-sentiment-index-dealer-caution-deepens-as-market-sentiment-falls-ev\/article_11e5ed24-c2b2-530c-8e78-cd997602f93e.html",
+        "title":"Q4 2025 Cox Automotive Dealer Sentiment Index: Dealer Caution Deepens
+        as Market Sentiment Falls; EV Outlook and Profits Weaken While New-Vehicle
+        Inventory Grows", "body":"Dealer sentiment fell sharply in Q4, with both current
+        and future market indices well below the positive threshold, as franchised
+        and independent dealers alike signaled widespread caution.\n\nCustomer traffic
+        and profitability reached new lows, with franchised dealers experiencing the
+        steepest declines and independents also reporting significant pressure from
+        rising costs and weaker demand.\n\nThe outlook for electric vehicles deteriorated
+        further, especially among franchised dealers, as future EV sales and leasing
+        sentiment dropped to new lows following the expiration of key tax credits.\n\nATLANTA,
+        Dec. 3, 2025 \/PRNewswire\/ -- The Q4 Cox Automotive Dealer Sentiment Index
+        (CADSI) reveals a significant decline in dealer confidence as economic and
+        market challenges persist. Market sentiment for both current and future conditions
+        fell below the positive threshold in the fourth quarter, signaling caution
+        as dealers face rising costs, higher prices and economic uncertainty, all
+        contributing to weaker demand.\n\n\"Dealers are signaling caution as 2025
+        ends,\" said Mark Strand, deputy chief economist at Cox Automotive. \"Persistent
+        economic uncertainty and fading consumer confidence are weighing on sentiment.
+        Compared to the rest of the year, the current market feels like it''s running
+        out of gas. As we look ahead at 2026, renewed market momentum is entirely
+        possible, especially if we get material interest-rate relief and a rebound
+        in consumer confidence.\"\n\nKey Findings from Q4 2025 CADSI\n\nMarket Sentiment
+        Drops Sharply: Current market index fell to 38 (from 43 in Q3), and future
+        outlook declined to 42 (from 46), both well below the positive threshold of
+        50. Franchised dealers reported a current market index of 47, notably higher
+        than independents at 35, but both groups saw declines and remain below the
+        positive threshold, reflecting widespread caution.\n\nCustomer Traffic Hits
+        Record Lows: Overall traffic dropped to 31, with in-person traffic at 29 and
+        digital at 40. The decline in customer traffic was especially pronounced for
+        franchised dealers, with in-person and digital traffic both reaching all-time
+        lows, while independent dealers also saw weak but less severe declines.\n\nProfitability
+        Under Pressure: Profit sentiment declined to 36 overall, with franchised dealers
+        at 44 and independents at 33, reflecting margin compression from rising costs
+        and softer demand. The profitability gap between franchised and independent
+        dealers persisted, with independents experiencing a more pronounced impact.\n\nSales
+        Environment Weakens: New-vehicle sales sentiment fell to 49 and used-vehicle
+        sales to 42, both below 50, indicating a challenging retail environment. Franchised
+        dealers saw new-vehicle sales sentiment fall to 49 and used-vehicle sales
+        to 53, while independent dealers reported even lower used-vehicle sales sentiment
+        at 39, highlighting tougher conditions for independents.\n\nInventory Mixed:
+        New-vehicle inventory increased slightly to 59, while overall used inventory
+        remains tight at 43. Franchised dealers view their new-vehicle inventory as
+        growing (59), while independent dealers continued to face tight used inventory
+        (41), limiting their ability to meet demand.\n\nEconomic Sentiment Declines:
+        The economy index dropped to 39 from 43 in Q3, reinforcing concerns about
+        macro headwinds. Both franchised (44) and independent dealers (37) saw economic
+        sentiment decline, but independents expressed greater concern about macroeconomic
+        headwinds.\n\nElectric Vehicle (EV) Outlook Slumps: Overall, dealer sentiment
+        regarding the future of electric vehicle sales and leasing declined sharply
+        in Q4, reflecting growing uncertainty and diminished optimism for the segment.
+        Among franchised dealers, future EV sales sentiment dropped significantly
+        to 24 (from 33 in Q3), and EV leasing sentiment fell to 27 (from 36), highlighting
+        the most pronounced decline and the impact of expiring tax credits. Independent
+        dealers continued to report lower engagement and less optimism in the EV segment,
+        with sentiment remaining subdued and little change from previous quarters.\n\nQ4
+        closes a turbulent year for automotive retail. After a brief tariff-fueled
+        surge in Q2 and a spike in EV sales in Q3, the market has begun to show signs
+        of slowing in Q4. Dealer sentiment has declined as the market slows, but if
+        consumer confidence improves and auto loan rates start to trend lower, momentum
+        and sentiment could recover in the first half of 2026.\n\nCox Automotive Dealer
+        Sentiment Index Methodology\n\nThe Cox Automotive Dealer Sentiment Index (CADSI)
+        is derived from a quarterly survey issued to a representative sample of franchised
+        and independent auto dealers across the United States. The Q4 2025 CADSI is
+        based on responses from 919 dealers, including 492 franchised and 427 independent
+        dealers.\n\nThe survey, conducted from Oct. 22 to Nov. 6, 2025, measures dealer
+        perceptions of current retail auto sales and sales expectations for the next
+        three months as \"strong,\" \"average,\" or \"weak.\" Responses are weighted
+        by dealership type and sales volume to represent the national dealer population.
+        Indices are calculated by assigning values to responses: 100 for strong\/increasing,
+        50 for average\/stable, and 0 for weak\/decreasing. Respondents who select
+        \"don''t know\" are excluded from the index calculation. The reported metrics
+        have a margin of error of +\/- 3.23%.\n\nRead the full commentary and download
+        the results.\n\nAbout Cox Automotive\n\nCox Automotive is the world''s largest
+        automotive services and technology provider. Fueled by the largest breadth
+        of\u202ffirst-party data fed by 2.3 billion online interactions a year, Cox
+        Automotive tailors leading solutions for car shoppers, auto manufacturers,
+        dealers, lenders and fleets. The company has 29,000+ employees on five continents
+        and a portfolio of industry-leading brands that include Autotrader\u00ae,
+        Kelley Blue Book\u00ae, Manheim\u00ae, vAuto\u00ae, Dealertrack\u00ae, NextGear
+        Capital\u2122, CentralDispatch\u00ae and FleetNet America\u00ae. Cox Automotive
+        is a subsidiary of Cox Enterprises Inc., a privately owned, Atlanta-based
+        company with $23\u202fbillion in annual revenue. Visit coxautoinc.com or connect
+        via @CoxAutomotive on X, CoxAutoInc on Facebook or Cox-Automotive-Inc\u202fon
+        LinkedIn.\n\nView original content to download multimedia:https:\/\/www.prnewswire.com\/news-releases\/q4-2025-cox-automotive-dealer-sentiment-index-dealer-caution-deepens-as-market-sentiment-falls-ev-outlook-and-profits-weaken-while-new-vehicle-inventory-grows-302632351.html\n\nSOURCE
+        Cox Automotive", "source":{"uri":"thetimesnews.com", "dataType":"news", "title":"thetimesnews",
+        "description":"This profile is for the Burlington Times-News and http:\/\/t.co\/qnBwmsPQv9,
+        a daily newspaper in Burlington, North Carolina."}, "authors":[], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Independent_politician",
+        "type":"org", "score":5, "label":{"eng":"Independent politician"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Cox_Enterprises",
+        "type":"org", "score":5, "label":{"eng":"Cox Enterprises"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Franchising",
+        "type":"wiki", "score":5, "label":{"eng":"Franchising"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Electric_vehicle",
+        "type":"wiki", "score":5, "label":{"eng":"Electric vehicle"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Consumer_confidence",
+        "type":"wiki", "score":4, "label":{"eng":"Consumer confidence"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Mark_Strand",
+        "type":"person", "score":3, "label":{"eng":"Mark Strand"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Tax_credit",
+        "type":"wiki", "score":3, "label":{"eng":"Tax credit"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/PR_Newswire",
+        "type":"org", "score":3, "label":{"eng":"PR Newswire"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Economist",
+        "type":"wiki", "score":3, "label":{"eng":"Economist"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Atlanta",
+        "type":"loc", "score":3, "label":{"eng":"Atlanta, Georgia"}, "location":{"type":"place",
+        "label":{"eng":"Atlanta, Georgia"}, "country":{"type":"country", "label":{"eng":"United
+        States"}}}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Outlook_(Indian_magazine)",
+        "type":"wiki", "score":2, "label":{"eng":"Outlook (Indian magazine)"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Data_compression",
+        "type":"wiki", "score":2, "label":{"eng":"Data compression"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Audio_mixing_(recorded_music)",
+        "type":"wiki", "score":2, "label":{"eng":"Audio mixing (recorded music)"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Macroeconomics", "type":"wiki", "score":2,
+        "label":{"eng":"Macroeconomics"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Traffic",
+        "type":"wiki", "score":2, "label":{"eng":"Traffic"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Autotrader.com",
+        "type":"wiki", "score":1, "label":{"eng":"Autotrader.com"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Kelley_Blue_Book",
+        "type":"org", "score":1, "label":{"eng":"Kelley Blue Book"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Continent",
+        "type":"wiki", "score":1, "label":{"eng":"Continent"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Subsidiary",
+        "type":"wiki", "score":1, "label":{"eng":"Subsidiary"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Facebook",
+        "type":"org", "score":1, "label":{"eng":"Facebook"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/LinkedIn",
+        "type":"org", "score":1, "label":{"eng":"LinkedIn"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Automotive_industry",
+        "type":"wiki", "score":1, "label":{"eng":"Automotive industry"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/United_States",
+        "type":"loc", "score":1, "label":{"eng":"United States"}, "location":{"type":"country",
+        "label":{"eng":"United States"}}}], "categories":[{"uri":"dmoz\/Business\/Investing",
+        "label":"dmoz\/Business\/Investing", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Stocks_and_Bonds",
+        "label":"dmoz\/Business\/Investing\/Stocks and Bonds", "wgt":100}, {"uri":"dmoz\/Business\/Investing\/Commodities_and_Futures",
+        "label":"dmoz\/Business\/Investing\/Commodities and Futures", "wgt":100},
+        {"uri":"dmoz\/Business\/Automotive\/Marketing_and_Advertising", "label":"dmoz\/Business\/Automotive\/Marketing
+        and Advertising", "wgt":100}, {"uri":"news\/Business", "label":"news\/Business",
+        "wgt":98}], "image":"https:\/\/bloximages.chicago2.vip.townnews.com\/thetimesnews.com\/content\/tncms\/assets\/v3\/editorial\/e\/ff\/effc36ad-28ee-59ef-ad41-59412f9e676d\/66dbf4dc99672.image.jpg?crop=810%2C425%2C100%2C0",
+        "eventUri":null, "location":null, "sentiment":0.2078431372549019, "wgt":502531684,
+        "relevance":1}, {"uri":"8985357494", "lang":"eng", "isDuplicate":false, "date":"2025-12-04",
+        "time":"08:08:04", "dateTime":"2025-12-04T08:08:04Z", "dateTimePub":"2025-12-04T08:07:13Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.dnjobb.no\/jobb\/2731244\/group-controller\/",
+        "title":"Group Controller - Sk\u00f8yen", "body":"Join one of the largest,
+        fastest growing SaaS companies in Europe, and make sure we can continue to
+        make fast, fact-based business decisions!\n\nWhat can the Group Controller
+        role offer you?\n\nAs a Group Controller in Visma, you will be part of Europe''s
+        leading Software-as-a-Service (SaaS) company. This offers a unique insight
+        into how SaaS businesses are managed, what financial and commercial drivers
+        are important. It also gives insights into how a group with 180+ business
+        units across countries in Nordics, Continental Europe and Latin America consolidate
+        financial numbers. We make business decisions based on facts rather than feelings,
+        and as our new Group Controller you will make sure that we always have the
+        correct numbers and necessary facts available.\n\nThe Group Controller position
+        is part of the wider group finance team, overseeing all finance functions
+        in Visma. We provide a variety of social benefits, including a first class
+        cafeteria and coffee bar, good insurance and pension arrangements, a social
+        work environment at the Sk\u00f8yen office just 1 minute away from Sk\u00f8yen
+        train station, and office apartments for rent in Chamonix and Marbella.\n\nWe
+        are looking for someone who wants to work in the finance domain, but with
+        a clear focus\n\non using technology to automate recurring workstreams. You
+        may have experience from\n\naudit and \/ or accounting, but with a proven
+        interest in using technology (AI and basic\n\nprogramming) to automate routine
+        tasks. Or you may be a data analyst who has proven\n\ninterest in the finance
+        domain.\n\nIf this seems interesting, please apply via www.financepeople.no.
+        For questions please contact Ulrik Langab\u00f8, Partner at FinancePeople,
+        on 930 05 357 or email ulrik.langabo@financepeople.no.\n\nAccording to GDPR,
+        you are requested to apply through the system and not directly to the contact
+        person listed in this ad.\n\nAll inquiries will be treated confidentially,
+        and all applications will be reviewed on a rolling basis.", "source":{"uri":"dnjobb.no",
+        "dataType":"news", "title":"DN Jobb", "description":""}, "authors":[], "concepts":[{"uri":"http:\/\/en.wikipedia.org\/wiki\/Software_as_a_service",
+        "type":"wiki", "score":5, "label":{"eng":"Software as a service"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Finance",
+        "type":"wiki", "score":4, "label":{"eng":"Finance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Europe",
+        "type":"loc", "score":3, "label":{"eng":"Europe"}, "location":null}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Sk\u00f8yen",
+        "type":"loc", "score":2, "label":{"eng":"Sk\u00f8yen"}, "location":null},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Continental_Europe", "type":"wiki",
+        "score":2, "label":{"eng":"Continental Europe"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Cafeteria",
+        "type":"wiki", "score":2, "label":{"eng":"Cafeteria"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Coffeehouse",
+        "type":"wiki", "score":2, "label":{"eng":"Coffeehouse"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Social_work",
+        "type":"wiki", "score":2, "label":{"eng":"Social work"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Welfare",
+        "type":"wiki", "score":2, "label":{"eng":"Welfare"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Latin_America",
+        "type":"loc", "score":2, "label":{"eng":"Latin America"}, "location":null},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Nordic_countries", "type":"loc",
+        "score":2, "label":{"eng":"Nordic countries"}, "location":null}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Pension",
+        "type":"wiki", "score":2, "label":{"eng":"Pension"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Insurance",
+        "type":"wiki", "score":2, "label":{"eng":"Insurance"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Accounting",
+        "type":"wiki", "score":1, "label":{"eng":"Accounting"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/General_Data_Protection_Regulation",
+        "type":"wiki", "score":1, "label":{"eng":"General Data Protection Regulation"}},
+        {"uri":"http:\/\/en.wikipedia.org\/wiki\/Data_analysis", "type":"wiki", "score":1,
+        "label":{"eng":"Data analysis"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Artificial_intelligence",
+        "type":"wiki", "score":1, "label":{"eng":"Artificial intelligence"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Audit",
+        "type":"wiki", "score":1, "label":{"eng":"Audit"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Email",
+        "type":"wiki", "score":1, "label":{"eng":"Email"}}, {"uri":"http:\/\/en.wikipedia.org\/wiki\/Marbella",
+        "type":"loc", "score":1, "label":{"eng":"Marbella"}, "location":{"type":"place",
+        "label":{"eng":"Marbella"}, "country":{"type":"country", "label":{"eng":"Spain"}}}}],
+        "categories":[{"uri":"dmoz\/Society\/Work", "label":"dmoz\/Society\/Work",
+        "wgt":100}, {"uri":"dmoz\/Business\/Human_Resources\/Compensation_and_Benefits",
+        "label":"dmoz\/Business\/Human Resources\/Compensation and Benefits", "wgt":100},
+        {"uri":"dmoz\/Society\/Work\/Coworker_Relations", "label":"dmoz\/Society\/Work\/Coworker
+        Relations", "wgt":100}, {"uri":"news\/Business", "label":"news\/Business",
+        "wgt":84}], "image":"https:\/\/www.dnjobb.no\/images\/_display\/job\/2731244\/twitter.png",
+        "eventUri":null, "location":null, "sentiment":0.3019607843137255, "wgt":502531684,
+        "relevance":2}], "totalResults":428778, "page":1, "count":5, "pages":85756}}'
+  recorded_at: Thu, 04 Dec 2025 08:09:14 GMT
+recorded_with: VCR 6.3.1
