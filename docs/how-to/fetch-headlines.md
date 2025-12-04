@@ -1,36 +1,36 @@
-# How to Fetch Headlines
+# How to Fetch Articles
 
 ## Basic Fetch
 
-Fetch top headlines from a country:
+Fetch articles from a country:
 
 ```ruby
-FetchHeadlinesJob.perform_now(country: "us")
+FetchArticlesJob.perform_now(country: "us")
 ```
 
-## Filter by Category
+## Control Article Count
 
-NewsAPI supports these categories: `business`, `entertainment`, `general`, `health`, `science`, `sports`, `technology`.
+Specify how many articles to fetch (max 100):
 
 ```ruby
-FetchHeadlinesJob.perform_now(country: "us", category: "technology")
+FetchArticlesJob.perform_now(country: "us", count: 25)
 ```
 
 ## Available Countries
 
-Use 2-letter ISO codes: `us`, `gb`, `ca`, `au`, `de`, `fr`, etc.
+Supported 2-letter codes: `us`, `gb`, `uk`, `ca`, `au`, `de`, `fr`
 
 ```ruby
-FetchHeadlinesJob.perform_now(country: "gb")
+FetchArticlesJob.perform_now(country: "gb")
 ```
 
-## Fetch Multiple Categories
+## Fetch from Multiple Countries
 
 Run multiple jobs:
 
 ```ruby
-%w[politics technology health business].each do |category|
-  FetchHeadlinesJob.perform_now(country: "us", category: category)
+%w[us gb ca au].each do |country|
+  FetchArticlesJob.perform_now(country: country, count: 25)
 end
 ```
 
@@ -39,7 +39,7 @@ end
 Queue jobs for Sidekiq:
 
 ```ruby
-FetchHeadlinesJob.perform_later(country: "us")
+FetchArticlesJob.perform_later(country: "us")
 ```
 
 Make sure Sidekiq is running:
@@ -50,12 +50,7 @@ bundle exec sidekiq
 
 ## Schedule Regular Fetches
 
-Add to `config/recurring.yml` or use a cron-like scheduler:
-
-```ruby
-# In a scheduled task or cron job
-FetchHeadlinesJob.perform_later(country: "us")
-```
+Articles are fetched hourly via sidekiq-scheduler (see `config/sidekiq.yml`).
 
 ## Check Results
 
@@ -68,6 +63,9 @@ Article.recent.limit(5).pluck(:title)
 
 # Articles from today
 Article.published_after(Time.current.beginning_of_day).count
+
+# Articles with entities (all new articles have them)
+Article.joins(:article_entities).distinct.count
 ```
 
 ## Direct Client Access
@@ -75,9 +73,9 @@ Article.published_after(Time.current.beginning_of_day).count
 For exploration, use the client directly:
 
 ```ruby
-client = NewsApi::Client.new
-result = client.top_headlines(country: "us", category: "science")
-result["articles"].each { |a| puts a["title"] }
+client = NewsApiAi::Client.new
+result = client.top_headlines(country: "us", count: 10)
+result["articles"]["results"].each { |a| puts a["title"] }
 ```
 
 Or use the rake task:
@@ -85,4 +83,13 @@ Or use the rake task:
 ```bash
 bundle exec rake news_api:console
 # Then: client.top_headlines(country: "us")
+```
+
+## Keyword Search
+
+Search for specific topics:
+
+```ruby
+client = NewsApiAi::Client.new
+result = client.get_articles(keyword: "artificial intelligence", count: 20)
 ```

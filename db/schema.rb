@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_03_080814) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_04_082435) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -26,35 +26,28 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_080814) do
     t.index ["prompt_id"], name: "index_article_calm_summaries_on_prompt_id"
   end
 
-  create_table "article_entities", force: :cascade do |t|
+  create_table "article_categories", force: :cascade do |t|
     t.bigint "article_id", null: false
-    t.bigint "entity_id", null: false
+    t.bigint "category_id", null: false
+    t.integer "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id", "entity_id"], name: "index_article_entities_on_article_id_and_entity_id", unique: true
-    t.index ["article_id"], name: "index_article_entities_on_article_id"
-    t.index ["entity_id"], name: "index_article_entities_on_entity_id"
+    t.index ["article_id", "category_id"], name: "index_article_categories_on_article_id_and_category_id", unique: true
+    t.index ["article_id"], name: "index_article_categories_on_article_id"
+    t.index ["category_id"], name: "index_article_categories_on_category_id"
+    t.index ["weight"], name: "index_article_categories_on_weight"
   end
 
-  create_table "article_entity_extraction_entities", force: :cascade do |t|
-    t.bigint "article_entity_extraction_id", null: false
-    t.bigint "entity_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_entity_extraction_id", "entity_id"], name: "idx_extraction_entities_unique", unique: true
-    t.index ["article_entity_extraction_id"], name: "idx_extraction_entities_extraction"
-    t.index ["entity_id"], name: "index_article_entity_extraction_entities_on_entity_id"
-  end
-
-  create_table "article_entity_extractions", force: :cascade do |t|
+  create_table "article_concepts", force: :cascade do |t|
     t.bigint "article_id", null: false
-    t.bigint "prompt_id"
-    t.string "model_used", null: false
-    t.jsonb "raw_response", default: {}
+    t.bigint "concept_id", null: false
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_article_entity_extractions_on_article_id"
-    t.index ["prompt_id"], name: "index_article_entity_extractions_on_prompt_id"
+    t.index ["article_id", "concept_id"], name: "index_article_concepts_on_article_id_and_concept_id", unique: true
+    t.index ["article_id"], name: "index_article_concepts_on_article_id"
+    t.index ["concept_id"], name: "index_article_concepts_on_concept_id"
+    t.index ["score"], name: "index_article_concepts_on_score"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -70,19 +63,37 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_080814) do
     t.jsonb "raw_payload", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "sentiment", precision: 10, scale: 6
+    t.string "language"
+    t.string "event_uri"
+    t.boolean "is_duplicate", default: false
+    t.index ["event_uri"], name: "index_articles_on_event_uri"
+    t.index ["language"], name: "index_articles_on_language"
     t.index ["published_at"], name: "index_articles_on_published_at"
     t.index ["raw_payload"], name: "index_articles_on_raw_payload", using: :gin
+    t.index ["sentiment"], name: "index_articles_on_sentiment"
     t.index ["source_name"], name: "index_articles_on_source_name"
     t.index ["url"], name: "index_articles_on_url", unique: true
   end
 
-  create_table "entities", force: :cascade do |t|
-    t.string "entity_type", null: false
-    t.string "name", null: false
+  create_table "categories", force: :cascade do |t|
+    t.string "uri", null: false
+    t.string "label", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["entity_type", "name"], name: "index_entities_on_entity_type_and_name", unique: true
-    t.index ["entity_type"], name: "index_entities_on_entity_type"
+    t.index ["label"], name: "index_categories_on_label"
+    t.index ["uri"], name: "index_categories_on_uri", unique: true
+  end
+
+  create_table "concepts", force: :cascade do |t|
+    t.string "uri", null: false
+    t.string "concept_type", null: false
+    t.string "label", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["concept_type"], name: "index_concepts_on_concept_type"
+    t.index ["label"], name: "index_concepts_on_label"
+    t.index ["uri"], name: "index_concepts_on_uri", unique: true
   end
 
   create_table "prompts", force: :cascade do |t|
@@ -117,11 +128,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_03_080814) do
 
   add_foreign_key "article_calm_summaries", "articles"
   add_foreign_key "article_calm_summaries", "prompts"
-  add_foreign_key "article_entities", "articles"
-  add_foreign_key "article_entities", "entities"
-  add_foreign_key "article_entity_extraction_entities", "article_entity_extractions"
-  add_foreign_key "article_entity_extraction_entities", "entities"
-  add_foreign_key "article_entity_extractions", "articles"
-  add_foreign_key "article_entity_extractions", "prompts"
+  add_foreign_key "article_categories", "articles"
+  add_foreign_key "article_categories", "categories"
+  add_foreign_key "article_concepts", "articles"
+  add_foreign_key "article_concepts", "concepts"
   add_foreign_key "sessions", "users"
 end

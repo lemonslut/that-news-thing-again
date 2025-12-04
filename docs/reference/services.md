@@ -1,35 +1,37 @@
 # Services Reference
 
-## NewsApi::Client
+## NewsApiAi::Client
 
-HTTP client for the NewsAPI.org API.
+HTTP client for the NewsAPI.ai (Event Registry) API. Provides full article bodies and pre-extracted entities.
 
 ### Location
 
-`app/services/news_api/client.rb`
+`app/services/news_api_ai/client.rb`
 
 ### Constructor
 
 ```ruby
-NewsApi::Client.new(api_key: nil)
+NewsApiAi::Client.new(api_key: nil)
 ```
 
-- `api_key` — Optional. Defaults to `ENV["NEWS_API_KEY"]`
+- `api_key` — Optional. Defaults to credentials `news_api_ai.key`
 
 ### Methods
 
-#### top_headlines
+#### get_articles
 
-Fetch top headlines.
+Fetch articles with search criteria.
 
 ```ruby
-client.top_headlines(
-  country: nil,    # 2-letter ISO code (e.g., "us", "gb")
-  category: nil,   # business, entertainment, general, health, science, sports, technology
-  sources: nil,    # Comma-separated source IDs (cannot combine with country/category)
-  q: nil,          # Search query
-  page_size: nil,  # Results per page (max 100)
-  page: nil        # Page number
+client.get_articles(
+  keyword: nil,           # Keywords to search for
+  lang: "eng",            # Language code
+  date_start: nil,        # Start date
+  date_end: nil,          # End date
+  source_location_uri: nil, # Filter by source country (Wikipedia URI)
+  count: 50,              # Number of articles (max 100)
+  page: 1,                # Page number
+  sort_by: "date"         # Sort order: date, rel, sourceImportance
 )
 ```
 
@@ -37,25 +39,53 @@ Returns parsed JSON response:
 
 ```ruby
 {
-  "status" => "ok",
-  "totalResults" => 35,
-  "articles" => [...]
+  "articles" => {
+    "results" => [...],
+    "totalResults" => 500
+  }
 }
 ```
 
+#### top_headlines
+
+Convenience method for recent news by country.
+
+```ruby
+client.top_headlines(country: "us", count: 50)
+```
+
+Supported country codes: `us`, `gb`, `uk`, `ca`, `au`, `de`, `fr`
+
+### Response Fields
+
+Each article includes:
+
+- `title`, `body`, `url`, `image` — Article content
+- `dateTime`, `dateTimePub` — Timestamps
+- `source` — `{ uri, title, description }`
+- `authors` — Array of `{ name, type }`
+- `concepts` — Pre-extracted entities with types (`person`, `org`, `loc`, `wiki`)
+- `categories` — Article categories (e.g., `news/Business`)
+- `sentiment` — Sentiment score (-1 to 1)
+
 ### Errors
 
-- `NewsApi::Client::Error` — Base error class
-- `NewsApi::Client::ApiError` — General API errors
-- `NewsApi::Client::AuthenticationError` — Invalid API key (401)
-- `NewsApi::Client::RateLimitError` — Rate limit exceeded (429, 426)
+- `NewsApiAi::Client::Error` — Base error class
+- `NewsApiAi::Client::ApiError` — General API errors
+- `NewsApiAi::Client::AuthenticationError` — Invalid API key (401, 403)
+- `NewsApiAi::Client::RateLimitError` — Rate limit exceeded (429)
 
 ### Example
 
 ```ruby
-client = NewsApi::Client.new
-result = client.top_headlines(country: "us", category: "technology")
-result["articles"].each { |a| puts a["title"] }
+client = NewsApiAi::Client.new
+result = client.top_headlines(country: "us", count: 10)
+
+result["articles"]["results"].each do |article|
+  puts article["title"]
+  puts "Sentiment: #{article["sentiment"]}"
+  puts "Entities: #{article["concepts"].map { |c| c.dig("label", "eng") }.join(", ")}"
+end
 ```
 
 ---

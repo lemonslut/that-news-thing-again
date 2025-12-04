@@ -1,10 +1,10 @@
 namespace :news_api do
-  desc "Open a console with a NewsApi::Client instance"
+  desc "Open a console with a NewsApiAi::Client instance"
   task console: :environment do
     require "irb"
 
-    client = NewsApi::Client.new
-    puts "NewsApi::Client loaded as `client`"
+    client = NewsApiAi::Client.new
+    puts "NewsApiAi::Client loaded as `client`"
     puts "Try: client.top_headlines(country: 'us')"
 
     binding.irb

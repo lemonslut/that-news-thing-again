@@ -1,13 +1,13 @@
 # News Digest
 
-A calm news aggregation and analysis pipeline. Fetches headlines, categorizes them with LLM analysis, and generates whispered-style summaries for peaceful news consumption.
+A calm news aggregation and analysis pipeline. Fetches articles with full bodies and pre-extracted entities from NewsAPI.ai, then generates whispered-style summaries for peaceful news consumption.
 
 ## What it does
 
-- **Fetches** headlines from NewsAPI
-- **Analyzes** articles using LLM (via OpenRouter) for categorization, tagging, and entity extraction
+- **Fetches** articles from NewsAPI.ai with full content and pre-extracted entities
+- **Extracts** people, organizations, places, and categories from API response
 - **Generates** calm, simple summaries — no sensationalism, just what happened
-- **Tracks** trends over time via tags and categories
+- **Tracks** trends over time via entities and categories
 
 ## Quick Start
 
@@ -22,13 +22,10 @@ bundle install
 bundle exec rails db:create db:migrate
 
 # Fetch some news
-bundle exec rails runner 'FetchHeadlinesJob.perform_now(country: "us")'
-
-# Analyze articles
-bundle exec rails runner 'Article.unanalyzed.find_each { |a| AnalyzeArticleJob.perform_now(a.id) }'
+bundle exec rails runner 'FetchArticlesJob.perform_now(country: "us")'
 
 # See what you've got
-bundle exec rails runner 'ArticleAnalysis.recent.limit(5).each { |a| puts "[#{a.category}] #{a.calm_summary}" }'
+bundle exec rails runner 'Article.recent.limit(5).each { |a| puts "[#{a.category&.name}] #{a.title}" }'
 ```
 
 ## Requirements
@@ -40,12 +37,14 @@ bundle exec rails runner 'ArticleAnalysis.recent.limit(5).each { |a| puts "[#{a.
 
 ## Configuration
 
-Copy `.env.example` to `.env` and add your API keys:
+API keys are stored in Rails encrypted credentials:
 
+```bash
+# Edit development credentials
+EDITOR="code --wait" bin/rails credentials:edit --environment development
 ```
-NEWS_API_KEY=your_newsapi_key
-OPENROUTER_API_KEY=your_openrouter_key
-```
+
+Required keys: `news_api_ai.key`, `openrouter.api_key`
 
 ## Documentation
 

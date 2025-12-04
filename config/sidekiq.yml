@@ -3,7 +3,7 @@
 
 :scheduler:
   :schedule:
-    fetch_headlines_us:
+    fetch_articles_us:
       cron: "0 * * * *"  # Every hour
-      class: FetchHeadlinesJob
-      description: "Fetch US headlines hourly"
+      class: FetchArticlesJob
+      description: "Fetch US articles hourly"

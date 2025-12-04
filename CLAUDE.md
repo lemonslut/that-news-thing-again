@@ -12,7 +12,7 @@ docker-compose up -d
 bundle exec rspec
 
 # Run a single test file
-bundle exec rspec spec/services/news_api/client_spec.rb
+bundle exec rspec spec/services/news_api_ai/client_spec.rb
 
 # Run a single test by line number
 bundle exec rspec spec/models/article_spec.rb:27
@@ -20,7 +20,7 @@ bundle exec rspec spec/models/article_spec.rb:27
 # Rails console
 bundle exec rails c
 
-# NewsAPI exploration console (client pre-loaded)
+# NewsAPI.ai exploration console (client pre-loaded)
 bundle exec rake news_api:console
 
 # Lint
@@ -32,37 +32,34 @@ overmind start -f Procfile.dev
 
 ## Architecture
 
-News aggregation pipeline with separated LLM analysis concerns:
+News aggregation pipeline with pre-extracted entities from NewsAPI.ai:
 
 ```
-NewsAPI → NewsApi::Client → FetchHeadlinesJob → Article (PostgreSQL)
-                                                    ↓
-                              ┌─────────────────────┴─────────────────────┐
-                              ↓                                           ↓
-               ExtractEntitiesJob                          GenerateCalmSummaryJob
-                              ↓                                           ↓
-               ArticleEntityExtraction                        ArticleCalmSummary
-                              ↓
-                           Entity ←──── ArticleEntity (canonical link)
+NewsAPI.ai → NewsApiAi::Client → FetchArticlesJob → Article (PostgreSQL)
+                                        ↓                    ↓
+                                  Entity extraction    GenerateCalmSummaryJob
+                                  (from API concepts)        ↓
+                                        ↓             ArticleCalmSummary
+                                     Entity ←──── ArticleEntity (canonical link)
 ```
 
 **Separated concerns design:**
-- `Article` — pristine NewsAPI data with JSONB `raw_payload`
+- `Article` — NewsAPI.ai data with JSONB `raw_payload` (includes full body)
 - `Entity` — normalized entities (all lowercase): people, organizations, places, tags, categories, publishers, authors
 - `ArticleEntity` — canonical article↔entity relationship
-- `ArticleEntityExtraction` — audit trail for entity extraction (prompt, model, timestamp)
+- `ArticleEntityExtraction` — audit trail for LLM entity extraction (legacy/reanalysis)
 - `ArticleCalmSummary` — calm summary with prompt/model provenance
 
 **Services in `app/services/`:**
-- `NewsApi::Client` — HTTP wrapper for NewsAPI, uses Faraday
+- `NewsApiAi::Client` — HTTP wrapper for NewsAPI.ai (Event Registry), uses Faraday
 - `Completions::Client` — generic LLM wrapper via OpenRouter (OpenAI-compatible)
 
 **Jobs in `app/jobs/`:**
-- `FetchHeadlinesJob` — Idempotent (upserts by URL), enqueues extraction + summary jobs
-- `ExtractEntitiesJob` — Extracts entities with its own prompt, normalizes names to lowercase
+- `FetchArticlesJob` — Fetches from NewsAPI.ai, extracts entities inline from API concepts
+- `ExtractEntitiesJob` — LLM-based entity extraction (for legacy articles or reanalysis)
 - `GenerateCalmSummaryJob` — Generates calm summaries with its own prompt
 
-**Scheduling:** Jobs are scheduled via sidekiq-scheduler (see `config/sidekiq.yml`). Headlines fetched hourly.
+**Scheduling:** Jobs are scheduled via sidekiq-scheduler (see `config/sidekiq.yml`). Articles fetched hourly.
 
 **Key scopes:**
 - `Article.with_entities` / `Article.without_entities`
@@ -82,13 +79,13 @@ EDITOR="code --wait" bin/rails credentials:edit --environment development
 EDITOR="code --wait" bin/rails credentials:edit --environment production
 ```
 
-Keys: `database.password`, `news_api.key`, `openrouter.api_key`, `sidekiq.web_password`
+Keys: `database.password`, `news_api_ai.key`, `openrouter.api_key`, `sidekiq.web_password`
 
 Database defaults to user `news` at localhost (see `config/database.yml`).
 
 ## Testing
 
-Uses RSpec with WebMock. VCR cassettes in `spec/cassettes/` for NewsAPI. LLM calls are mocked in tests.
+Uses RSpec with WebMock. VCR cassettes in `spec/cassettes/` for NewsAPI.ai. LLM calls are mocked in tests.
 
 ## Deployment
 

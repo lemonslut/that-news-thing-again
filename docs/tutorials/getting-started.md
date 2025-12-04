@@ -1,6 +1,6 @@
 # Getting Started
 
-This tutorial walks you through setting up News Digest and fetching your first analyzed articles.
+This tutorial walks you through setting up News Digest and fetching your first articles.
 
 ## Prerequisites
 
@@ -8,8 +8,8 @@ You'll need:
 
 - Ruby 3.4+ installed
 - Docker and Docker Compose
-- A [NewsAPI](https://newsapi.org/) account (free tier works)
-- An [OpenRouter](https://openrouter.ai/) account
+- A [NewsAPI.ai](https://newsapi.ai/) account
+- An [OpenRouter](https://openrouter.ai/) account (for calm summaries)
 
 ## Step 1: Clone and Install
 
@@ -35,19 +35,22 @@ docker-compose ps
 
 You should see `postgres` and `redis` containers running.
 
-## Step 3: Configure Environment
+## Step 3: Configure Credentials
 
-Copy the example environment file:
+Edit Rails encrypted credentials:
 
 ```bash
-cp .env.example .env
+EDITOR="code --wait" bin/rails credentials:edit --environment development
 ```
 
-Edit `.env` and add your API keys:
+Add your API keys:
 
-```
-NEWS_API_KEY=your_newsapi_key_here
-OPENROUTER_API_KEY=your_openrouter_key_here
+```yaml
+news_api_ai:
+  key: your_newsapi_ai_key_here
+
+openrouter:
+  api_key: your_openrouter_key_here
 ```
 
 ## Step 4: Setup Database
@@ -58,32 +61,33 @@ Create and migrate the database:
 bundle exec rails db:create db:migrate
 ```
 
-## Step 5: Fetch Your First Headlines
+## Step 5: Fetch Your First Articles
 
 Open a Rails console or use the runner:
 
 ```bash
-bundle exec rails runner 'result = FetchHeadlinesJob.perform_now(country: "us"); puts "Fetched #{result[:stored]} articles"'
+bundle exec rails runner 'result = FetchArticlesJob.perform_now(country: "us"); puts "Fetched #{result[:stored]} articles"'
 ```
 
 You should see something like:
 
 ```
-Fetched 20 articles
+Fetched 50 articles
 ```
 
-## Step 6: Analyze Articles
+Articles are automatically enriched with entities from the API response (people, organizations, places, categories).
 
-Now run the entity extraction and summary generation on the articles you fetched:
+## Step 6: Generate Calm Summaries
+
+The fetch job automatically queues summary generation. If you want to process them synchronously:
 
 ```bash
 bundle exec rails runner '
-Article.without_entities.find_each do |article|
+Article.without_summary.find_each do |article|
   print "."
-  ExtractEntitiesJob.perform_now(article.id)
   GenerateCalmSummaryJob.perform_now(article.id)
 end
-puts "\nDone! Processed #{Article.with_entities.count} articles."
+puts "\nDone!"
 '
 ```
 
@@ -93,9 +97,9 @@ See your calm news summaries:
 
 ```bash
 bundle exec rails runner '
-Article.with_entities.recent.limit(10).each do |article|
+Article.with_summary.recent.limit(10).each do |article|
   puts "[#{article.category&.name}] #{article.calm_summary&.summary}"
-  puts "  tags: #{article.tags.pluck(:name).join(", ")}"
+  puts "  people: #{article.people.pluck(:name).join(", ")}"
   puts
 end
 '
@@ -104,11 +108,11 @@ end
 Example output:
 
 ```
-[world] A fire in Hong Kong has killed at least 44 people, with rescue efforts ongoing.
-  tags: fire, hong-kong, casualties
+[business] Ripple CEO predicts Bitcoin will reach $180,000 by 2026, citing institutional interest.
+  people: brad garlinghouse, richard teng, lily liu
 
-[politics] Congress debates new election legislation.
-  tags: election, senate, voting
+[world] Markets recover as IT and auto sectors show strength despite currency concerns.
+  people:
 ```
 
 ## Step 8: Check Entities
@@ -144,8 +148,8 @@ Visit http://localhost:3000 to see your calm news digest.
 
 ## Next Steps
 
-- Read [How to Fetch Headlines](../how-to/fetch-headlines.md) for filtering options
-- Read [How to Analyze Articles](../how-to/analyze-articles.md) for model options
+- Read [How to Fetch Articles](../how-to/fetch-headlines.md) for country and count options
+- Read [How to Analyze Articles](../how-to/analyze-articles.md) for re-analysis with different models
 - Read [How to Query Trends](../how-to/query-trends.md) for entity analysis
 - See [Architecture](../explanation/architecture.md) to understand how it all fits together
 

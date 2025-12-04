@@ -1,12 +1,12 @@
 # Jobs Reference
 
-## FetchHeadlinesJob
+## FetchArticlesJob
 
-Fetches headlines from NewsAPI and stores them. Enqueues entity extraction and summary generation for each article.
+Fetches articles from NewsAPI.ai, stores them, extracts entities from the API response, and enqueues summary generation.
 
 ### Location
 
-`app/jobs/fetch_headlines_job.rb`
+`app/jobs/fetch_articles_job.rb`
 
 ### Queue
 
@@ -15,12 +15,12 @@ Fetches headlines from NewsAPI and stores them. Enqueues entity extraction and s
 ### Arguments
 
 ```ruby
-FetchHeadlinesJob.perform_now(country: "us", category: nil)
-FetchHeadlinesJob.perform_later(country: "us", category: nil)
+FetchArticlesJob.perform_now(country: "us", count: 50)
+FetchArticlesJob.perform_later(country: "us", count: 50)
 ```
 
-- `country` — 2-letter ISO code (default: "us")
-- `category` — Optional category filter
+- `country` — 2-letter ISO code (default: "us"). Supported: us, gb, uk, ca, au, de, fr
+- `count` — Number of articles to fetch (default: 50, max: 100)
 
 ### Returns
 
@@ -34,28 +34,38 @@ FetchHeadlinesJob.perform_later(country: "us", category: nil)
 
 ### Behavior
 
-1. Calls `NewsApi::Client#top_headlines`
+1. Calls `NewsApiAi::Client#top_headlines`
 2. Iterates articles, skipping those with blank title/URL
-3. Uses `Article.upsert_from_news_api` to create or update
-4. Enqueues `ExtractEntitiesJob` and `GenerateCalmSummaryJob` for each article
-5. Logs results
+3. Uses `Article.upsert_from_news_api_ai` to create or update
+4. Extracts entities directly from API concepts (no LLM call)
+5. Enqueues `GenerateCalmSummaryJob` for each article
+6. Logs results
+
+### Entity Extraction
+
+Entities are extracted inline from the API response:
+
+- **Concepts** with type `person`, `org`, `loc` become person/organization/place entities
+- **Categories** are extracted (e.g., `news/Business` → `business`)
+- **Publisher** from article source
+- **Author** from article authors
 
 ### Example
 
 ```ruby
 # Synchronous
-result = FetchHeadlinesJob.perform_now(country: "us")
+result = FetchArticlesJob.perform_now(country: "us")
 puts "Stored #{result[:stored]} articles"
 
 # Asynchronous (requires Sidekiq)
-FetchHeadlinesJob.perform_later(country: "gb", category: "technology")
+FetchArticlesJob.perform_later(country: "gb", count: 25)
 ```
 
 ---
 
 ## ExtractEntitiesJob
 
-Extracts entities from an article using LLM.
+Extracts entities from an article using LLM. Used for re-analyzing articles or processing legacy articles without pre-extracted entities.
 
 ### Location
 
@@ -102,16 +112,11 @@ ExtractEntitiesJob.perform_later(article_id, model: nil, prompt: nil)
 ### Example
 
 ```ruby
-# Synchronous
+# Re-analyze an article
 ExtractEntitiesJob.perform_now(article.id)
 
 # With custom model
 ExtractEntitiesJob.perform_now(article.id, model: "openai/gpt-4o")
-
-# Process all unextracted articles
-Article.without_entities.find_each do |article|
-  ExtractEntitiesJob.perform_later(article.id)
-end
 ```
 
 ---
