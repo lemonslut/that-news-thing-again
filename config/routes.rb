@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :articles, only: [ :index, :show ] do
     post :reanalyze, on: :member
   end
-  resources :entities, only: [ :index, :show ]
+  resources :concepts, only: [ :index, :show ]
+  resources :categories, only: [ :index, :show ]
   root "articles#index"
 end

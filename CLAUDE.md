@@ -26,9 +26,29 @@ bundle exec rake news_api:console
 # Lint
 bundle exec rubocop
 
-# Start web + worker
+# Start web + worker + CSS watcher
 overmind start -f Procfile.dev
+
+# Build CSS manually (one-time)
+yarn build:css
+
+# Install frontend dependencies
+yarn install
 ```
+
+## Frontend
+
+Uses Tailwind CSS v3 with [Sira UI](https://sira.riazer.com/) component library.
+
+**Key files:**
+- `tailwind.config.js` — Tailwind + Sira plugin config
+- `app/assets/stylesheets/application.tailwind.css` — CSS entry point
+- `app/assets/builds/application.css` — compiled output (gitignored)
+- `package.json` — Node dependencies
+
+**Development:** `overmind start -f Procfile.dev` runs the CSS watcher alongside web/worker.
+
+**Production:** Docker build runs `yarn install` + `rails assets:precompile` which triggers `yarn build:css`.
 
 ## Architecture
 

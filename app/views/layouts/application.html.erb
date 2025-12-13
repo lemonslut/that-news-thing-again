@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-theme="dark">
   <head>
-    <title><%= content_for(:title) || "The News Thing Again" %></title>
+    <title><%= content_for(:title) || "News Digest" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -10,19 +10,28 @@
 
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <%= javascript_importmap_tags %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-base-100 text-base-content min-h-screen">
+    <% if authenticated? %>
+      <header class="border-b border-base-300 bg-base-200/50">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+          <span class="text-sm text-base-content/60"><%= Current.session&.user&.email_address %></span>
+          <%= button_to "Sign out", session_path, method: :delete, class: "btn outline bw xs" %>
+        </div>
+      </header>
+    <% end %>
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <%= yield %>
+    </div>
   </body>
 </html>
