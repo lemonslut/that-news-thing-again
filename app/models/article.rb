@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  belongs_to :story, optional: true, counter_cache: true
+
   has_many :calm_summaries, class_name: "ArticleCalmSummary", dependent: :destroy
 
   has_many :article_concepts, dependent: :destroy

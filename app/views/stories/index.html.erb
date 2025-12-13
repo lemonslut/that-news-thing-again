@@ -1,0 +1,48 @@
+<header class="mb-8">
+  <h1 class="text-3xl font-bold">Stories</h1>
+  <p class="text-base-content/60 mt-1">Multi-source news coverage grouped by topic</p>
+</header>
+
+<nav class="flex items-center gap-4 mb-6">
+  <%= link_to "All", stories_path, class: "btn #{params[:active].blank? ? 'solid info' : 'outline info'} sm" %>
+  <%= link_to "Active (7d)", stories_path(active: 1), class: "btn #{params[:active] == '1' ? 'solid info' : 'outline info'} sm" %>
+</nav>
+
+<main class="space-y-6">
+  <% @stories.each do |story| %>
+    <article class="border-b border-base-300 pb-6">
+      <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
+        <span class="badge solid info xs"><%= story.articles_count %> sources</span>
+        <% if story.first_published_at && story.last_published_at %>
+          <span>&middot;</span>
+          <time datetime="<%= story.first_published_at.iso8601 %>"><%= story.first_published_at.strftime("%b %-d") %></time>
+          <% if story.first_published_at.to_date != story.last_published_at.to_date %>
+            <span>-</span>
+            <time datetime="<%= story.last_published_at.iso8601 %>"><%= story.last_published_at.strftime("%b %-d") %></time>
+          <% end %>
+        <% end %>
+        <% if story.event_uri %>
+          <span>&middot;</span>
+          <span class="badge outline bw xs">event</span>
+        <% end %>
+      </div>
+      <h2 class="text-xl font-semibold mb-2">
+        <%= link_to story.title.truncate(100), story_path(story), class: "hover:text-primary transition-colors" %>
+      </h2>
+      <div class="text-sm text-base-content/60">
+        <%= story.sources.first(3).join(", ") %><%= ", ..." if story.sources.size > 3 %>
+      </div>
+    </article>
+  <% end %>
+</main>
+
+<% if @stories.empty? %>
+  <div class="text-center py-12 text-base-content/50">
+    <p>No multi-source stories yet.</p>
+    <p class="text-sm mt-2">Run <code class="bg-base-200 px-2 py-1 rounded">ClusterStoriesJob.perform_now</code> to cluster articles.</p>
+  </div>
+<% end %>
+
+<nav class="flex items-center justify-center gap-2 mt-8">
+  <%= paginate @stories %>
+</nav>

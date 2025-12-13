@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_04_082435) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_13_114402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -67,12 +67,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_04_082435) do
     t.string "language"
     t.string "event_uri"
     t.boolean "is_duplicate", default: false
+    t.bigint "story_id"
     t.index ["event_uri"], name: "index_articles_on_event_uri"
     t.index ["language"], name: "index_articles_on_language"
     t.index ["published_at"], name: "index_articles_on_published_at"
     t.index ["raw_payload"], name: "index_articles_on_raw_payload", using: :gin
     t.index ["sentiment"], name: "index_articles_on_sentiment"
     t.index ["source_name"], name: "index_articles_on_source_name"
+    t.index ["story_id"], name: "index_articles_on_story_id"
     t.index ["url"], name: "index_articles_on_url", unique: true
   end
 
@@ -116,6 +118,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_04_082435) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.string "event_uri"
+    t.datetime "first_published_at"
+    t.datetime "last_published_at"
+    t.integer "articles_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_uri"], name: "index_stories_on_event_uri", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email_address", null: false
     t.string "password_digest", null: false
@@ -132,5 +145,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_04_082435) do
   add_foreign_key "article_categories", "categories"
   add_foreign_key "article_concepts", "articles"
   add_foreign_key "article_concepts", "concepts"
+  add_foreign_key "articles", "stories"
   add_foreign_key "sessions", "users"
 end
