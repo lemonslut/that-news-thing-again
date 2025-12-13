@@ -1,35 +1,66 @@
-<div class="container">
-  <header>
-    <h1>News Digest</h1>
-    <p class="subtitle">Calm news, no noise</p>
-    <nav class="main-nav">
-      <%= link_to "Articles", articles_path, class: "nav-link" %>
-      <%= link_to "Entities", entities_path, class: "nav-link" %>
-    </nav>
-  </header>
-
-  <nav class="categories">
-    <%= link_to "All", articles_path, class: params[:category].blank? ? "active" : nil %>
-    <% Entity.categories.distinct.pluck(:name).sort.each do |cat| %>
-      <%= link_to cat.titleize, articles_path(category: cat), class: params[:category] == cat ? "active" : nil %>
-    <% end %>
+<header class="mb-8">
+  <h1 class="text-3xl font-bold">News Digest</h1>
+  <p class="text-base-content/60 mt-1">Calm news, no noise</p>
+  <nav class="flex gap-4 mt-4">
+    <%= link_to "Articles", articles_path, class: "btn solid info sm" %>
+    <%= link_to "Concepts", concepts_path, class: "btn outline info sm" %>
+    <%= link_to "Categories", categories_path, class: "btn outline info sm" %>
   </nav>
+</header>
 
-  <main class="articles">
-    <% @articles.each do |article| %>
-      <article>
-        <% if article.category %>
-          <span class="category <%= article.category.name %>"><%= article.category.name %></span>
-        <% end %>
-        <h2><%= link_to article.title, article_path(article) %></h2>
-        <% if article.calm_summary %>
-          <p class="summary"><%= article.calm_summary.summary %></p>
-        <% end %>
-        <footer>
-          <span class="source"><%= article.source_name %></span>
-          <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d, %Y") %></time>
-        </footer>
-      </article>
+<%= form_with url: articles_path, method: :get, class: "mb-6", data: { turbo_frame: "_top" } do |f| %>
+  <div class="flex gap-2">
+    <%= f.search_field :q, value: params[:q], placeholder: "Search articles...", class: "input solid flex-1" %>
+    <%= f.submit "Search", class: "btn solid info" %>
+    <% if params[:q].present? || params[:category].present? %>
+      <%= link_to "Clear", articles_path, class: "btn outline bw" %>
     <% end %>
-  </main>
+  </div>
+<% end %>
+
+<nav class="tabs pill mb-6 flex-wrap">
+  <%= link_to "All", articles_path(q: params[:q]), class: "tab #{params[:category].blank? ? 'active' : ''}" %>
+  <% Category.news.left_joins(:articles).group(:id).order("COUNT(articles.id) DESC").limit(8).each do |cat| %>
+    <%= link_to cat.short_name, articles_path(category: cat.uri, q: params[:q]), class: "tab #{params[:category] == cat.uri ? 'active' : ''}" %>
+  <% end %>
+</nav>
+
+<div class="flex items-center justify-between mb-6 text-sm text-base-content/60">
+  <span><%= @articles.total_count %> articles</span>
+  <span>Page <%= @articles.current_page %> of <%= @articles.total_pages %></span>
 </div>
+
+<main class="space-y-6">
+  <% @articles.each do |article| %>
+    <article class="border-b border-base-300 pb-6">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <% if article.primary_category %>
+          <span class="badge solid <%= category_color(article.primary_category) %> sm"><%= article.primary_category.short_name %></span>
+        <% end %>
+        <% article.concepts.limit(3).each do |concept| %>
+          <span class="badge outline <%= concept_type_color(concept.concept_type) %> xs"><%= concept.label.truncate(20) %></span>
+        <% end %>
+        <% if article.sentiment %>
+          <span class="badge light <%= article.sentiment > 0.2 ? 'success' : article.sentiment < -0.2 ? 'danger' : 'warn' %> xs">
+            <%= sentiment_indicator(article.sentiment) %> <%= number_with_precision(article.sentiment, precision: 2) %>
+          </span>
+        <% end %>
+      </div>
+      <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
+        <span><%= article.source_name %></span>
+        <span>&middot;</span>
+        <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d") %></time>
+      </div>
+      <h2 class="text-xl font-semibold mb-2">
+        <%= link_to article.title, article_path(article), class: "hover:text-primary transition-colors" %>
+      </h2>
+      <% if article.calm_summaries.any? %>
+        <p class="text-base-content/70"><%= article.calm_summaries.last.summary %></p>
+      <% end %>
+    </article>
+  <% end %>
+</main>
+
+<nav class="flex items-center justify-center gap-2 mt-8">
+  <%= paginate @articles, params: { q: params[:q], category: params[:category] } %>
+</nav>

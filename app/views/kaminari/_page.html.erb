@@ -1,0 +1,5 @@
+<% if page.current? %>
+  <span class="btn solid info sm"><%= page %></span>
+<% else %>
+  <%= link_to page, url, class: "btn outline info sm", remote: remote, rel: page.rel %>
+<% end %>

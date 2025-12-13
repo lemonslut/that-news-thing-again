@@ -1,0 +1,40 @@
+<header class="mb-8">
+  <h1 class="text-3xl font-bold">Concepts</h1>
+  <p class="text-base-content/60 mt-1">People, organizations, locations, and topics in the news</p>
+  <nav class="flex gap-4 mt-4">
+    <%= link_to "Articles", articles_path, class: "btn outline info sm" %>
+    <%= link_to "Concepts", concepts_path, class: "btn solid info sm" %>
+    <%= link_to "Categories", categories_path, class: "btn outline info sm" %>
+  </nav>
+</header>
+
+<nav class="flex gap-2 mb-8 flex-wrap">
+  <%= link_to "All", concepts_path, class: "btn #{params[:type].blank? ? 'solid' : 'outline'} bw sm" %>
+  <%= link_to "People", concepts_path(type: "person"), class: "btn #{params[:type] == 'person' ? 'solid' : 'outline'} info sm" %>
+  <%= link_to "Organizations", concepts_path(type: "org"), class: "btn #{params[:type] == 'org' ? 'solid' : 'outline'} warn sm" %>
+  <%= link_to "Locations", concepts_path(type: "loc"), class: "btn #{params[:type] == 'loc' ? 'solid' : 'outline'} success sm" %>
+  <%= link_to "Topics", concepts_path(type: "wiki"), class: "btn #{params[:type] == 'wiki' ? 'solid' : 'outline'} bw sm" %>
+</nav>
+
+<div class="flex items-center justify-between mb-6 text-sm text-base-content/60">
+  <span><%= @concepts.total_count %> concepts</span>
+  <span>Page <%= @concepts.current_page %> of <%= @concepts.total_pages %></span>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <% @concepts.each do |concept| %>
+    <div class="border border-base-300 rounded-lg p-4 hover:border-primary transition-colors">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="badge solid <%= concept_type_color(concept.concept_type) %> sm mb-2"><%= concept.concept_type %></span>
+          <%= link_to concept.label, concept_path(concept), class: "block text-lg font-medium hover:text-primary" %>
+        </div>
+        <span class="badge light bw"><%= concept.articles_count %> articles</span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<nav class="flex items-center justify-center gap-2 mt-8">
+  <%= paginate @concepts, params: { type: params[:type] } %>
+</nav>

@@ -1,0 +1,41 @@
+<nav class="mb-6">
+  <%= link_to "← Categories", categories_path, class: "btn outline info sm" %>
+</nav>
+
+<header class="mb-8">
+  <span class="badge solid <%= category_color(@category) %> mb-2"><%= @category.short_name %></span>
+  <h1 class="text-3xl font-bold"><%= @category.label %></h1>
+  <p class="text-base-content/60 mt-1"><%= @articles.total_count %> article<%= @articles.total_count == 1 ? '' : 's' %></p>
+</header>
+
+<main class="space-y-6">
+  <% @articles.each do |article| %>
+    <article class="border-b border-base-300 pb-6">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <% article.concepts.limit(3).each do |concept| %>
+          <span class="badge outline <%= concept_type_color(concept.concept_type) %> xs"><%= concept.label.truncate(20) %></span>
+        <% end %>
+        <% if article.sentiment %>
+          <span class="badge light <%= article.sentiment > 0.2 ? 'success' : article.sentiment < -0.2 ? 'danger' : 'warn' %> xs">
+            <%= sentiment_indicator(article.sentiment) %> <%= number_with_precision(article.sentiment, precision: 2) %>
+          </span>
+        <% end %>
+      </div>
+      <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
+        <span><%= article.source_name %></span>
+        <span>&middot;</span>
+        <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d") %></time>
+      </div>
+      <h2 class="text-xl font-semibold mb-2">
+        <%= link_to article.title, article_path(article), class: "hover:text-primary transition-colors" %>
+      </h2>
+      <% if article.calm_summaries.any? %>
+        <p class="text-base-content/70"><%= article.calm_summaries.last.summary %></p>
+      <% end %>
+    </article>
+  <% end %>
+</main>
+
+<nav class="flex items-center justify-center gap-2 mt-8">
+  <%= paginate @articles %>
+</nav>

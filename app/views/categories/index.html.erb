@@ -1,0 +1,38 @@
+<header class="mb-8">
+  <h1 class="text-3xl font-bold">Categories</h1>
+  <p class="text-base-content/60 mt-1">News topics and classifications</p>
+  <nav class="flex gap-4 mt-4">
+    <%= link_to "Articles", articles_path, class: "btn outline info sm" %>
+    <%= link_to "Concepts", concepts_path, class: "btn outline info sm" %>
+    <%= link_to "Categories", categories_path, class: "btn solid info sm" %>
+  </nav>
+</header>
+
+<nav class="flex gap-2 mb-8 flex-wrap">
+  <%= link_to "All", categories_path, class: "btn #{params[:taxonomy].blank? ? 'solid' : 'outline'} bw sm" %>
+  <%= link_to "News", categories_path(taxonomy: "news"), class: "btn #{params[:taxonomy] == 'news' ? 'solid' : 'outline'} success sm" %>
+  <%= link_to "DMOZ", categories_path(taxonomy: "dmoz"), class: "btn #{params[:taxonomy] == 'dmoz' ? 'solid' : 'outline'} warn sm" %>
+</nav>
+
+<div class="flex items-center justify-between mb-6 text-sm text-base-content/60">
+  <span><%= @categories.total_count %> categories</span>
+  <span>Page <%= @categories.current_page %> of <%= @categories.total_pages %></span>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <% @categories.each do |category| %>
+    <div class="border border-base-300 rounded-lg p-4 hover:border-primary transition-colors">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="badge solid <%= category_color(category) %> sm mb-2"><%= category.short_name %></span>
+          <%= link_to category.label, category_path(category), class: "block text-sm text-base-content/60 hover:text-primary" %>
+        </div>
+        <span class="badge light bw"><%= category.articles_count %> articles</span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<nav class="flex items-center justify-center gap-2 mt-8">
+  <%= paginate @categories, params: { taxonomy: params[:taxonomy] } %>
+</nav>

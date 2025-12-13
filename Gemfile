@@ -4,6 +4,8 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
+# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
+gem "cssbundling-rails"
 # Use PostgreSQL as the database for Active Record
 gem "pg"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -29,6 +31,9 @@ gem "sidekiq-scheduler"
 
 # HTTP client
 gem "faraday"
+
+# Pagination
+gem "kaminari"
 
 # LLM completions (OpenAI-compatible, used with OpenRouter)
 gem "ruby-openai"

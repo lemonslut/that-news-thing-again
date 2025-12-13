@@ -1,9 +1,14 @@
 class ArticlesController < ApplicationController
+  allow_unauthenticated_access only: %i[index show] if Rails.env.development?
+
   def index
-    @articles = Article.recent.includes(:concepts, :categories, :calm_summaries)
-    @articles = @articles.in_category(params[:category]) if params[:category].present?
-    @articles = @articles.with_concept_type(params[:concept_type]) if params[:concept_type].present?
-    @articles = @articles.in_language(params[:language]) if params[:language].present?
+    articles = Article.recent.includes(:concepts, :categories, :calm_summaries)
+    articles = articles.in_category(params[:category]) if params[:category].present?
+    articles = articles.with_concept_type(params[:concept_type]) if params[:concept_type].present?
+    articles = articles.in_language(params[:language]) if params[:language].present?
+    articles = articles.where("title ILIKE ?", "%#{params[:q]}%") if params[:q].present?
+
+    @articles = articles.page(params[:page]).per(25)
   end
 
   def show
