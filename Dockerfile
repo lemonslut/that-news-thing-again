@@ -43,8 +43,8 @@ RUN bundle install && \
 # Copy application code
 COPY . .
 
-# Install Node dependencies for CSS build
-RUN yarn install
+# Install Node dependencies and build CSS
+RUN yarn install && yarn build:css
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
