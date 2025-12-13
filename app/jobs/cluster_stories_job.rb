@@ -2,7 +2,7 @@ class ClusterStoriesJob < ApplicationJob
   queue_as :default
 
   LOCK_KEY = "cluster_stories_job_running"
-  LOCK_TTL = 4.hours
+  LOCK_TTL = 24.hours
 
   def perform
     unless acquire_lock
