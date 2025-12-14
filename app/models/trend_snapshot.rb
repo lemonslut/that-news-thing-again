@@ -31,14 +31,6 @@ class TrendSnapshot < ApplicationRecord
     previous_rank - rank
   end
 
-  def self.concepts_for_period(period_start, period_type = :hour)
-    for_period(period_start, period_type).for_type("Concept").ranked.includes(:trendable)
-  end
-
-  def self.categories_for_period(period_start, period_type = :hour)
-    for_period(period_start, period_type).for_type("Category").ranked.includes(:trendable)
-  end
-
   def self.stories_for_period(period_start, period_type = :hour)
     for_period(period_start, period_type).for_type("Story").ranked.includes(:trendable)
   end

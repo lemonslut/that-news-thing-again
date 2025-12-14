@@ -11,15 +11,6 @@ RSpec.describe ArticleCorrelation do
     Article.create!(defaults.merge(attrs))
   end
 
-  def create_concept(attrs = {})
-    defaults = {
-      uri: "http://wiki/#{SecureRandom.hex(4)}",
-      concept_type: "wiki",
-      label: "Test Concept"
-    }
-    Concept.create!(defaults.merge(attrs))
-  end
-
   describe "#score" do
     context "when articles share the same event_uri" do
       it "returns 1.0" do
@@ -30,50 +21,13 @@ RSpec.describe ArticleCorrelation do
       end
     end
 
-    context "when articles have no overlap" do
-      it "returns a low score" do
-        article_a = create_article(event_uri: nil)
-        article_b = create_article(event_uri: nil)
+    context "when articles have no shared event_uri" do
+      it "returns time proximity score" do
+        time = Time.current
+        article_a = create_article(event_uri: nil, published_at: time)
+        article_b = create_article(event_uri: nil, published_at: time)
 
-        expect(described_class.new(article_a, article_b).score).to be < 0.2
-      end
-    end
-
-    context "when articles share concepts" do
-      it "returns a higher score" do
-        article_a = create_article(event_uri: nil)
-        article_b = create_article(event_uri: nil)
-        concept = create_concept
-
-        article_a.concepts << concept
-        article_b.concepts << concept
-
-        score = described_class.new(article_a, article_b).score
-        expect(score).to be > 0.3
-      end
-    end
-  end
-
-  describe "#concept_score" do
-    it "returns 0 when neither article has concepts" do
-      article_a = create_article
-      article_b = create_article
-
-      expect(described_class.new(article_a, article_b).concept_score).to eq(0.0)
-    end
-
-    context "with shared concepts" do
-      it "calculates Jaccard similarity" do
-        article_a = create_article
-        article_b = create_article
-        shared_concept = create_concept(uri: "shared")
-        unique_concept = create_concept(uri: "unique")
-
-        article_a.concepts << [shared_concept, unique_concept]
-        article_b.concepts << shared_concept
-
-        # 1 shared / 2 union = 0.5
-        expect(described_class.new(article_a, article_b).concept_score).to eq(0.5)
+        expect(described_class.new(article_a, article_b).score).to eq(1.0)
       end
     end
   end
@@ -119,6 +73,14 @@ RSpec.describe ArticleCorrelation do
       results = described_class.find_related(target)
       expect(results).to include(other)
       expect(results).not_to include(target)
+    end
+
+    it "returns empty when article has no event_uri" do
+      target = create_article(event_uri: nil)
+      _unrelated = create_article(event_uri: nil)
+
+      results = described_class.find_related(target)
+      expect(results).to be_empty
     end
   end
 end

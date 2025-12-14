@@ -5,8 +5,6 @@ class TrendsController < ApplicationController
     @period_type = params[:period].presence_in(%w[hour day]) || "hour"
     @period_start = parse_period_start || default_period_start
 
-    @concepts = TrendSnapshot.concepts_for_period(@period_start, @period_type).top(20)
-    @categories = TrendSnapshot.categories_for_period(@period_start, @period_type).top(10)
     @stories = TrendSnapshot.stories_for_period(@period_start, @period_type).top(15)
 
     @available_periods = available_periods

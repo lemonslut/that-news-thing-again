@@ -40,16 +40,12 @@ module NewsApiAi
         articlesSortBy: sort_by,
         articleBodyLen: -1, # Full body
         lang: lang,
-        # Include the good stuff
         includeArticleBody: true,
-        includeArticleConcepts: true,
-        includeArticleCategories: true,
         includeArticleSentiment: true,
         includeArticleLocation: true,
         includeArticleImage: true,
         includeSourceTitle: true,
-        includeSourceDescription: true,
-        includeConceptLabel: true
+        includeSourceDescription: true
       }
 
       params[:keyword] = keyword if keyword.present?

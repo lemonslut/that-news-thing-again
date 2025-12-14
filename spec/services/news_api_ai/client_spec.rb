@@ -11,20 +11,6 @@ RSpec.describe NewsApiAi::Client do
       expect(result["articles"]["totalResults"]).to be > 0
     end
 
-    it "includes concepts in the response", vcr: { cassette_name: "news_api_ai/get_articles_technology" } do
-      result = client.get_articles(keyword: "technology", count: 5)
-
-      article = result["articles"]["results"].first
-      expect(article["concepts"]).to be_an(Array)
-    end
-
-    it "includes categories in the response", vcr: { cassette_name: "news_api_ai/get_articles_technology" } do
-      result = client.get_articles(keyword: "technology", count: 5)
-
-      article = result["articles"]["results"].first
-      expect(article["categories"]).to be_an(Array)
-    end
-
     it "includes sentiment in the response", vcr: { cassette_name: "news_api_ai/get_articles_technology" } do
       result = client.get_articles(keyword: "technology", count: 5)
 

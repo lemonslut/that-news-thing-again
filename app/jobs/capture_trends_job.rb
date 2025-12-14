@@ -1,8 +1,6 @@
 class CaptureTrendsJob < ApplicationJob
   queue_as :default
 
-  TOP_CONCEPTS = 50
-  TOP_CATEGORIES = 20
   TOP_STORIES = 30
 
   def perform(period_start: nil, period_type: :hour)
@@ -12,8 +10,6 @@ class CaptureTrendsJob < ApplicationJob
 
     previous_rankings = load_previous_rankings(previous_period, period_type)
 
-    capture_concepts(period_start, period_end, period_type, previous_rankings)
-    capture_categories(period_start, period_end, period_type, previous_rankings)
     capture_stories(period_start, period_end, period_type, previous_rankings)
 
     Rails.logger.info "[CaptureTrendsJob] Captured #{period_type} trends for #{period_start}"
@@ -60,32 +56,7 @@ class CaptureTrendsJob < ApplicationJob
     Article.where(published_at: period_start...period_end)
   end
 
-  def capture_concepts(period_start, period_end, period_type, previous_rankings)
-    article_ids = articles_in_period(period_start, period_end).select(:id)
-
-    counts = ArticleConcept.where(article_id: article_ids)
-                           .group(:concept_id)
-                           .order(Arel.sql("COUNT(*) DESC"))
-                           .limit(TOP_CONCEPTS)
-                           .count
-
-    create_snapshots("Concept", counts, period_start, period_type, previous_rankings)
-  end
-
-  def capture_categories(period_start, period_end, period_type, previous_rankings)
-    article_ids = articles_in_period(period_start, period_end).select(:id)
-
-    counts = ArticleCategory.where(article_id: article_ids)
-                            .group(:category_id)
-                            .order(Arel.sql("COUNT(*) DESC"))
-                            .limit(TOP_CATEGORIES)
-                            .count
-
-    create_snapshots("Category", counts, period_start, period_type, previous_rankings)
-  end
-
   def capture_stories(period_start, period_end, period_type, previous_rankings)
-    # Stories with articles published in this period
     article_ids = articles_in_period(period_start, period_end).select(:id)
 
     counts = Article.where(id: article_ids)

@@ -23,88 +23,36 @@
   <% end %>
 </nav>
 
-<% if @concepts.empty? && @categories.empty? && @stories.empty? %>
+<% if @stories.empty? %>
   <div class="text-center py-12 text-base-content/50">
     <p>No trend data for this period yet.</p>
     <p class="text-sm mt-2">Run <code class="bg-base-200 px-2 py-1 rounded">CaptureTrendsJob.perform_now</code> to capture current trends.</p>
   </div>
 <% else %>
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    <section>
-      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-        <span>Top Concepts</span>
-        <span class="badge outline bw xs"><%= @concepts.size %></span>
-      </h2>
-      <div class="space-y-2">
-        <% @concepts.each do |snapshot| %>
-          <% concept = snapshot.trendable %>
-          <% next unless concept %>
-          <div class="flex items-center justify-between py-2 border-b border-base-300">
-            <div class="flex items-center gap-3">
-              <span class="text-base-content/40 text-sm w-6"><%= snapshot.rank %></span>
-              <%= link_to concept_path(concept), class: "hover:text-primary transition-colors" do %>
-                <span class="badge outline <%= concept_type_color(concept.concept_type) %> sm"><%= concept.label %></span>
-              <% end %>
+  <section>
+    <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+      <span>Top Stories</span>
+      <span class="badge outline bw xs"><%= @stories.size %></span>
+    </h2>
+    <div class="space-y-2">
+      <% @stories.each do |snapshot| %>
+        <% story = snapshot.trendable %>
+        <% next unless story %>
+        <div class="py-2 border-b border-base-300">
+          <div class="flex items-center justify-between">
+            <span class="text-base-content/40 text-sm w-6"><%= snapshot.rank %></span>
+            <div class="flex-1 ml-2">
+              <%= link_to story.title.truncate(80), story_path(story), class: "hover:text-primary transition-colors" %>
             </div>
-            <div class="flex items-center gap-3 text-sm">
-              <span class="text-base-content/50"><%= snapshot.article_count %> articles</span>
-              <%= trend_indicator(snapshot) %>
-            </div>
+            <%= trend_indicator(snapshot) %>
           </div>
-        <% end %>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-        <span>Top Categories</span>
-        <span class="badge outline bw xs"><%= @categories.size %></span>
-      </h2>
-      <div class="space-y-2">
-        <% @categories.each do |snapshot| %>
-          <% category = snapshot.trendable %>
-          <% next unless category %>
-          <div class="flex items-center justify-between py-2 border-b border-base-300">
-            <div class="flex items-center gap-3">
-              <span class="text-base-content/40 text-sm w-6"><%= snapshot.rank %></span>
-              <%= link_to category_path(category), class: "hover:text-primary transition-colors" do %>
-                <span class="badge outline <%= category_color(category) %> sm"><%= category.short_name %></span>
-              <% end %>
-            </div>
-            <div class="flex items-center gap-3 text-sm">
-              <span class="text-base-content/50"><%= snapshot.article_count %> articles</span>
-              <%= trend_indicator(snapshot) %>
-            </div>
+          <div class="flex items-center gap-2 mt-1 ml-8 text-xs text-base-content/50">
+            <span><%= snapshot.article_count %> articles this <%= @period_type %></span>
+            <span>&middot;</span>
+            <span><%= story.articles_count %> total</span>
           </div>
-        <% end %>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
-        <span>Top Stories</span>
-        <span class="badge outline bw xs"><%= @stories.size %></span>
-      </h2>
-      <div class="space-y-2">
-        <% @stories.each do |snapshot| %>
-          <% story = snapshot.trendable %>
-          <% next unless story %>
-          <div class="py-2 border-b border-base-300">
-            <div class="flex items-center justify-between">
-              <span class="text-base-content/40 text-sm w-6"><%= snapshot.rank %></span>
-              <div class="flex-1 ml-2">
-                <%= link_to story.title.truncate(60), story_path(story), class: "text-sm hover:text-primary transition-colors" %>
-              </div>
-              <%= trend_indicator(snapshot) %>
-            </div>
-            <div class="flex items-center gap-2 mt-1 ml-8 text-xs text-base-content/50">
-              <span><%= snapshot.article_count %> articles this <%= @period_type %></span>
-              <span>&middot;</span>
-              <span><%= story.articles_count %> total</span>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </section>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
 <% end %>
