@@ -40,11 +40,15 @@ RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
+# Install Node dependencies (before copying app code for better caching)
+COPY package.json yarn.lock ./
+RUN yarn install
+
 # Copy application code
 COPY . .
 
-# Install Node dependencies and build CSS
-RUN yarn install && yarn build:css
+# Build CSS
+RUN yarn build:css
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
