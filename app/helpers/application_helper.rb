@@ -1,4 +1,26 @@
 module ApplicationHelper
+  def category_color(category)
+    return "info" unless category
+    case category.short_name&.downcase
+    when "politics" then "danger"
+    when "business", "economy" then "success"
+    when "technology", "science" then "info"
+    when "sports" then "warn"
+    when "entertainment" then "secondary"
+    else "primary"
+    end
+  end
+
+  def concept_type_color(concept_type)
+    case concept_type
+    when "person" then "secondary"
+    when "org" then "info"
+    when "loc" then "success"
+    when "wiki" then "primary"
+    else "bw"
+    end
+  end
+
   def sentiment_color(sentiment)
     return "" unless sentiment
     if sentiment > 0.2
