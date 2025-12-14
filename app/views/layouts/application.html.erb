@@ -27,6 +27,7 @@
         <nav class="flex items-center gap-4">
           <%= link_to "Articles", articles_path, class: "text-sm hover:text-primary transition-colors #{request.path.start_with?('/articles') || request.path == '/' ? 'text-primary font-medium' : 'text-base-content/60'}" %>
           <%= link_to "Stories", stories_path, class: "text-sm hover:text-primary transition-colors #{request.path.start_with?('/stories') ? 'text-primary font-medium' : 'text-base-content/60'}" %>
+          <%= link_to "Trends", trends_path, class: "text-sm hover:text-primary transition-colors #{request.path.start_with?('/trends') ? 'text-primary font-medium' : 'text-base-content/60'}" %>
           <%= link_to "Concepts", concepts_path, class: "text-sm hover:text-primary transition-colors #{request.path.start_with?('/concepts') ? 'text-primary font-medium' : 'text-base-content/60'}" %>
           <%= link_to "Categories", categories_path, class: "text-sm hover:text-primary transition-colors #{request.path.start_with?('/categories') ? 'text-primary font-medium' : 'text-base-content/60'}" %>
         </nav>

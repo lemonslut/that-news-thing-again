@@ -4,10 +4,22 @@
 :scheduler:
   :schedule:
     fetch_articles_us:
-      cron: "0 * * * *"  # Every hour
+      cron: "0 * * * *"  # Every hour at :00
       class: FetchArticlesJob
       description: "Fetch US articles hourly"
     cluster_stories:
       cron: "30 * * * *"  # Every hour at :30
       class: ClusterStoriesJob
       description: "Cluster articles into stories"
+    capture_trends:
+      cron: "45 * * * *"  # Every hour at :45
+      class: CaptureTrendsJob
+      description: "Capture hourly trend snapshots"
+    capture_daily_trends:
+      cron: "0 1 * * *"  # Daily at 1am UTC
+      class: CaptureDailyTrendsJob
+      description: "Capture daily trend summary"
+    cleanup_trends:
+      cron: "0 3 * * 0"  # Weekly on Sunday at 3am UTC
+      class: CleanupTrendsJob
+      description: "Clean up old trend snapshots"

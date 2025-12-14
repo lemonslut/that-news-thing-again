@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   resources :concepts, only: [ :index, :show ]
   resources :categories, only: [ :index, :show ]
   resources :stories, only: [ :index, :show ]
+  resources :trends, only: [ :index ]
   root "articles#index"
 end

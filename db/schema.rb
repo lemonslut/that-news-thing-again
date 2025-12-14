@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_13_114402) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_14_045505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -127,6 +127,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_13_114402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_uri"], name: "index_stories_on_event_uri", unique: true
+  end
+
+  create_table "trend_snapshots", force: :cascade do |t|
+    t.string "trendable_type", null: false
+    t.bigint "trendable_id", null: false
+    t.datetime "period_start", null: false
+    t.integer "period_type", default: 0, null: false
+    t.integer "article_count", default: 0, null: false
+    t.integer "rank"
+    t.integer "previous_rank"
+    t.float "velocity", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["period_start", "period_type"], name: "index_trend_snapshots_on_period_start_and_period_type"
+    t.index ["trendable_type", "period_start", "period_type", "rank"], name: "idx_trend_snapshots_rankings"
+    t.index ["trendable_type", "trendable_id", "period_start", "period_type"], name: "idx_trend_snapshots_unique", unique: true
+    t.index ["trendable_type", "trendable_id"], name: "index_trend_snapshots_on_trendable"
   end
 
   create_table "users", force: :cascade do |t|
