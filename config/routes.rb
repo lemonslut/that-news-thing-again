@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     post :reanalyze, on: :member
   end
   resources :stories, only: [ :index, :show ]
+  resources :concepts, only: [ :index, :show ]
   resources :trends, only: [ :index ]
   root "articles#index"
 end
