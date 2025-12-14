@@ -30,7 +30,7 @@ class Story < ApplicationRecord
     Concept.joins(:article_concepts)
            .where(article_concepts: { article_id: articles.select(:id) })
            .group(:id)
-           .order("COUNT(*) DESC")
+           .order(Arel.sql("COUNT(*) DESC"))
            .limit(5)
   end
 end
