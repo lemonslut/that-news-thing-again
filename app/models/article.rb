@@ -1,6 +1,9 @@
 class Article < ApplicationRecord
   belongs_to :story, optional: true, counter_cache: true
 
+  has_many :analyses, class_name: "ArticleAnalysis", dependent: :destroy
+
+  # Legacy association - to be removed after migration verified
   has_many :calm_summaries, class_name: "ArticleCalmSummary", dependent: :destroy
 
   has_many :article_concepts, dependent: :destroy
@@ -35,7 +38,12 @@ class Article < ApplicationRecord
   scope :in_category, ->(uri) { joins(:categories).where(categories: { uri: uri }) }
 
   def calm_summary
-    calm_summaries.order(created_at: :desc).first
+    analyses.calm_summaries.latest.first&.calm_summary ||
+      calm_summaries.order(created_at: :desc).first&.summary
+  end
+
+  def latest_analysis(type)
+    analyses.of_type(type).latest.first
   end
 
   def people

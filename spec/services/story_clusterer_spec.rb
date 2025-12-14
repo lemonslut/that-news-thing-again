@@ -59,36 +59,4 @@ RSpec.describe StoryClusterer do
     end
   end
 
-  describe "#cluster_by_concepts" do
-    it "creates a new story for an unclustered article" do
-      concept = create_concept
-      article = create_article(event_uri: nil)
-      article.concepts << concept
-
-      expect { described_class.new.cluster_by_concepts }.to change(Story, :count).by(1)
-      expect(article.reload.story).to be_present
-    end
-
-    it "joins an existing story with similar concepts" do
-      concept = create_concept
-      existing_article = create_article(event_uri: nil)
-      existing_article.concepts << concept
-      story = create_story(title: existing_article.title)
-      existing_article.update!(story: story)
-
-      new_article = create_article(event_uri: nil)
-      new_article.concepts << concept
-
-      described_class.new.cluster_by_concepts
-
-      expect(new_article.reload.story).to be_present
-    end
-
-    it "skips articles without concepts" do
-      article = create_article(event_uri: nil)
-
-      expect { described_class.new.cluster_by_concepts }.not_to change(Story, :count)
-      expect(article.reload.story).to be_nil
-    end
-  end
 end

@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_14_045505) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_14_060644) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "article_analyses", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "prompt_id"
+    t.string "analysis_type", null: false
+    t.string "model_used", null: false
+    t.jsonb "result", default: {}, null: false
+    t.jsonb "raw_response", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["analysis_type"], name: "index_article_analyses_on_analysis_type"
+    t.index ["article_id", "analysis_type"], name: "index_article_analyses_on_article_id_and_analysis_type"
+    t.index ["article_id"], name: "index_article_analyses_on_article_id"
+    t.index ["created_at"], name: "index_article_analyses_on_created_at"
+    t.index ["prompt_id"], name: "index_article_analyses_on_prompt_id"
+  end
 
   create_table "article_calm_summaries", force: :cascade do |t|
     t.bigint "article_id", null: false
@@ -156,6 +172,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_14_045505) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "article_analyses", "articles"
+  add_foreign_key "article_analyses", "prompts"
   add_foreign_key "article_calm_summaries", "articles"
   add_foreign_key "article_calm_summaries", "prompts"
   add_foreign_key "article_categories", "articles"

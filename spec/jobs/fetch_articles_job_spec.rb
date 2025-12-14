@@ -79,11 +79,14 @@ RSpec.describe FetchArticlesJob, type: :job do
       expect(Article.last.language).to eq("deu")
     end
 
-    it "enqueues GenerateCalmSummaryJob for each article" do
+    it "enqueues analysis jobs for each article" do
       stub_top_headlines([build_article_data])
 
       expect { described_class.new.perform }
-        .to have_enqueued_job(GenerateCalmSummaryJob)
+        .to have_enqueued_job(CalmSummaryAnalysisJob)
+        .and have_enqueued_job(GeneralSentimentJob)
+        .and have_enqueued_job(NerExtractionJob)
+        .and have_enqueued_job(EntitySentimentJob)
     end
 
     it "returns stats about stored and skipped articles" do
