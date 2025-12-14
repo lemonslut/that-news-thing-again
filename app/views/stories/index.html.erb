@@ -3,9 +3,16 @@
   <p class="text-base-content/60 mt-1">Multi-source news coverage grouped by topic</p>
 </header>
 
-<nav class="flex items-center gap-4 mb-6">
-  <%= link_to "All", stories_path, class: "btn #{params[:active].blank? ? 'solid info' : 'outline info'} sm" %>
-  <%= link_to "Active (7d)", stories_path(active: 1), class: "btn #{params[:active] == '1' ? 'solid info' : 'outline info'} sm" %>
+<nav class="flex items-center justify-between mb-6">
+  <div class="flex items-center gap-2">
+    <%= link_to "All", stories_path(sort: params[:sort]), class: "btn #{params[:active].blank? ? 'solid info' : 'outline info'} sm" %>
+    <%= link_to "Active (7d)", stories_path(active: 1, sort: params[:sort]), class: "btn #{params[:active] == '1' ? 'solid info' : 'outline info'} sm" %>
+  </div>
+  <div class="flex items-center gap-2">
+    <span class="text-sm text-base-content/50">Sort:</span>
+    <%= link_to "Recent", stories_path(active: params[:active]), class: "btn #{params[:sort].blank? ? 'solid bw' : 'outline bw'} xs" %>
+    <%= link_to "Most sources", stories_path(active: params[:active], sort: "sources"), class: "btn #{params[:sort] == 'sources' ? 'solid bw' : 'outline bw'} xs" %>
+  </div>
 </nav>
 
 <main class="space-y-6">
