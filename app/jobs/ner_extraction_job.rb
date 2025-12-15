@@ -18,7 +18,7 @@ class NerExtractionJob < ApplicationJob
         - people: Array of person names mentioned
         - organizations: Array of organization/company names
         - locations: Array of place names (cities, countries, regions)
-        - topics: Array of key topics/subjects (e.g., "artificial intelligence", "climate change")
+        - topics: Array of key topics/subjects (e.g., "healthcare reform", "election")
 
       Guidelines:
       - Extract actual named entities, not generic terms
@@ -26,6 +26,8 @@ class NerExtractionJob < ApplicationJob
       - Include only entities actually mentioned in the article
       - For people, use their full name as it appears
       - For organizations, use official names
+      - Return empty arrays if no entities of a type are found
+      - NEVER include explanatory text - only entity names
     PROMPT
   end
 
@@ -58,11 +60,26 @@ class NerExtractionJob < ApplicationJob
     type_mapping.each do |json_key, concept_type|
       (entities[json_key] || []).each do |label|
         next if label.blank?
+        next if garbage_label?(label)
 
         concept = find_or_create_concept(label, concept_type)
         link_article_to_concept(concept) if concept
       end
     end
+  end
+
+  def garbage_label?(label)
+    # Filter out LLM explanatory text that got output as "entities"
+    label.length > 80 ||
+      label.match?(/\bis not\b/i) ||
+      label.match?(/\bnot mentioned\b/i) ||
+      label.match?(/\bnot present\b/i) ||
+      label.match?(/\bnot included\b/i) ||
+      label.match?(/\bnot a topic\b/i) ||
+      label.match?(/\bso removed\b/i) ||
+      label.match?(/\bso not\b/i) ||
+      label.match?(/\binstead\b/i) ||
+      label.match?(/\bhowever\b/i)
   end
 
   def find_or_create_concept(label, concept_type)
