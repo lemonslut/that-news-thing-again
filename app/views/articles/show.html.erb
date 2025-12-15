@@ -84,7 +84,7 @@
           <tbody>
             <% @article.article_categories.order(weight: :desc).each do |ac| %>
               <tr>
-                <td class="py-1"><%= link_to ac.category.uri, category_path(ac.category), class: "hover:text-primary" %></td>
+                <td class="py-1"><%= ac.category.uri %></td>
                 <td class="py-1 text-right text-base-content/50 whitespace-nowrap">weight: <%= ac.weight %></td>
               </tr>
             <% end %>
