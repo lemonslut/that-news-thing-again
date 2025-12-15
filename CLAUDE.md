@@ -165,3 +165,4 @@ curl -H "Authorization: Bearer TOKEN" https://news.lemonslut.com/articles
 ```
 
 Web login at `/session/new`. No password reset (users managed via rake task).
+- articles should flow through the pipeline individually -- instead of a sidekiq job iterating over all articles, it should enqueue a job for each article

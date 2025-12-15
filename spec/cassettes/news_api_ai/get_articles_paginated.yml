@@ -566,4 +566,278 @@ http_interactions:
         "eventUri":null, "location":null, "sentiment":0.3490196078431373, "wgt":502531688,
         "relevance":2}], "totalResults":817886, "page":2, "count":5, "pages":163578}}'
   recorded_at: Thu, 04 Dec 2025 08:09:16 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=2&articlesSortBy=date&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&keyword=news&lang=eng&resultType=articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Dec 2025 05:36:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1754'
+      X-Response-Time:
+      - '1202'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"4405-e0my+3Lqs8zK9hCwsgNrBDh2dEA"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9000006982", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:34:06", "dateTime":"2025-12-14T05:34:06Z",
+        "dateTimePub":"2025-12-14T05:28:43Z", "dataType":"news", "sim":0, "url":"https:\/\/www.benzinga.com\/pressreleases\/25\/12\/g49381581\/pollock-company-acquires-atg-communications-strengthening-local-technology-infrastructure",
+        "title":"Pollock Company Acquires ATG Communications, Strengthening Local
+        Technology Infrastructure", "body":"Enter your email to get Benzinga''s ultimate
+        morning update: The PreMarket Activity Newsletter\n\nPollock Company Logo\n\nAUGUSTA,
+        Ga., Dec. 14, 2025 (GLOBE NEWSWIRE) -- Pollock Company, a third-generation,
+        family-owned leader in office technology, managed IT services, and physical
+        security solutions for more than 60 years, proudly announces the acquisition
+        of ATG Communications, a respected local Internet and Voice Service Provider
+        serving the community for 36 years.\n\nThis strategic acquisition represents
+        a major investment in the local community and a key step forward in Pollock
+        Company''s mission to deliver comprehensive, end-to-end technology solutions.
+        By integrating ATG Communications'' reliable internet and voice infrastructure
+        with Pollock Company''s broad portfolio -- including managed IT, cybersecurity,
+        print solutions, workflow optimization, and physical security -- the company
+        will offer unmatched value and convenience to businesses across the region.\n\n\"This
+        acquisition is about more than growth -- it''s about investing locally and
+        offering a level of services and convenience that doesn''t currently exist
+        in this market,\" said Ed Pollock, CEO of Pollock Company. \"Both companies
+        share deep local roots and a commitment to dependable service. By joining
+        forces, we can support our customers as a single source for all their technology
+        needs -- from connectivity and cybersecurity to office equipment and physical
+        protection.\"\n\nPollock Company has long been recognized for its personal,
+        family-oriented approach, investment in local talent, and dedication to giving
+        back to the community. With this acquisition, the company continues its commitment
+        to strengthening the local economy. The addition of ATG Communications'' experienced
+        team and network infrastructure will expand access to reliable, high-speed
+        connectivity while maintaining the personal service customers know and trust.\n\n\"ATG
+        Communications has been a trusted name in local internet and voice service
+        for decades, and we''re excited to welcome their staff and customers into
+        the Pollock Company family,\" added Matt Dyches, IT Director of Pollock Company.
+        \"We''re proud to offer another business-critical service and help customers
+        avoid the frustration of dealing with large, impersonal internet providers.\"\n\nThe
+        transition will be seamless for existing ATG Communications customers, who
+        will continue receiving the same high-quality service they expect -- now backed
+        by Pollock Company''s expanded resources, advanced technical capabilities,
+        and dedicated support team.\n\nTogether, the combined organization will empower
+        businesses with faster, more secure, and integrated technology solutions.\n\nAbout
+        Pollock Company\n\nFounded in 1965, Pollock Company is a family-owned and
+        operated business providing managed IT services, office technology solutions,
+        workflow and document-management systems, and physical security services.
+        With a strong commitment to service, reliability, and community investment,
+        Pollock Company delivers comprehensive technology solutions that help organizations
+        thrive.\n\nFor more information, visit www.pollockcompany.com.\n\nAbout ATG
+        Communications\n\nEstablished in 1989, ATG Communications has served the Augusta
+        area for 36 years as a trusted Internet and Voice Service Provider. Known
+        for dependable service and local expertise, ATG Communications has built long-standing
+        customer relationships throughout the community.\n\nMedia Contact\n\nPollock
+        Company\n\n(706) 722-6565\n\n[email protected]\n\nhttps:\/\/www.pollockcompany.com\/\n\nA
+        photo accompanying this announcement is available at https:\/\/www.globenewswire.com\/NewsRoom\/AttachmentNg\/3d781ae9-18e7-4d62-9427-b1079368c763\n\nMarket
+        News and Data brought to you by Benzinga APIs", "source":{"uri":"benzinga.com",
+        "dataType":"news", "title":"Benzinga", "description":"The Benzinga Global
+        Fintech Awards comes your way on May 11: https:\/\/t.co\/GI2CtzczDw\nFor access
+        to Benzinga Pro\/data APIs, call 877-440-9464"}, "authors":[], "image":"https:\/\/www.benzinga.com\/next-assets\/images\/benzinga-schema-image-default.png",
+        "eventUri":null, "location":null, "sentiment":0.4980392156862745, "wgt":503386446,
+        "relevance":2}, {"uri":"9000006098", "lang":"eng", "isDuplicate":false, "date":"2025-12-14",
+        "time":"05:34:03", "dateTime":"2025-12-14T05:34:03Z", "dateTimePub":"2025-12-14T04:55:00Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.newstribune.com\/news\/2025\/dec\/13\/driftwood-outdoors-its-worth-the-wait-for-safe-ice-fishing\/",
+        "title":"Driftwood Outdoors: It''s worth the wait for safe ice fishing | Jefferson
+        City News-Tribune", "body":"I have the ice fishing bug. Last winter, I went
+        to Devils Lake, N.D., with the goal of catching a 15-inch yellow perch. The
+        longest I landed was 14.\n\nI''m going back this year, again with the hope
+        of landing a wall hanger. But I must admit, being on the ice makes me nervous.
+        Precaution must be taken.\n\nWhen anglers and snowmobilers start to feel the
+        itch only frozen water can scratch, it''s hard to hold them back. But ask
+        any seasoned ice angler, and they will tell you the way to stay safe is to
+        assume there''s no such thing as safe ice.\n\nThe Wisconsin Department of
+        Natural Resources is pushing that reminder this year. As winter begins and
+        folks rush to claim their favorite spots on prime ice fishing lakes, the agency
+        is urging everyone to pay attention and treat every frozen water with respect.
+        Early ice may look solid, it may even feel solid, but underneath may be a
+        different story.\n\n\"Early in the season especially, ice conditions are unpredictable
+        and can change quickly on Wisconsin''s rivers and lakes. The ice covers hide
+        the currents, debris and underground springs still feeding lakes and rivers,
+        thinning the ice in spots,\" said Lt. Jacob Holsclaw, DNR Off-Highway Vehicle
+        administrator. \"No matter if you''re on foot, on a snowmobile or in UTV,
+        it''s important to remember that ice is never 100 percent safe.\"\n\nIt is
+        good to speak with someone who is keeping track of ice thickness, if possible.
+        The DNR doesn''t. They can''t. Conditions change too fast.\n\nThe people who
+        usually know the most about local lakes are the ones who are either on them
+        daily or are serving customers who use the ice. You will find these folks
+        in bait shops, fishing clubs and working as outfitters. If you are determined
+        to venture out early, talk to one or more of them. They will know if there
+        are danger spots.\n\nSome lakes have springs that create soft spots. Others
+        have inlets and outlets that remain open and are dangerous because they''re
+        hard to see. Narrow channels with current flow are dangerous. These and other
+        reasons can cause thin ice tin areas that don''t advertise themselves. A lake
+        might be solid in one spot and dangerous 20 yards away.\n\nPressure ridges
+        are ice heaves that form when temperatures swing. These are another hazard.
+        They look like frozen shorelines or seams in the ice, but they can shift,
+        open or thin without warning. Strong winds can make them worse. Avoid these
+        areas.\n\nWhen you are heading out on the ice, you should never go alone and
+        always tell others where you will be and when you will be back. Wear crampons
+        and use a spud bar to test ice thickness as you walk. Keep ice picks handy
+        where you can grab them fast and don''t travel at night through unfamiliar
+        territory.\n\nFor someone who didn''t grow up around ice, it''s wild way up
+        north where people drive trucks, snowmobiles and ATVs on the ice. Vehicles
+        bring their own challenges. Last winter, Wisconsin saw six fatalities linked
+        to ATVs, UTVs and snowmobiles going through the ice. Their weight demands
+        much thicker ice than most people realize.\n\nEven with precaution, ice accidents
+        still happen. If you fall in, the most important thing is to stay as calm
+        as possible. Grip your ice picks and stick them in the ice. Kick hard to get
+        your chest flat on the ice and slide forward, moving one pick forward at a
+        time.\n\nIce fishing is drawing me to frozen water and it kind of freaks me
+        out. But it''s awesome, and the fish taste amazing coming out of such cold
+        water, so I will be out there. You can bet I will be cautious and asking questions
+        of the more experienced guys I''m fishing with.\n\nNo walleye in the world
+        is worth falling through the ice to me. If it''s not safe, I''m not going.
+        You shouldn''t either.\n\nSee you down the trail. ...\n\nIII\n\nBrandon Butler
+        is an outdoors columnist for the News Tribune. Contact him at [email protected].",
+        "source":{"uri":"newstribune.com", "dataType":"news", "title":"Jefferson City
+        News Tribune", "description":"Mid-Missouri news and tweets from the Jefferson
+        City News Tribune newspaper and http:\/\/t.co\/7Jhhgi3h"}, "authors":[], "image":"https:\/\/wehco.media.clients.ellingtoncms.com\/img\/news\/tease\/2025\/12\/13\/IMG_6860_t600.jpg?4326734cdb8e39baa3579048ef63ad7b451e7676",
+        "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":503386443,
+        "relevance":2}, {"uri":"9000006021", "lang":"eng", "isDuplicate":true, "date":"2025-12-14",
+        "time":"05:33:38", "dateTime":"2025-12-14T05:33:38Z", "dateTimePub":"2025-12-14T05:06:06Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.news-gazette.com\/ap\/sports\/agate\/saturdays-scores\/article_b71a67aa-4ac3-588a-8b4d-2c9ca18235be.html",
+        "title":"Saturday''s Scores", "body":"Due to scheduled maintenance from Saturday,
+        March 15, 2025, at 10 PM to Sunday, March 16, 2025, at 2 AM, there may be
+        interruptions for our News Gazette Digital subscribers. During this time frame,
+        please click on any News Gazette website content without logging into your
+        News Gazette Digital subscription account. Thank you for your patience during
+        this scheduled maintenance.\n\nGIRLS PREP BASKETBALL=\n\nSouth Heart 61, Terry,
+        Mont. 26\n\nREMAX Early Bird Tournament=\n\nBismarck Century 54, Campbell
+        County, Wyo. 15\n\nSome high school basketball scores provided by Scorestream.com,
+        https:\/\/scorestream.com\/", "source":{"uri":"news-gazette.com", "dataType":"news",
+        "title":"The News-Gazette", "description":"Your Source for News and Advertising
+        in East Central Illinois"}, "authors":[], "image":"https:\/\/bloximages.newyork1.vip.townnews.com\/news-gazette.com\/content\/tncms\/custom\/image\/e462f33a-3c65-11ec-b3f1-2f038a8f66b4.jpg?resize=600%2C315",
+        "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":503386418,
+        "relevance":4}, {"uri":"9000005015", "lang":"eng", "isDuplicate":false, "date":"2025-12-14",
+        "time":"05:33:13", "dateTime":"2025-12-14T05:33:13Z", "dateTimePub":"2025-12-14T05:30:48Z",
+        "dataType":"news", "sim":0.6784313917160034, "url":"https:\/\/guyanachronicle.com\/2025\/12\/14\/angry-fans-throw-chairs-and-bottles-at-messi-event-in-india\/",
+        "title":"Angry fans throw chairs and bottles at Messi event in India - Guyana
+        Chronicle", "body":"ANGRY fans attending Lionel Messi''s tour of India ripped
+        up seats and threw items towards the pitch after his appearance at Kolkata''s
+        Salt Lake Stadium.\n\nThousands of adoring supporters had paid up to 12,000
+        rupees (\u00a3100; $133) to catch a glimpse of the football star, but were
+        left disappointed when he emerged to walk around the pitch, and was obscured
+        by a large group of officials and celebrities.\n\nWhen the Argentina and Inter
+        Miami forward was whisked away early by security after around 20 minutes,
+        elements of the crowd turned hostile.\n\nWest Bengal''s chief minister, Mamata
+        Banerjee, said she was \"deeply disturbed and shocked\" by the event\n\nMessi
+        is in India for his ''GOAT [greatest of all time] tour'', a series of promotional
+        events in Kolkata, Hyderabad, Mumbai and Delhi.\n\nHis tour began with the
+        unveiling of a 70ft (21m) statue of himself in Kolkata, which had been assembled
+        over the course of 27 days by a 45-strong crew. Messi appeared virtually due
+        to security concerns.\n\nThousands of fans travelled to the city''s stadium
+        for a chance to see the footballer in person.\n\nThey were chanting, buying
+        jerseys and wearing \"I love Messi\" headbands.\n\nMessi initially walked
+        out at the stadium waving to fans, but after his appearance was abruptly ended
+        on Saturday, some frustrated fans stormed the pitch and vandalised banners
+        and tents, as others hurled plastic chairs and water bottles.\n\nThe 2022
+        World Cup winner - considered one of football''s greatest ever players - had
+        been expected to play a short exhibition game at the stadium, the AFP news
+        agency reports.''\n\n\"Only leaders and actors were surrounding Messi... Why
+        did they call us then... We have got a ticket for 12,000 rupees, but we were
+        not even able to see his face\", a fan at the stadium told Indian news agency
+        ANI.\n\nOne angry fan told the Press Trust of India news agency people had
+        paid the equivalent of a month''s salary to see the eight-time Ballon d''Or
+        winner.\n\n\"I paid Rs 5,000 for the ticket and came with my son to watch
+        Messi, not politicians.\n\n\"The police and military personnel were taking
+        selfies, and the management is to blame.\"\n\nMessi was accompanied on his
+        brief visit by his Inter Miami teammate and Uruguay star Luis Suarez, and
+        Argentina''s Rodrigo de Paul.\n\nBollywood actor Shah Rukh Khan also met Messi
+        earlier in the day, according to the Reuters news agency.\n\nKolkata is the
+        capital of the Indian state of West Bengal and has a large football fanbase
+        in an otherwise cricket-crazed country.", "source":{"uri":"guyanachronicle.com",
+        "dataType":"news", "title":"Guyana Chronicle", "description":"Find the latest
+        updates in Local, Regional & International Events, Sports, Features, Opinions
+        etc. Read the digital versions of all our printed editions."}, "authors":[],
+        "image":"https:\/\/guyanachronicle.com\/wp-content\/uploads\/2025\/12\/Messi.png",
+        "eventUri":"eng-11228347", "location":null, "sentiment":0.05098039215686279,
+        "wgt":503386393, "relevance":5}, {"uri":"9000005920", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:33:10", "dateTime":"2025-12-14T05:33:10Z",
+        "dateTimePub":"2025-12-14T05:26:04Z", "dataType":"news", "sim":0.6117647290229797,
+        "url":"https:\/\/www.winnipegfreepress.com\/uncategorized\/2025\/12\/13\/burries-scores-28-points-as-no-1-arizona-rallies-from-halftime-deficit-to-beat-no-12-alabama-96-75",
+        "title":"Burries scores 28 points as No. 1 Arizona rallies from halftime deficit
+        to beat No. 12 Alabama 96-75", "body":"BIRMINGHAM, Ala. (AP) -- Brayden Burries
+        scored 28 points, 20 of those coming during a 14-minute second-half flurry,
+        and No. 1 Arizona roared back from its first halftime deficit of the season
+        to beat No. 12 Alabama 96-75.\n\nThe Wildcats (9-0) trailed by two points
+        at halftime before seizing command with a 14-1 run, highlighted by Burries
+        making three consecutive baskets. Burries was 5 for 10 from 3-point range,
+        mitigating a quiet night for fellow freshman Koa Peat, who was saddled by
+        foul trouble and scored six points -- far off his 15.9 points-per-game average.\n\nLabaron
+        Philon Jr. scored 24 points, including a twisting pullup in the lane that
+        gave Alabama (7-3) a 41-39 lead at the half. That was the final highlight
+        for the Tide, which couldn''t match Arizona''s intensity over the final 20
+        minutes.\n\nMotiejus Krivas, Arizona''s 7-foot-2 Lithuanian center, finished
+        with 14 points and 14 rebounds. Point guard Jaden Bradley added 14 points
+        and seven assists, haunting the former Crimson Tide program that he helped
+        earn the top overall seed in the 2023 NCAA Tournament.\n\nArizona (9-0) stretched
+        the lead to 23 on three occasions, beating their fifth ranked opponent of
+        the nonconference schedule following wins over UConn, Florida, Auburn and
+        UCLA.\n\nBadly outrebounded during losses to Purdue and Gonzaga, the Tide
+        struggled again on the boards, where Arizona dominated 52-32. Tobe Awaka''s
+        15 rebounds padded the margin.\n\nLatrell Wrightsell Jr. scored 21 for Alabama,
+        which shot 12 for 32 from deep but couldn''t approach its 95-point average.
+        Aiden Sherrell blocked eight shots but had little help from the Tide''s frontcourt.\n\nAnthony
+        Dell''Orso added 13 points off the bench for Arizona.\n\nGet poll alerts and
+        updates on the AP Top 25 throughout the season. Sign up here and here (AP
+        News mobile app). AP college basketball: https:\/\/apnews.com\/hub\/ap-top-25-college-basketball-poll
+        and https:\/\/apnews.com\/hub\/college-basketball", "source":{"uri":"winnipegfreepress.com",
+        "dataType":"news", "title":"Winnipeg Free Press", "description":"News and
+        views from Winnipeg and Manitoba. Customer Service: https:\/\/t.co\/UqkPlwDU6I"},
+        "authors":[], "image":"https:\/\/www.winnipegfreepress.com\/wp-content\/uploads\/sites\/2\/2022\/11\/fb-og-image.png",
+        "eventUri":"eng-11229689", "location":{"type":"place", "label":{"eng":"Birmingham,
+        Alabama"}, "country":{"type":"country", "label":{"eng":"United States"}}},
+        "sentiment":-0.03529411764705881, "wgt":503386390, "relevance":2}], "totalResults":807645,
+        "page":2, "count":5, "pages":161529}}'
+  recorded_at: Sun, 14 Dec 2025 05:36:21 GMT
 recorded_with: VCR 6.3.1

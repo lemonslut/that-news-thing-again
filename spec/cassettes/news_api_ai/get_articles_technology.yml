@@ -610,4 +610,394 @@ http_interactions:
         "eventUri":null, "location":null, "sentiment":0.3019607843137255, "wgt":502531684,
         "relevance":2}], "totalResults":428778, "page":1, "count":5, "pages":85756}}'
   recorded_at: Thu, 04 Dec 2025 08:09:14 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&keyword=technology&lang=eng&resultType=articles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Dec 2025 05:36:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1755'
+      X-Response-Time:
+      - '588'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"6770-D78NmFF+LfMCwLrUwopuQRqjVgk"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9000007431", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:35:05", "dateTime":"2025-12-14T05:35:05Z",
+        "dateTimePub":"2025-12-13T11:00:38Z", "dataType":"news", "sim":0, "url":"https:\/\/autos.yahoo.com\/deals-and-buying-guides\/articles\/dealerships-cant-seem-sell-2024-110038993.html",
+        "title":"Dealerships Can''t Seem to Sell These 2024 Car Models at All", "body":"Ever
+        wonder which brand-new cars are gathering dust on dealer lots across America?
+        iSeeCars did a deep dive into more than 2.6 million new car listings across
+        the United States, revealing some surprising answers.\n\nThe data shows the
+        percentage of 2024 inventory still sitting unsold, and the results paint an
+        interesting picture of what today''s buyers are actually looking for. From
+        luxury SUVs to sports cars, these twelve models are having a tougher time
+        finding homes than dealers probably anticipated.\n\nSome of the names might
+        surprise you, while others make perfect sense once you consider pricing, timing,
+        and market trends.\n\nLeading the pack with a staggering 82% of inventory
+        still available, the Dodge Hornet plug-in hybrid is struggling to find its
+        audience. This compact crossover arrived with plenty of expectations, bringing
+        electrification to the Dodge lineup in an unexpected package.\n\nThe pricing
+        sits in an awkward middle ground where buyers shopping for practicality might
+        opt for less expensive options, while performance enthusiasts may not see
+        the Hornet as a true Dodge muscle vehicle. The plug-in hybrid powertrain adds
+        complexity and cost that many shoppers in this segment simply aren''t asking
+        for.\n\nIt''s a challenging market position when your brand identity is built
+        on roaring V8s and quarter-mile times.\n\nThe Grand Cherokee has long been
+        a cornerstone of Jeep''s lineup, but more than 70% of 2024 models remain unsold
+        at an average price above $64,000. That price point puts it in direct competition
+        with luxury European SUVs that offer prestigious badges and refined experiences.\n\nThe
+        midsize SUV market is fiercely competitive, especially at this price point
+        where buyers have dozens of well-established two-row luxury and near-luxury
+        options to choose from. Jeep''s recent quality perception issues haven''t
+        helped matters, as buyers spending this much want assurance their investment
+        will be reliable.\n\nThe Grand Cherokee remains capable and spacious, but
+        convincing buyers to choose it over established luxury competitors at this
+        price requires a compelling value proposition.\n\nAlfa Romeo''s entry into
+        the compact luxury crossover segment has met a lukewarm reception, with nearly
+        half of the 2024 Tonale Hybrid inventory still available. The Italian brand
+        brings undeniable style and driving dynamics, but the hybrid powertrain in
+        a segment where buyers often prioritize either pure efficiency or pure performance
+        creates an identity challenge.\n\nAt almost $52,000, shoppers have access
+        to well-established German competitors with stronger dealer networks and better
+        resale values. The Tonale looks fantastic and drives with characteristic Alfa
+        flair, but breaking into the American market with limited brand presence remains
+        an uphill battle.\n\nEnthusiasts love what Alfa Romeo represents, though convincing
+        mainstream luxury buyers to take the leap is another story entirely.\n\nThe
+        Malibu''s struggles reflect a broader trend: the American sedan is facing
+        an existential crisis. With 31% of inventory unsold, this dependable midsize
+        sedan is caught in a market that has decisively shifted toward SUVs and crossovers.\n\nChevrolet
+        has already announced the Malibu''s discontinuation, which certainly doesn''t
+        help sales as buyers tend to avoid models they know are being phased out.
+        The pricing is reasonable and the Malibu offers solid value with good fuel
+        economy and a comfortable ride.\n\nHowever, when most buyers can get into
+        a Chevy Trax or Trailblazer for similar money with the added versatility of
+        a crossover, the traditional sedan becomes a tougher sell.\n\nThe non-hybrid
+        Dodge Hornet appears again, this time the base model with 26% of inventory
+        still on lots. At nearly $32,000, this Alfa Romeo Tonale-based crossover faces
+        an identity crisis within the Dodge lineup.\n\nTraditional Dodge buyers expect
+        American muscle and V8 rumble, not a turbocharged four-cylinder Italian-rooted
+        crossover. The Hornet offers decent performance and modern features, but it
+        doesn''t fit the brand''s muscle car image that draws customers to showrooms.
+        Meanwhile, buyers simply looking for a compact crossover have dozens of more
+        established options to choose from.\n\nDodge is attempting to pivot toward
+        a more diverse lineup, though this transition is proving challenging when
+        your brand loyalty is built on a very specific type of vehicle.\n\nWhen your
+        average transaction price approaches six figures, you''re competing with some
+        serious luxury iron. The Grand Wagoneer L stretches the already-large Grand
+        Wagoneer even further, creating a true land yacht for families who need maximum
+        space.\n\nAt over $92,000, buyers at this level expect Range Rover levels
+        of refinement and prestige, which represents a significant leap for the Jeep
+        brand. The Grand Wagoneer L offers impressive capability and generous three-row
+        seating, but the price tag puts it in rarefied air where badge perception
+        matters enormously.\n\nJeep has made tremendous strides in luxury execution,
+        yet convincing ultra-luxury buyers to choose a Jeep over established European
+        competitors remains a formidable challenge.\n\nGenesis continues working to
+        establish itself in the American luxury market, and the electric GV60 crossover
+        exemplifies both the brand''s potential and its challenges. With nearly 22%
+        of inventory unsold, this stylish EV offers distinctive design and impressive
+        technology at a price point below comparable European EVs.\n\nThe challenge
+        is brand awareness and dealer network size, as Genesis simply doesn''t have
+        the visibility or accessibility of established luxury brands. The GV60 delivers
+        genuine luxury and engaging driving dynamics in an eye-catching package.\n\nHowever,
+        when spending nearly $58,000 on an electric vehicle, many buyers gravitate
+        toward Tesla''s established Supercharger network or prestigious German alternatives
+        with decades of luxury credibility.\n\nThe legendary Charger''s presence on
+        this list might seem surprising given its cult following, but at nearly $60,000
+        average price, we''re looking at well-equipped or performance variants. The
+        Charger has enjoyed an incredible run as one of the last V8-powered sedan
+        options, yet the transition to electric power looms on the horizon.\n\nBuyers
+        interested in the traditional Charger experience may be waiting for deals
+        as inventory clears, while those interested in the upcoming electric version
+        are simply waiting for its arrival. The pricing also reflects how expensive
+        these muscle sedans have become, potentially pricing out some traditional
+        buyers.\n\nThe Charger remains an automotive icon, though this transitional
+        moment creates uncertainty in the marketplace.\n\nThe reborn Z sports car
+        brought tremendous excitement when it launched, combining retro-inspired styling
+        with modern performance. However, with nearly 19% of inventory unsold at an
+        average price above $53,000, the market reality for two-seater sports cars
+        is challenging.\n\nThis price point puts the Z in competition with the Toyota
+        Supra, Chevrolet Corvette, and various European sports cars that offer different
+        flavors of performance. The Z delivers fantastic driving dynamics and that
+        classic long-hood proportions that enthusiasts love, but sports car sales
+        volumes are inherently limited.\n\nAdditionally, the automatic-only NISMO
+        trim disappointed some purists, even though manual transmissions remain available
+        on other Z trims.\n\nThe Wrangler 4xe brings electrification to Jeep''s most
+        iconic nameplate, yet 18% of inventory remains unsold at an eye-watering average
+        of nearly $61,000. This price reflects the technology premium for the plug-in
+        hybrid system, pushing the Wrangler into luxury vehicle territory.\n\nTraditional
+        Wrangler buyers often prioritize simplicity and proven off-road capability,
+        while the added complexity of a PHEV system may not align with how they use
+        their vehicles. The 4xe actually offers impressive off-road benefits with
+        instant electric torque and silent running capability, plus daily driving
+        efficiency that traditional Wranglers can''t match.\n\nHowever, convincing
+        buyers to spend this much on a Wrangler requires demonstrating clear advantages
+        over the less expensive conventional powertrains.\n\nHyundai''s electrified
+        Tucson represents a logical evolution of the popular compact crossover, though
+        14% of PHEV inventory remains available. At over $45,000, the plug-in hybrid
+        commands a significant premium over the regular Tucson, which already offers
+        excellent value and features.\n\nBuyers interested in electrification at this
+        price point have numerous options, including fully electric vehicles that
+        eliminate gas stations entirely. The Tucson PHEV makes sense for drivers who
+        want electric-only commuting capability with gas backup for longer trips,
+        though that specific use case represents a smaller slice of the market.\n\nHyundai''s
+        rapid advancement in quality and technology is impressive, yet the price premium
+        for plug-in capability remains a hurdle for value-conscious crossover shoppers.\n\nThe
+        standard-length Grand Wagoneer rounds out our list with 13% of inventory unsold
+        at an average price approaching $84,000. Jeep''s flagship SUV aims to reclaim
+        the brand''s heritage of premium American utility vehicles with genuine luxury
+        appointments.\n\nThe execution is impressive with high-quality materials,
+        advanced technology, and commanding road presence that makes a statement.
+        Yet at this price, buyers comparison shop against well-established luxury
+        SUVs from brands with long histories of premium vehicle production.\n\nThe
+        Grand Wagoneer succeeds in offering Jeep capability with upscale execution,
+        though breaking into the established luxury SUV market requires time for brand
+        perception to catch up with product reality.\n\nThis inventory analysis reveals
+        some clear patterns about today''s automotive market. Plug-in hybrids face
+        an uphill battle as buyers increasingly choose either conventional powertrains
+        or fully electric vehicles, skipping the middle ground entirely.\n\nPremium
+        pricing pushes vehicles into competitive territory where brand perception
+        and established luxury credentials matter enormously. The data also shows
+        that even beloved nameplates like the Wrangler and Charger face sales challenges
+        when configurations push prices into unexpected territory.\n\nThese inventory
+        levels don''t necessarily indicate bad vehicles, but rather misalignments
+        between product offerings, pricing, and what buyers are actually seeking in
+        today''s market.", "source":{"uri":"autos.yahoo.com", "dataType":"news", "title":"Yahoo
+        Autos", "description":"Do you like trucks?"}, "authors":[], "image":"https:\/\/s.yimg.com\/ny\/api\/res\/1.2\/04rSno54e0mtjuJq58JePQ--\/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-\/https:\/\/media.zenfs.com\/en\/guessing_headlights_178\/48638489d200534d4a07c86bf5ff8682",
+        "eventUri":null, "location":null, "sentiment":0.2156862745098038, "wgt":503386505,
+        "relevance":2}, {"uri":"9000006769", "lang":"eng", "isDuplicate":false, "date":"2025-12-14",
+        "time":"05:34:41", "dateTime":"2025-12-14T05:34:41Z", "dateTimePub":"2025-12-14T05:33:18Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.thestar.com.my\/news\/nation\/2025\/12\/14\/ai-fresh-tech-tactics-needed-to-outpace-paedophile-threats",
+        "title":"AI, fresh tech tactics needed to outpace paedophile threats", "body":"PETALING
+        JAYA: To stay ahead of the monsters that target our most vulnerable, the fight
+        against child predators must continue to evolve with better utilisation of
+        technology and long-term psychological help for victims.\n\nBukit Aman Criminal
+        Investigations Department (CID) sexual, women and child investigation division
+        (D11) principal assistant director Senior Asst Comm Siti Kamsiah Hassan said
+        that despite high-profile operations such as Op Cyber Guardian and Op Pedo,
+        the past year showed that criminals are always changing tactics to avoid detection.\n\n\"Although
+        significant progress has been made, paedophilia-related crime is dynamic,
+        complex, and constantly evolving. Therefore, several aspects should be given
+        emphasis in the coming year,\" she shared in an exclusive interview with The
+        Star.\n\n\"The use of Artificial Intelligence (AI) and data analytics must
+        be leveraged to help detect patterns of paedophilic behaviour, hidden networks,
+        and new forms of technology-generated content such as deepfakes.\n\n\"Automation
+        of online content monitoring can also help expedite enforcement actions,\"
+        she added.\n\nAccording to Siti, behavioural science and forensic psychology
+        support units are also needed to assist in offender profiling, repeat-risk
+        assessment, and strengthening the quality of investigations.\n\n\"This approach
+        is crucial because many paedophilia cases are closely linked to issues of
+        impulse control, emotional manipulation, and past trauma,\" she said.\n\nSiti
+        added that digital literacy education is also imperative and must be implemented
+        on a national level.\n\n\"It should start from the schools, all the way to
+        the parents.\n\n\"Preemptive prevention is the key, as many paedophilia cases
+        do not start with physical touch but through online emotional manipulation,\"
+        she said.\n\nSAC Siti noted that the department''s successes this year also
+        showed Bukit Aman''s continuous commitment to curb paedophilia-related crimes,
+        with enhanced international cooperation and higher detection capabilities
+        in tracing down child sexual abuse materials (CSAM).\n\n\"International cooperation
+        is more aggressive. The police enhanced partnerships within Interpol, Aseanpol
+        and our overseas enforcement comrades in tracing down cross-border pedophilia
+        rings, including travelling sex offenders.\n\n\"Arrests were also possible
+        with the exchange of intelligence and technical support amongst our partners
+        even though the suspects had been operating overseas,\" she said.", "source":{"uri":"thestar.com.my",
+        "dataType":"news", "title":"The Star ", "description":"Get the latest Malaysia
+        news stories and opinions with focus on National, Regional, Sarawak and World
+        News, as well as reports from Parliament and Court."}, "authors":[], "image":"https:\/\/apicms.thestar.com.my\/uploads\/images\/2025\/12\/14\/3671506.jpg",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Petaling Jaya"},
+        "country":{"type":"country", "label":{"eng":"Malaysia"}}}, "sentiment":0.09803921568627461,
+        "wgt":503386481, "relevance":1}, {"uri":"9000006292", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:34:26", "dateTime":"2025-12-14T05:34:26Z",
+        "dateTimePub":"2025-12-14T05:25:43Z", "dataType":"news", "sim":0.9686274528503418,
+        "url":"https:\/\/telanganatoday.com\/cbi-chargesheets-4-chinese-behind-rs-1000-cr-cyber-crime-racket-111-shell-companies-unmasked",
+        "title":"CBI chargesheets 4 Chinese behind Rs 1,000 cr cyber crime racket;
+        111 shell companies unmasked", "body":"The CBI filed a chargesheet against
+        17 individuals, including four Chinese nationals, and 58 companies for running
+        a transnational cyber fraud network that used shell firms and digital scams
+        to siphon over Rs 1,000 crore, officials said\n\nNew Delhi: The CBI has filed
+        a chargesheet against 17 people, including four Chinese nationals, and 58
+        companies for their alleged roles in a transnational cyber fraud network that
+        siphoned off over Rs 1,000 crore through a sprawling web of shell entities
+        and digital scams, officials said on Sunday.\n\nAfter busting the racket in
+        October, investigators unravelled a single, tightly coordinated syndicate
+        that relied on an elaborate digital and financial infrastructure to run a
+        range of frauds. These included misleading loan applications, fake investment
+        schemes, Ponzi and multi-level marketing models, bogus part-time job offers
+        and fraudulent online gaming platforms.\n\nAccording to the probe agency''s
+        final report, the group layered the flow of illicit funds through 111 shell
+        companies, routing about Rs 1,000 crore via mule accounts. One account received
+        more than Rs 152 crore in a short span.\n\nThe shell companies, the CBI said,
+        were incorporated using dummy directors, forged or misleading documents, fake
+        addresses and false statements of business objectives.\n\n\"These shell entities
+        were used to open bank accounts and merchant accounts with various payment
+        gateways, enabling rapid layering and diversion of proceeds of crime,\" a
+        CBI spokesperson said in a statement.\n\nInvestigators traced the origins
+        of the scam to 2020, when the country was grappling with the COVID-19 pandemic.
+        The shell companies were allegedly incorporated at the direction of four Chinese
+        handlers -- Zou Yi, Huan Liu, Weijian Liu and Guanhua Wang.\n\nTheir Indian
+        associates procured identity documents from unsuspecting individuals, which
+        were then used to establish the network of shell companies and mule accounts
+        to launder proceeds from the scams and obscure the money trail.\n\nThe investigation
+        exposed communication links and operational control that, the agency said,
+        nailed the role of Chinese masterminds running the fraud network from abroad.\n\n\"Significantly,
+        a UPI ID linked to the bank accounts of two Indian accused was found to be
+        active in a foreign location as late as August 2025, conclusively establishing
+        continued foreign control and real-time operational oversight of the fraud
+        infrastructure from outside India,\" the CBI statement said.\n\nThe probe
+        found that the racketeers employed a highly layered, technology-driven modus
+        operandi, using Google advertisements, bulk SMS campaigns, SIM-box-based messaging
+        systems, cloud infrastructure, fintech platforms and multiple mule bank accounts.\n\n\"Each
+        stage of the operation -- from luring victims to collection and movement of
+        funds -- was deliberately structured to conceal the identities of the actual
+        controllers and evade detection by law enforcement agencies,\" the spokesperson
+        said.\n\nThe chargesheet names 17 individuals, including the four Chinese
+        nationals, and 58 companies.\n\nThe investigation was launched on the inputs
+        from the Indian Cyber Crime Coordination Centre (I4C) under the Ministry of
+        Home Affairs, which flagged large-scale cheating of citizens through online
+        investment and employment schemes, resulting in the arrest of three individuals
+        in October.\n\n\"Though initially appearing as isolated complaints, detailed
+        analysis by CBI revealed striking similarities in applications used, fund-flow
+        patterns, payment gateways and digital footprints, pointing towards a common
+        organised conspiracy,\" the agency said.\n\nFollowing the October arrests,
+        the CBI conducted searches at 27 locations across Karnataka, Tamil Nadu, Kerala,
+        Andhra Pradesh, Jharkhand and Haryana, seizing digital devices, documents
+        and financial records that were later subjected to detailed forensic examination.",
+        "source":{"uri":"telanganatoday.com", "dataType":"news", "title":"Telangana
+        Today", "description":"Telangana Today English Daily"}, "authors":[{"uri":"telangana_today@telanganatoday.com",
+        "name":"Telangana Today", "type":"author", "isAgency":false}], "image":"https:\/\/media.telanganatoday.com\/wp-content\/uploads\/2025\/11\/cybercrime-1.jpg",
+        "eventUri":"eng-11229897", "location":null, "sentiment":-0.5058823529411764,
+        "wgt":503386466, "relevance":1}, {"uri":"9000006781", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:34:25", "dateTime":"2025-12-14T05:34:25Z",
+        "dateTimePub":"2025-12-14T05:20:34Z", "dataType":"news", "sim":0.95686274766922,
+        "url":"https:\/\/www.newsdrum.in\/national\/cbi-chargesheets-4-chinese-behind-rs-1000-cr-cyber-crime-racket-111-shell-companies-unmasked-10908736",
+        "title":"CBI chargesheets 4 Chinese behind Rs 1,000 cr cyber crime racket;
+        111 shell companies unmasked", "body":"New Delhi, Dec 14 (PTI) The CBI has
+        filed a chargesheet against 17 people, including four Chinese nationals, and
+        58 companies for their alleged roles in a transnational cyber fraud network
+        that siphoned off over Rs 1,000 crore through a sprawling web of shell entities
+        and digital scams, officials said on Sunday.\n\nAfter busting the racket in
+        October, investigators unravelled a single, tightly coordinated syndicate
+        that relied on an elaborate digital and financial infrastructure to run a
+        range of frauds. These included misleading loan applications, fake investment
+        schemes, Ponzi and multi-level marketing models, bogus part-time job offers
+        and fraudulent online gaming platforms.\n\nAccording to the probe agency''s
+        final report, the group layered the flow of illicit funds through 111 shell
+        companies, routing about Rs 1,000 crore via mule accounts. One account received
+        more than Rs 152 crore in a short span.\n\nThe shell companies, the CBI said,
+        were incorporated using dummy directors, forged or misleading documents, fake
+        addresses and false statements of business objectives.\n\n\"These shell entities
+        were used to open bank accounts and merchant accounts with various payment
+        gateways, enabling rapid layering and diversion of proceeds of crime,\" a
+        CBI spokesperson said in a statement.\n\nInvestigators traced the origins
+        of the scam to 2020, when the country was grappling with the COVID-19 pandemic.
+        The shell companies were allegedly incorporated at the direction of four Chinese
+        handlers -- Zou Yi, Huan Liu, Weijian Liu and Guanhua Wang.\n\nTheir Indian
+        associates procured identity documents from unsuspecting individuals, which
+        were then used to establish the network of shell companies and mule accounts
+        to launder proceeds from the scams and obscure the money trail.\n\nThe investigation
+        exposed communication links and operational control that, the agency said,
+        nailed the role of Chinese masterminds running the fraud network from abroad.\n\n\"Significantly,
+        a UPI ID linked to the bank accounts of two Indian accused was found to be
+        active in a foreign location as late as August 2025, conclusively establishing
+        continued foreign control and real-time operational oversight of the fraud
+        infrastructure from outside India,\" the CBI statement said.\n\nThe probe
+        found that the racketeers employed a highly layered, technology-driven modus
+        operandi, using Google advertisements, bulk SMS campaigns, SIM-box-based messaging
+        systems, cloud infrastructure, fintech platforms and multiple mule bank accounts.\n\n\"Each
+        stage of the operation -- from luring victims to collection and movement of
+        funds -- was deliberately structured to conceal the identities of the actual
+        controllers and evade detection by law enforcement agencies,\" the spokesperson
+        said.\n\nThe chargesheet names 17 individuals, including the four Chinese
+        nationals, and 58 companies.\n\nThe investigation was launched on the inputs
+        from the Indian Cyber Crime Coordination Centre (I4C) under the Ministry of
+        Home Affairs, which flagged large-scale cheating of citizens through online
+        investment and employment schemes, resulting in the arrest of three individuals
+        in October.\n\n\"Though initially appearing as isolated complaints, detailed
+        analysis by CBI revealed striking similarities in applications used, fund-flow
+        patterns, payment gateways and digital footprints, pointing towards a common
+        organised conspiracy,\" the agency said.\n\nFollowing the October arrests,
+        the CBI conducted searches at 27 locations across Karnataka, Tamil Nadu, Kerala,
+        Andhra Pradesh, Jharkhand and Haryana, seizing digital devices, documents
+        and financial records that were later subjected to detailed forensic examination.
+        PTI ABS NSD NSD", "source":{"uri":"newsdrum.in", "dataType":"news", "title":"NewsDrum",
+        "description":""}, "authors":[{"uri":"newsdrum_desk@newsdrum.in", "name":"NewsDrum
+        Desk", "type":"author", "isAgency":false}], "image":"https:\/\/img-cdn.publive.online\/fit-in\/1200x675\/newsdrum-in\/media\/agency_attachments\/2025\/01\/29\/2025-01-29t072616888z-nd_logo_white-200-niraj-sharma.jpg",
+        "eventUri":"eng-11229897", "location":{"type":"place", "label":{"eng":"New
+        Delhi"}, "country":{"type":"country", "label":{"eng":"India"}}}, "sentiment":-0.4431372549019608,
+        "wgt":503386465, "relevance":1}, {"uri":"9000004824", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:34:17", "dateTime":"2025-12-14T05:34:17Z",
+        "dateTimePub":"2025-12-14T05:24:37Z", "dataType":"news", "sim":0.8078431487083435,
+        "url":"https:\/\/www.devdiscourse.com\/article\/entertainment\/3730240-odisha-celebrates-young-astronomers-beam-to-the-stars",
+        "title":"Odisha Celebrates Young Astronomers: Beam to the Stars | Entertainment",
+        "body":"The Odisha government recently honored 30 young astronomers who excelled
+        in the prestigious Tata Steel Young Astronomer Talent Search (YATS) 2025.
+        This recognition event, attended by Science and Technology Minister Krushna
+        Chandra Patra, underscores the state''s commitment to fostering interest in
+        space science among its youth.\n\nThe ceremony, organized by Tata Steel in
+        collaboration with the Pathani Samanta Planetarium, celebrated students who
+        emerged as top contenders from a pool of over 76,700 participants statewide.
+        Since its inception in 2007, YATS has impacted over 4.7 lakh students, aiming
+        to inspire young minds towards the fields of science, astronomy, and space
+        research.\n\nChithra Arumugam, Additional Chief Secretary of the Department
+        of Science and Technology, praised YATS as a powerful example of collaboration
+        between the state government and Tata Steel. She emphasized the program''s
+        role in nurturing the intellectual curiosity and scientific aspirations of
+        Odisha''s youth.", "source":{"uri":"devdiscourse.com", "dataType":"news",
+        "title":"Devdiscourse", "description":"World''s leading Website for International
+        Development News. Breaking News, Opinions, Technology, Social development,
+        Urban Development, Entertainment, Sports news."}, "authors":[], "image":"https:\/\/www.devdiscourse.com\/remote.axd?https:\/\/devdiscourse.blob.core.windows.net\/aiimagegallery\/10_07_2024_15_06_33_7038425.png?width=920&format=jpeg",
+        "eventUri":"eng-11229642", "location":null, "sentiment":0.7098039215686274,
+        "wgt":503386457, "relevance":1}], "totalResults":410773, "page":1, "count":5,
+        "pages":82155}}'
+  recorded_at: Sun, 14 Dec 2025 05:36:19 GMT
 recorded_with: VCR 6.3.1

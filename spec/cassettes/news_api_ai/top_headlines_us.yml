@@ -405,4 +405,773 @@ http_interactions:
         "eventUri":null, "location":null, "sentiment":0.2784313725490195, "wgt":502531706,
         "relevance":2}], "totalResults":80883, "page":1, "count":5, "pages":16177}}'
   recorded_at: Thu, 04 Dec 2025 08:09:17 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-13&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Dec 2025 05:36:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1753'
+      X-Response-Time:
+      - '271'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"6b5e-cza19GtvCUTxuDJdLQ05EScqEyM"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9000007404", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:35:07", "dateTime":"2025-12-14T05:35:07Z",
+        "dateTimePub":"2025-12-14T05:30:01Z", "dataType":"news", "sim":0.658823549747467,
+        "url":"https:\/\/www.sportingnews.com\/au\/nfl\/news\/nfl-standings-2025-playoff-picture-week-15\/b51a1cf1c943417dfc7debba",
+        "title":"NFL standings: Updated AFC, NFC playoff pictures for Week 15 of 2025
+        season", "body":"What 14 teams are positioned to make the NFL playoffs in
+        the 2025 regular season, from the eight division winners to six total wild
+        cards? What would the seeding look like in the race for Super Bowl 60?\n\nHere
+        are the answers in Sporting News'' latest look at how the postseason field
+        is coming together in both conferences going into the Sunday and Monday games
+        of Week 15:\n\nPOWER RANKINGS: Packers, Steelers jump as Bears, Ravens drop;
+        Chiefs, Colts slide again in Week 15\n\nThe Patriots are coming off a bye
+        with a two-game lead over the Bills in the division race. They will host Buffalo
+        on Sunday trying to clinch the East title with a three-game lead plus the
+        head-to-head tiebreaker from a season sweep.\n\nThe Steelers are up a full
+        game and head-to-head tiebreaker on the Ravens after beating that team in
+        Week 14. They also are up three games on the third-place Bengals going into
+        Monday night''s game vs. the Dolphins.\n\n5. Los Angeles Chargers 9-4 (second
+        place, AFC West)\n\nThe Chargers stayed ahead of the Bills with their overtime
+        win over the Eagles in Week 14 as they still hold the conference-record tiebreaker
+        for the top wild card (7-2 vs. 6-3). They are three games ahead of the third-place
+        Chiefs, at whom they play on Sunday.\n\n6. Buffalo Bills 9-4 (second place,
+        AFC East)\n\nThe Bills'' chances of winning a sixth consecutive division title
+        come are fading and would be gone if they can''t win the Patriots. A win would
+        put them down only one game with three to play.\n\n7. Houston Texans 8-5 (second
+        place, AFC South)\n\nThe Texans have rallied from 0-3 to go 8-2 since and
+        stay a game behind the Jaguars in the division race. They are ahead of the
+        third-place Colts for this third wild-card spot because of a division-record
+        tiebreaker (4-1 vs. 2-2).\n\n8. Indianapolis Colts (8-5)\n\n9. Baltimore Ravens
+        (6-7)\n\n10. Kansas City Chiefs (6-7)\n\n11. Miami Dolphins (6-7)\n\n12. Cincinnati
+        Bengals (4-9)\n\nThe Colts are the team to watch in the wild-card race but
+        it will be tough with their schedule minus Daniel Jones. The Ravens or Bengals,
+        who play each other on Sunday, will somehow need to pass the Steelers with
+        the division being the only playoff path. The Chiefs and Dolphins have slim
+        chances of earning wild cards.\n\n13. New York Jets (3-10)\n\n14. Cleveland
+        Browns (3-10)\n\n15. Las Vegas Raiders (2-11)\n\n16. Tennessee Titans (2-11)\n\nAll
+        four of these teams have been eliminated, with the Browns being the latest
+        to join this club in Week 14.\n\nThe Rams lead the Packers by a half-game
+        for this top spot that comes with home-field advantage and a first-round bye.
+        They lead the division by a head-to-head tiebreaker over the Seahawks and
+        a full game over the 49ers going into their game vs. the Lions.\n\n2. Green
+        Bay Packers 9-3-1 (first place, NFC North)\n\nThe Packers lead the division
+        by a half-game and head-to-head tiebreaker over the Bears, who they beat in
+        Week 14, and are up 1.5 games on of the third-place Lions, who they beat in
+        Week 13. They are also one game ahead of the Eagles for this spot.\n\n3. Philadelphia
+        Eagles 8-5 (first place, NFC East)\n\nThe Eagles lead the division by 1.5
+        games over the Cowboys after both teams lost in Week 14. They should end their
+        three-game losing streak by beating the Raiders on Sunday.\n\n4. Carolina
+        Panthers 7-6 (first place, NFC South)\n\nThe Panthers lead the division by
+        a half-game over the Buccaneers going into Sunday''s home game vs. the Saints
+        after the Buccaneers opened Week 15 by losing at home to the Saints. The Panthers
+        and Buccaneers still play twice, in Week 16 and Week 18.\n\n5. Seattle Seahawks
+        10-3 (second place, NFC West)\n\nThe Seahawks kept pace with the Rams by routing
+        the Falcons in Week 14. They remain a full game ahead of the third-place 49ers,
+        who have a bye. The Seahawks are once again big favorites hosting the Colts.\n\n6.
+        San Francisco 49ers 9-4 (third place, NFC West)\n\nThe 49ers are coming off
+        a bye to host the Titans on Sunday, trying to make up the one game on both
+        the Seahawks and Rams to finish first in the division over the final four
+        weeks.\n\n7. Chicago Bears 9-4 (second place, NFC North)\n\nThe Bears fell
+        down here from No. 1 with their Week 14 loss to the Packers. They lead the
+        third-place Lions by only one game for this spot. Chicago will hope to beat
+        Cleveland on Sunday to either maintain or increase that advantage.\n\n8. Detroit
+        Lions 8-5\n\n9. Tampa Bay Buccaneers 7-7\n\n10. Dallas Cowboys 6-6-1\n\n11.
+        Minnesota Vikings 5-8\n\nThe Lions have the best wild-card shot here by far
+        but need to beat the No. 1 Rams on the road to help their chances. The Bucs
+        took a tough loss to open Week 15. The Cowboys and Vikings are on the brink
+        of elimination.\n\n12. Atlanta Falcons 5-9\n\n13. Arizona Cardinals 3-10\n\n14.
+        New Orleans Saints 3-10\n\n15. Washington Commanders 3-10\n\n16. New York
+        Giants 2-11\n\nAll these teams were eliminated from playoff contention before
+        Week 15.", "source":{"uri":"sportingnews.com", "dataType":"news", "title":"Sporting
+        News", "description":"The latest news, videos, scores and more on the biggest
+        sports, including NFL, NBA, MLB, NCAA, NASCAR and more with Sporting News"},
+        "authors":[], "image":"https:\/\/library.sportingnews.com\/styles\/twitter_card_120x120\/s3\/2024-12\/NFL%20Playoff%20Picture.jpg?itok=gTDXd29e",
+        "eventUri":"eng-11228703", "location":null, "sentiment":0.1529411764705881,
+        "wgt":503386507, "relevance":2}, {"uri":"9000006017", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:35:06", "dateTime":"2025-12-14T05:35:06Z",
+        "dateTimePub":"2025-12-14T05:07:04Z", "dataType":"news", "sim":0, "url":"https:\/\/www.news-gazette.com\/ap\/sports\/agate\/san-antonio-111-oklahoma-city-109\/article_b8c57b51-b6e1-54bd-b715-db21f91c1d34.html",
+        "title":"San Antonio 111, Oklahoma City 109", "body":"Due to scheduled maintenance
+        from Saturday, March 15, 2025, at 10 PM to Sunday, March 16, 2025, at 2 AM,
+        there may be interruptions for our News Gazette Digital subscribers. During
+        this time frame, please click on any News Gazette website content without
+        logging into your News Gazette Digital subscription account. Thank you for
+        your patience during this scheduled maintenance. SAN ANTONIO (111)\n\nBarnes
+        2-10 2-4 6, Vassell 6-13 7-8 23, Kornet 1-3 0-0 2, Castle 9-16 2-2 22, Fox
+        8-15 3-4 22, Champagnie 1-5 0-0 3, Wembanyama 6-11 9-12 22, Johnson 1-4 0-0
+        3, Harper 3-13 1-2 8. Totals 37-90 24-32 111.\n\nOKLAHOMA CITY (109)\n\nHolmgren
+        3-8 10-12 17, Jal.Williams 5-16 5-6 17, Hartenstein 5-9 0-0 10, Dort 1-7 0-0
+        3, Gilgeous-Alexander 12-23 4-4 29, Jay.Williams 2-5 1-1 6, Caruso 5-9 0-0
+        11, Mitchell 2-4 4-4 9, Wallace 3-7 0-0 7, Wiggins 0-4 0-0 0. Totals 38-92
+        24-27 109.\n\nSan Antonio20263233 -- 111Oklahoma City31182832 -- 109\n\n3-Point
+        Goals_San Antonio 13-42 (Vassell 4-9, Fox 3-7, Castle 2-5, Wembanyama 1-1,
+        Johnson 1-2, Champagnie 1-5, Harper 1-5, Barnes 0-8), Oklahoma City 9-37 (Jal.Williams
+        2-5, Mitchell 1-1, Caruso 1-3, Holmgren 1-3, Jay.Williams 1-3, Wallace 1-5,
+        Dort 1-6, Gilgeous-Alexander 1-7, Wiggins 0-4). Fouled Out_None. Rebounds_San
+        Antonio 52 (Wembanyama 9), Oklahoma City 51 (Hartenstein 9). Assists_San Antonio
+        21 (Barnes 5), Oklahoma City 20 (Gilgeous-Alexander 5). Total Fouls_San Antonio
+        23, Oklahoma City 25. A_18,519 (18,000)", "source":{"uri":"news-gazette.com",
+        "dataType":"news", "title":"The News-Gazette", "description":"Your Source
+        for News and Advertising in East Central Illinois"}, "authors":[], "image":"https:\/\/bloximages.newyork1.vip.townnews.com\/news-gazette.com\/content\/tncms\/custom\/image\/e462f33a-3c65-11ec-b3f1-2f038a8f66b4.jpg?resize=600%2C315",
+        "eventUri":null, "location":null, "sentiment":0.02745098039215677, "wgt":503386506,
+        "relevance":2}, {"uri":"9000007431", "lang":"eng", "isDuplicate":false, "date":"2025-12-14",
+        "time":"05:35:05", "dateTime":"2025-12-14T05:35:05Z", "dateTimePub":"2025-12-13T11:00:38Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/autos.yahoo.com\/deals-and-buying-guides\/articles\/dealerships-cant-seem-sell-2024-110038993.html",
+        "title":"Dealerships Can''t Seem to Sell These 2024 Car Models at All", "body":"Ever
+        wonder which brand-new cars are gathering dust on dealer lots across America?
+        iSeeCars did a deep dive into more than 2.6 million new car listings across
+        the United States, revealing some surprising answers.\n\nThe data shows the
+        percentage of 2024 inventory still sitting unsold, and the results paint an
+        interesting picture of what today''s buyers are actually looking for. From
+        luxury SUVs to sports cars, these twelve models are having a tougher time
+        finding homes than dealers probably anticipated.\n\nSome of the names might
+        surprise you, while others make perfect sense once you consider pricing, timing,
+        and market trends.\n\nLeading the pack with a staggering 82% of inventory
+        still available, the Dodge Hornet plug-in hybrid is struggling to find its
+        audience. This compact crossover arrived with plenty of expectations, bringing
+        electrification to the Dodge lineup in an unexpected package.\n\nThe pricing
+        sits in an awkward middle ground where buyers shopping for practicality might
+        opt for less expensive options, while performance enthusiasts may not see
+        the Hornet as a true Dodge muscle vehicle. The plug-in hybrid powertrain adds
+        complexity and cost that many shoppers in this segment simply aren''t asking
+        for.\n\nIt''s a challenging market position when your brand identity is built
+        on roaring V8s and quarter-mile times.\n\nThe Grand Cherokee has long been
+        a cornerstone of Jeep''s lineup, but more than 70% of 2024 models remain unsold
+        at an average price above $64,000. That price point puts it in direct competition
+        with luxury European SUVs that offer prestigious badges and refined experiences.\n\nThe
+        midsize SUV market is fiercely competitive, especially at this price point
+        where buyers have dozens of well-established two-row luxury and near-luxury
+        options to choose from. Jeep''s recent quality perception issues haven''t
+        helped matters, as buyers spending this much want assurance their investment
+        will be reliable.\n\nThe Grand Cherokee remains capable and spacious, but
+        convincing buyers to choose it over established luxury competitors at this
+        price requires a compelling value proposition.\n\nAlfa Romeo''s entry into
+        the compact luxury crossover segment has met a lukewarm reception, with nearly
+        half of the 2024 Tonale Hybrid inventory still available. The Italian brand
+        brings undeniable style and driving dynamics, but the hybrid powertrain in
+        a segment where buyers often prioritize either pure efficiency or pure performance
+        creates an identity challenge.\n\nAt almost $52,000, shoppers have access
+        to well-established German competitors with stronger dealer networks and better
+        resale values. The Tonale looks fantastic and drives with characteristic Alfa
+        flair, but breaking into the American market with limited brand presence remains
+        an uphill battle.\n\nEnthusiasts love what Alfa Romeo represents, though convincing
+        mainstream luxury buyers to take the leap is another story entirely.\n\nThe
+        Malibu''s struggles reflect a broader trend: the American sedan is facing
+        an existential crisis. With 31% of inventory unsold, this dependable midsize
+        sedan is caught in a market that has decisively shifted toward SUVs and crossovers.\n\nChevrolet
+        has already announced the Malibu''s discontinuation, which certainly doesn''t
+        help sales as buyers tend to avoid models they know are being phased out.
+        The pricing is reasonable and the Malibu offers solid value with good fuel
+        economy and a comfortable ride.\n\nHowever, when most buyers can get into
+        a Chevy Trax or Trailblazer for similar money with the added versatility of
+        a crossover, the traditional sedan becomes a tougher sell.\n\nThe non-hybrid
+        Dodge Hornet appears again, this time the base model with 26% of inventory
+        still on lots. At nearly $32,000, this Alfa Romeo Tonale-based crossover faces
+        an identity crisis within the Dodge lineup.\n\nTraditional Dodge buyers expect
+        American muscle and V8 rumble, not a turbocharged four-cylinder Italian-rooted
+        crossover. The Hornet offers decent performance and modern features, but it
+        doesn''t fit the brand''s muscle car image that draws customers to showrooms.
+        Meanwhile, buyers simply looking for a compact crossover have dozens of more
+        established options to choose from.\n\nDodge is attempting to pivot toward
+        a more diverse lineup, though this transition is proving challenging when
+        your brand loyalty is built on a very specific type of vehicle.\n\nWhen your
+        average transaction price approaches six figures, you''re competing with some
+        serious luxury iron. The Grand Wagoneer L stretches the already-large Grand
+        Wagoneer even further, creating a true land yacht for families who need maximum
+        space.\n\nAt over $92,000, buyers at this level expect Range Rover levels
+        of refinement and prestige, which represents a significant leap for the Jeep
+        brand. The Grand Wagoneer L offers impressive capability and generous three-row
+        seating, but the price tag puts it in rarefied air where badge perception
+        matters enormously.\n\nJeep has made tremendous strides in luxury execution,
+        yet convincing ultra-luxury buyers to choose a Jeep over established European
+        competitors remains a formidable challenge.\n\nGenesis continues working to
+        establish itself in the American luxury market, and the electric GV60 crossover
+        exemplifies both the brand''s potential and its challenges. With nearly 22%
+        of inventory unsold, this stylish EV offers distinctive design and impressive
+        technology at a price point below comparable European EVs.\n\nThe challenge
+        is brand awareness and dealer network size, as Genesis simply doesn''t have
+        the visibility or accessibility of established luxury brands. The GV60 delivers
+        genuine luxury and engaging driving dynamics in an eye-catching package.\n\nHowever,
+        when spending nearly $58,000 on an electric vehicle, many buyers gravitate
+        toward Tesla''s established Supercharger network or prestigious German alternatives
+        with decades of luxury credibility.\n\nThe legendary Charger''s presence on
+        this list might seem surprising given its cult following, but at nearly $60,000
+        average price, we''re looking at well-equipped or performance variants. The
+        Charger has enjoyed an incredible run as one of the last V8-powered sedan
+        options, yet the transition to electric power looms on the horizon.\n\nBuyers
+        interested in the traditional Charger experience may be waiting for deals
+        as inventory clears, while those interested in the upcoming electric version
+        are simply waiting for its arrival. The pricing also reflects how expensive
+        these muscle sedans have become, potentially pricing out some traditional
+        buyers.\n\nThe Charger remains an automotive icon, though this transitional
+        moment creates uncertainty in the marketplace.\n\nThe reborn Z sports car
+        brought tremendous excitement when it launched, combining retro-inspired styling
+        with modern performance. However, with nearly 19% of inventory unsold at an
+        average price above $53,000, the market reality for two-seater sports cars
+        is challenging.\n\nThis price point puts the Z in competition with the Toyota
+        Supra, Chevrolet Corvette, and various European sports cars that offer different
+        flavors of performance. The Z delivers fantastic driving dynamics and that
+        classic long-hood proportions that enthusiasts love, but sports car sales
+        volumes are inherently limited.\n\nAdditionally, the automatic-only NISMO
+        trim disappointed some purists, even though manual transmissions remain available
+        on other Z trims.\n\nThe Wrangler 4xe brings electrification to Jeep''s most
+        iconic nameplate, yet 18% of inventory remains unsold at an eye-watering average
+        of nearly $61,000. This price reflects the technology premium for the plug-in
+        hybrid system, pushing the Wrangler into luxury vehicle territory.\n\nTraditional
+        Wrangler buyers often prioritize simplicity and proven off-road capability,
+        while the added complexity of a PHEV system may not align with how they use
+        their vehicles. The 4xe actually offers impressive off-road benefits with
+        instant electric torque and silent running capability, plus daily driving
+        efficiency that traditional Wranglers can''t match.\n\nHowever, convincing
+        buyers to spend this much on a Wrangler requires demonstrating clear advantages
+        over the less expensive conventional powertrains.\n\nHyundai''s electrified
+        Tucson represents a logical evolution of the popular compact crossover, though
+        14% of PHEV inventory remains available. At over $45,000, the plug-in hybrid
+        commands a significant premium over the regular Tucson, which already offers
+        excellent value and features.\n\nBuyers interested in electrification at this
+        price point have numerous options, including fully electric vehicles that
+        eliminate gas stations entirely. The Tucson PHEV makes sense for drivers who
+        want electric-only commuting capability with gas backup for longer trips,
+        though that specific use case represents a smaller slice of the market.\n\nHyundai''s
+        rapid advancement in quality and technology is impressive, yet the price premium
+        for plug-in capability remains a hurdle for value-conscious crossover shoppers.\n\nThe
+        standard-length Grand Wagoneer rounds out our list with 13% of inventory unsold
+        at an average price approaching $84,000. Jeep''s flagship SUV aims to reclaim
+        the brand''s heritage of premium American utility vehicles with genuine luxury
+        appointments.\n\nThe execution is impressive with high-quality materials,
+        advanced technology, and commanding road presence that makes a statement.
+        Yet at this price, buyers comparison shop against well-established luxury
+        SUVs from brands with long histories of premium vehicle production.\n\nThe
+        Grand Wagoneer succeeds in offering Jeep capability with upscale execution,
+        though breaking into the established luxury SUV market requires time for brand
+        perception to catch up with product reality.\n\nThis inventory analysis reveals
+        some clear patterns about today''s automotive market. Plug-in hybrids face
+        an uphill battle as buyers increasingly choose either conventional powertrains
+        or fully electric vehicles, skipping the middle ground entirely.\n\nPremium
+        pricing pushes vehicles into competitive territory where brand perception
+        and established luxury credentials matter enormously. The data also shows
+        that even beloved nameplates like the Wrangler and Charger face sales challenges
+        when configurations push prices into unexpected territory.\n\nThese inventory
+        levels don''t necessarily indicate bad vehicles, but rather misalignments
+        between product offerings, pricing, and what buyers are actually seeking in
+        today''s market.", "source":{"uri":"autos.yahoo.com", "dataType":"news", "title":"Yahoo
+        Autos", "description":"Do you like trucks?"}, "authors":[], "image":"https:\/\/s.yimg.com\/ny\/api\/res\/1.2\/04rSno54e0mtjuJq58JePQ--\/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-\/https:\/\/media.zenfs.com\/en\/guessing_headlights_178\/48638489d200534d4a07c86bf5ff8682",
+        "eventUri":null, "location":null, "sentiment":0.2156862745098038, "wgt":503386505,
+        "relevance":2}, {"uri":"9000006094", "lang":"eng", "isDuplicate":true, "date":"2025-12-14",
+        "time":"05:35:04", "dateTime":"2025-12-14T05:35:04Z", "dateTimePub":"2025-12-14T04:59:00Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.newstribune.com\/news\/2025\/dec\/13\/horvath-to-heidenreich-leads-navy-past-army-17-16\/",
+        "title":"Horvath to Heidenreich leads Navy past Army 17-16 | Jefferson City
+        News-Tribune", "body":"BALTIMORE -- Blake Horvath to Eli Heidenreich.\n\nThat''s
+        the connection that led Navy to such a memorable season -- and the two of
+        them came through again on the biggest play of the biggest game.\n\nHorvath
+        threw an 8-yard touchdown pass to Heidenreich with 6:32 remaining -- on fourth-and-goal
+        -- and No. 22 Navy rallied to beat Army 17-16 on Saturday. Heidenreich, the
+        career and single-season leader in yards receiving for the Midshipmen, caught
+        six of Horvath''s seven completions on the day.\n\n\"Who wouldn''t go to him?\"
+        Horvath said. \"Talk about an all-time Navy legend. You''re going to be talking
+        about Eli Heidenreich for years and years and years.\"\n\nAlthough it was
+        clearly a passing situation, and Heidenreich was Navy''s top target, he was
+        single covered over the middle.\n\n\"Tried to bring some pressure on them,\"
+        Army coach Jeff Monken said. \"Good throw and good catch.\"\n\nWith President
+        Donald Trump in attendance, Navy (10-2) got its second straight victory over
+        Army (6-6), and the Midshipmen won the Commander-In-Chief''s Trophy for a
+        second straight season. The Black Knights have not beaten a Navy team that
+        was ranked by the AP since 1955.\n\nHorvath was fortunate to have the chance
+        to throw that decisive touchdown pass. On second-and-goal from the 1, he lost
+        the ball while attempting a tush push. Army linebacker Eric Ford had a chance
+        to scoop it up, but Navy running back Alex Tecza lunged over to prevent that,
+        and Heidenreich eventually fell on the ball back at the 8.\n\n\"That''s probably
+        the last thing you want to see on the 1-yard line is you turn around and the
+        ball is just bouncing behind you,\" Heidenreich said. \"I was blocking down.
+        I thought he had pushed in, and kind of out of my peripheral I saw it going
+        behind me.\"\n\nOn the next play, Horvath was nearly sacked, but he was able
+        to throw the ball toward Tecza as he went down. The ball fell incomplete instead
+        of being caught around the 15, which was just as well for Navy because it
+        made going for it on fourth down a more viable option.\n\n\"I kind of felt
+        like we had to,\" Navy coach Brian Newberry said. \"The nature of what they
+        do offensively, despite how well we played in the second half, you may not
+        get the ball back.\"\n\nEven after Heidenreich''s touchdown and an Army punt,
+        Navy still had to escape one more near-turnover. On third-and-3 from the Army
+        43, the ball popped loose on a run by Horvath, but he was able to catch it
+        out of the air. It came loose again and the Black Knights recovered, but after
+        a review, Horvath was ruled down before the second fumble -- a yard short
+        of the line to gain.\n\nTecza then ran for the first down that enabled Navy
+        to kneel out the clock, and Horvath appeared to wave goodbye at the Army sideline.
+        There was a bit of a ruckus near midfield after the final kneel-down before
+        things eventually calmed down for the traditional singing of the alma maters.\n\n\"They
+        want to talk all their crap during the game and act like they''re so tough,\"
+        Horvath said. \"The excuse last year was that they played a conference championship
+        game before us. This year, we''ll see what it is.\"\n\nThe Black Knights were
+        trying to turn the tables on Navy after a ranked Army team -- which had just
+        won the American Conference title -- lost to the Midshipmen last year.\n\nThe
+        teams traded touchdown drives to start the game, each lasting 13 plays, 75
+        yards and more than seven minutes. Horvath had a 5-yard scoring run, and Army
+        quarterback Cale Hellums answered with a 2-yarder. Army''s first drive didn''t
+        end until 5 seconds into the second quarter.\n\nThen it was a while before
+        anyone reached the end zone again. With Army up 10-7 late in the second quarter,
+        the ball slipped out of Horvath''s hand while he was looking to pass. Army
+        recovered the fumble at its own 45 with 20 seconds to play and moved into
+        range for a 45-yard field goal by Dawson Jones.\n\nNavy''s defense stiffened
+        in the second half, but the Midshipmen still flirted with disaster. Horvath
+        threw an interception in the third quarter that was initially returned to
+        the end zone -- before a replay showed Army''s Justin Weaver had a knee down
+        when he picked off the pass at the Navy 32. The Black Knights had to settle
+        for three -- Dawson connected on a career-long 48-yard kick.\n\nNavy''s wing-T
+        offense has been explosive this season. The Midshipmen entered the day with
+        an FBS-high 10 plays of at least 60 yards. Army mostly kept them contained,
+        but Horvath slipped free for a 37-yard run that set up a third-quarter field
+        goal that made it 16-10.\n\nAfter Hellums'' underthrown pass was intercepted
+        by Phillip Hamilton, giving Navy the ball at the 50 with 11:19 to play, Tecza''s
+        24-yard run made it first-and-goal from the 5.\n\nTrump tossed the coin before
+        the game at midfield, then returned at halftime to walk from the Navy sideline
+        to the Army one.\n\nArmy defensive lineman Jack Bousum, who is from Annapolis,
+        had a big game against his hometown team. He finished with 1\u00bd sacks and
+        a fumble recovery.\n\nThe Black Knights were the better team in the first
+        half Saturday but didn''t do much offensively after that.\n\n\"They beat blocks,\"
+        Monken said. \"We didn''t sustain the blocks we needed to.\"\n\nHorvath made
+        some big plays and some bad ones, and the Navy defense was stout in the second
+        half. The Midshipmen finished tied for first in the AAC this year but missed
+        out on the league title game because of tiebreakers. This victory matters
+        more to them anyway.\n\nArmy faces UConn in the Fenway Bowl on Dec. 27, while
+        Navy faces Cincinnati in the Liberty Bowl on Jan. 2.", "source":{"uri":"newstribune.com",
+        "dataType":"news", "title":"Jefferson City News Tribune", "description":"Mid-Missouri
+        news and tweets from the Jefferson City News Tribune newspaper and http:\/\/t.co\/7Jhhgi3h"},
+        "authors":[], "image":"https:\/\/wehco.media.clients.ellingtoncms.com\/img\/photos\/2025\/12\/13\/Army-Navy_t600.jpg?4326734cdb8e39baa3579048ef63ad7b451e7676",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Baltimore"},
+        "country":{"type":"country", "label":{"eng":"United States"}}}, "sentiment":0.09019607843137245,
+        "wgt":503386504, "relevance":2}, {"uri":"9000007193", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-14", "time":"05:35:03", "dateTime":"2025-12-14T05:35:03Z",
+        "dateTimePub":"2025-12-14T04:36:44Z", "dataType":"news", "sim":0, "url":"https:\/\/www.messenger-inquirer.com\/news\/national\/gunman-kills-two-wounds-nine-at-us-university\/article_7339087f-a5fa-57e0-97be-d7f3a359b638.html",
+        "title":"Gunman kills two, wounds nine at US university", "body":"A gunman
+        killed two people and wounded nine others on Saturday at Brown University,
+        plunging the eastern US campus into lockdown as hundreds of police hunted
+        the suspect late into the night.\n\nThe streets around the university in the
+        state of Rhode Island were filled with emergency vehicles hours after the
+        gunfire at a building where exams were taking place.", "source":{"uri":"messenger-inquirer.com",
+        "dataType":"news", "title":"Owensboro Messenger-Inquirer", "description":"The
+        hometown news source for Owensboro, KY."}, "authors":[], "image":"https:\/\/bloximages.chicago2.vip.townnews.com\/messenger-inquirer.com\/content\/tncms\/assets\/v3\/editorial\/9\/4f\/94fb8caf-91ef-54ca-ac66-23385d32eca8\/693e485d1533f.image.jpg?crop=512%2C269%2C0%2C36&resize=438%2C230&order=crop%2Cresize",
+        "eventUri":null, "location":null, "sentiment":-0.5764705882352941, "wgt":503386503,
+        "relevance":2}], "totalResults":40383, "page":1, "count":5, "pages":8077}}'
+  recorded_at: Sun, 14 Dec 2025 05:36:22 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-14&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 15 Dec 2025 08:52:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1725'
+      X-Response-Time:
+      - '348'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"6246-/+SHP+khdueAirRzYsNhpEgfNSQ"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9001404645", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-15", "time":"08:51:52", "dateTime":"2025-12-15T08:51:52Z",
+        "dateTimePub":"2025-12-15T08:15:00Z", "dataType":"news", "sim":0, "url":"https:\/\/www.frontiersman.com\/sports\/south-anchorage-wins-big-lake-lions-hockey-tourney\/article_292aaefc-740a-4730-9680-586c55969083.html",
+        "title":"South Anchorage wins Big Lake Lions hockey tourney", "body":"Unfortunately
+        you''ve used all of your gifts this month. Your counter will reset on the
+        first day of next month.\n\nWhen the bracket was built for the tournament
+        they host every year, the Houston Hawks were not handed any favors. Houston
+        shared the top half of the bracket with a pair of undefeated teams and Houston
+        was in reach of knocking both of them off.\n\nTwo nights after Houston beat
+        previously undefeated North Pole, South Anchorage stayed unbeaten with a 4-2
+        win over the Hawks during the championship game of the Big Lake Lions Classic
+        Saturday at the Menard Arena in Wasilla.\n\nkAm$@FE9''D #J5@? $4@EE D4@C65
+        2? :?DFC2?46 8@2= H:E9 cd D64@?5D =67E :? C68F=2E:@?[ 27E6C E96 (@=G6C:?6D
+        8C2DA65 E@ 2 b\\a =625 7@C 23@FE ''_ >:?FE6D @7 E96 E9:C5 A6C:@5] %C6?E@?
+        wF36C 4FE $@FE9''D =625 E@ 2 8@2= H:E9 2? F?2DD:DE65 E2==J 2E E96 ''_ibf >2C<
+        @7 E96 7:?2= A6C:@5] s2?:6= zFK>:? AFE E96 w2H<D @? E96 D4@C63@2C5 =2E6 :?
+        E96 7:CDE E@ E:6 E96 82>6 2E '']k^Am kAm$@FE9 @FED9@E w@FDE@? ag\\ac]k^AmkAmw@FDE@?
+        DE2CE65 :ED E@FC?6J H:E9 2 b\\'' H:? @G6C }@CE9 !@=6] r2CE6C r@@< D4@C65 2
+        A2:C @7 8@2=D 7@C w@FDE@?[ 2?5 wF36C 25565 2 8@2=] sJ=2? $92776C >256 aa D2G6D]k^AmkAm%96
+        w2H<D 2=D@ 362E q2CE=6EE c\\a] p?5C6J t7:>@G D4@C65 EH:46] wF36C 2?5 y@9?
+        }2E6<:? 2=D@ D4@C65] w@FDE@? 7:?:D965 H:E9 d_ D9@ED @? 8@2=]k^AmkAmr@=@?J
+        7:?:D965 E9:C5 :? E96 6:89E\\E62> E@FC?6J H:E9 2 f\\'' G:4E@CJ @G6C s6=E2]
+        %C:DE2? $2HJ6C 2?5 s62? *6286C D4@C65 EH@ 8@2=D 6249] pFDE:? u2?8>2?? 2?5
+        {@82? +6C@?6D 2=D@ D4@C65]k^AmkAmr@=@?J 362E yF?62F\\s@F8=2D d\\'' :? E96
+        7:CDE C@F?5] $2HJ6C D4@C65 EH:46] #:49:6 w@8=:?[ %92556@FD v2DA6C 2?5 !2IE@?
+        t4<DE6:? 2=D@ D4@C65]k^AmkAm%96 z?:89ED DF776C65 2 f\\'' =@DD E@ $@FE9 :?
+        E96 D6>:D] r92C=6D (:==@F893J D4@C65 E96 =@?6 r@=@?J 8@2=]k^AmkAm(2D:==2 H2D
+        D:IE9 :? E96 E@FC?6J] }@CE9 !@=6 65865 E96 (2CC:@CD c\\b :? E96 7@FCE9\\A=246
+        82>6] tG2? ~H6?[ sJ=2? |625 2?5 qC2?D@? w286= 925 E96 (2D:==2 8@2=D]k^AmkAmt=:;29
+        z6==6J FD65 2? ''g\\D2G6 D9FE@FE E@ =625 (2D:==2 E@ 2? g\\_ H:? @G6C yF?62F\\s@F8=2D
+        @? E96 D64@?5 52J @7 E96 E@FC?6J] r92D6 |2=DEC@> 2?5 t=:;29 q2C46=@?2 E2==:65
+        EH@ 8@2=D 6249] |625[ qC64<6? $EJ6CD[ |2EE96H s6|2DE6C 2?5 v2G:? q=2J=@4<
+        2=D@ D4@C65]k^AmkAm$@FE9 362E E96 (2CC:@CD b\\'' :? E96 7:CDE C@F?5] |625
+        D4@C65 E96 (w$ 8@2=]k^AmkAmk6>mr@?E24E E96 uC@?E:6CD>2? 2E k2 9C67lQ>2:=E@iDA@CEDo7C@?E:6CD>2?]4@>QmDA@CEDo7C@?E:6CD>2?]4@>k^2m]k^6>mk^Am
+        Copy article link Sign up for our newsletters\n\nTrending Day 3 of Windstorm-High
+        Wind Warning Extended Until Tuesday Home of Wasilla cardiologist charged with
+        possession of child sex abuse materials destroyed by fire It''s ba-aack: High
+        wind watch set for the Southcentral this weekend Mat-Su battered by hurricane-force
+        windstorm Popular Wasilla restaurant set to close doors Annual Colony Christmas
+        celebration this weekend MSB, governor declare windstorm a disaster, activating
+        state recovery programs Stop the sham: Palmer''s golf course Is compliant
+        and profitable Valley football players earn all-state honors Winter Weather
+        Advisories Issued for Mat-Su", "source":{"uri":"frontiersman.com", "dataType":"news",
+        "title":"Mat-Su Valley Frontiersman", "description":"A local Alaska newspaper
+        serving the Matanuska-Susitna Valley."}, "authors":[], "image":"https:\/\/bloximages.chicago2.vip.townnews.com\/frontiersman.com\/content\/tncms\/custom\/image\/c7641e52-b05b-11e7-a9c5-6b3f8d722bb9.jpg?resize=600%2C315",
+        "eventUri":null, "location":null, "sentiment":0.07450980392156858, "wgt":503484712,
+        "relevance":2}, {"uri":"9001404788", "lang":"eng", "isDuplicate":true, "date":"2025-12-15",
+        "time":"08:51:46", "dateTime":"2025-12-15T08:51:46Z", "dateTimePub":"2025-12-15T06:00:00Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.ktbs.com\/online_features\/food_recipes_entertaining\/grazing-and-gifting-sweet-solutions-for-the-holiday-rush\/article_b0cc6337-4102-5815-98f8-54e6fcae054e.html",
+        "title":"Grazing and Gifting: Sweet Solutions for the Holiday Rush", "body":"(Family
+        Features) If you feel yourself slipping into the last-minute rush of the holiday
+        season, still searching for dazzling recipes and abundant gifts, rest assured
+        - you''re not alone. Light, refreshing ingredients for spectacular meals are
+        just a click away, and they can make for the perfect presents, too.\n\nAbundantly
+        sweet and simple, Florida Citrus Gifts are a simple way to share holiday cheer
+        with family, friends and loved ones. From cheerful boxes to beautiful baskets
+        and more, they offer options in all shapes and sizes, loaded with freshly
+        picked tangerines, grapefruits, oranges and mandarins.\n\nThey''re easy to
+        send and even easier to enjoy, providing a one-of-a-kind (and healthy) way
+        to share holiday cheer in memorable meals like Scallops with Florida Grapefruit
+        Butter, sure to become a household favorite for years to come. Pair it with
+        a light and refreshing Florida Citrus Salad with Burrata featuring fresh grapefruit
+        and oranges mingling with peppery arugula and creamy burrata to bring a bit
+        of balance to holiday dining.\n\nNo festivity is complete without libations,
+        and this Florida Grapefruit Brandy Sour can be a staple at your beverage station.
+        Just mix freshly squeezed Florida Grapefruit juice with brandy, simple syrup,
+        bitters and egg white (for froth) then finish with sparkling water.\n\nFind
+        deliciously thoughtful ways to share the sweetness of the season with loved
+        ones by visiting PickFLA.com, which features an interactive map to find a
+        range of gift options that fit your holiday needs.\n\nFlorida Grapefruit Brandy
+        Sour\n\nRecipe courtesy of the\n\nFlorida Department of Citrus\n\nPrep time:
+        5 minutes\n\nServings: 1\n\n1 3\/4 ounces brandy\n\n2 1\/2 ounces freshly
+        squeezed Florida Grapefruit Juice\n\n1\/3 ounce simple syrup, or to taste\n\n2
+        dashes bitters\n\n1 egg white\n\nice cubes\n\n1 ounce sparkling water\n\nFlorida
+        Grapefruit twist, for garnishIn cocktail shaker, add brandy, Florida Grapefruit
+        juice, simple syrup, bitters and egg white. Shake vigorously 15-20 seconds
+        to create frothy texture.Add ice cubes to shaker and shake 15 seconds to chill
+        drink.Strain into chilled coupe or rocks glass filled with fresh ice.Pour
+        light splash of sparkling water over top to enhance effervescence.Garnish
+        with grapefruit twist.\n\nScallops with Florida Grapefruit Butter\n\nRecipe
+        courtesy of the\n\nFlorida Department of Citrus\n\nPrep time: 30 minutes\n\nCook
+        time: 3 minutes\n\nServings: 4\n\n2 Florida Grapefruit\n\n1 fennel bulb\n\n3
+        tablespoons olive oil, plus additional for searing, divided\n\n1 tablespoon
+        sherry vinegar\n\n1\/8 teaspoon, plus 1 pinch, salt, divided, to taste\n\n1\/8
+        teaspoon, plus 1 pinch, pepper, divided, to taste\n\n1 small bunch fresh cilantro\n\n12
+        scallops with empty shells\n\n1 tablespoon butterPeel and cut one Florida
+        Grapefruit into segments. Squeeze remaining grapefruit and reserve juice.Wash
+        and finely chop fennel. In bowl, mix fennel with olive oil, sherry vinegar
+        and 1 pinch salt and pepper.Mix and add fresh cilantro. Keep a few leaves
+        for garnish.In hot frying pan, drizzle with olive oil then sear scallops 1
+        minute on each side.Remove scallops from pan then deglaze with reserved Florida
+        Grapefruit juice. Let it simmer slightly and add butter to make sauce. Add
+        1\/8 teaspoon salt and pepper.Place 1 tablespoon fennel salad in washed shell,
+        top with three scallops and coat with grapefruit butter.Finish with reserved
+        cilantro leaves and fresh grapefruit segments.\n\nFlorida Citrus Salad with
+        Burrata\n\nRecipe courtesy of the\n\nFlorida Department of Citrus\n\nFlorida
+        Citrus Vinaigrette:\n\n1\/3 cup Florida Grapefruit Juice\n\n1\/3 cup Florida
+        Orange Juice\n\n2 teaspoons orange zest\n\n2 tablespoons cider vinegar\n\n2
+        teaspoons honey\n\n1 tablespoon Dijon mustard\n\n1\/3 cup olive oil\n\n2 tablespoons
+        shallots\n\nsea salt, to taste\n\nfresh pepper, to taste\n\nPickled Onion:\n\n1
+        red onion, thinly sliced\n\n1\/2 cup white vinegar or cider vinegar\n\n1\/2
+        cup water\n\n1 tablespoon sugar\n\n1 teaspoon salt\n\nBurrata Salad:\n\n4
+        Florida Grapefruit, peeled and cut into segments\n\n3 oranges, peeled and
+        cut into segments\n\n1 bunch radishes, sliced thin and cut into sticks\n\n1\/3
+        cup pistachios, grilled and coarsely chopped\n\n1 cup arugula\n\n2 tablespoons
+        dill, chopped\n\nsea salt, to taste\n\npepper, to taste\n\n8 ounces burrataTo
+        make vinaigrette: In small bowl, mix Florida Grapefruit Juice, Florida Orange
+        Juice, orange zest, cider vinegar, honey, Dijon, olive oil and shallots until
+        dressing is emulsified. Season with salt and pepper, to taste. Set aside.
+        Vinaigrette will keep 7 days in refrigerator.To make pickled onion: Place
+        sliced onion in airtight canning jar.In small saucepan, combine vinegar, water,
+        sugar and salt. Bring to boil and pour over sliced onion in jar. Add small
+        amount of water to completely cover onion.\n\nRefrigerate at least 2 hours
+        before serving. Pickled onions will keep 15 days in refrigerator.To make burrata
+        salad: In bowl, combine Florida Grapefruit and Orange segments; add radish
+        sticks, toasted pistachios, arugula and dill. Season with salt and pepper,
+        to taste.Place salad on large plate, top with coarsely chopped burrata and
+        drizzle generously with citrus vinaigrette and pickled onion.", "source":{"uri":"ktbs.com",
+        "dataType":"news", "title":"KTBS", "description":"Breaking news in Shreveport,
+        LA from KTBS 3. Get updated local news, weather, and sports. All the latest
+        local Shreveport news and more at ABC TV''s local affiliate in Shreveport,"},
+        "authors":[], "image":"https:\/\/bloximages.newyork1.vip.townnews.com\/ktbs.com\/content\/tncms\/assets\/v3\/editorial\/5\/38\/5388d181-c8f5-5770-99e6-bf339bd73b65\/693fc8914d1ce.image.jpg?crop=650%2C341%2C0%2C24&resize=438%2C230&order=crop%2Cresize",
+        "eventUri":null, "location":null, "sentiment":0.6000000000000001, "wgt":503484706,
+        "relevance":2}, {"uri":"9001405023", "lang":"eng", "isDuplicate":true, "date":"2025-12-15",
+        "time":"08:51:46", "dateTime":"2025-12-15T08:51:46Z", "dateTimePub":"2025-12-15T08:48:47Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.worcesternews.co.uk\/news\/25697203.christmas-traffic-warning-m25-m6-m4-m1-drivers\/",
+        "title":"UK drivers warned of ''Grinch-worthy'' traffic on busiest Christmas
+        travel dates yet", "body":"Britain''s roads are set to see the busiest festive
+        period on record as millions embark on their Christmas commute this year.\n\nExperts
+        from the AA and RAC have predicted an unprecedented build-up on major routes,
+        with commuters joining the last-minute surge of shoppers and motorists setting
+        out on festive breaks.\n\nThe AA reported that traffic will peak on Friday
+        (December 19), with about 24.4 million cars on the UK''s roads.\n\nDrivers
+        have been warned to expect long delays while roads are expected to remain
+        busy into the start of next week.\n\nThe RAC has estimated 37.5 million leisure
+        trips on roads across the country between Wednesday (December 17) and Christmas
+        Eve (December 24).\n\nThis is the highest week-before-Christmas count since
+        data tracking started in 2013.\n\nTransport analytics company, Inrix, predicted
+        long hold-ups for several major routes on Friday.\n\nMeanwhile, weekend gridlocks
+        have also been forecast from 11am to 7pm on both Saturday (December 20) and
+        Christmas Eve.\n\nAlthough a slight drop in traffic to 22.7 million is predicted
+        on Christmas Eve, the RAC''s expert calculated 4.2 million leisure trips on
+        the day alone, with an estimated 18.3 million cars on the road on Christmas
+        Day (December 25).\n\nDecember 24 is forecast to be the most significant day
+        for road trips over the festive season.\n\nAA expert patrol, Shaun Jones,
+        said: \"It''s beginning to look a lot like traffic.\n\n\"Our advice is simple:
+        plan ahead, check your route and allow extra time.\n\nAccording to the AA''s
+        member survey and the RAC''s national survey, between 25% and 30% of respondents
+        planning to drive in the week leading to Christmas intend to do so for work.\n\nMost
+        participants also revealed that they would not typically travel more than
+        50 miles.\n\nAdding to the expected congestion, the M27 motorway will be closed
+        from 8pm on Christmas Eve until 4am on January 4 for necessary works.\n\nThis
+        closure will disrupt both directions between Junctions 9 and 11, affecting
+        journeys between Southampton and Portsmouth.\n\nThe RAC''s mobile servicing
+        and repairs team leader, Nick Mullender, commented: \"With record numbers
+        predicted to be taking to the roads this Christmas, journeys have the potential
+        to be Grinch-worthy without some careful planning.\"\n\nNational Highways
+        has confirmed that they will endeavour to \"remove as many roadworks as we
+        safely can\" to help alleviate traffic disruptions over the holiday period.\n\nThe
+        AA''s forecast was based on a member survey of more than 10,000, and the RAC''s
+        estimates came from a national survey of 2,191 UK adults.\n\nRecommended reading:\n\nThe
+        responses were applied to the 34 million registered cars in the UK.\n\nWith
+        the promise of standstill traffic on the horizon, motorists have been advised
+        to check their routes and plan accordingly.\n\nWhat days are you planning
+        to travel on for Christmas? Let us know in the comments below.", "source":{"uri":"worcesternews.co.uk",
+        "dataType":"news", "title":"Worcester News", "description":"This is an unmonitored
+        RSS feed of sport headlines from https:\/\/t.co\/cahydWfMDE"}, "authors":[],
+        "image":"https:\/\/www.worcesternews.co.uk\/resources\/images\/20319227.jpg?type=og-image",
+        "eventUri":null, "location":null, "sentiment":0.08235294117647052, "wgt":503484706,
+        "relevance":2}, {"uri":"9001405147", "lang":"eng", "isDuplicate":false, "date":"2025-12-15",
+        "time":"08:51:43", "dateTime":"2025-12-15T08:51:43Z", "dateTimePub":"2025-12-15T08:49:59Z",
+        "dataType":"news", "sim":0.5803921818733215, "url":"https:\/\/heavy.com\/sports\/nba\/golden-state-warriors\/steve-kerr-warriors-steph-curry\/",
+        "title":"''Fire Steve Kerr'' Trends as Warriors Waste Another Steph Curry
+        Masterpiece", "body":"Stephen Curry #30 of the Golden State Warriors shoots
+        over Jerami Grant #9 of the Portland Trail Blazers during the second half
+        at Moda Center on December 14, 2025 in Portland, Oregon.\n\nThe Golden State
+        Warriors wasted another Steph Curry masterpiece on Sunday night, as they suffered
+        a 136-131 loss to the Portland Trail Blazers. After the game, the \"Fire Steve
+        Kerr\" phrase began trending on X and other social media platforms, with Warriors
+        fans urging ownership to fire the longtime head coach.\n\nCurry dropped 48
+        points, including 12 threes, but his heroic efforts went in vain, primarily
+        because of Golden State''s lackluster defense that allowed the Trail Blazers
+        to amass 24 second-chance points, 18 fast-break points and 48 points in the
+        paint.\n\nIt was the second consecutive game when the Warriors wasted a terrific
+        performance from Curry, who scored 38 points in a losing effort to an Anthony
+        Edwards-less Minnesota Timberwolves less than 48 hours before.\n\nWarriors
+        fans'' frustration with Kerr boils down to his substitution patterns, defensive
+        schemes and erratic usage of some players, specifically the younger players.
+        While Jonathan Kuminga was hit with a healthy DNP for a third consecutive
+        game, Will Richard -- one of Golden State''s bright spots earlier in the season
+        -- warmed the bench for a second successive game despite being one of their
+        best long-range shooters.\n\nOne fan was particularly frustrated with Kerr''s
+        insistence on going small in closing lineups, even as the Timberwolves punished
+        them on the inside by grabbing several key offensive boards in the final few
+        minutes of the game.\n\n\"Fire Steve [expletive] Kerr,\" fumed one fan. \"This
+        is [expletive] unacceptable. No matter how trash, he keeps including Podz
+        into a tiny lineup that NEVER WORKS to close a game for the last 3 [expletive]
+        years.\"\n\n\"There are so much problems with this team and has been for many
+        years,\" wrote another fan. \"Steve Kerr has to be gone after this season.
+        This roster once again is a mess and won''t be fixed at the deadline.\"\n\n\"Will
+        Richard getting DNPs. Steve Kerr needs to be fired,\" wrote another fan on
+        X in a post receiving nearly 2K likes within a few hours.\n\nAnother longtime
+        Warriors fan fumed at Kerr''s insistence to close with a small-ball lineup
+        of Steph Curry, Brandin Podziemski, De''Anthony Melton, Jimmy Butler III and
+        Draymond Green.\n\n\"Steve Kerr must be FIRED,\" he wrote. \"This piece of
+        [expletive] sat all of his bigs and closed with Draymond at C with no defense
+        Butler at PF to include PODS in a tiny lineup. This [expletive] keeps throwing
+        games, ENOUGH IS ENOUGH!!!\"\n\nKerr''s contract expires at the end of the
+        2025-26 season. However, most insiders covering the Warriors expect the team
+        to extend him for at least one more season to align his timeline with the
+        contracts of Curry, Butler and Green, all of whom can become free agents after
+        the 2026-27 season. Ahead of the 2025-26 season, Kerr made it clear that he
+        was comfortable regardless of his uncertain future in Golden State.\n\n\"However
+        this ends it''s going to be done in a really quality way,\" Kerr said.\n\n\"It''s
+        going to happen the right way. If it''s meant for me to keep going, I''m going
+        to keep going. If it''s meant to be for the team to move on to someone else,
+        there will be nothing but gratitude and appreciation. This makes it easy for
+        everybody. Let''s see where we are at the end of the year.\"\n\nKerr installed
+        a new offense in Golden State when he took over in 2014-15, which helped Steph
+        Curry become the MVP. While his last few years have been met with a lot of
+        criticism, he''ll still go down as one of the greatest coaches in NBA history.",
+        "source":{"uri":"heavy.com", "dataType":"news", "title":"Heavy", "description":"Breaking
+        News, Sports, Entertainment, TV, Tech, Gaming & Health."}, "authors":[{"uri":"sai_mohan@heavy.com",
+        "name":"Sai Mohan", "type":"author", "isAgency":false}], "image":"https:\/\/heavy.com\/wp-content\/uploads\/2025\/12\/GettyImages-2251942114-e1765786723257.jpg?quality=65&strip=all&w=780",
+        "eventUri":"eng-11224163", "location":null, "sentiment":-0.07450980392156858,
+        "wgt":503484703, "relevance":2}, {"uri":"9001404150", "lang":"eng", "isDuplicate":true,
+        "date":"2025-12-15", "time":"08:51:42", "dateTime":"2025-12-15T08:51:42Z",
+        "dateTimePub":"2025-12-15T03:52:57Z", "dataType":"news", "sim":0, "url":"https:\/\/www.hjnews.com\/sports\/nation\/seahawks-outlast-philip-rivers-and-colts-18-16-on-jason-myers-56-yard-field-goal\/article_89dfcbd8-4dff-59eb-8fe1-60ba3b3aa54f.html",
+        "title":"Seahawks outlast Philip Rivers and Colts 18-16 on Jason Myers'' 56-yard
+        field goal", "body":"SEATTLE (AP) -- Jason Myers has quietly been a big part
+        of the Seattle Seahawks'' success this season.\n\nHe was the only reason they
+        won Sunday.\n\nMyers kicked a franchise-record six field goals, including
+        a 56-yarder with 29 seconds left, and the Seahawks outlasted 44-year-old quarterback
+        Philip Rivers and the Indianapolis Colts 18-16 without scoring a touchdown.\n\n\"I
+        hit it well,\" Myers said. \"A little slice there, but once I got it up, I
+        knew (I) hit a really strong ball.\"\n\nMyers has converted 24 of his last
+        25 field goals, with the only miss a 61-yard try on Nov. 16, and he leads
+        the NFL with a career-best 154 points.\n\nHe also converted from 47, 52, 46,
+        32 and 30 yards, and the Seahawks (11-3) needed every one of them to beat
+        Rivers, who hadn''t thrown a pass in an NFL game in nearly five years. Seattle
+        extended its winning streak to four games.\n\nIndy trailed for just 1:58 and
+        went ahead 13-3 on Rivers'' first touchdown pass since the Colts'' 27-24 loss
+        to the Buffalo Bills in the playoffs on Jan. 9, 2021. He connected with Josh
+        Downs on third down for an 8-yard score.\n\n\"It was exciting,\" Rivers said.
+        \"Shoot, it was exciting to take a 13-3 lead. But first off, our play that
+        we kind of had all week in the red zone in that area on that down and distance
+        on that hash, we practiced in the exact same spot this week. So, when things
+        go like that, they fire you up. Obviously, you throw in the fact that it''s
+        been 1,800 days since throwing a touchdown or interception for that matter.
+        So, yeah, both of those boxes were checked.\"\n\nDesperate to salvage their
+        season after Daniel Jones suffered a season-ending torn Achilles tendon, the
+        Colts (8-6) turned to Rivers, a grandfather who''d been coaching high school
+        football and was a semifinalist for the Pro Football Hall of Fame.\n\nRivers
+        also led the Colts into position for Blake Grupe''s go-ahead, 60-yard field
+        goal with 47 seconds left. He finished 18 of 27 for 120 yards with the touchdown
+        and an interception, with the pick coming on his final pass as he tried to
+        force the ball down the field in the closing seconds. Coby Bryant made the
+        interception, his career-high fourth this season.\n\n\"He actually played
+        pretty well,\" Bryant said. \"They got the ball out fast, we knew that, on
+        screens, and we knew about the run game as well, too. So, we had to respect
+        everything and just play our ball.\"\n\nIndianapolis has lost four straight
+        and five of six to fall out of playoff position in the AFC.\n\nThe Seahawks,
+        who had won their previous two games by a combined score of 63-9, grinded
+        this one out.\n\nRashid Shaheed returned Grupe''s kickoff 28 yards to the
+        Seattle 37, and Sam Darnold connected with Shaheed twice for 25 yards to set
+        up Myers. The game-winning drive was Darnold''s third this season and 13th
+        of his career.\n\nDarnold finished 22 of 36 for 271 yards in Seattle''s first
+        victory without a touchdown since Dec. 26, 2024, when the Seahawks beat Chicago
+        6-3.\n\nSeattle remained tied with the Los Angeles Rams atop the NFC West,
+        and the rivals meet Thursday night for the division lead.\n\n\"It gives us
+        a lot of momentum,\" offensive lineman Grey Zabel said. \"It''s obviously
+        a lot easier to celebrate a tough win than it is to try to come into the locker
+        room and pick our spirits up after a loss. I''m glad we have Jason Myers on
+        our squad.\"\n\nSmith-Njigba bounces back\n\nNFL receiving leader Jaxon Smith-Njigba,
+        who was held below 100 yards in each of the last two weeks, had seven catches
+        for 113 yards, including a 39-yard catch to set up Myers'' fifth field goal,
+        which put the Seahawks ahead 15-13.\n\n\"It means a lot,\" Smith-Njigba said.
+        \"Taking care of my body and making sure I''m here for my teammates, that''s
+        what I want to do. Honestly, I could care less about any stat right now. I
+        just want to win.\"\n\nNot Taylor''s era\n\nNFL rushing leader Jonathan Taylor
+        had 25 carries for 87 yards, his most since he had 244 on Nov. 9 against Atlanta,
+        when Indy was still riding high. The Seahawks were happy to hold him to 3.5
+        yards per carry.\n\n\"That was big,\" linebacker Ernest Jones IV said. \"We
+        knew coming in they were going to try to lean on his arm, the whole game.
+        We knew they were going to try to use him a bunch. So, we knew coming in to
+        just make sure we stop him. If anything, all 11 heads to the ball, and let''s
+        hit him hard.\"\n\nShaheed surging\n\nShaheed had just four catches for 34
+        yards in his first four games with the Seahawks after they acquired him from
+        New Orleans. Over the last two games, he has combined for 12 catches and 141
+        yards -- including seven receptions for 74 yards Sunday.\n\n\"He came in clutch,
+        that''s what we expect for him to get open, and he does that,\" Smith-Njigba
+        said. \"He runs great routes and he''s somebody we rely on and we can depend
+        on him, so it''s awesome.\"\n\nInjuries\n\nColts: Offensive lineman Bernhard
+        Raimann injured an elbow in the second quarter and did not return.\n\nSeahawks:
+        LB Derick Hall injured his hand in the first quarter and returned in the second
+        quarter. T Abe Lucas injured his right arm\/shoulder in the second half but
+        returned.\n\nUp next\n\nColts: Host San Francisco on Monday, Dec. 22.\n\nSeahawks:
+        Host the Rams on Thursday night.\n\nAP NFL: https:\/\/apnews.com\/hub\/nfl",
+        "source":{"uri":"hjnews.com", "dataType":"news", "title":"The Herald Journal",
+        "description":"A look at local Cache Valley news, sports, entertainment, religion,
+        opinion, outdoors, and features, Utah\/Idaho news, and national news"}, "authors":[{"uri":"andrew_destin@hjnews.com",
+        "name":"Andrew Destin", "type":"author", "isAgency":false}], "image":"https:\/\/bloximages.chicago2.vip.townnews.com\/hjnews.com\/content\/tncms\/assets\/v3\/editorial\/b\/ba\/bba5e86d-ea37-5541-929f-1bbf9dca2300\/693fc59254923.image.jpg?crop=1763%2C926%2C0%2C124&resize=438%2C230&order=crop%2Cresize",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Seattle"}, "country":{"type":"country",
+        "label":{"eng":"United States"}}}, "sentiment":0.2156862745098038, "wgt":503484702,
+        "relevance":2}], "totalResults":41560, "page":1, "count":5, "pages":8312}}'
+  recorded_at: Mon, 15 Dec 2025 08:52:44 GMT
 recorded_with: VCR 6.3.1

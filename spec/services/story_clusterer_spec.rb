@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe StoryClusterer do
-  let(:clusterer) { described_class.new }
-
   # Helper to create an article with concepts
   def create_article_with_concepts(concepts:, published_at: Time.current)
     article = Article.create!(
@@ -34,7 +32,7 @@ RSpec.describe StoryClusterer do
         published_at: Time.current
       )
 
-      expect { clusterer.call }.to change(Story, :count).by(1)
+      expect { described_class.new(article2).call }.to change(Story, :count).by(1)
 
       story = Story.last
       expect(story.articles).to contain_exactly(article1, article2)
@@ -51,7 +49,7 @@ RSpec.describe StoryClusterer do
         published_at: Time.current
       )
 
-      expect { clusterer.call }.not_to change(Story, :count)
+      expect { described_class.new(article2).call }.not_to change(Story, :count)
       expect(article1.reload.story_id).to be_nil
       expect(article2.reload.story_id).to be_nil
     end
@@ -67,7 +65,7 @@ RSpec.describe StoryClusterer do
       )
 
       # Create initial story
-      clusterer.call
+      described_class.new(article2).call
       story = Story.last
       expect(story.articles.count).to eq(2)
 
@@ -77,12 +75,12 @@ RSpec.describe StoryClusterer do
         published_at: Time.current
       )
 
-      expect { described_class.new.call }.not_to change(Story, :count)
+      expect { described_class.new(article3).call }.not_to change(Story, :count)
       expect(article3.reload.story).to eq(story)
       expect(story.reload.articles.count).to eq(3)
     end
 
-    it "ignores articles older than 7 days" do
+    it "ignores articles older than 7 days when looking for matches" do
       old_article = create_article_with_concepts(
         concepts: [person1, org1],
         published_at: 8.days.ago
@@ -92,60 +90,39 @@ RSpec.describe StoryClusterer do
         published_at: Time.current
       )
 
-      clusterer.call
+      result = described_class.new(recent_article).call
 
+      expect(result).to be false
       expect(old_article.reload.story_id).to be_nil
-      expect(recent_article.reload.story_id).to be_nil # no match found
+      expect(recent_article.reload.story_id).to be_nil
     end
 
-    it "ignores articles without concepts" do
-      Article.create!(
+    it "returns false for articles without concepts" do
+      article = Article.create!(
         source_name: "Test",
         title: "No concepts",
         url: "https://example.com/no-concepts",
         published_at: Time.current
       )
 
-      expect { clusterer.call }.not_to change(Story, :count)
+      expect(described_class.new(article).call).to be false
     end
 
-    it "returns count of clustered articles" do
-      create_article_with_concepts(concepts: [person1, org1], published_at: 1.hour.ago)
-      create_article_with_concepts(concepts: [person1, org1], published_at: Time.current)
+    it "returns false if article already has a story" do
+      story = Story.create!(title: "Existing story")
+      article = create_article_with_concepts(concepts: [person1, org1], published_at: Time.current)
+      article.update!(story: story)
 
-      # Returns 1 because only the newer article "finds" a match
-      # (the older article gets added as part of story creation)
-      result = clusterer.call
-      expect(result).to eq(1)
-      expect(Story.count).to eq(1)
-      expect(Story.last.articles.count).to eq(2)
+      expect(described_class.new(article).call).to be false
     end
-  end
-
-  describe "#cluster_article" do
-    let!(:concept1) { Concept.create!(uri: "llm://person/test", concept_type: "person", label: "Test") }
-    let!(:concept2) { Concept.create!(uri: "llm://org/test", concept_type: "org", label: "Test Org") }
 
     it "returns true when article is clustered" do
-      article1 = create_article_with_concepts(concepts: [concept1, concept2], published_at: 1.hour.ago)
-      article2 = create_article_with_concepts(concepts: [concept1, concept2], published_at: Time.current)
+      article1 = create_article_with_concepts(concepts: [person1, org1], published_at: 1.hour.ago)
+      article2 = create_article_with_concepts(concepts: [person1, org1], published_at: Time.current)
 
-      # article1 has no match yet
-      expect(clusterer.cluster_article(article1)).to be false
-
-      # article2 should match article1
-      expect(clusterer.cluster_article(article2)).to be true
-    end
-
-    it "returns false for article without concepts" do
-      article = Article.create!(
-        source_name: "Test",
-        title: "Test",
-        url: "https://example.com/test",
-        published_at: Time.current
-      )
-
-      expect(clusterer.cluster_article(article)).to be false
+      expect(described_class.new(article2).call).to be true
+      expect(Story.count).to eq(1)
+      expect(Story.last.articles.count).to eq(2)
     end
   end
 
@@ -160,7 +137,7 @@ RSpec.describe StoryClusterer do
       article1 = create_article_with_concepts(concepts: [c1, c2], published_at: 1.hour.ago)
       article2 = create_article_with_concepts(concepts: [c1, c3], published_at: Time.current)
 
-      clusterer.call
+      described_class.new(article2).call
       expect(article1.reload.story_id).to eq(article2.reload.story_id)
     end
 
@@ -170,7 +147,7 @@ RSpec.describe StoryClusterer do
       article1 = create_article_with_concepts(concepts: [c1, c2, c3, c4], published_at: 1.hour.ago)
       article2 = create_article_with_concepts(concepts: [c1, c2], published_at: Time.current)
 
-      clusterer.call
+      described_class.new(article2).call
       expect(article1.reload.story_id).to eq(article2.reload.story_id)
     end
   end
