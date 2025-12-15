@@ -70,9 +70,6 @@
               <% end %>
             </td>
           </tr>
-          <% if @article.event_uri.present? %>
-            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">event_uri</td><td class="py-1"><%= @article.event_uri %></td></tr>
-          <% end %>
           <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">is_duplicate</td><td class="py-1"><%= @article.is_duplicate %></td></tr>
           <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">created_at</td><td class="py-1"><%= @article.created_at.iso8601 %></td></tr>
         </tbody>
@@ -149,9 +146,6 @@
     <div class="bg-neutral/50 border border-base-300 rounded-lg p-4">
       <div class="flex items-center gap-2 mb-2">
         <span class="badge solid info xs"><%= @article.story.articles_count %> articles</span>
-        <% if @article.story.event_uri %>
-          <span class="badge outline bw xs">event</span>
-        <% end %>
       </div>
       <h3 class="font-semibold">
         <%= link_to @article.story.title.truncate(80), story_path(@article.story), class: "hover:text-primary transition-colors" %>

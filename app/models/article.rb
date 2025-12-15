@@ -79,7 +79,6 @@ class Article < ApplicationRecord
       content: article_hash["body"],
       sentiment: article_hash["sentiment"],
       language: article_hash["lang"],
-      event_uri: article_hash["eventUri"],
       is_duplicate: article_hash["isDuplicate"] || false,
       raw_payload: article_hash
     )
@@ -95,7 +94,6 @@ class Article < ApplicationRecord
         content: article.content,
         sentiment: article.sentiment,
         language: article.language,
-        event_uri: article.event_uri,
         is_duplicate: article.is_duplicate
       )
       existing

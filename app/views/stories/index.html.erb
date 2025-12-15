@@ -28,10 +28,6 @@
             <time datetime="<%= story.last_published_at.iso8601 %>"><%= story.last_published_at.strftime("%b %-d") %></time>
           <% end %>
         <% end %>
-        <% if story.event_uri %>
-          <span>&middot;</span>
-          <span class="badge outline bw xs">event</span>
-        <% end %>
       </div>
       <h2 class="text-xl font-semibold mb-2">
         <%= link_to story.title.truncate(100), story_path(story), class: "hover:text-primary transition-colors" %>
@@ -45,8 +41,8 @@
 
 <% if @stories.empty? %>
   <div class="text-center py-12 text-base-content/50">
-    <p>No multi-source stories yet.</p>
-    <p class="text-sm mt-2">Run <code class="bg-base-200 px-2 py-1 rounded">ClusterStoriesJob.perform_now</code> to cluster articles.</p>
+    <p>No stories yet.</p>
+    <p class="text-sm mt-2">Story clustering is currently disabled.</p>
   </div>
 <% end %>
 

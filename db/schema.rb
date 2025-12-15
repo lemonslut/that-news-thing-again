@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_14_060644) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_15_090124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -81,10 +81,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_14_060644) do
     t.datetime "updated_at", null: false
     t.decimal "sentiment", precision: 10, scale: 6
     t.string "language"
-    t.string "event_uri"
     t.boolean "is_duplicate", default: false
     t.bigint "story_id"
-    t.index ["event_uri"], name: "index_articles_on_event_uri"
     t.index ["language"], name: "index_articles_on_language"
     t.index ["published_at"], name: "index_articles_on_published_at"
     t.index ["raw_payload"], name: "index_articles_on_raw_payload", using: :gin
@@ -136,13 +134,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_14_060644) do
 
   create_table "stories", force: :cascade do |t|
     t.string "title"
-    t.string "event_uri"
     t.datetime "first_published_at"
     t.datetime "last_published_at"
     t.integer "articles_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_uri"], name: "index_stories_on_event_uri", unique: true
   end
 
   create_table "trend_snapshots", force: :cascade do |t|

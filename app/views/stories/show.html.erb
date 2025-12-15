@@ -15,10 +15,6 @@
         <% end %>
       </span>
     <% end %>
-    <% if @story.event_uri %>
-      <span>&middot;</span>
-      <span class="badge outline bw xs">event: <%= @story.event_uri.split("/").last %></span>
-    <% end %>
   </div>
   <% if @story.primary_concepts.any? %>
     <div class="flex items-center gap-2 mt-4 flex-wrap">

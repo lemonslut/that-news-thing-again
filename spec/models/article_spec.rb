@@ -14,7 +14,6 @@ RSpec.describe Article do
       "image" => "https://example.com/image.jpg",
       "sentiment" => 0.35,
       "lang" => "eng",
-      "eventUri" => "event-123",
       "isDuplicate" => false
     }
   end
@@ -33,7 +32,6 @@ RSpec.describe Article do
       expect(article.content).to eq("Full article body content goes here.")
       expect(article.sentiment).to eq(0.35)
       expect(article.language).to eq("eng")
-      expect(article.event_uri).to eq("event-123")
       expect(article.is_duplicate).to eq(false)
       expect(article.raw_payload).to eq(api_ai_hash)
     end
