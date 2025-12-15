@@ -5,6 +5,8 @@
 # 2. If no story match, find unclustered articles (last 24h, then 7d) with 50%+ overlap → create new story
 # 3. If no match → leave unclustered (may seed a story later)
 #
+# Note: Location concepts are excluded from matching (too generic).
+#
 # Usage:
 #   StoryClusterer.new(article).call
 #
@@ -12,6 +14,7 @@ class StoryClusterer
   OVERLAP_THRESHOLD = 0.5
   STORY_WINDOW = 7.days
   ARTICLE_SEARCH_WINDOWS = [1.day, 7.days].freeze
+  EXCLUDED_CONCEPT_TYPES = %w[loc].freeze
 
   def initialize(article)
     @article = article
@@ -41,11 +44,13 @@ class StoryClusterer
   private
 
   def find_matching_story
-    article_concept_ids = @article.concept_ids.to_set
+    article_concept_ids = matchable_concept_ids(@article)
     return nil if article_concept_ids.empty?
 
     active_stories.find do |story|
-      story_concept_ids = story.articles.joins(:article_concepts)
+      story_concept_ids = story.articles
+                               .joins(article_concepts: :concept)
+                               .where.not(concepts: { concept_type: EXCLUDED_CONCEPT_TYPES })
                                .pluck("article_concepts.concept_id")
                                .to_set
       overlap_ratio(article_concept_ids, story_concept_ids) >= OVERLAP_THRESHOLD
@@ -53,19 +58,26 @@ class StoryClusterer
   end
 
   def find_matching_article
-    article_concept_ids = @article.concept_ids.to_set
+    article_concept_ids = matchable_concept_ids(@article)
     return nil if article_concept_ids.empty?
 
     ARTICLE_SEARCH_WINDOWS.each do |window|
       candidates = unclustered_articles_in_window(window)
       match = candidates.find do |candidate|
-        candidate_concept_ids = candidate.concept_ids.to_set
+        candidate_concept_ids = matchable_concept_ids(candidate)
         overlap_ratio(article_concept_ids, candidate_concept_ids) >= OVERLAP_THRESHOLD
       end
       return match if match
     end
 
     nil
+  end
+
+  def matchable_concept_ids(article)
+    article.concepts
+           .where.not(concept_type: EXCLUDED_CONCEPT_TYPES)
+           .pluck(:id)
+           .to_set
   end
 
   def active_stories
