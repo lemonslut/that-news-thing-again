@@ -8,10 +8,10 @@
       cron: "0 * * * *"  # Every hour at :00
       class: FetchArticlesJob
       description: "Fetch US articles hourly"
-    cluster_stories:
-      cron: "30 * * * *"  # Every hour at :30
-      class: ClusterStoriesJob
-      description: "Cluster articles into stories"
+    # cluster_stories:
+    #   cron: "30 * * * *"  # Every hour at :30
+    #   class: ClusterStoriesJob
+    #   description: "Cluster articles into stories"
     capture_trends:
       cron: "45 * * * *"  # Every hour at :45
       class: CaptureTrendsJob
