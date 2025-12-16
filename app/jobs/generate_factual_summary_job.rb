@@ -40,7 +40,7 @@ class GenerateFactualSummaryJob < ApplicationJob
       - Use past tense for events that happened, present for ongoing situations
       - Include specific names of people, organizations, and places central to the story
       - No opinions or sensationalism
-      - Focus on WHO did WHAT
+      - Focus on WHO did WHAT, WHY, WHEN, WHERE, and WITH WHOM
       - Be specific rather than vague
     PROMPT
   end
