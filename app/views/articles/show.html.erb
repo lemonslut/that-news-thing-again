@@ -10,31 +10,33 @@
 <% end %>
 
 <article class="space-y-6">
-  <%# Calm Summary %>
-  <% if @article.calm_summary.present? %>
-    <section class="bg-base-200 rounded-lg p-4">
-      <h3 class="text-sm font-semibold text-base-content/60 mb-2">The calm version</h3>
-      <p class="text-lg"><%= @article.calm_summary %></p>
+  <%# Summaries - calm and factual together %>
+  <% if @article.calm_summary.present? || @article.factual_summary.present? %>
+    <section class="bg-base-200 rounded-lg p-5">
+      <% if @article.calm_summary.present? %>
+        <div class="mb-4">
+          <h3 class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-1">The calm version</h3>
+          <p class="text-xl font-medium"><%= @article.calm_summary %></p>
+        </div>
+      <% end %>
+      <% if @article.factual_summary.present? %>
+        <div class="<%= 'border-t border-base-300 pt-3' if @article.calm_summary.present? %>">
+          <h3 class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-1">Factual summary</h3>
+          <p class="text-base-content/80"><%= @article.factual_summary %></p>
+        </div>
+      <% end %>
     </section>
   <% end %>
 
-  <%# Factual Summary %>
-  <% if @article.factual_summary.present? %>
-    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Factual summary</h3>
-      <p><%= @article.factual_summary %></p>
-    </section>
-  <% end %>
-
-  <%# Subjects (for clustering) %>
+  <%# Subjects (for clustering) - prominent display %>
   <% if @article.subjects.any? %>
-    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Subjects (<%= @article.subjects.count %>)</h3>
-      <div class="flex flex-wrap gap-2">
+    <section class="bg-primary/10 border-2 border-primary/30 rounded-lg p-5">
+      <h3 class="text-xs font-semibold text-primary uppercase tracking-wide mb-3">Subjects</h3>
+      <div class="flex flex-wrap gap-3">
         <% @article.subjects.each do |subject| %>
-          <%= link_to concept_path(subject, view: "subjects"), class: "badge outline #{concept_type_color(subject.concept_type)} hover:bg-base-300 transition-colors" do %>
-            <span class="text-xs text-base-content/50 mr-1"><%= subject.concept_type %></span>
-            <%= subject.label %>
+          <%= link_to concept_path(subject, view: "subjects"), class: "inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-base-100 border border-base-300 hover:border-primary hover:bg-primary/5 transition-colors" do %>
+            <span class="badge solid <%= concept_type_color(subject.concept_type) %> xs"><%= subject.concept_type %></span>
+            <span class="font-medium"><%= subject.label %></span>
           <% end %>
         <% end %>
       </div>
