@@ -4,6 +4,9 @@ class Concept < ApplicationRecord
   has_many :article_concepts, dependent: :destroy
   has_many :articles, through: :article_concepts
 
+  has_many :article_subjects, dependent: :destroy
+  has_many :subject_articles, through: :article_subjects, source: :article
+
   validates :uri, presence: true, uniqueness: true
   validates :concept_type, presence: true, inclusion: { in: TYPES }
   validates :label, presence: true
