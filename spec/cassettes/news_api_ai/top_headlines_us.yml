@@ -1174,4 +1174,296 @@ http_interactions:
         "label":{"eng":"United States"}}}, "sentiment":0.2156862745098038, "wgt":503484702,
         "relevance":2}], "totalResults":41560, "page":1, "count":5, "pages":8312}}'
   recorded_at: Mon, 15 Dec 2025 08:52:44 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-15&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 16 Dec 2025 05:53:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1703'
+      X-Response-Time:
+      - '479'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"48b2-kTtYXSWuqkJzkFSveQLoYEpBUFE"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9002779335", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-16", "time":"05:52:18", "dateTime":"2025-12-16T05:52:18Z",
+        "dateTimePub":"2025-12-16T05:37:27Z", "dataType":"news", "sim":0.6941176652908325,
+        "url":"https:\/\/u.today\/ripple-exec-reveals-ambitious-plans-for-rlusd",
+        "title":"Ripple Exec Reveals Ambitious Plans for RLUSD - U.Today", "body":"Ripple''s
+        Reece Merrick has revealed the company''s strategy behind the Ripple USD (RLUSD)
+        stablecoin.\n\nExecutive Reece Merrick claims that RLUSD is moving beyond
+        being a \"Ripple-only\" asset and positions it as the universal infrastructure
+        for the entire crypto market.\n\nThis comes after the company rolled out RLUSD
+        to multiple Ethereum Layer-2 chains, including Optimism, Base, Ink\/Inkchain,
+        and Unichain, with the help of Wormhole''s Native Token Transfer (NTT) standard.\n\nRLUSD
+        aims to become the \"definitive and trusted gateway,\" meaning that it will
+        be a regulated banking tool for the blockchain.\n\nInstead of fighting for
+        users to come to them, Ripple is taking their product to where the users already
+        are. They emphasize that the future is \"multi-chain.\" Ripple cannot expect
+        all users to migrate to the XRP Ledger (XRPL) to use their products.\n\nBy
+        expanding to Layer 2s (Optimism, Base, Ink, Unichain), Merrick is saying RLUSD
+        must be \"chain-agnostic.\" It needs to function just as well on Ethereum-based
+        networks as it does on the XRPL.\n\nMerrick has stressed that \"RLUSD\" needs
+        to exist wherever there is demand.\n\nDecentralized finance (DeFi) activity
+        is currently surging on Layer 2 networks (like Base). If RLUSD were confined
+        only to XRPL and Ethereum Mainnet, it would miss out on this massive volume.",
+        "source":{"uri":"u.today", "dataType":"news", "title":"u.today", "description":"https:\/\/t.co\/MW5WLcgPmA
+        Media Group is an independent organization that covers the crypto industry,
+        blockchain, and new-gen tech."}, "authors":[], "image":"https:\/\/u.today\/sites\/default\/files\/styles\/twitterwithoutlogo\/public\/2025-12\/s10443.jpg",
+        "eventUri":"eng-11233041", "location":null, "sentiment":0.1607843137254903,
+        "wgt":503560338, "relevance":2}, {"uri":"9002779248", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-16", "time":"05:51:49", "dateTime":"2025-12-16T05:51:49Z",
+        "dateTimePub":"2025-12-16T05:46:06Z", "dataType":"news", "sim":0.6705882549285889,
+        "url":"https:\/\/www.thedailybeast.com\/shameless-jake-tapper-turns-trump-health-crisis-into-book-plug\/",
+        "title":"Shameless Jake Tapper Turns Trump Health Crisis Into Book Plug",
+        "body":"The CNN host has been called out for how he covers Trump compared
+        to Biden.\n\nCNN host Jake Tapper has defended himself against claims he is
+        not covering Donald Trump''s health decline in the same way he documented
+        Joe Biden''s cognitive stumbles.\n\nTapper appeared on the latest episode
+        of Pod Save America, plugging his new book, Race Against Terror, which covers
+        the story of an al Qaeda terrorist.\n\nThe book, co-written with Axios'' National
+        Political Correspondent, Alex Thompson, claimed that the Biden administration
+        denied \"the existence of health issues the nation had been watching for years\"
+        which resulted in the presidential debate of June 2024. Tapper moderated the
+        event on CNN at the time.\n\nThat debate exposed Biden''s deteriorating mental
+        capacity and led to him stepping down at the age of 81, making way for Democratic
+        candidate Kamala Harris.\n\n\"Alex and I wrote a book about an unprecedented
+        event happening, which was Joe Biden having such a horrible performance at
+        a presidential debate where his only job was to convince people he was up
+        to the task of being president for another four years,\" Tapper claimed.\n\n\"The
+        question wasn''t even about the performance of the debate, although it was
+        unprecedentedly horrible. It was that he wasn''t able to go out any time in
+        the following weeks and make any Democrats feel or sufficient numbers of Democrats
+        feel better that he could do this job. And frankly, I understand that there
+        are a lot of people out there who think I would take President Biden in a
+        coma over Donald Trump. I understand.\n\n\"I don''t know anybody who thinks
+        that he could be president right now and all the way through 2029 in his current
+        state,\" Tapper added of Biden.\n\nVietor said he had noticed that when Trump
+        has been captured nodding off in the White House or makes a slip up that suggests
+        a possible cognitive decline that angry social media users have tagged Tapper,
+        claiming he is actively ignoring reporting on the 79-year-old''s health.\n\nInstead,
+        Tapper, with copies of his latest book intentionally propped up in the background
+        as he and Vietor spoke, insisted he had learned from mistakes in covering
+        Biden''s failing health when reporting on Trump''s issues.\n\n\"I mean, we
+        cover it all the time on my show,\" Tapper said of covering Trump''s health
+        on his CNN show The Lead. \"All the time. And I think that is to a large degree
+        because we saw what happened with Biden and while we covered it, we didn''t
+        cover it... maybe we didn''t ask as many questions as we should have at the
+        time.\"\n\nTapper continued, \"I think it is a legitimate question for any
+        president of any age, but particularly anybody who is like in the range of
+        being an octogenarian, right?\"\n\nThe CNN host cited covering Trump''s December
+        9 Truth Social post where he lashed out at the New York Times for covering
+        of his health issues and reduced workload.\n\n\"I will know when I am ''slowing
+        up,'' but it''s not now!,\" Trump posted. \"After all of the work I have done
+        with Medical Exams, Cognitive Exams, and everything else, I actually believe
+        it''s seditious, perhaps even treasonous, for The New York Times, and others,
+        to consistently do FAKE reports in order to libel and demean ''THE PRESIDENT
+        OF THE UNITED STATES''.\"\n\n\"I literally cover it all the time,\" Tapper
+        said. \"I covered that crazy Truth Social rant when he was mad at The New
+        York Times for covering his aging and he called it sedition or treasonous.\"\n\nHe
+        continued, \"I covered it on social media and I also covered it on my show,
+        right? Like, I do, I cover it.\"\n\nTapper, in common with CNN and other outlets
+        including the New York Times, barely reported on Trump''s clear health issues
+        for months. The Daily Beast has forensically reported on the 79-year-old''s
+        swollen cankles, frequent napping and incoherent speech for months.\n\nThe
+        Daily Beast has contacted CNN and Tapper''s publisher for comment.", "source":{"uri":"thedailybeast.com",
+        "dataType":"news", "title":"The Daily Beast", "description":"A smart, speedy
+        take on the news from around the world."}, "authors":[], "image":"https:\/\/www.thedailybeast.com\/resizer\/v2\/EMAEJIJY5NDNVML2TG7SZJDHEE.png?smart=true&auth=e7ab7ec501495de6f2df28069f8222fb91d3968ddb521fc0e8e87c2db54f9836&width=1200&height=630",
+        "eventUri":"eng-11233357", "location":null, "sentiment":-0.1686274509803921,
+        "wgt":503560309, "relevance":2}, {"uri":"9002778633", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-16", "time":"05:51:35", "dateTime":"2025-12-16T05:51:35Z",
+        "dateTimePub":"2025-12-16T05:50:33Z", "dataType":"news", "sim":0, "url":"https:\/\/www.arcamax.com\/homeandleisure\/consumer\/everydaycheapskate\/s-3948879",
+        "title":"Everyday Cheapskate: Clean Up the Cloudy Headlight Covers", "body":"By
+        clicking submit, I authorize Arcamax and its affiliates to: (1) use, sell,
+        and share my information for marketing purposes, including cross-context behavioral
+        advertising, as described in our\u202fPrivacy Policy , (2) add to information
+        that I provide with other information like interests inferred from web page
+        views, or data lawfully obtained from data brokers, such as past purchase
+        or location data, or publicly available data, (3) contact me or enable others
+        to contact me by email or other means with offers for different types of goods
+        and services, and (4) retain my information while I am engaging with marketing
+        messages that I receive and for a reasonable amount of time thereafter. I
+        understand I can opt out at any time through an email that I receive, or by
+        clicking here\n\nWell, you''ve done it again! You clever readers have come
+        up with another batch of fabulous ways that you save time and money every
+        day!\n\nAUTO CLEANER\n\nUse plain old baking soda on a damp rag to remove
+        bugs, tar and anything else from your vehicle. Works great, even on the grill
+        and chrome work. Leaves no residue or odor and won''t harm the paint. I just
+        make a paste with baking soda and water, clean away and just rinse off. Works
+        better than any commercial product I''ve tried. This method even cleans away
+        the cloudy film on headlight covers. -- Bud\n\nCUSTOM FLOOR MATS\n\nI wanted
+        floor mats for our minivan, so I stopped by our local car dealership. Boy,
+        was I floored (pardon the pun). I checked a discount department store and,
+        while their mats were priced more reasonably, they didn''t fit well. I found
+        a perfect solution by buying clear plastic runner material that is available
+        by the yard at the home improvement center. With a utility knife, I customized
+        the fit around the seat hardware. This saved a lot of money and works beautifully.
+        -- Judith\n\nFRIDGE DEODORIZER\n\nUsed coffee grinds can eliminate even the
+        worst refrigerator odors. I store kimchee (Korean pickled cabbage with a distinct
+        odor) in my refrigerator regularly, and I don''t smell it anymore! Simply
+        take out the used coffee filter with the coffee grinds in it and place it
+        in your refrigerator in an open container. It works better than baking soda
+        or any other commercial remedy. I''ve tried them all. Just replace the coffee
+        grinds when they dry up. -- Jay\n\nCURB HUNGER FIRST\n\nI am a grocery store
+        checker, and trust me when I say never do your shopping when you are hungry!
+        I can easily pick the hungry shoppers from the rest. Not only do they buy
+        more stuff when they arrive hungry, their carts are full of junk food. If
+        you can''t eat before you get to the store, grab a roll or cookie from the
+        bakery before you start your shopping. -- Candi\n\nHIDE THE SCRATCH\n\nHere''s
+        a great way to hide scratches on wood furniture. First, soak the scratch with
+        a bit of water to open the wood. Select a crayon that is as close to the right
+        color as possible. Apply the waxy substance to the scratch; rub it in well
+        with a soft cloth and then buff. -- Jo-Ann\n\nCAMPUS HEALTH CARE\n\nPart of
+        most college student fees goes toward student health services. The service
+        can include unlimited visits with doctors, nurse practitioners and nurses,
+        routine lab work, x-rays, pharmacy, health education, orthopedics, HIV and
+        STD testing. Low-cost services include travel immunizations, flu shots, discounted
+        prescriptions and CPR and First Aid classes. Have your college student check
+        out their campus student health services. -- Kathleen\n\nSECRET SPICES\n\nI
+        keep a bag of frozen chopped spinach in the freezer. I add a handful to spaghetti
+        sauce, ground beef, pizza sauce, fettuccine etc. I tell my kids it''s spices.
+        They eat it up as long as I''m careful not to overdo it. They actually miss
+        the \"spices\" when I forget. -- Laura\n\n========", "source":{"uri":"arcamax.com",
+        "dataType":"news", "title":"ArcaMax", "description":""}, "authors":[], "image":"https:\/\/www.arcamax.com\/jsnews\/images\/columns\/200x200\/everydaycheapskate.jpg",
+        "eventUri":null, "location":null, "sentiment":0.3725490196078431, "wgt":503560295,
+        "relevance":2}, {"uri":"9002778118", "lang":"eng", "isDuplicate":false, "date":"2025-12-16",
+        "time":"05:51:35", "dateTime":"2025-12-16T05:51:35Z", "dateTimePub":"2025-12-16T05:50:01Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.vindy.com\/opinion\/editorials\/2025\/12\/the-illuminating-story-of-mr-trump-goes-to-the-store\/",
+        "title":"The illuminating story of Mr. Trump goes to the store", "body":"CCTV
+        captured this (completely fake) conversation between President Donald Trump
+        and a grocery store clerk yesterday.\n\nCLERK: That''ll be $286.47, Mr. President.\n\nTRUMP:
+        Did you swipe my customer rewards card? I thought the Twinkies were half off.\n\nCLERK:
+        Yes, I did, but we''re doing this new thing where you have to download our
+        app, log in, create a profile, find the item, scan the bar code and select
+        \"clip coupon\" to get the discount.\n\nTRUMP: I''m not certain that was worth
+        the investment.\n\nCLERK: Yeah, the laundry detergent was buy 15, get one
+        free, but none of the rest of the stuff was on sale.\n\nTRUMP: This is ridiculous.
+        Haven''t you people heard how great the stock market is doing? The S&P is
+        on a rocket ride! The Dow Jones had a record-high close.\n\nCLERK: Most middle-class
+        Americans only have about 10% to 20% of their net worth invested in the stock
+        market, and lower-income folks come in at about 1%, if they''re even in the
+        stock market at all. Less than a third of them are, you know. Stock market
+        performance isn''t something that moves the needle with most regular people.\n\nTRUMP:
+        Don''t give me that malarkey. I just made the Fed cut interest rates. Why
+        don''t poor people issue bonds at lower rates, allowing them to spend less
+        money on servicing their debts?\n\nCLERK: Sir, this is a Schwegmann''s.\n\nTRUMP:
+        The unemployment rate is 4.4%, for Pete Hegseth''s sake. Everyone who wants
+        a job can get one.\n\nCLERK: That''s partially true. To clarify, fewer people
+        are getting laid off; however, hiring is also stagnant. Almost 40% of Americans
+        are gig workers or freelancers and have little to no benefits, guaranteed
+        paid time off or job security. And anyway, the federal minimum wage has been
+        $7.25 since 2009, which comes out to $15,080 a year if you''re working 40
+        hours a week.\n\nTRUMP: That''s my Diet Coke budget for the month.\n\nCLERK:
+        Right. And the minimum wage is even lower if you''re a tipped worker, younger
+        than 20 or have a disability. Housing is a mess, with median home prices in
+        the $400,000 range and rates over 6%.\n\nAvailability is low because no one
+        wants to sell when they can''t afford to buy another house, and rents are
+        -- if you''ll pardon the pun -- through the roof. The real catastrophe is
+        the cost of living, which is what you''re noticing right now. Groceries are
+        expensive, right?\n\nTRUMP: They are not. After I (allegedly) pressured them,
+        Walmart agreed to lower the cost of its Thanksgiving meals.\n\nCLERK: But
+        there was less stuff in the meal. It''s like what we''re doing with pre-packaged
+        items at the grocery store, where manufacturers are decreasing the amount
+        of product in the packaging and charging the same amount. It''s a tactic to
+        obscure price increases.\n\nTRUMP: Wrong! Everything is better now that we''re
+        on the other side of the Biden sandwich.\n\nCLERK: Speaking of sandwiches,
+        even though wheat itself is cheaper, bread is at a historically high price
+        and continues to increase. Isn''t that odd? Meat, fish, eggs and poultry are
+        up 5.2% since only September. And don''t even get me started on health care.\n\nTRUMP:
+        Well, I have just strongly hinted that I''m going to change the drug classification
+        of marijuana, so at least you''ll be able to smoke a joint in public.\n\nCLERK:
+        You really think it''s a good idea to give people the munchies right about
+        now?\n\nTRUMP: I''ve had enough of this. What''s the total again?\n\nCLERK:
+        It''s $286.27.\n\nTRUMP: Go ahead and take it out of my Bitcoin account. The
+        Saudi prince set one up for me, special when I tore into that nasty lady who
+        had the gall to ask about him having a journalist murdered.\n\nCLERK: We don''t
+        accept cryptocurrency, which is volatile and unregulated, and mostly helpful
+        for money launderers, human traffickers and other criminals. And here are
+        your Trump commemorative coins back. We don''t take those, either.\n\nTRUMP:
+        You don''t happen to work for ABC News, do you?\n\nCLERK: No, sir. I''m an
+        economist. I used to work at the Department of Labor -- before you fired me.\n\nGeorgia
+        Garvey is a nationally syndicated columnist and the author of \"Everything''s
+        Going To Be OK (Until It''s Not),\" available now at The Book Stall in Winnetka,
+        Ill., on Amazon, Barnes & Noble, and wherever e-books are sold.", "source":{"uri":"vindy.com",
+        "dataType":"news", "title":"The Vindicator", "description":"WASHINGTON (AP)
+        \u2014 Justice Amy Coney Barrett is expected to join her Supreme Court colleagues
+        today to hear arguments for the first time. Because of the coronavirus pandemic,
+        the high court began hearing cases by phone in May. That means the public
+        won\u2019t see the new justice, but they\u2019ll be able to hear her if [\u2026]"},
+        "authors":[], "image":"https:\/\/www.vindy.com\/wp-content\/themes\/coreV3_lazy_vindycustom\/images\/vindicatorfb.jpg",
+        "eventUri":null, "location":null, "sentiment":0.1215686274509804, "wgt":503560295,
+        "relevance":2}, {"uri":"9002777797", "lang":"eng", "isDuplicate":false, "date":"2025-12-16",
+        "time":"05:51:15", "dateTime":"2025-12-16T05:51:15Z", "dateTimePub":"2025-12-16T05:49:40Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.wmbfnews.com\/2025\/12\/16\/man-georgetown-police-called-armed-dangerous-arrested\/",
+        "title":"Man Georgetown police called ''armed and dangerous'' arrested", "body":"GEORGETOWN,
+        SC (WMBF) - An armed robbery suspect whom Georgetown police called \"armed
+        and dangerous\" is in jail.\n\nGeorgetown police said that officers took Lorenzo
+        Griffin, 29, into custody Monday without incident.\n\nJail records show he
+        was booked on charges of pointing and presenting a firearm at a person, armed
+        robbery with a deadly weapon and possession of a firearm by a convicted violent
+        felon, among other charges.\n\nPREVIOUS COVERAGE: ''Armed and dangerous''
+        man wanted after Georgetown robbery\n\nThe charges stem from a Friday armed
+        robbery on Emanuel Street, off Fraser Street.\n\nGriffin was armed with a
+        gun and demanded items from the victim, police said.\n\nHe fired multiple
+        rounds during the robbery, according to police.", "source":{"uri":"wmbfnews.com",
+        "dataType":"news", "title":"WMBF News", "description":"WMBF News is South
+        Carolina''s home for live, local, late-breaking news and First Alert Weather
+        headlines for Myrtle Beach, Florence, and the Grand Strand and Pee Dee."},
+        "authors":[], "image":"https:\/\/gray-wmbf-prod.gtv-cdn.com\/resizer\/v2\/YGGXY3UKG5E5LG76CAUPP7P46Q.png?auth=057a99930d0780b0d6153ea870ac6ad17dff8d9eeae231e5629473045773e485&width=1200&height=600&smart=true",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Georgetown, South
+        Carolina"}, "country":{"type":"country", "label":{"eng":"United States"}}},
+        "sentiment":-0.5607843137254902, "wgt":503560275, "relevance":2}], "totalResults":69583,
+        "page":1, "count":5, "pages":13917}}'
+  recorded_at: Tue, 16 Dec 2025 05:53:22 GMT
 recorded_with: VCR 6.3.1

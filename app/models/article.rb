@@ -9,6 +9,9 @@ class Article < ApplicationRecord
   has_many :article_concepts, dependent: :destroy
   has_many :concepts, through: :article_concepts
 
+  has_many :article_subjects, dependent: :destroy
+  has_many :subjects, through: :article_subjects, source: :concept
+
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
 

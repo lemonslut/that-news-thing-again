@@ -1,11 +1,12 @@
-# Clusters a single article into a story based on concept overlap.
+# Clusters a single article into a story based on subject overlap.
 #
 # Algorithm:
-# 1. Find active stories (last 7 days) with 50%+ concept overlap → assign to best match
+# 1. Find active stories (last 7 days) with 50%+ subject overlap → assign to best match
 # 2. If no story match, find unclustered articles (last 24h, then 7d) with 50%+ overlap → create new story
 # 3. If no match → leave unclustered (may seed a story later)
 #
-# Note: Location concepts are excluded from matching (too generic).
+# Subjects are extracted from the article's factual summary via NER.
+# This gives more focused matching than using all mentioned concepts.
 #
 # Usage:
 #   StoryClusterer.new(article).call
@@ -14,7 +15,6 @@ class StoryClusterer
   OVERLAP_THRESHOLD = 0.5
   STORY_WINDOW = 7.days
   ARTICLE_SEARCH_WINDOWS = [1.day, 7.days].freeze
-  EXCLUDED_CONCEPT_TYPES = %w[loc].freeze
 
   def initialize(article)
     @article = article
@@ -22,7 +22,7 @@ class StoryClusterer
 
   def call
     return false if @article.story_id.present?
-    return false if @article.concepts.empty?
+    return false if @article.subjects.empty?
 
     # Try to match to existing active story
     story = find_matching_story
@@ -44,28 +44,27 @@ class StoryClusterer
   private
 
   def find_matching_story
-    article_concept_ids = matchable_concept_ids(@article)
-    return nil if article_concept_ids.empty?
+    article_subject_ids = subject_ids(@article)
+    return nil if article_subject_ids.empty?
 
     active_stories.find do |story|
-      story_concept_ids = story.articles
-                               .joins(article_concepts: :concept)
-                               .where.not(concepts: { concept_type: EXCLUDED_CONCEPT_TYPES })
-                               .pluck("article_concepts.concept_id")
+      story_subject_ids = story.articles
+                               .joins(:article_subjects)
+                               .pluck("article_subjects.concept_id")
                                .to_set
-      overlap_ratio(article_concept_ids, story_concept_ids) >= OVERLAP_THRESHOLD
+      overlap_ratio(article_subject_ids, story_subject_ids) >= OVERLAP_THRESHOLD
     end
   end
 
   def find_matching_article
-    article_concept_ids = matchable_concept_ids(@article)
-    return nil if article_concept_ids.empty?
+    article_subject_ids = subject_ids(@article)
+    return nil if article_subject_ids.empty?
 
     ARTICLE_SEARCH_WINDOWS.each do |window|
       candidates = unclustered_articles_in_window(window)
       match = candidates.find do |candidate|
-        candidate_concept_ids = matchable_concept_ids(candidate)
-        overlap_ratio(article_concept_ids, candidate_concept_ids) >= OVERLAP_THRESHOLD
+        candidate_subject_ids = subject_ids(candidate)
+        overlap_ratio(article_subject_ids, candidate_subject_ids) >= OVERLAP_THRESHOLD
       end
       return match if match
     end
@@ -73,11 +72,8 @@ class StoryClusterer
     nil
   end
 
-  def matchable_concept_ids(article)
-    article.concepts
-           .where.not(concept_type: EXCLUDED_CONCEPT_TYPES)
-           .pluck(:id)
-           .to_set
+  def subject_ids(article)
+    article.subjects.pluck(:id).to_set
   end
 
   def active_stories
@@ -88,11 +84,11 @@ class StoryClusterer
   def unclustered_articles_in_window(window)
     Article.where(story_id: nil)
            .where.not(id: @article.id)
-           .joins(:article_concepts)
+           .joins(:article_subjects)
            .where("articles.published_at > ?", window.ago)
            .where("articles.published_at <= ?", @article.published_at)
            .distinct
-           .includes(:article_concepts)
+           .includes(:article_subjects)
   end
 
   def overlap_ratio(set_a, set_b)

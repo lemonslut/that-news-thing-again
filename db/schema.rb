@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_15_090124) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_16_055111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -66,6 +66,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_15_090124) do
     t.index ["score"], name: "index_article_concepts_on_score"
   end
 
+  create_table "article_subjects", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "concept_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id", "concept_id"], name: "index_article_subjects_on_article_id_and_concept_id", unique: true
+    t.index ["article_id"], name: "index_article_subjects_on_article_id"
+    t.index ["concept_id"], name: "index_article_subjects_on_concept_id"
+  end
+
   create_table "articles", force: :cascade do |t|
     t.string "source_id"
     t.string "source_name", null: false
@@ -83,6 +93,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_15_090124) do
     t.string "language"
     t.boolean "is_duplicate", default: false
     t.bigint "story_id"
+    t.text "factual_summary"
     t.index ["language"], name: "index_articles_on_language"
     t.index ["published_at"], name: "index_articles_on_published_at"
     t.index ["raw_payload"], name: "index_articles_on_raw_payload", using: :gin
@@ -176,6 +187,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_15_090124) do
   add_foreign_key "article_categories", "categories"
   add_foreign_key "article_concepts", "articles"
   add_foreign_key "article_concepts", "concepts"
+  add_foreign_key "article_subjects", "articles"
+  add_foreign_key "article_subjects", "concepts"
   add_foreign_key "articles", "stories"
   add_foreign_key "sessions", "users"
 end
