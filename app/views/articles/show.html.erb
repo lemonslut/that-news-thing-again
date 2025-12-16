@@ -11,27 +11,29 @@
 
 <article class="space-y-6">
   <%# Summaries - calm and factual together %>
-  <% if @article.calm_summary.present? || @article.factual_summary.present? %>
-    <section class="bg-base-200 rounded-lg p-5">
+  <section class="bg-base-200 rounded-lg p-5">
+    <div class="mb-4">
+      <h3 class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-1">The calm version</h3>
       <% if @article.calm_summary.present? %>
-        <div class="mb-4">
-          <h3 class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-1">The calm version</h3>
-          <p class="text-xl font-medium"><%= @article.calm_summary %></p>
-        </div>
+        <p class="text-xl font-medium"><%= @article.calm_summary %></p>
+      <% else %>
+        <p class="text-base-content/30 italic">Missing calm summary</p>
       <% end %>
+    </div>
+    <div class="border-t border-base-300 pt-3">
+      <h3 class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-1">Factual summary</h3>
       <% if @article.factual_summary.present? %>
-        <div class="<%= 'border-t border-base-300 pt-3' if @article.calm_summary.present? %>">
-          <h3 class="text-xs font-semibold text-base-content/50 uppercase tracking-wide mb-1">Factual summary</h3>
-          <p class="text-base-content/80"><%= @article.factual_summary %></p>
-        </div>
+        <p class="text-base-content/80"><%= @article.factual_summary %></p>
+      <% else %>
+        <p class="text-base-content/30 italic">Missing factual summary</p>
       <% end %>
-    </section>
-  <% end %>
+    </div>
+  </section>
 
   <%# Subjects (for clustering) - prominent display %>
-  <% if @article.subjects.any? %>
-    <section class="bg-primary/10 border-2 border-primary/30 rounded-lg p-5">
-      <h3 class="text-xs font-semibold text-primary uppercase tracking-wide mb-3">Subjects</h3>
+  <section class="bg-primary/10 border-2 border-primary/30 rounded-lg p-5">
+    <h3 class="text-xs font-semibold text-primary uppercase tracking-wide mb-3">Subjects</h3>
+    <% if @article.subjects.any? %>
       <div class="flex flex-wrap gap-3">
         <% @article.subjects.each do |subject| %>
           <%= link_to concept_path(subject, view: "subjects"), class: "inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-base-100 border border-base-300 hover:border-primary hover:bg-primary/5 transition-colors" do %>
@@ -40,8 +42,10 @@
           <% end %>
         <% end %>
       </div>
-    </section>
-  <% end %>
+    <% else %>
+      <p class="text-base-content/30 italic">No subjects extracted</p>
+    <% end %>
+  </section>
 
   <%# Associated Story %>
   <% if @article.story.present? %>
@@ -59,10 +63,10 @@
     </section>
   <% end %>
 
-  <%# Concepts (all extracted entities) %>
-  <% if @article.concepts.any? %>
-    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Concepts (<%= @article.concepts.count %>)</h3>
+  <%# Other Concepts (all extracted entities, separate from subjects) %>
+  <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
+    <h3 class="text-sm font-semibold text-base-content/60 mb-2">Other Concepts</h3>
+    <% if @article.concepts.any? %>
       <div class="flex flex-wrap gap-2">
         <% @article.article_concepts.includes(:concept).order(score: :desc).each do |ac| %>
           <%= link_to concept_path(ac.concept), class: "badge outline #{concept_type_color(ac.concept.concept_type)} hover:bg-base-300 transition-colors" do %>
@@ -74,8 +78,10 @@
           <% end %>
         <% end %>
       </div>
-    </section>
-  <% end %>
+    <% else %>
+      <p class="text-base-content/30 italic">No concepts extracted</p>
+    <% end %>
+  </section>
 
   <%# Raw Structured Data (collapsed) %>
   <details class="bg-neutral/50 border border-base-300 rounded-lg">
