@@ -1,6 +1,9 @@
 class EntitySentimentJob < ApplicationJob
   include ArticleAnalyzer
 
+  MAX_RETRIES = 10
+  RETRY_INTERVAL = 60.seconds
+
   def self.analysis_type
     "entity_sentiment"
   end
@@ -9,9 +12,20 @@ class EntitySentimentJob < ApplicationJob
     @article = Article.find(article_id)
 
     unless article_has_entities?
-      Rails.logger.info "[EntitySentimentJob] No entities for article #{article_id}, skipping"
+      attempt = increment_retry(article_id)
+      if attempt >= MAX_RETRIES
+        Rails.logger.info "[EntitySentimentJob] No entities for article #{article_id} after #{attempt} attempts, giving up"
+        clear_retry(article_id)
+        return
+      end
+
+      wait_time = RETRY_INTERVAL * attempt
+      Rails.logger.info "[EntitySentimentJob] No entities for article #{article_id}, retry #{attempt}/#{MAX_RETRIES} in #{wait_time.to_i}s"
+      self.class.set(wait: wait_time).perform_later(article_id, model: model, prompt: prompt, **options)
       return
     end
+
+    clear_retry(article_id)
 
     @model = model || self.class.default_model
     @prompt_record = prompt || fetch_prompt
@@ -24,6 +38,7 @@ class EntitySentimentJob < ApplicationJob
     Rails.logger.info "[EntitySentimentJob] Completed entity_sentiment for article #{article_id}"
   rescue ActiveRecord::RecordNotFound
     Rails.logger.warn "[EntitySentimentJob] Article #{article_id} not found, skipping"
+    clear_retry(article_id)
   end
 
   private
@@ -90,5 +105,22 @@ class EntitySentimentJob < ApplicationJob
 
   def extract_result(llm_response)
     { "entity_sentiments" => llm_response["entity_sentiments"] }
+  end
+
+  def retry_key(article_id)
+    "entity_sentiment_job:retry:#{article_id}"
+  end
+
+  def increment_retry(article_id)
+    key = retry_key(article_id)
+    Sidekiq.redis do |conn|
+      count = conn.incr(key)
+      conn.expire(key, 1.hour.to_i)
+      count
+    end
+  end
+
+  def clear_retry(article_id)
+    Sidekiq.redis { |conn| conn.del(retry_key(article_id)) }
   end
 end
