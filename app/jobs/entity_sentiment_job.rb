@@ -9,6 +9,8 @@ class EntitySentimentJob < ApplicationJob
   end
 
   def perform(article_id, model: nil, prompt: nil, **options)
+    return true # disabled for now - not useful enough to justify LLM cost
+
     @article = Article.find(article_id)
 
     unless article_has_entities?
