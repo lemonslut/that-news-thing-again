@@ -9,159 +9,188 @@
   <div class="badge solid danger w-full mb-4 p-3"><%= flash[:alert] %></div>
 <% end %>
 
-<article>
-  <h1 class="text-3xl font-bold mb-4"><%= @article.title %></h1>
-
-  <% if @article.calm_summaries.any? %>
-    <div class="bg-base-200 rounded-lg p-4 mb-6">
+<article class="space-y-6">
+  <%# Calm Summary %>
+  <% if @article.calm_summary.present? %>
+    <section class="bg-base-200 rounded-lg p-4">
       <h3 class="text-sm font-semibold text-base-content/60 mb-2">The calm version</h3>
-      <p class="text-lg"><%= @article.calm_summaries.last.summary %></p>
-    </div>
+      <p class="text-lg"><%= @article.calm_summary %></p>
+    </section>
   <% end %>
 
-  <% if @article.image_url.present? %>
-    <div class="mb-6">
-      <%= image_tag @article.image_url, alt: @article.title, class: "rounded-lg max-w-sm" %>
-    </div>
+  <%# Factual Summary %>
+  <% if @article.factual_summary.present? %>
+    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
+      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Factual summary</h3>
+      <p><%= @article.factual_summary %></p>
+    </section>
   <% end %>
 
-  <% if @article.content.present? %>
-    <div class="mb-6 prose prose-invert max-w-none">
-      <p class="text-base-content/80 whitespace-pre-line"><%= @article.content %></p>
-    </div>
-  <% elsif @article.description.present? %>
-    <div class="mb-6">
-      <p class="text-base-content/80"><%= @article.description %></p>
-    </div>
-  <% end %>
-
-  <div class="mb-8">
-    <%= link_to "Read original article →", @article.url, target: "_blank", rel: "noopener", class: "btn solid info" %>
-  </div>
-</article>
-
-<section class="border-t border-base-300 pt-6 mb-6">
-  <h2 class="text-xl font-bold mb-4">Structured Data</h2>
-
-  <div class="space-y-4 font-mono text-sm">
-    <%# Core metadata %>
-    <div class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-      <h3 class="text-base-content/60 text-xs uppercase tracking-wide mb-3">Article Metadata</h3>
-      <table class="w-full">
-        <tbody>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">id</td><td class="py-1"><%= @article.id %></td></tr>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">url</td><td class="py-1 break-all"><%= @article.url %></td></tr>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">published_at</td><td class="py-1"><%= @article.published_at.iso8601 %></td></tr>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">source_id</td><td class="py-1"><%= @article.source_id %></td></tr>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">source_name</td><td class="py-1"><%= @article.source_name %></td></tr>
-          <% if @article.author.present? %>
-            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">author</td><td class="py-1"><%= @article.author %></td></tr>
+  <%# Subjects (for clustering) %>
+  <% if @article.subjects.any? %>
+    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
+      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Subjects (<%= @article.subjects.count %>)</h3>
+      <div class="flex flex-wrap gap-2">
+        <% @article.subjects.each do |subject| %>
+          <%= link_to concept_path(subject, view: "subjects"), class: "badge outline #{concept_type_color(subject.concept_type)} hover:bg-base-300 transition-colors" do %>
+            <span class="text-xs text-base-content/50 mr-1"><%= subject.concept_type %></span>
+            <%= subject.label %>
           <% end %>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">language</td><td class="py-1"><%= @article.language %></td></tr>
-          <tr>
-            <td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">sentiment</td>
-            <td class="py-1">
-              <% if @article.sentiment %>
-                <span class="<%= @article.sentiment > 0 ? 'text-success' : @article.sentiment < 0 ? 'text-error' : '' %>">
-                  <%= number_with_precision(@article.sentiment, precision: 4) %>
-                </span>
-              <% else %>
-                <span class="text-base-content/30">null</span>
-              <% end %>
-            </td>
-          </tr>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">is_duplicate</td><td class="py-1"><%= @article.is_duplicate %></td></tr>
-          <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">created_at</td><td class="py-1"><%= @article.created_at.iso8601 %></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <%# Categories %>
-    <% if @article.categories.any? %>
-      <div class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-        <h3 class="text-base-content/60 text-xs uppercase tracking-wide mb-3">Categories (<%= @article.categories.count %>)</h3>
-        <table class="w-full">
-          <tbody>
-            <% @article.article_categories.order(weight: :desc).each do |ac| %>
-              <tr>
-                <td class="py-1"><%= ac.category.uri %></td>
-                <td class="py-1 text-right text-base-content/50 whitespace-nowrap">weight: <%= ac.weight %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <% end %>
       </div>
-    <% end %>
+    </section>
+  <% end %>
 
-    <%# Concepts %>
-    <% if @article.concepts.any? %>
-      <div class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-        <h3 class="text-base-content/60 text-xs uppercase tracking-wide mb-3">Concepts (<%= @article.concepts.count %>)</h3>
-        <table class="w-full">
-          <tbody>
-            <% @article.article_concepts.includes(:concept).order(score: :desc).each do |ac| %>
-              <tr>
-                <td class="py-1 pr-3 whitespace-nowrap"><span class="badge solid <%= concept_type_color(ac.concept.concept_type) %> xs"><%= ac.concept.concept_type %></span></td>
-                <td class="py-1"><%= link_to ac.concept.label, concept_path(ac.concept), class: "hover:text-primary" %></td>
-                <td class="py-1 text-right text-base-content/50 whitespace-nowrap">score: <%= ac.score %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-
-    <%# Calm Summary provenance %>
-    <% if @article.calm_summaries.any? %>
-      <div class="bg-neutral/50 border border-base-300 rounded-lg p-4">
-        <h3 class="text-base-content/60 text-xs uppercase tracking-wide mb-3">Calm Summary</h3>
-        <% summary = @article.calm_summaries.last %>
-        <table class="w-full">
-          <tbody>
-            <tr><td class="text-base-content/50 pr-4 py-1 whitespace-nowrap">model</td><td class="py-1"><%= summary.model_used %></td></tr>
-            <% if summary.prompt.present? %>
-              <tr><td class="text-base-content/50 pr-4 py-1 whitespace-nowrap">prompt</td><td class="py-1"><%= summary.prompt %></td></tr>
-            <% end %>
-            <tr><td class="text-base-content/50 pr-4 py-1 whitespace-nowrap">generated_at</td><td class="py-1"><%= summary.created_at.iso8601 %></td></tr>
-          </tbody>
-        </table>
-      </div>
-    <% end %>
-
-    <%# Raw payload (collapsible) %>
-    <details class="bg-neutral/50 border border-base-300 rounded-lg" open>
-      <summary class="p-4 cursor-pointer hover:bg-base-300 rounded-lg">
-        <span class="text-base-content/60 text-xs uppercase tracking-wide">Raw Payload (JSON)</span>
-      </summary>
-      <div class="p-4 pt-0">
-        <pre class="text-xs whitespace-pre-wrap break-words overflow-hidden"><code class="language-json"><%= JSON.pretty_generate(@article.raw_payload) %></code></pre>
-      </div>
-    </details>
-  </div>
-</section>
-
-<% if @article.story.present? %>
-  <section class="border-t border-base-300 pt-6 mb-6">
-    <h2 class="text-lg font-semibold mb-4">Part of Story</h2>
-    <div class="bg-neutral/50 border border-base-300 rounded-lg p-4">
+  <%# Associated Story %>
+  <% if @article.story.present? %>
+    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
+      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Part of Story</h3>
       <div class="flex items-center gap-2 mb-2">
         <span class="badge solid info xs"><%= @article.story.articles_count %> articles</span>
       </div>
-      <h3 class="font-semibold">
+      <h4 class="font-semibold">
         <%= link_to @article.story.title.truncate(80), story_path(@article.story), class: "hover:text-primary transition-colors" %>
-      </h3>
+      </h4>
       <p class="text-sm text-base-content/50 mt-1">
         Sources: <%= @article.story.sources.first(3).join(", ") %><%= ", ..." if @article.story.sources.size > 3 %>
       </p>
+    </section>
+  <% end %>
+
+  <%# Concepts (all extracted entities) %>
+  <% if @article.concepts.any? %>
+    <section class="bg-neutral/50 border border-base-300 rounded-lg p-4">
+      <h3 class="text-sm font-semibold text-base-content/60 mb-2">Concepts (<%= @article.concepts.count %>)</h3>
+      <div class="flex flex-wrap gap-2">
+        <% @article.article_concepts.includes(:concept).order(score: :desc).each do |ac| %>
+          <%= link_to concept_path(ac.concept), class: "badge outline #{concept_type_color(ac.concept.concept_type)} hover:bg-base-300 transition-colors" do %>
+            <span class="text-xs text-base-content/50 mr-1"><%= ac.concept.concept_type %></span>
+            <%= ac.concept.label %>
+            <% if ac.score && ac.score > 0 %>
+              <span class="text-xs text-base-content/30 ml-1">(<%= ac.score %>)</span>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <%# Raw Structured Data (collapsed) %>
+  <details class="bg-neutral/50 border border-base-300 rounded-lg">
+    <summary class="p-4 cursor-pointer hover:bg-base-300 rounded-lg">
+      <span class="text-sm font-semibold text-base-content/60">Structured Data</span>
+    </summary>
+    <div class="p-4 pt-0 space-y-4 font-mono text-sm">
+      <%# Core metadata %>
+      <div class="bg-neutral/30 rounded-lg p-3">
+        <h4 class="text-base-content/60 text-xs uppercase tracking-wide mb-2">Article Metadata</h4>
+        <table class="w-full">
+          <tbody>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">id</td><td class="py-1"><%= @article.id %></td></tr>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">url</td><td class="py-1 break-all"><%= @article.url %></td></tr>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">published_at</td><td class="py-1"><%= @article.published_at.iso8601 %></td></tr>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">source_id</td><td class="py-1"><%= @article.source_id %></td></tr>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">source_name</td><td class="py-1"><%= @article.source_name %></td></tr>
+            <% if @article.author.present? %>
+              <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">author</td><td class="py-1"><%= @article.author %></td></tr>
+            <% end %>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">language</td><td class="py-1"><%= @article.language %></td></tr>
+            <tr>
+              <td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">sentiment</td>
+              <td class="py-1">
+                <% if @article.sentiment %>
+                  <span class="<%= @article.sentiment > 0 ? 'text-success' : @article.sentiment < 0 ? 'text-error' : '' %>">
+                    <%= number_with_precision(@article.sentiment, precision: 4) %>
+                  </span>
+                <% else %>
+                  <span class="text-base-content/30">null</span>
+                <% end %>
+              </td>
+            </tr>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">is_duplicate</td><td class="py-1"><%= @article.is_duplicate %></td></tr>
+            <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">created_at</td><td class="py-1"><%= @article.created_at.iso8601 %></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <%# Categories %>
+      <% if @article.categories.any? %>
+        <div class="bg-neutral/30 rounded-lg p-3">
+          <h4 class="text-base-content/60 text-xs uppercase tracking-wide mb-2">Categories (<%= @article.categories.count %>)</h4>
+          <table class="w-full">
+            <tbody>
+              <% @article.article_categories.order(weight: :desc).each do |ac| %>
+                <tr>
+                  <td class="py-1"><%= ac.category.uri %></td>
+                  <td class="py-1 text-right text-base-content/50 whitespace-nowrap">weight: <%= ac.weight %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+
+      <%# Calm Summary provenance %>
+      <% if @article.calm_summaries.any? %>
+        <div class="bg-neutral/30 rounded-lg p-3">
+          <h4 class="text-base-content/60 text-xs uppercase tracking-wide mb-2">Calm Summary Provenance</h4>
+          <% summary = @article.calm_summaries.last %>
+          <table class="w-full">
+            <tbody>
+              <tr><td class="text-base-content/50 pr-4 py-1 whitespace-nowrap">model</td><td class="py-1"><%= summary.model_used %></td></tr>
+              <% if summary.prompt.present? %>
+                <tr><td class="text-base-content/50 pr-4 py-1 whitespace-nowrap">prompt</td><td class="py-1"><%= summary.prompt %></td></tr>
+              <% end %>
+              <tr><td class="text-base-content/50 pr-4 py-1 whitespace-nowrap">generated_at</td><td class="py-1"><%= summary.created_at.iso8601 %></td></tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+
+      <%# Raw payload %>
+      <details class="bg-neutral/30 rounded-lg">
+        <summary class="p-3 cursor-pointer hover:bg-base-300 rounded-lg">
+          <span class="text-base-content/60 text-xs uppercase tracking-wide">Raw Payload (JSON)</span>
+        </summary>
+        <div class="p-3 pt-0">
+          <pre class="text-xs whitespace-pre-wrap break-words overflow-hidden"><code class="language-json"><%= JSON.pretty_generate(@article.raw_payload) %></code></pre>
+        </div>
+      </details>
+    </div>
+  </details>
+
+  <%# Original article content %>
+  <section class="border-t border-base-300 pt-6">
+    <h1 class="text-3xl font-bold mb-4"><%= @article.title %></h1>
+
+    <% if @article.image_url.present? %>
+      <div class="mb-6">
+        <%= image_tag @article.image_url, alt: @article.title, class: "rounded-lg max-w-sm" %>
+      </div>
+    <% end %>
+
+    <% if @article.content.present? %>
+      <div class="mb-6 prose prose-invert max-w-none">
+        <p class="text-base-content/80 whitespace-pre-line"><%= @article.content %></p>
+      </div>
+    <% elsif @article.description.present? %>
+      <div class="mb-6">
+        <p class="text-base-content/80"><%= @article.description %></p>
+      </div>
+    <% end %>
+
+    <div class="mb-8">
+      <%= link_to "Read original article →", @article.url, target: "_blank", rel: "noopener", class: "btn solid info" %>
     </div>
   </section>
-<% end %>
 
-<section class="border-t border-base-300 pt-6">
-  <h2 class="text-lg font-semibold mb-4">Re-analyze</h2>
-  <div class="flex flex-wrap gap-2">
-    <%= form_with url: reanalyze_article_path(@article), method: :post, local: true do |f| %>
-      <button type="submit" class="btn solid success sm">Re-generate summary</button>
-    <% end %>
-  </div>
-</section>
+  <%# Re-analyze section %>
+  <section class="border-t border-base-300 pt-6">
+    <h2 class="text-lg font-semibold mb-4">Re-analyze</h2>
+    <div class="flex flex-wrap gap-2">
+      <%= form_with url: reanalyze_article_path(@article), method: :post, local: true do |f| %>
+        <button type="submit" class="btn solid success sm">Re-generate summary</button>
+      <% end %>
+    </div>
+  </section>
+</article>
