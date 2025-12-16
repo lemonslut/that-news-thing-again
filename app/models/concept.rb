@@ -1,5 +1,5 @@
 class Concept < ApplicationRecord
-  TYPES = %w[person org loc wiki].freeze
+  TYPES = %w[person org loc wiki event work].freeze
 
   has_many :article_concepts, dependent: :destroy
   has_many :articles, through: :article_concepts

@@ -30,22 +30,23 @@ class ExtractSubjectsJob < ApplicationJob
 
   def system_prompt
     <<~PROMPT
-      Extract the key subjects from this news summary. Subjects are the main entities the story is ABOUT.
+      Extract all named entities from this news summary.
 
       IMPORTANT: Respond with ONLY valid JSON. No preamble, no explanation, just the JSON object.
 
       The JSON must contain:
       - subjects: Array of objects, each with:
-        - label: The canonical name (e.g., "Donald Trump", "Apple Inc.", "New York City")
-        - type: One of "person", "org", "loc", "event"
+        - label: The canonical name (e.g., "Donald Trump", "Apple Inc.", "New York City", "The Housemaid")
+        - type: One of "person", "org", "loc", "event", "work"
 
       Guidelines:
-      - Only extract 2-5 most important subjects
+      - Extract ALL named entities mentioned (people, places, organizations, works)
       - Use full proper names, not pronouns or abbreviations
       - "person" for individuals
       - "org" for companies, government agencies, sports teams, political parties
-      - "loc" for cities, countries, regions, landmarks
-      - "event" for named events (elections, conferences, disasters)
+      - "loc" for cities, countries, regions, landmarks, venues
+      - "event" for named events (elections, conferences, disasters, premieres)
+      - "work" for films, books, songs, shows, products
       - DO NOT include generic concepts like "news", "report", "announcement"
     PROMPT
   end
