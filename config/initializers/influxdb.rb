@@ -20,6 +20,9 @@ InfluxDB::Rails.configure do |config|
     config.client.url = "http://localhost:8181"
   end
 
+  # InfluxDB 3 Core doesn't support TLS
+  config.client.use_ssl = false
+
   # Use millisecond precision (default)
   config.client.precision = InfluxDB2::WritePrecision::MILLISECOND
 
