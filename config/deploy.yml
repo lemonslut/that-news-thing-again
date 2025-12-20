@@ -74,6 +74,14 @@ accessories:
       - data:/data
     cmd: redis-server --appendonly yes
 
+  influxdb:
+    image: influxdb:3-core
+    host: 5.78.158.95
+    # No port mapping - internal only, accessible via news-digest-influxdb:8181
+    directories:
+      - data:/var/lib/influxdb3
+    cmd: influxdb3 serve --node-id=node0 --object-store=file --data-dir=/var/lib/influxdb3
+
 # Useful aliases
 aliases:
   shell: app exec --interactive --reuse "bash"

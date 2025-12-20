@@ -38,6 +38,9 @@ gem "kaminari"
 # LLM completions (OpenAI-compatible, used with OpenRouter)
 gem "ruby-openai"
 
+# Metrics instrumentation
+gem "influxdb-rails", github: "InfluxCommunity/influxdb-rails"
+
 # Removed solid_cache and solid_cable - using memory cache and async cable
 
 # Reduces boot times through caching; required in config/boot.rb
