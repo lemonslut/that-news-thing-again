@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-# Start services (PostgreSQL, Redis)
+# Start services (PostgreSQL, Redis, InfluxDB)
 docker-compose up -d
 
 # Run all tests
@@ -22,6 +22,9 @@ bundle exec rails c
 
 # NewsAPI.ai exploration console (client pre-loaded)
 bundle exec rake news_api:console
+
+# Check Sidekiq queue depths
+bundle exec rake sidekiq:queue_depth
 
 # Lint
 bundle exec rubocop
@@ -52,40 +55,43 @@ Uses Tailwind CSS v3 with [Sira UI](https://sira.riazer.com/) component library.
 
 ## Architecture
 
-News aggregation pipeline with pre-extracted entities from NewsAPI.ai:
+News aggregation pipeline with LLM-powered analysis:
 
 ```
-NewsAPI.ai → NewsApiAi::Client → FetchArticlesJob → Article (PostgreSQL)
-                                        ↓                    ↓
-                                  Entity extraction    GenerateCalmSummaryJob
-                                  (from API concepts)        ↓
-                                        ↓             ArticleCalmSummary
-                                     Entity ←──── ArticleEntity (canonical link)
+NewsAPI.ai → FetchArticlesJob → Article (PostgreSQL)
+                   ↓
+         ┌────────┴────────┐
+         ↓                 ↓
+GenerateFactualSummaryJob  NerExtractionJob
+         ↓                 ↓
+   Article#factual_summary  ArticleAnalysis (ner_extraction)
+                                  ↓
+                           ExtractSubjectsJob
+                                  ↓
+                           ArticleSubject → Concept
 ```
 
-**Separated concerns design:**
+**Core models:**
 - `Article` — NewsAPI.ai data with JSONB `raw_payload` (includes full body)
-- `Entity` — normalized entities (all lowercase): people, organizations, places, tags, categories, publishers, authors
-- `ArticleEntity` — canonical article↔entity relationship
-- `ArticleEntityExtraction` — audit trail for LLM entity extraction (legacy/reanalysis)
-- `ArticleCalmSummary` — calm summary with prompt/model provenance
+- `Concept` — normalized entities: people, organizations, places, tags, categories
+- `ArticleSubject` — article↔concept relationship with relevance scoring
+- `ArticleAnalysis` — LLM analysis results (only `ner_extraction` type is active)
 
 **Services in `app/services/`:**
 - `NewsApiAi::Client` — HTTP wrapper for NewsAPI.ai (Event Registry), uses Faraday
-- `Completions::Client` — generic LLM wrapper via OpenRouter (OpenAI-compatible)
+- `Completions::Client` — LLM wrapper via OpenRouter (OpenAI-compatible), default model: `openai/gpt-oss-120b`
 
 **Jobs in `app/jobs/`:**
-- `FetchArticlesJob` — Fetches from NewsAPI.ai, extracts entities inline from API concepts
-- `ExtractEntitiesJob` — LLM-based entity extraction (for legacy articles or reanalysis)
-- `GenerateCalmSummaryJob` — Generates calm summaries with its own prompt
+- `FetchArticlesJob` — Fetches from NewsAPI.ai, enqueues analysis pipeline per article
+- `GenerateFactualSummaryJob` — Generates factual summaries via LLM
+- `NerExtractionJob` — Extracts named entities via LLM
+- `ExtractSubjectsJob` — Extracts subject concepts from NER results
+- `CaptureTrendsJob` / `CaptureDailyTrendsJob` — Trend tracking
+- `CleanupTrendsJob` — Prunes old trend data
 
 **Scheduling:** Jobs are scheduled via sidekiq-scheduler (see `config/sidekiq.yml`). Articles fetched hourly.
 
-**Key scopes:**
-- `Article.with_entities` / `Article.without_entities`
-- `Article.with_summary` / `Article.without_summary`
-- `Article.in_category(cat)` — Articles with category entity
-- `Entity.of_type(type)` — Filter entities by type
+**Design principle:** Articles flow through the pipeline individually — each article enqueues its own analysis jobs rather than batch processing.
 
 ## Environment
 
@@ -99,9 +105,20 @@ EDITOR="code --wait" bin/rails credentials:edit --environment development
 EDITOR="code --wait" bin/rails credentials:edit --environment production
 ```
 
-Keys: `database.password`, `news_api_ai.key`, `openrouter.api_key`, `sidekiq.web_password`
+Keys: `database.password`, `news_api_ai.key`, `openrouter.api_key`, `sidekiq.web_password`, `influxdb.token`
 
 Database defaults to user `news` at localhost (see `config/database.yml`).
+
+## Metrics (InfluxDB)
+
+Rails instrumentation via `influxdb-rails` gem writes to InfluxDB 3 Core:
+- Controller response times, SQL queries, view rendering
+- Accessible internally at `news-digest-influxdb:8181` (not exposed publicly)
+
+```bash
+# Query metrics in production
+ssh root@news.lemonslut.com "docker exec -e INFLUXDB3_AUTH_TOKEN=... news-digest-influxdb influxdb3 query --database rails_metrics 'SELECT * FROM rails LIMIT 10'"
+```
 
 ## Testing
 
@@ -109,11 +126,11 @@ Uses RSpec with WebMock. VCR cassettes in `spec/cassettes/` for NewsAPI.ai. LLM 
 
 ## Deployment
 
-Uses Kamal for production deployment. See `config/deploy.yml` for configuration and `docs/how-to/production.md` for full instructions.
+Uses Kamal for production deployment. See `config/deploy.yml` for configuration.
 
 ```bash
 # Deploy (requires env vars)
-KAMAL_REGISTRY_PASSWORD='...' POSTGRES_PASSWORD='...' kamal deploy
+KAMAL_REGISTRY_PASSWORD='...' RAILS_MASTER_KEY='...' POSTGRES_PASSWORD='...' bundle exec kamal deploy
 
 # View logs
 kamal logs
@@ -123,6 +140,10 @@ kamal console
 
 # Run rake task in production
 kamal app exec "bundle exec rake users:bootstrap"
+
+# Manage accessories
+kamal accessory boot influxdb
+kamal accessory exec influxdb "influxdb3 create token --admin"
 ```
 
 ### Production Server Inspection
@@ -133,15 +154,8 @@ SSH as root to `news.lemonslut.com`:
 # List running containers
 ssh root@news.lemonslut.com "docker ps --format '{{.Names}}'"
 
-# Get env vars from a container (e.g., postgres password)
-ssh root@news.lemonslut.com "docker inspect news-digest-postgres --format '{{range .Config.Env}}{{println .}}{{end}}'"
-
-# Get registry credentials (base64 encoded)
-ssh root@news.lemonslut.com "cat ~/.docker/config.json"
-
-# Decode the auth token
-echo "base64string" | base64 -d
-# Output: username:password
+# Check Sidekiq queues
+ssh root@news.lemonslut.com "docker exec news-digest-job-... bundle exec rake sidekiq:queue_depth"
 ```
 
 ### Kamal Secrets
@@ -165,4 +179,3 @@ curl -H "Authorization: Bearer TOKEN" https://news.lemonslut.com/articles
 ```
 
 Web login at `/session/new`. No password reset (users managed via rake task).
-- articles should flow through the pipeline individually -- instead of a sidekiq job iterating over all articles, it should enqueue a job for each article

@@ -1466,4 +1466,252 @@ http_interactions:
         "sentiment":-0.5607843137254902, "wgt":503560275, "relevance":2}], "totalResults":69583,
         "page":1, "count":5, "pages":13917}}'
   recorded_at: Tue, 16 Dec 2025 05:53:22 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-19&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 20 Dec 2025 08:13:57 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1602'
+      X-Response-Time:
+      - '561'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"3bad-zFaCIWPuHsv7b54kWbrWJfURZKQ"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9009423903", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-20", "time":"08:13:01", "dateTime":"2025-12-20T08:13:01Z",
+        "dateTimePub":"2025-12-20T08:03:27Z", "dataType":"news", "sim":0, "url":"https:\/\/markets.businessinsider.com\/news\/stocks\/rbc-capital-sticks-to-their-buy-rating-for-cigna-ci-1035662696",
+        "title":"RBC Capital Sticks to Their Buy Rating for Cigna (CI)", "body":"Stay
+        ahead of the market with the latest news and analysis so your portfolio is
+        always positioned for maximum potential\n\nAccording to TipRanks, Hendrix
+        is a 4-star analyst with an average return of 4.6% and a 51.76% success rate.
+        Hendrix covers the Healthcare sector, focusing on stocks such as CVS Health,
+        Brookdale Senior Living, and Select Medical.\n\nIn a report released on December
+        10, Bank of America Securities also reiterated a Buy rating on the stock with
+        a $378.00 price target.\n\nBased on Cigna''s latest earnings release for the
+        quarter ending September 30, the company reported a quarterly revenue of $69.75
+        billion and a net profit of $1.87 billion. In comparison, last year the company
+        earned a revenue of $63.69 billion and had a net profit of $739 million\n\nBased
+        on the recent corporate insider activity of 36 insiders, corporate insider
+        sentiment is positive on the stock. This means that over the past quarter
+        there has been an increase of insiders buying their shares of CI in relation
+        to earlier this year. Last month, David Cordani, the Chairman & CEO of CI
+        bought 4,134.00 shares for a total of $999,890.58.", "source":{"uri":"markets.businessinsider.com",
+        "dataType":"news", "title":"Markets Insider", "description":"A stock market
+        site by Business Insider with real-time data, custom charts and breaking news.
+        Get the latest on stocks, commodities, currencies, funds, rates, ETFs, and
+        more."}, "authors":[], "image":null, "eventUri":null, "location":null, "sentiment":0.411764705882353,
+        "wgt":503914381, "relevance":2}, {"uri":"9009431000", "lang":"eng", "isDuplicate":true,
+        "date":"2025-12-20", "time":"08:12:53", "dateTime":"2025-12-20T08:12:53Z",
+        "dateTimePub":"2025-12-20T08:05:00Z", "dataType":"news", "sim":0, "url":"https:\/\/www.arkansasonline.com\/news\/2025\/dec\/20\/harding-rb-miller-finishes-second-in-harlon-hill\/",
+        "title":"Harding RB Miller finishes second in Harlon Hill Trophy voting |
+        Arkansas Democrat Gazette", "body":"Let us read it for you. Listen now. Your
+        browser does not support the audio element.\n\nHarding''s Miller 2nd in Harlon
+        Hill voting\n\nHarding running back Andrew Miller finished as runner-up in
+        the voting for the Harlon Hill Trophy on Friday.\n\nVirginia Union tailback
+        Curtis Allen took home the prestigious player of the year award, which is
+        the NCAA Division II''s version of the Heisman Trophy. The senior is the first
+        student athlete from his school, the Central Intercollegiate Athletic Association
+        or any Historically Black College or University to win the honor.\n\nAllen
+        garnered 193 points in a voting regulated by sports information directors
+        across Division II, while Miller ended in a tie for second place with Indianapolis
+        quarterback Gavin Sukup with 101 points. Minnesota Moorhead quarterback Jack
+        Strand was fourth with 76 points.\n\nRounding out the field of finalists were
+        quarterbacks Judd Novak of Kutztown (Pa.), Reed Charpia of Newberry (S.C.),
+        Drew Nash of Western Colorado and Marcus Stokes of West Florida.\n\nAllen
+        led Division II in rushing yards (2,386), rushing touchdowns (30) and scoring
+        (180 points) for Virginia Union, which finished 9-3 and received an at-large
+        bid to the playoffs. The 6-2, 215-pounder ran for at least 100 yards and 1
+        touchdown in all 12 games for the Panthers, including a program-record 369
+        yards and 5 touchdowns during a 70-14 victory over Bluefield (W.Va.) State
+        on Nov. 1. He also put together an eight-game stretch where he carried for
+        150 yards or more and capped the year with 128 yards on 21 attempts in a 27-24
+        loss to California (Pa.) in the first round of the postseason.\n\nMiller,
+        who will lead Harding into Saturday''s national championship game against
+        Ferris (Mich.) State, has 1,978 yards on the ground and 27 rushing touchdowns
+        this season. Those numbers are second only to Allen.\n\nThere were 104 sports
+        information directors that took part in the voting process. Players received
+        three points for first-place votes, two for second and one for third.\n\n--
+        Erick Taylor", "source":{"uri":"arkansasonline.com", "dataType":"news", "title":"ArkansasOnline",
+        "description":"Arkansas Online \u2022 Website of the Arkansas Democrat-Gazette.
+        http:\/\/t.co\/eGuR1DJ5wC  #ArkDG"}, "authors":[], "image":"https:\/\/wehco.media.clients.ellingtoncms.com\/img\/photos\/2025\/12\/19\/6C5CNWAndrewMillerMug1220_t600.jpg?4326734cdb8e39baa3579048ef63ad7b451e7676",
+        "eventUri":null, "location":null, "sentiment":0.1058823529411765, "wgt":503914373,
+        "relevance":2}, {"uri":"9009423905", "lang":"eng", "isDuplicate":false, "date":"2025-12-20",
+        "time":"08:12:52", "dateTime":"2025-12-20T08:12:52Z", "dateTimePub":"2025-12-20T08:03:27Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/markets.businessinsider.com\/news\/stocks\/rbc-capital-reaffirms-their-hold-rating-on-credit-agricole-0hai-1035662711",
+        "title":"RBC Capital Reaffirms Their Hold Rating on Credit Agricole (0HAI)",
+        "body":"RBC Capital analyst Anke Reingen maintained a Hold rating on Credit
+        Agricole on December 18 and set a price target of \u20ac19.00. The company''s
+        shares closed last Thursday at \u20ac17.45.\n\nAccording to TipRanks, Reingen
+        is a 5-star analyst with an average return of 20.0% and a 73.29% success rate.
+        Reingen covers the Financial sector, focusing on stocks such as BNP Paribas,
+        Deutsche Bank AG, and UBS Group AG.\n\nCredit Agricole has an analyst consensus
+        of Hold, with a price target consensus of \u20ac18.13.", "source":{"uri":"markets.businessinsider.com",
+        "dataType":"news", "title":"Markets Insider", "description":"A stock market
+        site by Business Insider with real-time data, custom charts and breaking news.
+        Get the latest on stocks, commodities, currencies, funds, rates, ETFs, and
+        more."}, "authors":[], "image":null, "eventUri":null, "location":null, "sentiment":0.3254901960784313,
+        "wgt":503914372, "relevance":2}, {"uri":"9009430197", "lang":"eng", "isDuplicate":true,
+        "date":"2025-12-20", "time":"08:12:48", "dateTime":"2025-12-20T08:12:48Z",
+        "dateTimePub":"2025-12-20T08:00:01Z", "dataType":"news", "sim":0, "url":"https:\/\/www.sportingnews.com\/us\/soccer\/liverpool\/news\/when-mohamed-salah-back-afcon-egypt-liverpool-return-date\/d2ca8a468063995114f4c61b",
+        "title":"When is Mohamed Salah back from AFCON? Egypt schedule, Liverpool
+        return date after 2025 Africa Cup of Nations", "body":"Given the recent strain
+        in relationship between player and club, Mohamed Salah''s time as a Liverpool
+        player looks to be coming to an end.\n\nIn fact, it''s even possible he has
+        played his final game as a Red. Having departed for international duty with
+        Egypt at the Africa Cup of Nations, Salah could now be nearing an acrimonious
+        end to his illustrious time at Anfield.\n\nYet there''s also the potential
+        that Salah returns to the club following the conclusion of Egypt''s journey
+        through AFCON, ready to help press on towards the latter stages of the 2025\/26
+        season.\n\nThe Sporting News brings you a full overview of when Salah could
+        potentially make his way back to Merseyside, when his matches with Egypt will
+        be, and what games Salah would miss thanks to international duty.\n\nMORE:
+        Egypt top Nigeria in pre-AFCON friendly with Salah on the bench\n\nThe 2025
+        Africa Cup of Nations will begin on December 21, contested for a month all
+        the way up until the final on January 18.\n\nOriginally scheduled for this
+        past June and July, AFCON was pushed back to the winter due to the 2025 Club
+        World Cup scheduled for action in the United States over the same time.\n\nAll
+        players will return to their clubs from Africa Cup of Nations duty once their
+        team is eliminated from the competition, unless injury or other exception
+        sees them depart early.\n\nEgypt are one of the contenders for the title,
+        and therefore it''s likely that Salah will return to Liverpool later in the
+        competition.\n\nThe earliest Salah or any player could be back with their
+        club would be the end of the group stage on December 31. However, thanks to
+        Egypt''s status as a true contender in the competition alongside their soft
+        group-stage draw, this is highly unlikely.\n\nMORE: Complete group tables
+        and schedule for AFCON 2025\n\nShould Egypt top their group, they would likely
+        progress to at least the quarterfinals on January 9. It''s even possible that
+        the Pharaohs advance through to the semifinals or beyond, which would see
+        Salah return in mid-January.\n\nWith Salah, there is also the distinct possibility
+        that he is sold in the January transfer window, potentially meaning he would
+        not return to the club at all should a deal progress prior to the end of the
+        AFCON tournament.\n\nEgypt were drawn into Group B at AFCON 2025, facing South
+        Africa, Angola, and Zimbabwe. Finishing top two in the group sees them qualify
+        directly for the knockout stage, while they can also potentially qualify with
+        a third-place finish if they are one of the best four sides to come third
+        across the groups.\n\nWinning the group places them in the top half of the
+        bracket against a third-place qualifier, while a second-place finish in Group
+        B would see them enter in the bottom half against the runner-up in Group F
+        (Ivory Coast, Cameroon, Gabon, Mozambique).\n\nIncredibly, the schedule has
+        shaken out favorably for Egypt such that winning Group B would see them play
+        every match in the same venue, Adrar Stadium in Agadir, until the semifinals.\n\nThere
+        are two different potential places that Egypt could end up in if finishing
+        third in their group, one on either side of the bracket. One sees them play
+        the winner of Group D in the Round of 16, while the other sees them meet the
+        winner of Group C.\n\nSalah will miss a considerable chunk of time as Liverpool
+        push through multiple competitions.\n\nThankfully for the Reds, the Champions
+        League takes a break for the winter holidays much like other domestic competitions
+        around Europe and the rest of the world. However, the Premier League keeps
+        on trucking through the winter unabated, and therefore he will miss a number
+        of big domestic matches.\n\nSalah is guaranteed to miss at least three league
+        matches. He would return for potential participation in the trip to Fulham
+        on January 4 should Egypt be stunned by group-stage elimination, but in all
+        likelihood he would miss that game and potentially the important clash with
+        title contenders Arsenal on January 8.\n\nA push to the later stages of AFCON
+        could see Salah miss even more games, and depending on the rest he is given
+        after the competition he could even be absent from the return to Champions
+        League play on January 21 in France against Marseille.", "source":{"uri":"sportingnews.com",
+        "dataType":"news", "title":"Sporting News", "description":"The latest news,
+        videos, scores and more on the biggest sports, including NFL, NBA, MLB, NCAA,
+        NASCAR and more with Sporting News"}, "authors":[], "image":"https:\/\/library.sportingnews.com\/styles\/twitter_card_120x120\/s3\/2025-09\/GettyImages-2229545934.jpg?itok=0HS0o5V2",
+        "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":503914368,
+        "relevance":2}, {"uri":"9009430196", "lang":"eng", "isDuplicate":true, "date":"2025-12-20",
+        "time":"08:12:48", "dateTime":"2025-12-20T08:12:48Z", "dateTimePub":"2025-12-20T08:00:01Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.sportingnews.com\/us\/nfl\/news\/nfc-north-standings-packers-bears-playoff-picture\/a1d3bf5c8182b8c7144b1588",
+        "title":"NFC North standings: How Packers-Bears Saturday game impacts division
+        race, playoff picture", "body":"For the second time in three weeks, the Packers
+        and Bears will play a game that will help determine who wins the NFC North
+        at the end of the 2025 NFL regular season. Green Bay won the first matchup,
+        28-21, in Week 14 and Lambeau Field. In Week 16, the action shifts to Chicago''s
+        Soldier Field for a special Saturday night game (8:20 p.m. ET, Fox).\n\nWith
+        only three weeks left to play, the division title is coming down to the wire
+        to figure out whether the Packers or Bears will host a playoff game as North
+        champions and which of the two teams will need to go on the road as a wild-card
+        team.\n\nHere''s breaking down the implications of the quick rematch:\n\nMORE
+        WEEK 16 NFL:\n\nThe Bears lead the division by a half-game over the Packers
+        because of the latter having a tie on its record. The Bears are the current
+        No. 2 seed behind the No. 1 Rams (11-3), while the Packers are the No.7 seed
+        and final NFC wild-card team behind the No. 6 49ers (10-4).\n\nThe Lions are
+        two games behind the Bears and 1.5 games behind the Packers going into Week
+        16. The Vikings were eliminated from any kind of NFC playoff contention in
+        Week 15.\n\nThe Packers would improve to 10-4-1 and the Bears would fall to
+        10-5, giving the Packers a lead again by a half-game and the head-to-head
+        tiebreaker from the season series sweep. That would jump the Packers to the
+        No. 2 seed behind the Seahawks (12-3) in Week 16. The Eagles, at 9-5, will
+        stay No. 3 regardless of their Saturday outcome vs. the Commanders.\n\nIf
+        the Bears lose, they would fall all the way back down to No. 7, behind the
+        Rams (11-4) and the 49ers, who either will be 11-4 or 10-5 after their Monday
+        night game at the Colts to close Week 16. If both the Bears and 49ers are
+        10-5, the 49ers would have the tiebreaker based on conference record (8-2
+        vs. 6-4). The Bears play the 49ers in San Francisco on Sunday night in Week
+        17.\n\nThe Bears would improve to 11-4 and the Packers would fall to 9-5-1.
+        The Bears would then earn the season series split and lead the division by
+        1.5 games over the Packers with only two games left. The Bears would remain
+        as the No. 2 seed behind the Seahawks.\n\nIf the Packers lose, they would
+        stay at their current No. 7, the third and final NFC wild-card, staying behind
+        the second- and third-place teams from the NFC West. They still would be ahead
+        of the Lions by a game and a head-to-head tiebreaker ahead of the Lions hosting
+        the Steelers on Sunday.\n\nThe Bears would be in a strong position to win
+        the division with a win over the Packers. But they also need to face the 49ers
+        on the road and the Lions (who beat them 52-21 in Detroit in Week 2) at home
+        to close the season. The Packers go to the Ravens in Week 17 before hosting
+        the Vikings in Week 18.\n\nRegardless of what happens on Saturday, Green Bay
+        vs. Chicago for the NFC North title is still about to come down to the wire.",
+        "source":{"uri":"sportingnews.com", "dataType":"news", "title":"Sporting News",
+        "description":"The latest news, videos, scores and more on the biggest sports,
+        including NFL, NBA, MLB, NCAA, NASCAR and more with Sporting News"}, "authors":[],
+        "image":"https:\/\/library.sportingnews.com\/styles\/twitter_card_120x120\/s3\/2025-09\/Jordan%20Love_0.jpg?itok=6AiTcIHb",
+        "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":503914368,
+        "relevance":2}], "totalResults":68007, "page":1, "count":5, "pages":13602}}'
+  recorded_at: Sat, 20 Dec 2025 08:13:56 GMT
 recorded_with: VCR 6.3.1
