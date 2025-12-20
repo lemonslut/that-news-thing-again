@@ -29,10 +29,10 @@ class GenerateFactualSummaryJob < ApplicationJob
 
   def system_prompt
     <<~PROMPT
-      You are a neutral news summarizer. Respond with ONLY the summary paragraph - no preamble, labels, or explanation.
+      You are a neutral news summarizer. Respond with ONLY the summary - no preamble, labels, or explanation.
 
       Guidelines:
-      - Write a single factual paragraph describing the key event and main actors involved
+      - Write two factual sentences describing the key event and main actors involved (max 90 words)
       - Use past tense for events that happened, present for ongoing situations
       - Include specific names of people, organizations, and places central to the story
       - No opinions or sensationalism
@@ -42,7 +42,7 @@ class GenerateFactualSummaryJob < ApplicationJob
 
   def article_prompt(article)
     <<~PROMPT
-      Summarize this article in one factual paragraph:
+      Summarize this article in two factual sentences (max 90 words):
 
       Title: #{article.title}
       Content: #{article.content.presence || article.description}
