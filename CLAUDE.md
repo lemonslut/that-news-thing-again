@@ -109,15 +109,39 @@ Keys: `database.password`, `news_api_ai.key`, `openrouter.api_key`, `sidekiq.web
 
 Database defaults to user `news` at localhost (see `config/database.yml`).
 
-## Metrics (InfluxDB)
+## Metrics & Monitoring
 
-Rails instrumentation via `influxdb-rails` gem writes to InfluxDB 3 Core:
+**InfluxDB 3 Core** stores Rails/Sidekiq metrics via `influxdb-rails` gem:
 - Controller response times, SQL queries, view rendering
-- Accessible internally at `news-digest-influxdb:8181` (not exposed publicly)
+- ActiveJob execution times, success/failure states, exception classes
+- Internal only at `news-digest-influxdb:8181`
 
-```bash
-# Query metrics in production
-ssh root@news.lemonslut.com "docker exec -e INFLUXDB3_AUTH_TOKEN=... news-digest-influxdb influxdb3 query --database rails_metrics 'SELECT * FROM rails LIMIT 10'"
+**Grafana** at https://grafana.lemonslut.com visualizes metrics (user: `admin`).
+
+**Note:** `config/initializers/influxdb_activejob_patch.rb` patches influxdb-rails to correctly detect failed jobs via `payload[:exception]` instead of `payload[:aborted]`.
+
+Example Grafana queries (InfluxDB SQL):
+```sql
+-- Web request latency p50/p95
+SELECT date_bin('1 minute', time) as time,
+  approx_percentile_cont(CAST(controller AS DOUBLE), 0.5) as p50_ms,
+  approx_percentile_cont(CAST(controller AS DOUBLE), 0.95) as p95_ms
+FROM rails WHERE hook = 'process_action'
+  AND time >= $__timeFrom AND time <= $__timeTo
+GROUP BY 1 ORDER BY 1
+
+-- Job throughput by class (jobs/min, 10s buckets)
+SELECT date_bin('10 seconds', time) as time, job,
+  COUNT(*) * 6.0 as jobs_per_min
+FROM rails WHERE hook = 'perform'
+  AND time >= $__timeFrom AND time <= $__timeTo
+GROUP BY 1, job ORDER BY 1
+
+-- Failed jobs by exception class
+SELECT date_bin('1 minute', time) as time, job, class_name, COUNT(*) as failures
+FROM rails WHERE hook = 'perform' AND state = 'failed'
+  AND time >= $__timeFrom AND time <= $__timeTo
+GROUP BY 1, job, class_name ORDER BY 1
 ```
 
 ## Testing
@@ -143,7 +167,11 @@ kamal app exec "bundle exec rake users:bootstrap"
 
 # Manage accessories
 kamal accessory boot influxdb
+kamal accessory boot grafana
 kamal accessory exec influxdb "influxdb3 create token --admin"
+
+# Configure Grafana proxy (after booting accessory)
+ssh root@news.lemonslut.com "docker exec kamal-proxy kamal-proxy deploy news-digest-grafana --target news-digest-grafana:3000 --host grafana.lemonslut.com --tls"
 ```
 
 ### Production Server Inspection
@@ -164,6 +192,7 @@ Secrets are loaded from environment variables via `.kamal/secrets`:
 - `KAMAL_REGISTRY_PASSWORD` — GitHub PAT with `write:packages` scope
 - `POSTGRES_PASSWORD` — Database password (must match credentials)
 - `RAILS_MASTER_KEY` — Read automatically from `config/credentials/production.key`
+- `GF_SECURITY_ADMIN_PASSWORD` — Grafana admin password
 
 ## Authentication
 
