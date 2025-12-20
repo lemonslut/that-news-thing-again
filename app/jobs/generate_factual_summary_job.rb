@@ -8,9 +8,9 @@ class GenerateFactualSummaryJob < ApplicationJob
     return if article.factual_summary.present?
 
     model ||= DEFAULT_MODEL
-    result = call_llm(article, model)
+    summary = call_llm(article, model)
 
-    article.update!(factual_summary: result["summary"])
+    article.update!(factual_summary: summary.strip)
     Rails.logger.info "[GenerateFactualSummaryJob] Generated summary for article #{article_id}"
 
     # Chain to subject extraction
@@ -24,30 +24,25 @@ class GenerateFactualSummaryJob < ApplicationJob
     client.complete([
       { role: "system", content: system_prompt },
       { role: "user", content: article_prompt(article) }
-    ], json: true)
+    ])
   end
 
   def system_prompt
     <<~PROMPT
-      You are a neutral news summarizer. Your job is to distill articles into factual one-sentence summaries.
-
-      IMPORTANT: Respond with ONLY valid JSON. No preamble, no explanation, just the JSON object.
-
-      The JSON must contain:
-      - summary: A single factual sentence describing the key event, including the main actors involved. Max 30 words.
+      You are a neutral news summarizer. Respond with ONLY the summary paragraph - no preamble, labels, or explanation.
 
       Guidelines:
+      - Write a single factual paragraph describing the key event and main actors involved
       - Use past tense for events that happened, present for ongoing situations
       - Include specific names of people, organizations, and places central to the story
       - No opinions or sensationalism
       - Focus on WHO did WHAT, WHY, WHEN, WHERE, and WITH WHOM
-      - Be specific rather than vague
     PROMPT
   end
 
   def article_prompt(article)
     <<~PROMPT
-      Summarize this article in one factual sentence:
+      Summarize this article in one factual paragraph:
 
       Title: #{article.title}
       Content: #{article.content.presence || article.description}
