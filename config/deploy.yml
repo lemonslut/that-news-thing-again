@@ -82,6 +82,19 @@ accessories:
       - data:/var/lib/influxdb3
     cmd: influxdb3 serve --node-id=node0 --object-store=file --data-dir=/var/lib/influxdb3
 
+  grafana:
+    image: grafana/grafana:latest
+    host: 5.78.158.95
+    port: 3000:3000
+    env:
+      clear:
+        GF_SECURITY_ADMIN_USER: admin
+        # InfluxDB datasource will be configured manually via UI
+      secret:
+        - GF_SECURITY_ADMIN_PASSWORD
+    directories:
+      - data:/var/lib/grafana
+
 # Useful aliases
 aliases:
   shell: app exec --interactive --reuse "bash"
