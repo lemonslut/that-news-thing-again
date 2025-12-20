@@ -1,3 +1,5 @@
+# DEPRECATED: No longer generated. Factual summaries (Article#factual_summary) replaced this.
+# Retained for historical data only.
 class ArticleCalmSummary < ApplicationRecord
   belongs_to :article
   belongs_to :prompt, optional: true

@@ -29,15 +29,7 @@ class FetchArticlesJob < ApplicationJob
   private
 
   def enqueue_analysis_pipeline(article)
-    # Parallel track 1: Factual summary → subjects → clustering (chained)
     GenerateFactualSummaryJob.perform_later(article.id)
-
-    # Parallel track 2: Display & browse analyses
-    CalmSummaryAnalysisJob.perform_later(article.id)
     NerExtractionJob.perform_later(article.id)
-    GeneralSentimentJob.perform_later(article.id)
-
-    # Entity sentiment retries until NER is available (up to 10 times)
-    EntitySentimentJob.perform_later(article.id)
   end
 end

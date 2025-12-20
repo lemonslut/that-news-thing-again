@@ -83,10 +83,8 @@ RSpec.describe FetchArticlesJob, type: :job do
       stub_top_headlines([build_article_data])
 
       expect { described_class.new.perform }
-        .to have_enqueued_job(CalmSummaryAnalysisJob)
-        .and have_enqueued_job(GeneralSentimentJob)
+        .to have_enqueued_job(GenerateFactualSummaryJob)
         .and have_enqueued_job(NerExtractionJob)
-        .and have_enqueued_job(EntitySentimentJob)
     end
 
     it "returns stats about stored and skipped articles" do

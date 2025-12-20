@@ -11,7 +11,7 @@ module ArticleAnalyzer
     end
 
     def default_model
-      "meta-llama/llama-4-maverick"
+      "openai/gpt-oss-120b"
     end
 
     def prompt_name

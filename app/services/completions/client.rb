@@ -1,6 +1,6 @@
 module Completions
   class Client
-    DEFAULT_MODEL = "anthropic/claude-3-haiku".freeze
+    DEFAULT_MODEL = "openai/gpt-oss-120b".freeze
 
     Error = Class.new(StandardError)
 

@@ -1,3 +1,5 @@
+# NOTE: Only ner_extraction is actively generated.
+# calm_summary, general_sentiment, entity_sentiment are deprecated.
 class ArticleAnalysis < ApplicationRecord
   TYPES = %w[calm_summary ner_extraction general_sentiment entity_sentiment].freeze
 

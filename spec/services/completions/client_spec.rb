@@ -56,10 +56,6 @@ RSpec.describe Completions::Client do
   end
 
   describe "model selection" do
-    it "uses default model" do
-      expect(described_class::DEFAULT_MODEL).to eq("anthropic/claude-3-haiku")
-    end
-
     it "allows custom model" do
       client = described_class.new(model: "openai/gpt-4o-mini")
 
