@@ -41,11 +41,6 @@
         <% article.concepts.limit(3).each do |concept| %>
           <span class="badge outline <%= concept_type_color(concept.concept_type) %> xs"><%= concept.label.truncate(20) %></span>
         <% end %>
-        <% if article.sentiment %>
-          <span class="badge light <%= article.sentiment > 0.2 ? 'success' : article.sentiment < -0.2 ? 'danger' : 'warn' %> xs">
-            <%= sentiment_indicator(article.sentiment) %> <%= number_with_precision(article.sentiment, precision: 2) %>
-          </span>
-        <% end %>
       </div>
       <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
         <%= link_to article.source_name, articles_path(source: article.source_name), class: "hover:text-primary transition-colors" %>

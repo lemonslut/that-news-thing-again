@@ -103,18 +103,6 @@
               <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">author</td><td class="py-1"><%= @article.author %></td></tr>
             <% end %>
             <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">language</td><td class="py-1"><%= @article.language %></td></tr>
-            <tr>
-              <td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">sentiment</td>
-              <td class="py-1">
-                <% if @article.sentiment %>
-                  <span class="<%= @article.sentiment > 0 ? 'text-success' : @article.sentiment < 0 ? 'text-error' : '' %>">
-                    <%= number_with_precision(@article.sentiment, precision: 4) %>
-                  </span>
-                <% else %>
-                  <span class="text-base-content/30">null</span>
-                <% end %>
-              </td>
-            </tr>
             <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">is_duplicate</td><td class="py-1"><%= @article.is_duplicate %></td></tr>
             <tr><td class="text-base-content/50 pr-4 py-1 align-top whitespace-nowrap">created_at</td><td class="py-1"><%= @article.created_at.iso8601 %></td></tr>
           </tbody>

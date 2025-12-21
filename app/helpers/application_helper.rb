@@ -21,28 +21,6 @@ module ApplicationHelper
     end
   end
 
-  def sentiment_color(sentiment)
-    return "" unless sentiment
-    if sentiment > 0.2
-      "text-success"
-    elsif sentiment < -0.2
-      "text-danger"
-    else
-      "text-warn"
-    end
-  end
-
-  def sentiment_indicator(sentiment)
-    return nil unless sentiment
-    if sentiment > 0.2
-      "+"
-    elsif sentiment < -0.2
-      "-"
-    else
-      "~"
-    end
-  end
-
   def trend_indicator(snapshot)
     return "" unless snapshot
     if snapshot.new_entry?

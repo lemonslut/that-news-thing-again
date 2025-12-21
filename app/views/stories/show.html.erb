@@ -41,12 +41,6 @@
           </time>
           <span>&middot;</span>
           <span><%= article.source_name %></span>
-          <% if article.sentiment %>
-            <span>&middot;</span>
-            <span class="<%= sentiment_color(article.sentiment) %>">
-              <%= sentiment_indicator(article.sentiment) %><%= number_with_precision(article.sentiment, precision: 2) %>
-            </span>
-          <% end %>
         </div>
 
         <h2 class="text-lg font-semibold mb-2">

@@ -16,11 +16,6 @@
         <% if article.primary_category %>
           <span class="badge solid <%= category_color(article.primary_category) %> sm"><%= article.primary_category.short_name %></span>
         <% end %>
-        <% if article.sentiment %>
-          <span class="badge light <%= article.sentiment > 0.2 ? 'success' : article.sentiment < -0.2 ? 'danger' : 'warn' %> xs">
-            <%= sentiment_indicator(article.sentiment) %> <%= number_with_precision(article.sentiment, precision: 2) %>
-          </span>
-        <% end %>
       </div>
       <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
         <span><%= article.source_name %></span>
