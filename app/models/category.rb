@@ -5,8 +5,8 @@ class Category < ApplicationRecord
   validates :uri, presence: true, uniqueness: true
   validates :label, presence: true
 
-  scope :news, -> { where("uri LIKE 'news/%'") }
-  scope :dmoz, -> { where("uri LIKE 'dmoz/%'") }
+  scope :news, -> { where("categories.uri LIKE 'news/%'") }
+  scope :dmoz, -> { where("categories.uri LIKE 'dmoz/%'") }
 
   def self.find_or_create_from_api(category_hash)
     uri = category_hash["uri"]
