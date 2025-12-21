@@ -1,7 +1,7 @@
 class GenerateFactualSummaryJob < ApplicationJob
   queue_as :default
 
-  DEFAULT_MODEL = "openai/gpt-oss-120b".freeze
+  DEFAULT_MODEL = "mistralai/mistral-small-creative".freeze
 
   def perform(article_id, model: nil)
     article = Article.find(article_id)
