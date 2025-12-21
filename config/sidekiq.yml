@@ -5,7 +5,7 @@
 :scheduler:
   :schedule:
     stream_articles:
-      cron: "* * * * *"  # Every minute
+      cron: "*/10 * * * *"  # Every 10 minutes
       class: StreamArticlesJob
       description: "Stream new articles from NewsAPI.ai"
     # cluster_stories:
