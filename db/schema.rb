@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_16_055111) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_21_055634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -94,12 +94,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_16_055111) do
     t.boolean "is_duplicate", default: false
     t.bigint "story_id"
     t.text "factual_summary"
+    t.string "uri"
     t.index ["language"], name: "index_articles_on_language"
     t.index ["published_at"], name: "index_articles_on_published_at"
     t.index ["raw_payload"], name: "index_articles_on_raw_payload", using: :gin
     t.index ["sentiment"], name: "index_articles_on_sentiment"
     t.index ["source_name"], name: "index_articles_on_source_name"
     t.index ["story_id"], name: "index_articles_on_story_id"
+    t.index ["uri"], name: "index_articles_on_uri", unique: true
     t.index ["url"], name: "index_articles_on_url", unique: true
   end
 

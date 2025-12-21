@@ -73,6 +73,7 @@ class Article < ApplicationRecord
 
   def self.from_news_api_ai(article_hash)
     new(
+      uri: article_hash["uri"],
       source_id: article_hash.dig("source", "uri"),
       source_name: article_hash.dig("source", "title") || article_hash.dig("source", "uri"),
       author: article_hash.dig("authors", 0, "name"),
@@ -95,6 +96,7 @@ class Article < ApplicationRecord
 
     if existing
       existing.update(
+        uri: article.uri,
         raw_payload: article_hash,
         content: article.content,
         sentiment: article.sentiment,

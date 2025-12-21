@@ -2,7 +2,7 @@ class StreamArticlesJob < ApplicationJob
   queue_as :default
 
   def perform
-    after_uri = Article.recent.first&.raw_payload&.dig("uri")
+    after_uri = Article.recent.first&.uri
     client = NewsApiAi::Client.new
 
     result = client.minute_stream_articles(

@@ -112,6 +112,7 @@ RSpec.describe Article do
       described_class.upsert_from_news_api_ai(api_ai_hash)
       described_class.upsert_from_news_api_ai(
         api_ai_hash.merge(
+          "uri" => "8985357962",
           "url" => "https://cnn.com/article",
           "source" => { "uri" => "cnn.com", "title" => "CNN" },
           "dateTimePub" => "2025-12-03T10:00:00Z",
