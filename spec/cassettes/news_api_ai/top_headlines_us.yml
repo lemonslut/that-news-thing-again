@@ -1714,4 +1714,251 @@ http_interactions:
         "eventUri":null, "location":null, "sentiment":0.1529411764705881, "wgt":503914368,
         "relevance":2}], "totalResults":68007, "page":1, "count":5, "pages":13602}}'
   recorded_at: Sat, 20 Dec 2025 08:13:56 GMT
+- request:
+    method: get
+    uri: https://eventregistry.org/api/v1/article/getArticles?apiKey=<NEWS_API_AI_KEY>&articleBodyLen=-1&articlesCount=5&articlesPage=1&articlesSortBy=date&dateStart=2025-12-20&includeArticleBody=true&includeArticleImage=true&includeArticleLocation=true&includeArticleSentiment=true&includeSourceDescription=true&includeSourceTitle=true&lang=eng&resultType=articles&sourceLocationUri=http://en.wikipedia.org/wiki/United_States
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 21 Dec 2025 05:18:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET,POST
+      Access-Control-Allow-Headers:
+      - Content-Type
+      X-Ratelimit-Limit:
+      - '2000'
+      X-Ratelimit-Remaining:
+      - '1580'
+      X-Response-Time:
+      - '267'
+      Req-Action:
+      - articleSearch
+      Req-Tokens:
+      - '1.000'
+      Req-Archive:
+      - '0'
+      Req-Chargable:
+      - 'true'
+      Req-Years:
+      - '0'
+      Req-Article-Search:
+      - '1'
+      Etag:
+      - W/"3d64-cvwIsUUIfm8tzOCBpMk8gv9iKpU"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"articles":{"results":[{"uri":"9010364847", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-21", "time":"05:18:01", "dateTime":"2025-12-21T05:18:01Z",
+        "dateTimePub":"2025-12-21T05:06:13Z", "dataType":"news", "sim":0, "url":"https:\/\/www.whas11.com\/article\/syndication\/associatedpress\/luka-doncic-exits-lakers-game-with-leg-injury\/616-154f3f13-0747-41d8-9fbc-b3cfbd5397a2",
+        "title":"Luka Doncic exits Lakers game with leg injury", "body":"INGLEWOOD,
+        Calif.(AP) -- Luka Doncic suffered an injury and didn''t return after halftime
+        of the Los Anglees Lakers'' game against the Los Angeles Clippers on Saturday
+        night.\n\nThe Lakers said the NBA''s leading scorer sustained a left leg contusion.
+        Doncic leads the league at 35.2 points per game, just ahead of Oklahoma City''s
+        Shai Gilgeous-Alexander at 32.5.\n\nDoncic had 12 points, five rebounds and
+        two assists while playing 19 minutes in the first half, when the visiting
+        Lakers trailed 54-39. He missed his first six shots while picking up a technical
+        foul.\n\nHis absence left the Lakers even more short-handed.\n\nRui Hachimura
+        missed his first start of the season. The forward who averages 13.3 points
+        has a sore groin that occurred after Thursday''s game at Utah. He''s expected
+        to be out 3 to 5 days.\n\nThe team hopes to get Deandre Ayton (left elbow)
+        and Austin Reaves (left calf) back soon.", "source":{"uri":"whas11.com", "dataType":"news",
+        "title":"WHAS 11 Louisville", "description":"WHAS11 News is your source for
+        Louisville, KY and Southern Indiana news on air, online and on demand."},
+        "authors":[], "image":"https:\/\/assets.tegnaone.com\/assets\/AssociatedPress\/images\/5621852c-ab9a-40ae-aa24-d440232f832b\/20251221T051004\/5621852c-ab9a-40ae-aa24-d440232f832b.jpg",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Inglewood, California"},
+        "country":{"type":"country", "label":{"eng":"United States"}}}, "sentiment":-0.1058823529411764,
+        "wgt":503990281, "relevance":2}, {"uri":"9010364851", "lang":"eng", "isDuplicate":false,
+        "date":"2025-12-21", "time":"05:18:01", "dateTime":"2025-12-21T05:18:01Z",
+        "dateTimePub":"2025-12-21T05:09:41Z", "dataType":"news", "sim":0, "url":"https:\/\/www.tvline.com\/2057156\/snl-ariana-grande-sings-all-i-want-for-christmas-video\/",
+        "title":"SNL Video: Ariana Grande Sings A Funny Version Of Mariah Carey''s
+        All I Want For Christmas Is You  --  Watch - TVLine", "body":"It''s Christmastime...
+        and Ariana Grande knows what you want to hear.\n\nThe \"Wicked\" star hosted
+        the annual pre-Christmas episode of \"Saturday Night Live\" this week, and
+        of course, that meant she had to croon a classic holiday song during her monologue.
+        In it, Grande explained that she''s been busy shopping for her family and
+        loved ones, but she''s not sure what to get her cousin''s boyfriend Steve.
+        (Or is it Scott?)\n\nWith that, she grabbed the mike and started singing new
+        words to the tune of Mariah Carey''s holiday hit \"All I Want for Christmas
+        Is You,\" lamenting that she has no idea what to get the guy. (\"Is a gift
+        card rude?\/What do I get for Christmas for this dude?\") First, she got some
+        help from cast member Bowen Yang -- who got some extra cheers from the audience,
+        since he announced this will be his last episode -- and he suggested a Cameo
+        from \"Glee\" alum Matthew Morrison. Yeah, but that''s a gift for a very specific
+        type of person, isn''t it?\n\nThe rest of the cast recommended everything
+        from raw oysters to shampoo, but nothing really seemed to fit. Luckily, Ariana
+        got the news that her cousin broke up with that boyfriend -- so she''s off
+        the hook!", "source":{"uri":"tvline.com", "dataType":"news", "title":"TVLine",
+        "description":"TV News, Previews, Spoilers, Casting Scoop, Interviews"}, "authors":[],
+        "image":"https:\/\/www.tvline.com\/img\/gallery\/snl-video-ariana-grande-sings-a-new-version-of-mariah-careys-all-i-want-for-christmas-watch\/l-intro-1766293928.jpg",
+        "eventUri":null, "location":null, "sentiment":0.2470588235294118, "wgt":503990281,
+        "relevance":2}, {"uri":"9010364323", "lang":"eng", "isDuplicate":false, "date":"2025-12-21",
+        "time":"05:17:50", "dateTime":"2025-12-21T05:17:50Z", "dateTimePub":"2025-12-21T05:15:17Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.nytimes.com\/athletic\/6899217\/2025\/12\/21\/afcon-schedule-change-fifa-caf-2025\/",
+        "title":"Does surprise AFCON schedule change really benefit African football?",
+        "body":"Confederation of African Football President Patrice Motsepe at his
+        pre-AFCON press briefing Sebastien Bozon\/Getty Images\n\nWhen arriving 55
+        minutes late for his press briefing in Rabat on Saturday afternoon, ahead
+        of the 2025 Africa Cup of Nations, Patrice Motsepe did not apologise for his
+        punctuality but he did explain where he''d been.\n\nAfter landing in Morocco
+        at 7am, the president of Confederation of African Football (CAF) missed breakfast
+        and lunch because of a series of meetings. One of them was with the executive
+        committee of the organisation he represents, along with senior figures from
+        FIFA, including the president, Gianni Infantino.\n\nInfantino was not amongst
+        the six football delegates sitting beside Motsepe when he started speaking,
+        even though a \"historic\" decision had been reached in the previous hours.
+        Instead, FIFA''s secretary general, Mattias Grafstrom, offered a few thoughts
+        on the development that from 2028, AFCON will be a competition held every
+        four years rather than two.\n\nIn 2020, speaking to a CAF executive committee,
+        Infantino had described the current AFCON cycle as \"useless\", but no-one
+        in the room was expecting this to happen now. There had been no speculation
+        about the future of the tournament before the announcement was made by Motsepe,
+        who also revealed that a new African Nations League, similar to the one organised
+        by UEFA in Europe, will begin from 2029, running every year.\n\nIt means that
+        after AFCONs in 2027 and 2028, with the second edition brought forward a year
+        from 2029, international football in Africa will now operate within FIFA''s
+        window. Motsepe identified it as the \"most important\" moment he has been
+        involved in across nearly a quarter of a century in football.\n\nAlthough
+        specific dates are yet to be fixed, Motsepe thinks the certainty of the schedule
+        will give CAF and by extension, African football nations, the chance to achieve
+        \"sustainable financial independence\" because consistency attracts sponsors.\n\n\"Africa
+        needs more money than ever before,\" he reasoned. \"You can''t compete with
+        the rest of the world without financial resources.\n\nThat was also, presumably,
+        why Motsepe also announced that the prize money for winning this edition of
+        the tournament has increased from $7million (\u00a35.3m) to $10m (\u00a37.5m).\n\nMotsepe,
+        South Africa''s first black billionaire, was elected as CAF president for
+        the first time in 2021 because of his success in mining and other businesses.\n\nHe
+        acknowledged that the pressure experienced by some African footballers ahead
+        of release from their clubs had influenced CAF''s position. Motsepe claimed
+        he had wanted players to arrive for international duty a fortnight ahead of
+        this edition of AFCON before the period was halved by FIFA.\n\n\"We know how
+        frustrating it is for the players when their clubs say, ''We need you''. It''s
+        unfair to put them in the middle of the fight.\n\n\"My number one obligation
+        is Africa, but I''ve got an obligation across the world because success elsewhere
+        contributes towards ours. You do not want unnecessary arguments...\"\n\nMotsepe
+        qualified this by implying African players risked being \"devalued\" by AFCON
+        because clubs would sign players from other continents, whose international
+        commitments did not clash with the club calendar. He also tried to reason
+        that a new competition meant African players would play for their countries
+        more often, increasing their exposure to Africa.\n\nThough he insisted a \"compromise\"
+        had been reached, and a variety of figures inside African football had supported
+        the move (including Samuel Eto''o, now the president of Cameroon''s football
+        federation), Motsepe will face criticism from those who believe Infantino
+        and FIFA have got their way.\n\nIssa Hayatou, a previous CAF president, resisted
+        calls for AFCON to follow patterns outside of the continent because it was
+        a \"uniquely\" African event, immune to the international agenda. The new
+        arrangement will mean AFCON does not conflict with the FIFA World Cup and
+        will instead be held in years concurrent with the European Championship, as
+        well as the Olympic Games.\n\nIn theory, European clubs will have less of
+        an excuse to refuse the participation of their players, unless the tournament
+        is held in the winter. Yet the problem, as far as European clubs are concerned,
+        has not entirely gone away. Most sub-Saharan countries cannot host AFCON in
+        the European summer due to rains. Little consideration seems to have been
+        given to the fact that Africa is the continent with the most diverse climate
+        in the world.\n\nMeanwhile, if AFCON was held in the European summer, it would
+        compete with the European Championship for attention and potentially, money.
+        CAF has been vocal about the number of broadcasting deals it has secured for
+        this tournament. Will they get the same deals if they are competing with the
+        Euros? While there may be some clear upsides to aligning the calendar, there
+        may well be downsides too.\n\nIt remains to be seen at which time of year
+        the 2027 version of AFCON (to be held in Tanzania, Uganda and Kenya) will
+        take place, and who will act as host in 2028 given the limited timeframe.\n\nMotsepe
+        says the Africa Nations League will be divided into zones and there are concerns
+        about the familiarity of match-ups affecting interest.\n\nOne of the big selling
+        points of AFCON is the element of surprise. On this occasion, perhaps the
+        breaking news story with the widest consequences has fallen before the tournament
+        has even started.", "source":{"uri":"nytimes.com", "dataType":"news", "title":"The
+        New York Times", "description":"Live news, investigations, opinion, photos
+        and video by the journalists of The New York Times from more than 150 countries
+        around the world. Subscribe for coverage of U.S. and international news, politics,
+        business, technology, science, health, arts, sports and more."}, "authors":[],
+        "image":"https:\/\/static01.nyt.com\/athletic\/uploads\/wp\/2025\/12\/20114252\/GettyImages-2252170660-scaled.jpg?width=1200&height=630&fit=cover",
+        "eventUri":null, "location":null, "sentiment":-0.1058823529411764, "wgt":503990270,
+        "relevance":2}, {"uri":"9010364306", "lang":"eng", "isDuplicate":true, "date":"2025-12-21",
+        "time":"05:17:33", "dateTime":"2025-12-21T05:17:33Z", "dateTimePub":"2025-12-21T03:20:01Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.hjnews.com\/sports\/nation\/liam-ohgren-gets-only-score-in-7th-round-of-shootout-and-canucks-rally-past-bruins\/article_9db954ef-d755-5656-99f5-8ac92c39976a.html",
+        "title":"Liam Ohgren gets only score in 7th round of shootout and Canucks
+        rally past Bruins 5-4", "body":"BOSTON (AP) -- Liam Ohgren was the only one
+        to score in a seven-round shootout, and the Vancouver Canucks beat the Boston
+        Bruins 5-4 on Saturday night for their fourth straight victory.\n\nOhgren
+        had tipped in the tiebreaking goal 7:34 into the third period before Andrew
+        Peeke''s shot from the point hit the post, bounced off the back of goalie
+        Kevin Lankinen''s arm and went into the net, tying it at 4-all with 3:44 left
+        in regulation.\n\nLinus Karlsson had two goals and Max Sasson also scored
+        for the Canucks. Lankinen, playing his first game since Dec. 8, made 38 saves
+        in regulation to stop a personal six-game losing streak.\n\nMorgan Geekie,
+        the NHL''s second-leading goal scorer, had his 25th goal for Boston, which
+        has lost three of four.\n\nPavel Zacha and Tanner Jeannot also scored for
+        the Bruins, and Jeremy Swayman stopped 18 shots in regulation.\n\nOhgren shifted
+        around Swayman and tucked in a backhander in for the shootout winner.\n\nVancouver
+        had taken a 2-1 edge when Karlsson redirected a shot into the net on Evander
+        Kane''s pass from the corner 4:22 into the second period before Boston scored
+        twice in just over two minutes.\n\nZacha knocked a shot into a wide-open net
+        to tie it 2-2 after Lankinen came too far out trying to stop Nikita Zadorov''s
+        rush before he sent a pass across.\n\nJeannot scored on a one-timer from the
+        right circle after collecting Mark Kastelic''s spinning, backhand pass at
+        12:05 of the period.\n\nKarlsson''s second came on a rising wrister under
+        the crossbar, tying it 3-3 just 3:53 in the third.\n\nComing off a victory
+        at the New York Islanders on Friday, the Canucks were outshot 13-3 until Max
+        Sasson slipped a wrister past Swayman to tie it.\n\nUp Next\n\nCanucks: Close
+        a five-game trip Monday night at Philadelphia.\n\nBruins: Host Ottawa on Sunday
+        night.\n\nAP NHL: https:\/\/www.apnews.com\/hub\/NHL", "source":{"uri":"hjnews.com",
+        "dataType":"news", "title":"The Herald Journal", "description":"A look at
+        local Cache Valley news, sports, entertainment, religion, opinion, outdoors,
+        and features, Utah\/Idaho news, and national news"}, "authors":[{"uri":"associated_press@hjnews.com",
+        "name":"Associated Press", "type":"author", "isAgency":false}, {"uri":"ken_powtak@hjnews.com",
+        "name":"Ken Powtak", "type":"author", "isAgency":false}], "image":"https:\/\/bloximages.chicago2.vip.townnews.com\/hjnews.com\/content\/tncms\/assets\/v3\/editorial\/a\/c8\/ac8ce6c3-7349-5d20-a9c1-fdd39d51c0fa\/69476a90e0f67.image.jpg?crop=1673%2C878%2C0%2C180&resize=438%2C230&order=crop%2Cresize",
+        "eventUri":null, "location":{"type":"place", "label":{"eng":"Boston"}, "country":{"type":"country",
+        "label":{"eng":"United States"}}}, "sentiment":-0.05098039215686279, "wgt":503990253,
+        "relevance":2}, {"uri":"9010363544", "lang":"eng", "isDuplicate":true, "date":"2025-12-21",
+        "time":"05:17:22", "dateTime":"2025-12-21T05:17:22Z", "dateTimePub":"2025-12-21T05:15:12Z",
+        "dataType":"news", "sim":0, "url":"https:\/\/www.fool.com\/ecap\/get-access-to-the-motley-fools-latest-stock-pick-3\/?aid=8867&apikey=35527423-a535-4519-a07f-20014582e03e&ftm_cam=sa-bbn-evergreen&ftm_derby=7858&ftm_heat=14394&ftm_pit=14137&ftm_veh=foolcom_supernav&impression=58f0ff57-325c-43e8-ae55-e3130a94efba&source=isaeditn0000028&testId=e-foolcom-sa-top-nav-returns&cellId=0&campaign=sa-bbn-evergreen&source_system_name=fool_splitter",
+        "title":"\u25b2 S&P 500 +194% | \u25b2 Stock Advisor +973% Join The Motley
+        Fool", "body":"By submitting your email address, you consent to us keeping
+        you informed about updates to our website and about other products and services
+        that we think might interest you. You can unsubscribe at any time. Please
+        read our Privacy Statement and Terms & Conditions.\n\nReturns are updated
+        during market hours. The Motley Fool has a disclosure policy.\n\nThe Motley
+        Fool respects your privacy and strives to be transparent about our data collection
+        practices. We use your information to customize the site for you, to contact
+        you about your membership, provide you with promotional information, and in
+        aggregate to help us better understand how the service is used.\n\nPast performance
+        is not a predictor of future results. Individual investment results may vary.
+        All investing involves risk of loss.", "source":{"uri":"fool.com", "dataType":"news",
+        "title":"The Motley Fool", "description":"The Motley Fool has been providing
+        investing insights and financial advice to millions of people for over 25
+        years. Learn how we make the world Smarter, Happier & Richer."}, "authors":[],
+        "image":null, "eventUri":null, "location":null, "sentiment":0.05098039215686279,
+        "wgt":503990242, "relevance":2}], "totalResults":37567, "page":1, "count":5,
+        "pages":7514}}'
+  recorded_at: Sun, 21 Dec 2025 05:18:34 GMT
 recorded_with: VCR 6.3.1

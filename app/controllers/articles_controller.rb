@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
     articles = articles.with_concept_type(params[:concept_type]) if params[:concept_type].present?
     articles = articles.in_language(params[:language]) if params[:language].present?
     articles = articles.where("title ILIKE ?", "%#{params[:q]}%") if params[:q].present?
+    articles = articles.from_source(params[:source]) if params[:source].present?
 
     @articles = articles.page(params[:page]).per(25)
   end

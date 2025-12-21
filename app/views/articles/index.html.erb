@@ -1,12 +1,11 @@
 <header class="mb-8">
-  <h1 class="text-3xl font-bold">News Digest</h1>
-  <p class="text-base-content/60 mt-1">Calm news, no noise</p>
+  <h1 class="text-3xl font-bold"><%= params[:source].present? ? params[:source] : "News Digest" %></h1>
+  <p class="text-base-content/60 mt-1"><%= params[:source].present? ? "#{@articles.total_count} articles from this source" : "Calm news, no noise" %></p>
   <nav class="flex gap-4 mt-4">
     <%= link_to "Articles", articles_path, class: "btn solid info sm" %>
     <%= link_to "Stories", stories_path, class: "btn outline info sm" %>
     <%= link_to "Concepts", concepts_path, class: "btn outline info sm" %>
     <%= link_to "Trends", trends_path, class: "btn outline info sm" %>
-    <%= link_to "Sources", sources_path, class: "btn outline info sm" %>
   </nav>
 </header>
 
@@ -14,7 +13,7 @@
   <div class="flex gap-2">
     <%= f.search_field :q, value: params[:q], placeholder: "Search articles...", class: "input solid flex-1" %>
     <%= f.submit "Search", class: "btn solid info" %>
-    <% if params[:q].present? || params[:category].present? %>
+    <% if params[:q].present? || params[:category].present? || params[:source].present? %>
       <%= link_to "Clear", articles_path, class: "btn outline bw" %>
     <% end %>
   </div>
@@ -49,7 +48,7 @@
         <% end %>
       </div>
       <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
-        <%= link_to article.source_name, source_path(article.source_name), class: "hover:text-primary transition-colors" %>
+        <%= link_to article.source_name, articles_path(source: article.source_name), class: "hover:text-primary transition-colors" %>
         <span>&middot;</span>
         <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d") %></time>
       </div>
@@ -64,5 +63,5 @@
 </main>
 
 <nav class="flex items-center justify-center gap-2 mt-8">
-  <%= paginate @articles, params: { q: params[:q], category: params[:category] } %>
+  <%= paginate @articles, params: { q: params[:q], category: params[:category], source: params[:source] } %>
 </nav>
