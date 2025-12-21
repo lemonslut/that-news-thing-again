@@ -71,6 +71,32 @@ module NewsApiAi
       )
     end
 
+    # Fetch articles from the minute stream (incremental updates)
+    #
+    # @param after_uri [String] Only return articles added after this URI
+    # @param lang [String] Language code (default: "eng")
+    # @param source_location_uri [String] Filter by source country
+    # @param count [Integer] Max articles to return (default: 100, max: 2000)
+    # @return [Hash] Response with articles in recentActivityArticles
+    def minute_stream_articles(after_uri: nil, lang: "eng", source_location_uri: nil, count: 100)
+      params = {
+        apiKey: api_key,
+        recentActivityArticlesMaxArticleCount: count,
+        lang: lang,
+        articleBodyLen: -1,
+        includeArticleBody: true,
+        includeArticleSentiment: true,
+        includeArticleLocation: true,
+        includeArticleImage: true,
+        includeSourceTitle: true
+      }
+
+      params[:recentActivityArticlesNewsUpdatesAfterUri] = after_uri if after_uri.present?
+      params[:sourceLocationUri] = source_location_uri if source_location_uri.present?
+
+      get("/api/v1/minuteStreamArticles", params)
+    end
+
     private
 
     attr_reader :api_key

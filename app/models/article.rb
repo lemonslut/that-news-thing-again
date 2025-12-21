@@ -3,6 +3,8 @@ class Article < ApplicationRecord
 
   has_many :analyses, class_name: "ArticleAnalysis", dependent: :destroy
 
+  after_create_commit :enqueue_analysis_pipeline
+
   # Legacy association - to be removed after migration verified
   has_many :calm_summaries, class_name: "ArticleCalmSummary", dependent: :destroy
 
@@ -104,5 +106,12 @@ class Article < ApplicationRecord
       article.save!
       article
     end
+  end
+
+  private
+
+  def enqueue_analysis_pipeline
+    GenerateFactualSummaryJob.perform_later(id)
+    NerExtractionJob.perform_later(id)
   end
 end
