@@ -6,6 +6,7 @@
     <%= link_to "Stories", stories_path, class: "btn outline info sm" %>
     <%= link_to "Concepts", concepts_path, class: "btn outline info sm" %>
     <%= link_to "Trends", trends_path, class: "btn outline info sm" %>
+    <%= link_to "Sources", sources_path, class: "btn outline info sm" %>
   </nav>
 </header>
 
@@ -48,7 +49,7 @@
         <% end %>
       </div>
       <div class="flex items-center gap-2 mb-2 text-sm text-base-content/50">
-        <span><%= article.source_name %></span>
+        <%= link_to article.source_name, source_path(article.source_name), class: "hover:text-primary transition-colors" %>
         <span>&middot;</span>
         <time datetime="<%= article.published_at.iso8601 %>"><%= article.published_at.strftime("%b %-d") %></time>
       </div>

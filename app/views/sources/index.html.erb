@@ -1,0 +1,27 @@
+<header class="mb-8">
+  <h1 class="text-3xl font-bold">Sources</h1>
+  <p class="text-base-content/60 mt-1"><%= @sources.total_count %> publishers</p>
+  <nav class="flex gap-4 mt-4">
+    <%= link_to "Articles", articles_path, class: "btn outline info sm" %>
+    <%= link_to "Stories", stories_path, class: "btn outline info sm" %>
+    <%= link_to "Concepts", concepts_path, class: "btn outline info sm" %>
+    <%= link_to "Trends", trends_path, class: "btn outline info sm" %>
+    <%= link_to "Sources", sources_path, class: "btn solid info sm" %>
+  </nav>
+</header>
+
+<main class="space-y-2">
+  <% @sources.each do |source| %>
+    <div class="flex items-center justify-between py-2 border-b border-base-300">
+      <%= link_to source.source_name, source_path(source.source_name), class: "hover:text-primary transition-colors" %>
+      <div class="flex items-center gap-4 text-sm text-base-content/50">
+        <span><%= source.article_count %> articles</span>
+        <time datetime="<%= source.latest_article_at.iso8601 %>"><%= source.latest_article_at.strftime("%b %-d") %></time>
+      </div>
+    </div>
+  <% end %>
+</main>
+
+<nav class="flex items-center justify-center gap-2 mt-8">
+  <%= paginate @sources %>
+</nav>
