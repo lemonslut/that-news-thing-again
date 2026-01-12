@@ -12,9 +12,16 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%= vite_client_tag %>
-    <%= vite_react_refresh_tag %>
-    <%= vite_javascript_tag 'application.tsx' %>
+    <% if Rails.env.development? %>
+      <%= vite_client_tag %>
+      <%= vite_react_refresh_tag %>
+      <%= vite_javascript_tag 'application.tsx' %>
+    <% else %>
+      <% manifest = JSON.parse(File.read(Rails.root.join('public/vite/.vite/manifest.json'))) %>
+      <% entry = manifest['application.tsx'] %>
+      <link rel="stylesheet" href="/vite/<%= entry['css'].first %>" />
+      <script type="module" src="/vite/<%= entry['file'] %>"></script>
+    <% end %>
   </head>
 
   <body class="min-h-screen bg-background text-foreground antialiased">
