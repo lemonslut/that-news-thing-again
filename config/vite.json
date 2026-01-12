@@ -2,7 +2,7 @@
   "all": {
     "sourceCodeDir": "app/frontend",
     "publicOutputDir": "vite",
-    "entrypointsDir": "",
+    "entrypointsDir": ".",
     "watchAdditionalPaths": []
   },
   "development": {
