@@ -14,11 +14,10 @@
 
     <%= vite_client_tag %>
     <%= vite_react_refresh_tag %>
-    <%= vite_stylesheet_tag 'styles/application.css', media: 'all' %>
+    <%= vite_javascript_tag 'application.tsx', defer: true %>
   </head>
 
   <body class="min-h-screen bg-background text-foreground antialiased">
     <%= yield %>
-    <%= vite_javascript_tag 'application.tsx' %>
   </body>
 </html>
