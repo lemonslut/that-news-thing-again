@@ -2,8 +2,11 @@ require "sidekiq/web"
 require "sidekiq-scheduler/web"
 
 Rails.application.routes.draw do
-  resource :session
-  # Sidekiq Web UI (password protected in production via SIDEKIQ_WEB_PASSWORD)
+  # Auth
+  get "/login", to: "sessions#new", as: :login
+  resource :session, only: [:create, :destroy]
+
+  # Sidekiq Web UI (password protected in production)
   if Rails.env.production?
     Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
       ActiveSupport::SecurityUtils.secure_compare(user, "admin") &
@@ -12,19 +15,31 @@ Rails.application.routes.draw do
   end
   mount Sidekiq::Web => "/sidekiq"
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Admin namespace (all Inertia)
+  namespace :admin do
+    root "dashboard#index"
+
+    resources :articles do
+      post :reanalyze, on: :member
+    end
+    resources :stories
+    resources :concepts
+    resources :categories
+    resources :prompts do
+      post :activate, on: :member
+    end
+    resources :users
+    resources :article_analyses, only: [:index, :show, :destroy]
+    resources :trend_snapshots, only: [:index]
+    resources :article_concepts, only: [:index, :destroy]
+    resources :article_subjects, only: [:index, :destroy]
+    resources :article_categories, only: [:index, :destroy]
+    resources :sessions, only: [:index, :destroy]
+  end
+
+  # Health check
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  resources :articles, only: [ :index, :show ] do
-    post :reanalyze, on: :member
-  end
-  resources :stories, only: [ :index, :show ]
-  resources :concepts, only: [ :index, :show ]
-  resources :trends, only: [ :index ]
-  root "articles#index"
+  # Redirect root to admin
+  root to: redirect("/admin")
 end

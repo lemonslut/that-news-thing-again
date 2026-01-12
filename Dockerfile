@@ -28,10 +28,10 @@ ENV RAILS_ENV="production" \
 # Throw-away build stage to reduce size of final image
 FROM base AS build
 
-# Install packages needed to build gems and Node.js for CSS
+# Install packages needed to build gems and Node.js for Vite
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config libpq-dev nodejs npm && \
-    npm install -g yarn && \
+    npm install -g pnpm && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
@@ -41,14 +41,14 @@ RUN bundle install && \
     bundle exec bootsnap precompile --gemfile
 
 # Install Node dependencies (before copying app code for better caching)
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 # Copy application code
 COPY . .
 
-# Build CSS
-RUN yarn build:css
+# Build frontend assets with Vite
+RUN pnpm run build
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/

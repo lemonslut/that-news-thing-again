@@ -49,7 +49,7 @@ volumes:
   - "news_digest_storage:/rails/storage"
 
 # Bridge assets between deploys
-asset_path: /rails/public/assets
+asset_path: /rails/public/vite
 
 # Accessories - Redis and Postgres on the same host
 accessories:
